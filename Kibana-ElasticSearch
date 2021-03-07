@@ -1,0 +1,26 @@
+version: '2'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+    ports:
+      - "9200:9200"
+    environment:
+      discovery.type: "single-node"
+      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      # Básico para habilitar acesso de login:
+      # xpack.monitoring.enabled: "true"
+      # xpack.license.self_generated.type: "basic"
+      # xpack.security.enabled: "true"
+      # xpack.security.authc.realms.file.file1.order: 0
+    volumes: 
+     - ./elasticsearch.keystore:/usr/share/elasticsearch/bin/elasticsearch.keystore
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.2
+    ports:
+      - "5601:5601"
+    volumes:
+      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+    environment:
+     ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
