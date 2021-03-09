@@ -630,22 +630,35 @@ hr {
 /* PAGINA 4 our-solution */
 
 .container {
-  width: 80%;
-  height: 60%;
+  width: 70%;
+  height: 55%;
   margin: auto;
 }
 
 .container-separation {
   width: 100%;
-  height: 50%;
+  height: 45%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
 }
 
+.container-textos-centro{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-textos-centro > div {
+  width: 33%;
+  text-align: center;
+}
+
 .box-our-solution {
-  width: 28%;
+  width: 24%;
   height: 80%;
   border: 1px solid grey;
   display: flex;
@@ -661,7 +674,7 @@ hr {
 .card-back {
   font-size: 2.5;
   width: 100%;
-  height: 12vh;
+  height: 9.5vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
