@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popins', sans-serif;
+}
+.page {
+    width: 100%;
+    height: 100%;
+  
+    min-width: 520px;
+    min-height: auto;
+    position: fixed;
+    background-color: #CEE4D9;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+.container 
+{
+    position: relative;
+}
+
+.container .navigation {
+    position: relative;
+    top: 15vh;
+    width: 80px;
+    height: 620px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+
+.container .navigation.active
+{
+    width: 300px;
+}
+
+.container .navigation ul 
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    
+}
+
+.container .navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    
+}
+.container .navigation ul li:hover 
+{
+    background-color: #efefef;
+}
+
+.container .navigation ul li a 
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #6843cf;
+    font-weight: 400;
+}
+
+.container .navigation ul li a .icon 
+{
+    position: relative;
+    display: block;
+    min-width: 80px;
+    height: 60px;
+    line-height: 80px;
+    text-align: center;
+    margin:20px 0;
+}
+
+.container .navigation ul li a .icon .fa 
+{
+    font-size: 44px;
+}
+
+.container .navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+    margin-top: 25px;
+}
+
+.toggle 
+{
+    position: absolute;
+    top: calc(50% + 120px);
+    right: -25px;
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    cursor: pointer;
+    border: 5px solid #6843cf;
+    border-radius: 50%;
+}
+
+.toggle::before
+{
+    content: '\f054';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    text-align: center;
+    font-size: 16px;
+    color: #6843cf;
+}
+
+.toggle.active::before 
+{
+    content: '\f053';
+}
