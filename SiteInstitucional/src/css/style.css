@@ -13,28 +13,50 @@ body {
   overflow: hidden;
 }
 
-@media only screen and (max-device-width: 1920px) {
-  .page{ width:100%; height: 100%;}
+@media only screen and (min-device-width: 1920px) {
+  .page{ width:100%; height: 100%; }
   }
-@media only screen and (max-device-width: 792px) {
-    .page{ width:100%; height: 100%;}
+
+  @media only screen and (min-device-width: 992px) {
+    .page{ width:100%; height: 100%; }
   } 
-  
+
+@media only screen and (min-device-width: 576px) {
+  * {
+    font-size: 2vmax;
+  }  
+  .page{ width:100%; height: 100%; }
+}   
+
+@media only screen and (min-device-width: 375px) {
+  .page
+  { 
+  width: 375px;
+  display: flex; align-items: center;
+  justify-content: start; flex-direction: column;
+  }
+} 
 
 .page {
   width: 100%;
   height: 100%;
 
-  min-width: 520px;
-  min-height: auto;
+  min-width: 100%;
+  min-height: 100%;
   position: fixed;
   background-color: #CEE4D9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
 header {
   width: 100%;
   height: 5vh;
   position: fixed;
+  top: 0;
 }
 
 nav {
@@ -176,30 +198,36 @@ footer {
   position: absolute;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
   background-color: #88A9A7;
 }
 
 .box-footer{
-  width: 25%;
+  width: 33%;
   height: 100%;
   margin-left: 1vh;
   color: #514E4D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 
 footer span {
-  font-size: 2.7vh;
+  font-size: 2.6vh;
 }
 
 #contato-empresarial {
-  font-size: 1vw;
-  margin: 0.9vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 2vmin;
   text-align: center;
 }
 
 #email-contato {
-  font-size: 2vw;
-  margin: 0.9vh;
-  width: 70vh;
+  margin: 0.9;
+  width: 60vw;
 }
 
 #email-contato .parte-texto {
@@ -207,7 +235,7 @@ footer span {
   justify-content: center;
   align-items: center;
 
-  font-size: 1.3vw;
+  font-size: 3.6vmin;
   width: 50%;
   height: 100%;
   float: left;
@@ -240,11 +268,19 @@ footer span {
 
 #parcerias {
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
+.box-img {
+  width: 40%;
+  /* background-color: blue; */
+  /* border: 1px solid black; */
+}
+
 #parcerias #imagem-parcerias{
-  width: 20vh;
+  width: 100%;
+  height: 100%;
 }
 
 hr {
