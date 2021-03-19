@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+
+@media screen and (max-width:300px) {
+    .page {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap:wrap
+    }
+
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +22,8 @@
     width: 100%;
     height: 100%;
   
-    min-width: 320px;
-    min-height: auto;
+    min-width: 280px;
+    min-height: 100%;
     position: absolute;
     background-color: #CEE4D9;
     display: flex;
@@ -21,7 +32,7 @@
 }
 
 .menu {
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,9 +46,9 @@
 
 .container .navigation {
     position: relative;
-    top: 15vh;
+    top: 26.5vh;
     width: 80px;
-    height: 620px;
+    height: 500px;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -110,7 +121,7 @@
 .toggle 
 {
     position: absolute;
-    top: calc(50% + 120px);
+    top: calc(73.5% + 120px);
     right: -25px;
     width: 40px;
     height: 40px;
@@ -143,23 +154,41 @@
 .box-recepction {
     width: 100vw;
     height: 25%;
-    background-color: blue;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
 }
 
-.recection-welcome { 
-    width: 75vmax;
+.recection-welcome {
+    width: 55vmax;
     height: 100%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
+
+.recection-welcome h1 {
+    font-size: 4.5vmax;
+    text-transform: uppercase;
+}
+
+.recection-welcome p {
+    text-transform: uppercase;
+}
+
 .logo-recepction {
     width: 25vmax;
     height: 100%;
-    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
 }
+
+#logo-kcode{
+    width: 80%;
+}
+
 .show-ides {
     float: right;
     width: 100vw;
@@ -170,6 +199,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .box-ides {
     width: 100%;
     height: 100%;
@@ -178,13 +208,24 @@
     align-items: center;
     justify-content: center;
 }
+
 .idesLogo {
     width: 32%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 .footer {
     width: 100vw;
     height: 20%;
-    background-color: antiquewhite;
 }
 
+.see-more {
+    width: 40%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
