@@ -4,7 +4,7 @@ const ulIDES = document.querySelector("ul.IDES");
 
 
 for (let i = 0; i < 20; i++) {
-    const img = document.createElement("img");
+    const imagems = document.createElement("img");
 
     const random = (min,max) => Math.random() * (max - min) + min;
     
@@ -17,22 +17,22 @@ for (let i = 0; i < 20; i++) {
     const delay = random(5,0.2);
     const duration = random(24,12);
 
-    const imagem = `${src="../img/netbeans.png"}`
+    const imagem = `../img/netbeans.png`
 
-    img.src = `${imagem}`;
-    img.style.width = `${size}px`;
-    img.style.height = `${size}px`;
-    img.style.bottom = `-${size}px`
-    img.style.borderRadius = `50%`
+    imagems.src = "${imagem}";
+    imagems.style.width = `${size}px`;
+    imagems.style.height = `${size}px`;
+    imagems.style.bottom = `-${size}px`
+    imagems.style.borderRadius = `50%`
 
-    img.style.left = `${position}%`
+    imagems.style.left = `${position}%`
 
-    img.style.animationDelay = `${delay}s`;
+    imagems.style.animationDelay = `${delay}s`;
     
-    img.style.animationDuration = `${duration}s`;
-    img.style.animationTimingFunction = `cubic-bezier(${Math.random(),Math.random(),Math.random(),Math.random()})`
+    imagems.style.animationDuration = `${duration}s`;
+    imagems.style.animationTimingFunction = `cubic-bezier(${Math.random(),Math.random(),Math.random(),Math.random()})`
 
-    ulIDES.appendChild(img);
+    ulIDES.appendChild(imagems);
 }
 
 /*MODAL*/
