@@ -17,9 +17,18 @@ for (let i = 0; i < 20; i++) {
     const delay = random(5,0.2);
     const duration = random(24,12);
 
-    const imagem = `../img/netbeans.png`
+    arrayImage = [
+        "../img/netbeans.png",
+        "../img/android.png"
+    ];
 
-    imagems.src = "${imagem}";
+    for(e = 0 ; e < 20; e++){
+        var randomImages = Math.floor(random(0,2));
+    }
+    console.log(randomImages);
+    let imagem = arrayImage[randomImages];
+
+    imagems.src = `${imagem}`;
     imagems.style.width = `${size}px`;
     imagems.style.height = `${size}px`;
     imagems.style.bottom = `-${size}px`

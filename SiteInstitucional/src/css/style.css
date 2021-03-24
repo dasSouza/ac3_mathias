@@ -31,7 +31,6 @@
 }   
 
 @media only screen and (min-device-width: 280px) {
-  .page { width: 375px; height: 100%; }
   .logo-text { font-size: 20px; }
   #contato-empresarial { font-size: 1.2vh; }
   #email-contato .parte-texto { font-size: 1.7vh; }
@@ -310,19 +309,6 @@ hr {
   animation: logo-centro 1s cubic-bezier(0.250,0.460, 0.450,0.940) both;
 }
 
-.fogo-centro {
-  width: 6.5vh;
-
-  top: 37%;
-  right: 37%;
-  position: absolute;
-
-  transform:translate(-50%,-50%);
-  animation: fogo-centro 10s cubic-bezier(0.250,0.460, 0.450,0.940) alternate;
-  transform: rotate(100deg);
-  opacity: 0.7;
-}
-
 @keyframes logo-centro {
   0% {
     transform: translateZ(-1400px);
@@ -330,21 +316,6 @@ hr {
   }
   100% {
     transform: translateZ(-50%);
-    opacity: 1;
-  }
-}
-
-@keyframes fogo-centro {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
     opacity: 1;
   }
 }
