@@ -1,3 +1,24 @@
+Comando de criar branch
+
+1. Flag -b utilizada para criar uma branch sem essa flag ele faz apenas a troca para branch desejada
+2. Criar nomes sem espaços apenas com traços e nao utilizar nomes complexos...
+3. Certifique-se de criar a branch a partir da main/master.
+4. Não criar branchs desnecessárias.
+
+git checkout -b <nome-da-branch-que-deseja-criar>
+
+comando de trocar de branch:
+git checkout <nome-da-branch>
+
+obs: anote o nome da branch caso se esqueça utilize na master o comando:
+git branch --list
+git branch -l
+
+
+Apagar branch utilize o comando:
+
+git branch -d <nome-da-branch>
+obs: NÃO APAGAR A MAIN!!!!!!!!!!!
 --------------------------------------------------------------
 
 
