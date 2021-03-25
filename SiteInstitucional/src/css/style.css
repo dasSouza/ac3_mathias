@@ -31,9 +31,11 @@
 }   
 
 @media only screen and (min-device-width: 280px) {
+  .page { width: 100%; height: 100%; }
   .logo-text { font-size: 20px; }
   #contato-empresarial { font-size: 1.2vh; }
   #email-contato .parte-texto { font-size: 1.7vh; }
+  .box-all-names li { font-size: 1vh; }
 }
 
 
@@ -47,9 +49,9 @@
   background-color: #CEE4D9;
 
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  flex-direction: column;
 }
 
 header {
@@ -354,7 +356,7 @@ hr {
 
 .fundoAboutUS {
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   margin: auto;
   background: url(../img/equipe.png) center no-repeat;
 }
@@ -402,7 +404,7 @@ hr {
 
 .box-all-names li {
   list-style: none;
-  font-size: 3vh;
+  font-size: 3vmin;
   margin-bottom: 1em;
 }
 
