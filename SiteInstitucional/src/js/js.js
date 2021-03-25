@@ -19,17 +19,26 @@ for (let i = 0; i < 20; i++) {
 
     arrayImage = [
         "../img/netbeans.png",
-        "../img/android.png"
+        "../img/androidstudio.png",
+        "../img/eclipse.png",
+        "../img/intellij.png",
+        "../img/phpstorm.png",
+        "../img/xcode.png",
+        "../img/sublimetext.png",
+        "../img/pycharm.png",
+        "../img/sublimetext.png",
+        "../img/vsstudiocode.png"
     ];
 
-    for(e = 0 ; e < 20; e++){
-        var randomImages = Math.floor(random(0,2));
+    for(let value of arrayImage){
+        var randomImages = Math.floor(random(0,10));
     }
     console.log(randomImages);
     let imagem = arrayImage[randomImages];
 
     imagems.src = `${imagem}`;
     imagems.style.width = `${size}px`;
+
     imagems.style.height = `${size}px`;
     imagems.style.bottom = `-${size}px`
     imagems.style.borderRadius = `50%`
