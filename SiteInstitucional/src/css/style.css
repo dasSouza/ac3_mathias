@@ -28,6 +28,8 @@
     width: auto; max-width: 600px; align-items: flex-start;
   }
   section.content-limitacao div.card-find:hover {height: 600px;}
+  section.content-limitacao .card-find:hover img {left: 50%; height: 280px;}
+  section.content-limitacao .card-find .content-find {width: 100%; left: 0; padding: 50px;}
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -55,7 +57,7 @@
 
 @media only screen and (max-device-width: 576px) {
   * { font-size: 1.2vmax; } 
-  main.page{ width:100%; height: 100%;}
+  main.page{ width:100%; height: 100%; position: inherit;}
   div#contato-empresarial { font-size: 1.1vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   div.nav-lista {
@@ -67,21 +69,14 @@
     right: 0px; top: -370px;
     border-radius:0 0 0 10px; 
   }
-  section.content-limitacao { flex-direction: column;
-  overflow: auto;}
-  li.informacoes {
-    padding-top: 7px;
-  }
-  input:checked ~ label .menu {
-    box-shadow: 0 0 0 5px #fff, 0 0 0 5px #fff;
-  }
-  div.lista-opcoes {
-    height: 50%;
-  }
+  section.content-limitacao { flex-direction: column; overflow: auto;}
+  li.informacoes { padding-top: 7px;}
+  input:checked ~ label .menu {box-shadow: 0 0 0 5px #fff, 0 0 0 5px #fff; }
+  div.lista-opcoes { height: 50%; }
 }   
 
 @media only screen and (max-device-width: 405px) {
-  main.page { width: 100%; height: 100%; }
+  main.page { width: 100%; height: 100%; align-items: flex-start; position: inherit;}
   h1.logo-text { font-size: 20px; }
   div#contato-empresarial { font-size: 1.2vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
@@ -109,16 +104,17 @@
   div.lista-opcoes {
     height: 50%;
   }
+  section.content-limitacao { flex-direction: column;}
+  section.content-limitacao .card-find { margin: 40px 20px;}
 }
 
-
 .page {
-  width: 100%;
-  height: 100%;
+  width: 1920px;
+  height: 980px;
 
-  min-width: 100%;
-  min-height: 100%;
-  position: fixed;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
   background-color: #CEE4D9;
 
   display: flex;
@@ -130,7 +126,7 @@
 header {
   width: 100%;
   height: 10vh;
-  position: fixed;
+  position: inherit;
   top: 0;
 }
 
@@ -274,7 +270,7 @@ footer {
   height: 15vh;
 
   bottom: 0;
-  position: absolute;
+  position: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -634,6 +630,7 @@ hr {
   height: 350px;
   margin: 20px;
   display: flex;
+  transition: 0.5s;
   justify-content: flex-start;
   align-items: center;
   background: linear-gradient(45deg, #1a2f3f,#7094ce);
