@@ -10,19 +10,24 @@
 }
 
 
-@media only screen and (min-device-width: 1920px) {
+@media only screen and (max-device-width: 1920px) {
   * { font-size: 1.17vmax;}
   main.page{ width:100%; height: 100%; }
   div#contato-empresarial { font-size: 1.5vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
 }
 
-@media only screen and (min-device-width: 992px) {
+@media only screen and (max-device-width: 1024px) {
   * { font-size: 1.7vmin;}
   main.page{ width:100%; height: 100%; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   div.lista-opcoes { width: 90%; }
   h1.logo-text { font-size: 3.5vh; }
+  section.content-limitacao .card-find 
+  { 
+    width: auto; max-width: 600px; align-items: flex-start;
+  }
+  section.content-limitacao div.card-find:hover {height: 600px;}
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -617,20 +622,73 @@ hr {
   margin: auto;
   width: 80%;
   height: calc(100% - 10vh);
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
 } 
-.box-cards {
-  width: 25%;
-  height: 50%;
-  border-radius: 20px;
-  background-color: #8FAFAD;
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.452) 20px 20px 20px 20px;
+.content-limitacao .card-find {
+  position: relative;
+  width: 600px;
+  height: 350px;
+  margin: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(45deg, #1a2f3f,#7094ce);
 }
 
+.content-limitacao img {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  transform: translateX(-50%);
+  height: 250px;
+  transition: 0.5s;
+}
+
+.content-limitacao .card-find:hover img {
+  left: 80%;
+  height: 280px;
+}
+
+.content-limitacao .card-find .content-find {
+  position: relative;
+  width: 50%;
+  left: 20%;
+  padding: 20px 20px 20px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+.content-limitacao .card-find:hover .content-find {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.content-limitacao .card-find .content-find h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.content-limitacao .card-find .content-find p {
+  color: #fff;
+  font-size: 10px;
+}
+
+.content-limitacao .card-find .content-find a {
+  position: relative;
+  color: black;
+  background:#fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 300;
+}
 
 /* virar o painel ao passar o mouse */
 
