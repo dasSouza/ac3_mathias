@@ -45,6 +45,7 @@
     align-items: center; 
     right: 0px; top: -42vh;
     border-radius:0 0 0 10px; 
+    z-index: 1;
   }
   li.informacoes {
     padding-top: 7px;
@@ -235,7 +236,7 @@ input:checked ~ label .hamburguer:after {
 
 input:checked ~ label .menu {
   box-shadow: 0 0 0 15px #fff, 0 0 0 15px #fff;
-  z-index: 1;
+  z-index: 2;
 }
 
 input:checked ~ .nav-lista {
@@ -617,7 +618,7 @@ hr {
 .content-limitacao {
   margin: auto;
   width: 80%;
-  height: calc(100% - 10vh);
+  height: calc(80% - 10vh);
   position: relative;
   display: flex;
   justify-content: center;
