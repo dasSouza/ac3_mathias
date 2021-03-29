@@ -13,9 +13,11 @@
 @media only screen and (max-device-width: 1920px) {
   * { font-size: 1.17vmax;}
   main.page{ width:100%; height: 100%; }
+  main.page1{position: absolute;}
   div#contato-empresarial { font-size: 1.5vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   footer.footer1 { position: absolute;}
+  div.box_login {width: auto;}
 }
 
 @media only screen and (max-device-width: 1024px) {
@@ -56,6 +58,9 @@
     box-shadow: 0 0 0 5px #fff, 0 0 0 5px #fff;
   }
   footer.footer1 { position: absolute;}
+  div.box_login {width: 400px;}
+  button#btn_login {width: 130px;}
+  div.div_itens {width: 300px;}
 } 
 
 
@@ -79,11 +84,14 @@
   input:checked ~ label .menu {box-shadow: 0 0 0 5px #fff, 0 0 0 5px #fff; }
   div.lista-opcoes { height: 50%; }
   footer.footer1 { position: absolute;}
+  div.box_login {width: 300px;}
+  button#btn_login {width: 80px;}
+  div.div_itens {width: 230px;}
 }   
 
 @media only screen and (max-device-width: 405px) {
   main.page { width: 100%; height: 100%; overflow: hidden; }
-  main.page1 { width: 100%; height: 100%; position: inherit;}
+  main.page1 { position: inherit;}
   h1.logo-text { font-size: 20px; }
   div#contato-empresarial { font-size: 1.2vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
@@ -114,6 +122,9 @@
   section.content-limitacao { flex-direction: column;}
   section.content-limitacao .card-find { margin: 40px 20px;}
   footer.footer1 { position: absolute;}
+  div.box_login {width: 250px;}
+  button#btn_login {width: 70px;}
+  div.div_itens {width: 200px;}
 }
 
 .page {
@@ -854,17 +865,18 @@ hr {
 
 .box_login{
   background-color: #88A9A7;
-  height: 49vh;
-  width: 23vw;
+  height: 48vh;
+  width: 30vw;
   justify-content: space-around;
   align-items: center;
   text-align: center;
   flex-direction: column;
   display: flex;
   position: absolute;
-  left: 38%;
+  left: 50%;
   border-radius: 5%;
-  top: 25%;
+  top: 50%;
+  transform: translate(-50%,-50%);
 }   
 
 #btn_login{
@@ -874,7 +886,7 @@ hr {
   background-color: #F28F69;
   color: #BB4E2C;
   border: none;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
 }
 
 .inp_login::placeholder{
@@ -882,20 +894,27 @@ hr {
 }
 
 #img_login{
-  height: 23vh;
+  height: 22vh;
 }
 
 .inp_login{
-  width: 73%;
+  width: 80%;
   height: 3vh;
   padding-left: 1vw;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   background-color: rgba(255, 255, 255, 0.5);
   border: 0px ;
   border-radius: 3px;
 }
 
+.div_itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .box_login span{
-  font-size: 2vh;
-  text-decoration: none;
+  padding-bottom: 2%;
 }
