@@ -11,9 +11,8 @@
 
 
 @media only screen and (max-device-width: 1920px) {
-  * { font-size: 1.17vmax;}
-  main.page{ width:100%; height: 100%; }
-  main.page1{position: absolute;}
+  * { font-size: 1vmax;}
+  main.pageResposive { position: absolute;}
   div#contato-empresarial { font-size: 1.5vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   footer.footer1 { position: absolute;}
@@ -22,7 +21,7 @@
 
 @media only screen and (max-device-width: 1024px) {
   * { font-size: 1.7vmin;}
-  main.page1{ width:100%; height: 100%; position: absolute; }
+  main.pageResposive { position: absolute; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   div.lista-opcoes { width: 90%; }
   h1.logo-text { font-size: 3.5vh; }
@@ -38,7 +37,7 @@
 
 @media only screen and (max-device-width: 768px) {
   * { font-size: 1.2vmax; } 
-  main.page{ width:100%; height: 100%; overflow: hidden;}
+  main.page{ overflow: hidden;}
   div#contato-empresarial { font-size: 1.1vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   div.nav-lista {
@@ -66,8 +65,8 @@
 
 @media only screen and (max-device-width: 576px) {
   * { font-size: 1.2vmax; } 
-  main.page{ width:100%; height: 100%; overflow: hidden;}
-  main.page1 { width: 100%; height: 100%; position: inherit;}
+  main.page { overflow: hidden;}
+  main.pageResposive { width: 100%; height: 100%; position: inherit;}
   div#contato-empresarial { font-size: 1.1vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
   div.nav-lista {
@@ -90,8 +89,9 @@
 }   
 
 @media only screen and (max-device-width: 405px) {
-  main.page { width: 100%; height: 100%; overflow: hidden; }
-  main.page1 { position: inherit;}
+  * { font-size: 1.2vmax; }
+  main.page { overflow: hidden; }
+  main.pageResposive { position: inherit;}
   h1.logo-text { font-size: 20px; }
   div#contato-empresarial { font-size: 1.2vh; }
   div#email-contato .parte-texto { font-size: 1.7vh; }
@@ -143,7 +143,7 @@
   overflow: hidden;
 }
 
-.page1 {
+.pageResposive {
   width: 100%;
   height: 100%;
 
