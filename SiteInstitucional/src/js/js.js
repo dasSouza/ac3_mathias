@@ -18,16 +18,16 @@ for (let i = 0; i < 20; i++) {
     const duration = random(24,12);
 
     arrayImage = [
-        "../img/netbeans.png",
-        "../img/androidstudio.png",
-        "../img/eclipse.png",
-        "../img/intellij.png",
-        "../img/phpstorm.png",
-        "../img/xcode.png",
-        "../img/sublimetext.png",
-        "../img/pycharm.png",
-        "../img/sublimetext.png",
-        "../img/vsstudiocode.png"
+        "img/netbeans.png",
+        "img/androidstudio.png",
+        "img/eclipse.png",
+        "img/intellij.png",
+        "img/phpstorm.png",
+        "img/xcode.png",
+        "img/sublimetext.png",
+        "img/pycharm.png",
+        "img/sublimetext.png",
+        "img/vsstudiocode.png"
     ];
 
     for(let value of arrayImage){
