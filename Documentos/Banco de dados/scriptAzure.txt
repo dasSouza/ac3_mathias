@@ -39,6 +39,9 @@ CREATE TABLE tb_processos_ide(
 	id_processos INT IDENTITY(1,1) PRIMARY KEY,
 	us_dt_hr_processo TIMESTAMP,
 	us_ide_nome_processo VARCHAR(255),
+	us_ide_ram DECIMAL(4,2),
+	us_ide_cpu DECIMAL(4,2),
+	us_ide_disco DECIMAL(4,2),
 	fk_IDE INT
 )
 
@@ -46,5 +49,8 @@ CREATE TABLE tb_log_hardware(
 	id_log INT IDENTITY(1,1) PRIMARY KEY,
 	us_dt_hr_log TIMESTAMP,
 	us_log_hardware VARCHAR(255),
+	us_total_ram DECIMAL(4,2),
+	us_total_cpu DECIMAL(4,2),
+	us_total_ram DECIMAL(4,2),
 	fk_maquina INT
 )
