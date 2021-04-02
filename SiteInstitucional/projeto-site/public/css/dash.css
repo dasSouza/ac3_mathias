@@ -167,8 +167,7 @@
 {
     content: '\f053';
 }
-
-/* menu finish here */
+/* PAGINA INICIAL COMEÇA AQUI*/
 
 .box-recepction 
 {
@@ -201,17 +200,18 @@
 }
 
 .logo-recepction 
-{
-    width: 25vmax;
+{   
+    float: right;
+    width: 35vmax;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center ;
+    justify-content: flex-end ;
 }
 
 #logo-kcode
 {
-    width: 65%;
+    width: 45%;
 }
 
 .separation-ides
@@ -346,3 +346,6 @@
 {
     margin-top: 5%;
 }
+
+/* PAGINA DE CADASTRO ADM */
+
