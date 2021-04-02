@@ -1,8 +1,8 @@
 module.exports = {
   production: {
-    username: 'cyberlife',
-    password: '#Gfgrupo9',
-    database: 'bd-grupo9',
+    username: 'keepcode',
+    password: '#Gfgrupo8',
+    database: 'bd-grupo8',
     host: 'bd-grupo9.database.windows.net',
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',

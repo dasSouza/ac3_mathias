@@ -1,5 +1,4 @@
 const navigation = document.querySelector('.navigation');
-const navigation = document.querySelector('.navigation');
 const next = document.querySelector('#next');
 const back = document.querySelector('#back');
 const btn = document.querySelector('.btn');
