@@ -42,6 +42,8 @@
     display: flex;
     flex-direction: column;
     align-items: auto;
+    overflow-x: hidden;
+
 }
 
 .menu 
@@ -69,6 +71,7 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: 0.5s;
+    z-index: 1;
 }
 
 .container .navigation.active
@@ -144,6 +147,7 @@
     cursor: pointer;
     border: 5px solid #6843cf;
     border-radius: 50%;
+    z-index: 1;
 }
 
 .toggle::before
@@ -166,7 +170,8 @@
 
 /* menu finish here */
 
-.box-recepction {
+.box-recepction 
+{
     width: 100vw;
     height: 25%;
     display: flex;
@@ -186,7 +191,7 @@
 }
 
 .recection-welcome h1 {
-    font-size: 4.5vmax;
+    font-size: 4.2vmax;
     text-transform: uppercase;
 }
 
@@ -204,20 +209,68 @@
     justify-content: center ;
 }
 
-#logo-kcode{
-    width: 80%;
+#logo-kcode
+{
+    width: 65%;
 }
 
-.show-ides
-{
-    float: right;
-    width: 100vw;
+.separation-ides
+{   
+    width: 80vw;
     height: 55vh;
-    background-color: #6843cf;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.ides-container
+{
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: row;
+    animation: idescontainer 1s both;
+}
+
+@keyframes idescontainer {
+    from {
+        opacity: 0;
+        width: 60%;
+    }
+    to {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.ides-container-part2
+{
+    width: 100%;
+    height: 55vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex: row;
+    animation: idescontainer 1s both; 
+}
+
+.btn
+{
+    float: left;
+    width: 2vh;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn .fa 
+{
+    font-size: 3vh;
+    color: #B73447;
+    cursor: pointer;
 }
 
 .box-ides 
@@ -227,17 +280,34 @@
     background-color: #CEE4D9;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+
 }
 
 .idesLogo 
 {
-    width: 32%;
+    width: 15%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.1px solid rgba(0, 0, 0, 0.075);
+    flex-direction: column;
+    animation: box 1s 0.3s both;
+}
+
+@keyframes box {
+    0% {
+        transform: translate(20deg);
+        opacity: 0;
+    }
+    50% {
+        transform: rotateX(-20deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(30deg);
+        opacity: 1;
+    }
 }
 
 .footer 
@@ -248,15 +318,31 @@
 
 .see-more 
 {
-    width: 40%; 
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
+}
+
+.see-more span 
+{
+    margin-right: 2%;
+    font-size: 3vh;
+}
+
+.see-more .fa {
+    margin-top: 5px;
+    color: #B73447;
 }
 
 .logo-ide 
 {
-    width: 15vh;
+    width: 25vh;
+    cursor: pointer;
+}
+
+.ides-logo b 
+{
+    margin-top: 5%;
 }
