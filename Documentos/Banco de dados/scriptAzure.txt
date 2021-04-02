@@ -14,7 +14,8 @@ CREATE TABLE tb_us_dados (
 	us_login VARCHAR(50),
 	us_senha VARCHAR(30),
 	us_is_adm TINYINT,
-	ADD CONSTRAINT fk_empresa FOREING KEY (id_comp) REFERENCES tb_empresa (id_comp)
+	fk_id_empresa INT,
+	CONSTRAINT fk_id_empresa FOREIGN KEY (fk_id_empresa) REFERENCES tb_empresa (id_comp)
 )
 
 CREATE TABLE tb_us_maquina(
@@ -23,16 +24,18 @@ CREATE TABLE tb_us_maquina(
 	us_vl_ram DECIMAL(4,2),
 	us_vl_disco DECIMAL(4,2),
 	us_vl_cpu DECIMAL(4,2),
-	CONSTRAINT fk_funcionario FOREING KEY (id_cpf) REFERENCES tb_us_dados (id_cpf)
+	fk_id_funcionario INT,
+	CONSTRAINT fk_id_funcionario FOREIGN KEY(fk_id_funcionario) REFERENCES tb_us_dados (id_cpf)
 )
 
 CREATE TABLE tb_ide_maquina(
 	id_ide INT IDENTITY(1,1) PRIMARY KEY,
 	us_nome_ide VARCHAR(45),
 	us_dt_hr_start_IDE TIMESTAMP,
-	us_dt_hr_end_IDE TIMESTAMP,
+	us_dt_hr_end_IDE DATETIME,
 	us_extensao_IDE VARCHAR(10),
-	CONSTRAINT fk_maquina FOREING KEY (id_maquina) REFERENCES tb_us_maquina (id_maquina)
+	fk_id_maquina INT,
+	CONSTRAINT fk_id_maquina FOREIGN KEY (fk_id_maquina) REFERENCES tb_us_maquina (id_maquina)
 )
 
 CREATE TABLE tb_processos_ide(
@@ -42,7 +45,8 @@ CREATE TABLE tb_processos_ide(
 	us_ide_ram DECIMAL(4,2),
 	us_ide_cpu DECIMAL(4,2),
 	us_ide_disco DECIMAL(4,2),
-	CONSTRAINT fk_IDE FOREING KEY (id_ide) REFERENCES tb_ide_maquina (id_ide)
+	fk_id_ide INT,
+	CONSTRAINT fk_id_ide FOREIGN KEY(fk_id_ide) REFERENCES tb_ide_maquina (id_ide)
 )
 
 CREATE TABLE tb_log_hardware(
@@ -51,6 +55,7 @@ CREATE TABLE tb_log_hardware(
 	us_log_hardware VARCHAR(255),
 	us_total_ram DECIMAL(4,2),
 	us_total_cpu DECIMAL(4,2),
-	us_total_ram DECIMAL(4,2),
-	CONSTRAINT fk_maquina FOREING KEY (id_maquina) REFERENCES tb_us_maquina (id_maquina)
+	us_total_disco DECIMAL(4,2),
+	fk_id_maq INT,
+	CONSTRAINT fk_id_maq FOREIGN KEY (fk_id_maq) REFERENCES tb_us_maquina (id_maquina)
 )
