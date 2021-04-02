@@ -1,0 +1,545 @@
+/* GLOBAL */
+body {
+  color: #66CDAA;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.container{
+  width: 80%; 
+  margin: auto;
+  height: 50px;
+}
+
+/* Content e sticky são para fixar o header (Jorge e Bruno)  */
+.content {
+  padding: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* FIM GLOBAL */
+
+/* HEADER & NAV */
+
+.header{
+  background-color: #363636;
+  height: 80px;
+  width: 100%;
+  padding-top: 30px;
+  border-bottom: #66CDAA solid 5px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 5px;
+  
+}
+.header .nav .home, 
+.header span{
+
+  color: #66CDAA;
+}
+.header .nav .home, 
+.header z{
+  color: white;
+}
+
+.header .nav  img {
+  width: 35px;
+  /* margin-top: -21px; */
+  /* margin-left: 280px; */
+  /* position: absolute; */
+}
+
+.engrenagem :hover {
+  transition: 1s;
+  width: 450px;
+}
+
+.title-header h1,
+.nav ul
+{
+  /* margin: -5px; */
+}
+
+.nav .home1 :hover{
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+
+.nav .dashboard1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.nav .usuario1 :hover {
+  transition: 0.5s;
+  color: #ffffff;
+}
+
+.nav .dashboard1 {
+  color: #ffffff;
+}
+
+.title-header{
+  float: left;
+  color: #ffffff;
+  font-size: 23px;
+  
+}
+
+.title-header .icone {
+width: 80px;
+margin:-70px 0px 30px 200px;
+}
+
+.nav{
+  /* float: right; */
+  /* margin-top: 10px; */
+}
+
+.nav a{
+  text-decoration: none;
+  color: #66CDAA;
+}
+
+.nav li{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* FIM HEADER E NAV */
+
+/* painel */
+
+.painel {
+  display: flex;
+  margin: auto;
+  margin-left: 13%;
+  margin-top: 5%;
+  width: 82%;
+  height: 300px;
+}
+
+.painel .box-iniciar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0%;
+  width: 90%;
+}
+
+.box-alerta {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+/* box select */
+.box-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 0;
+  width: 75%;
+  height: 25%;
+}
+
+.box-select select {
+  margin-top: 5%;
+  background: white;
+  width: 75%;
+  height: 35px;
+  border-radius: 10px;
+  color:#363636;
+  
+}
+/* select caixa */
+
+.box-select .select-caixa {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  text-align: center;
+  align-items: center;
+  color: #363636;
+  font-size: 20px;
+}
+
+.box-select .select-caixa span {
+  color: #66CDAA;
+}
+/* fim select caixa */
+
+/* select orgao */
+.box-select .select-orgao {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  margin-left: 30.5%;
+  text-align: center;
+  align-items: center;
+  color: #363636;
+  font-size: 20px
+}
+
+.box-select .select-orgao span {
+  color: #66CDAA;
+}
+/* fim select orgao */
+
+/* fim box select */
+
+/* tempo */
+
+.box-iniciar {
+  border: #363636 5px solid;
+  border-radius: 10px;
+  background-color: #e3e3e3;
+  height: 380px;
+}
+
+.box-iniciar .tempo {
+  display: flex;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 0;
+  font-size: 28px;
+}
+
+.tempo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tempo b{
+font-size:25px;
+margin-right: 10px;
+margin-left: 10px;
+color: #363636;
+
+
+}
+
+.x {
+  border-radius: 5px;
+  border: none;
+  height: 30px;
+}
+
+.fim {
+  padding-left: 250px;
+}
+/* fim tempo */
+
+/* botao */
+
+.box-iniciar .botao-iniciar {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.botao-dashboard{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.button-dashboard{
+  font-size: 15px;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background: #66CDAA;
+  color: #363636;
+  cursor: pointer;
+}
+
+.button-dashboard:hover{
+    transition: 0.2s;
+    color: #66CDAA;
+    background-color: #363636 ;
+  }
+
+
+.box-iniciar .botao-iniciar button {
+  
+  font-size: 23px;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background: #66CDAA;
+  color: #363636;
+  cursor: pointer;
+}
+
+.botao-iniciar button:hover{
+  transition: 0.2s;
+  color: #66CDAA;
+  background-color: #363636 ;
+}
+
+.div-botao {
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.div-botao button {
+  margin: auto;
+  font-size: 15px;
+  font-weight: bold;
+  height: 30px;
+  width: 100px;
+  border-radius: 20px;
+  outline: 0;
+  border: 0;
+  background: #66CDAA;
+  color: #363636;
+  cursor: pointer;
+}
+
+.div-botao button:hover {
+  transition: 0.2s;
+  color: #66CDAA;
+  background-color: #363636;
+}
+
+
+/* fim botao */
+
+/* alerta */
+
+.box-alerta {
+  display: flex;
+  flex-direction: column;
+}
+
+.alerta {
+  border-radius: 20px;
+  text-align: center;
+  margin: auto;
+  height: 60%;
+  width: 300px;
+  background: red;
+  color: black;
+}
+
+/* alerta */
+
+/* .usuario {
+  width: 75%;
+  overflow: hidden;
+  margin: auto;
+  text-align: center;
+  color: white;
+}
+
+.usuario h3 {
+  font-weight: 100;
+} */
+
+/* fim painel */
+
+
+.containerdash { 
+  width: 80%;
+  margin: auto;
+}
+.dashboard {
+  /* background-color: #ecf0f1; */
+  text-align: center;
+  padding: 50px 0;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+
+.dashboardcx {
+  background-color: #ecf0f1;
+  text-align: center;
+  padding: 50px 0;
+  height: 100%;
+  margin: auto;
+}
+.dashboard h1 {
+  margin-bottom: 40px;
+}
+
+.dashboard h3 {
+  font-size: 30px;
+  color: #363636;
+  margin-bottom: 20px;
+}
+
+.dashboard .input-padrao {
+  width: 50%;
+  display: inline-block;
+}
+
+.grafico-temp .btn-green {
+  display: block;
+  float: none;
+  margin: auto;
+}
+
+
+.box-login {
+  display: inline-block;
+  background-color: white;
+  box-shadow:  3px 3px 5px 2px #ccc;
+  padding: 60px 20px 0px 20px;
+  border-radius: 20px;
+  width: 400px;
+}
+
+.dashboard .btn-green {
+  display: block;
+  float: none;
+  margin: auto;
+}
+.caixa {
+  border-radius: 10px;
+  display: block;
+  width: 35%;
+  margin: 10px 7%;
+  height: 160px;
+  float: left;
+  text-align: center;
+  background-color: white;
+  box-shadow:  3px 3px 5px 2px #ccc;
+  
+}
+
+.caixa h4 {
+  color: #363636;
+}
+
+
+.caixa .valores {
+  margin:auto;
+  overflow: auto;
+}
+
+.caixa .valores .valor{
+  margin-left: 13%;
+
+  float: left;
+}
+
+.caixa .alertas {
+  width:100%;
+  margin:auto;
+  margin-top: 5px;
+  overflow: auto;
+}
+
+.caixa .alertas .alerta {
+  margin-left: 13%;
+  width: 30%;
+  float: left;
+}
+.caixa .alertas .alerta_umidd {
+  margin-right: 13%;
+  width: 30%;
+  float: right;
+}
+
+/* div gráfico =) */
+
+.btn {
+  background-color: #363636;
+  border: none;
+  width:70px;
+  height: 30px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-bottom: 30px;
+  outline-style: none;
+}
+
+.btn:hover{
+  transition: 0.4s;
+  color: #363636;
+  background-color: #66CDAA;
+}
+
+.grafico-temp{
+  background-color: #e3e3e3;
+  display: flex; 
+  flex-direction: column;
+  border: #363636 5px solid;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 5%;
+  width: 82%;
+  height: 100%;
+}
+
+#div_aguarde {
+  font-size: 20px;
+}
+
+.grafico-temp h2{
+  margin:auto;
+  margin-top: 1%;
+  font-size: 40px;
+}
+
+#canvas_grafico {
+  width: 800px;
+  height: 400px;
+  margin-bottom: 100px;
+}
+
+/* RODAPE */
+
+.rodape {
+  
+  background-color: #363636;
+  height: 70px;
+  text-align: center;
+  color: white;
+  position: fixed;
+  left: 0px;
+}
+
+.rodape h3 {
+  padding-top: 25px;
+}
+
+.rodape span {
+  color: #66CDAA;
+  
+}
+
+/* FIM RODAPE */
+
