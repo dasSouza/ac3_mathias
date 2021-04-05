@@ -6,7 +6,6 @@ const idesContainer = document.querySelector('.ides-container');
 const idesContainerPart2 = document.querySelector('.ides-container-part2');
 const separation = document.querySelector('.separation-ides');
 
-
 document.querySelector('.toggle').onclick = function () {
     this.classList.toggle('active');
     navigation.classList.toggle('active');
@@ -21,4 +20,9 @@ back.addEventListener('click', function() {
     idesContainerPart2.style.display = 'none';
     idesContainer.style.display = 'flex';
 });
+
+function darkMode() {
+    var element = document.querySelector('main');
+    element.classList.toggle("dark-mode");
+ }
 
