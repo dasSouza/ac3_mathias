@@ -4,7 +4,6 @@ const back = document.querySelector('#back');
 const btn = document.querySelector('.btn');
 const idesContainer = document.querySelector('.ides-container');
 const idesContainerPart2 = document.querySelector('.ides-container-part2');
-const separation = document.querySelector('.separation-ides');
 
 document.querySelector('.toggle').onclick = function () {
     this.classList.toggle('active');
@@ -12,7 +11,7 @@ document.querySelector('.toggle').onclick = function () {
 }
 
 function darkMode() {
-    var element = document.querySelector('main');
+    var element = document.querySelector('.page');
     element.classList.toggle("dark-mode");
  }
 
