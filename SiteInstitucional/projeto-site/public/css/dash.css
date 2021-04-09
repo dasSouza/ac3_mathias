@@ -283,10 +283,10 @@ a {
 {
     width: 100%;
     height: 100%;
-    background-color: #CEE4D9;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 109px;
 
 }
 
@@ -395,10 +395,12 @@ a {
 
 .box-dados-do-cliente 
 {
-    width: 70%;
-    height: 100%;
+    width: 18%;
+    height: 79%;
     display: flex;
+ 
 }
+
 
 .dados-do-cliente 
 {
@@ -419,7 +421,7 @@ a {
 }
 
 .dados-do-cliente p {
-    padding-bottom: 1vh;
+    
 }
 
 .edit 
@@ -661,4 +663,32 @@ a {
    outline: none;
 
 }
+
+.footer-ajuda-perfil {
+    width: 75vw;
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+
+#btn-ajuda-perfil {
+    height: 43%;
+    width: 12.5%;
+    border: none;
+    background-color: #A3C6C1;
+    border-radius: 10px;
+    outline: none;
+ 
+}
+
+.ajuda-perfil {
+    width: 77vw;
+    display: flex;
+    justify-content: flex-end;
+    height: 16vh;
+    margin-top: -95px;
+}
+
+
 
