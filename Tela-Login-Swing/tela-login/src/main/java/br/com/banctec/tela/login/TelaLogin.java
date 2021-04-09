@@ -3,8 +3,12 @@ package br.com.banctec.tela.login;
 import java.awt.Toolkit;
 import java.awt.Desktop;
 import java.net.URI;
-
-
+import org.springframework.jdbc.core.JdbcTemplate;
+import tabelas.TbUsDados;
+import jdbc.Conexao;
+import java.util.List;
+import java.util.ArrayList;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 /**
  *
@@ -228,10 +232,10 @@ public class TelaLogin extends javax.swing.JFrame {
     private void btnLogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoActionPerformed
         // TODO add your handling code here:
         String[] args;
-        try{
+        try {
             URI link = new URI("https://www.youtube.com/watch?v=UKp2CrfmVfw");
             Desktop.getDesktop().browse(link);
-        }catch(Exception erro){
+        } catch (Exception erro) {
             System.out.println(erro);
         }
     }//GEN-LAST:event_btnLogoActionPerformed
@@ -239,46 +243,56 @@ public class TelaLogin extends javax.swing.JFrame {
 //    PLACEHOLDER CAMPO EMAIL
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         // TODO add your handling code here:
-        if(txtEmail.getText().equals("Informe seu e-mail aqui")){
-		txtEmail.setText("");
-	}
+        if (txtEmail.getText().equals("Informe seu e-mail aqui")) {
+            txtEmail.setText("");
+        }
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
         // TODO add your handling code here:
-        if(txtEmail.getText().equals("")){
-		txtEmail.setText("Informe seu e-mail aqui");
-	}
+        if (txtEmail.getText().equals("")) {
+            txtEmail.setText("Informe seu e-mail aqui");
+        }
     }//GEN-LAST:event_txtEmailFocusLost
 
 //  PLACEHOLDER CAMPO SENHA    
     private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
         // TODO add your handling code here:
-        if(txtSenha.getText().equals("Senha123")){
-		txtSenha.setText("");
-	}
+        if (txtSenha.getText().equals("Senha123")) {
+            txtSenha.setText("");
+        }
     }//GEN-LAST:event_txtSenhaFocusGained
 
     private void txtSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusLost
         // TODO add your handling code here:
-        if(txtSenha.getText().equals("")){
-		txtSenha.setText("Senha123");
-	}
+        if (txtSenha.getText().equals("")) {
+            txtSenha.setText("Senha123");
+        }
     }//GEN-LAST:event_txtSenhaFocusLost
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        Conexao con = new Conexao();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
-   
+
+    public void select(TbUsDados us_login, TbUsDados us_senha, Conexao con) {
+
+//        JdbcTemplate.update("insert into tbl_pais (nome_pais, extensao_km2_pais) values (?,?)",
+//                novoPais.getNomePais(), novoPais.getExtensaoKm2Pais());
+        
+        List<TbUsDados> pegandoUser = con.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+                new BeanPropertyRowMapper<>(TbUsDados.class), "", "lj");
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -290,19 +304,19 @@ public class TelaLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new TelaLogin().setVisible(true);
         });
-        
+
         PlaceholderTextField txt = new PlaceholderTextField();
         txt.setPlaceholder("Email:");
 
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
@@ -316,6 +330,5 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-
 
 }
