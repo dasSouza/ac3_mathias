@@ -79,23 +79,63 @@
                 </div>
             </div>
         </header>
-
-
-        <div class="footer-ajuda">
-
-
-            <div class="ajuda">
- 
-                <button id="btn-ajuda">
-                    <h1>Ajuda!</h1>
+        <div class="ides-container">
 
 
 
-                </button>
+    <div class="footer-ajuda">
 
-            </div>
+
+        <div class="ajuda">
+
+            <button id="btn-ajuda">
+                <h1>Ajuda!</h1>
+
+
+
+            </button>
+
         </div>
+    </div>
     </main>
 </body>
 
 </html>
+
+<script>
+
+    window.onload = obterDadosGraficoPrimeiraVez(1);
+
+    function obterDadosGraficoPrimeiraVez(idcaminhao) {
+
+        fetch(`/leituras/ultimas/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(`Dados recebidos: ${resposta}`);
+                    var testando = JSON.stringify(resposta)
+                    var arroz = testando.split("").filter(n => (Number(n) || n == 0)).join("");
+                    console.log(arroz)
+                    teste.style.width = `${arroz}%`
+                    teste.style.backgroundColor = 'blue'
+
+                    resposta.reverse();
+
+
+
+                    console.log()
+                    proximaAtualizacao = setTimeout(() => obterDadosGraficoPrimeiraVez(idcaminhao), 5000);
+
+                    div_aguarde.style.display = 'none';
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+</script>
