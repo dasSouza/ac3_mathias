@@ -273,20 +273,24 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Conexao con = new Conexao();
 
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+
+        List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+                new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
+
+        System.out.println(pegandoUser);
+
+        if (pegandoUser.contains(txtEmail.toString()) && pegandoUser.contains(txtSenha.toString())) {
+            System.out.println("DEU CERTO ");
+        } else {
+            System.out.println("NAO TA INDO");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    public void select(TbUsDados us_login, TbUsDados us_senha, Conexao con) {
-
-//        JdbcTemplate.update("insert into tbl_pais (nome_pais, extensao_km2_pais) values (?,?)",
-//                novoPais.getNomePais(), novoPais.getExtensaoKm2Pais());
-        
-        List<TbUsDados> pegandoUser = con.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
-                new BeanPropertyRowMapper<>(TbUsDados.class), "", "lj");
-    }
 
     /**
      * @param args the command line arguments
@@ -312,8 +316,6 @@ public class TelaLogin extends javax.swing.JFrame {
             new TelaLogin().setVisible(true);
         });
 
-        PlaceholderTextField txt = new PlaceholderTextField();
-        txt.setPlaceholder("Email:");
 
     }
 

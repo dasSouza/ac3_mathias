@@ -68,6 +68,11 @@ public class TbUsDados {
     public void setFk_id_empresa(Integer fk_id_empresa) {
         this.fk_id_empresa = fk_id_empresa;
     }
+
+    @Override
+    public String toString() {
+        return "TbUsDados{" + "id_cpf=" + id_cpf + ", us_nome_funcionario=" + us_nome_funcionario + ", us_cargo=" + us_cargo + ", us_login=" + us_login + ", us_senha=" + us_senha + ", us_is_adm=" + us_is_adm + ", fk_id_empresa=" + fk_id_empresa + '}';
+    }
     
     
 }
