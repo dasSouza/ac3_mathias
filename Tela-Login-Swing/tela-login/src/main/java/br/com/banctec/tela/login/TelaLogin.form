@@ -162,7 +162,7 @@
                           <Component id="btnEntrar" min="-2" pref="36" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="32767" attributes="0"/>
                           <Component id="lblValida" min="-2" pref="17" max="-2" attributes="0"/>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

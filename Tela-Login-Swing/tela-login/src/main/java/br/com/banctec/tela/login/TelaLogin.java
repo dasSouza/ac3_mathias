@@ -292,21 +292,21 @@ public class TelaLogin extends javax.swing.JFrame {
 
         System.out.println(pegandoUser);
 
-
         String pegandoEmail = txtEmail.getText();
-        String pegandoSenha = txtEmail.getText();
+        String pegandoSenha = txtSenha.getText();
 
         if (pegandoUser.size() > 1) {
 
             for (TbUsDados tbUsDados : pegandoUser) {
-                if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_login().equals(pegandoSenha)) {
+                if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
                     lblValida.setText("Correto");
                 }
             }
         } else {
             lblValida.setText("Email ou senha incorretos");
         }
-
+        txtEmail.setText("");
+        txtSenha.setText("");
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
