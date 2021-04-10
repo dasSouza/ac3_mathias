@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../css/dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script defer src="../../js/dash.js"></script>
     <script defer src="../funcoes.js"></script>
     <title>KCODE</title>
@@ -89,8 +90,8 @@
                         <div class="tooltip">
                             <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                             <span class="tooltiptext">Editar dados</span>
-                          </div>
-                        
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -100,29 +101,42 @@
                         <h2>CADASTRAR NOVOS USUARIOS</h2>
                     </div>
                     <div class="inputs-cadastro-novo-usuario">
-                        <div class="box-inputs">
+                        <div class="formulario">
+                            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                                <div class="box-inputs">
 
-                                <input id="login_cad" name="login_cad" required="required" type="text" placeholder="Login"/>
+                                    <input id="login_cad" name="login_cad" required="required" type="text"
+                                        placeholder="Login" />
 
-                                <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="Senha"/>
-                        </div>
+                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
+                                        placeholder="Senha" />
+                                </div>
 
-                        <div class="box-inputs">
+                                <div class="box-inputs">
 
-                                <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Nome" />
+                                    <input id="nome_cad" name="nome_cad" required="required" type="text"
+                                        placeholder="Nome" />
 
-                                <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
+                                    <input id="cargo" name="cargo" required="required" type="text"
+                                        placeholder="Cargo" />
+                                </div>
+
+                                <div class="btn-cadastro">
+                                    <input type="submit" value="Cadastrar" />
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="btn-cadastro">
+                    <!-- <div class="btn-cadastro">
                         <input type="submit" value="SALVAR" />
-                    </div>
-                    
+                    </div> -->
+
                 </div>
             </div>
         </section>
         </div>
     </main>
+    <script src="../../js/js.js"></script>
 </body>
 
 </html>

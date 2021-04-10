@@ -6,16 +6,16 @@ const ulIDES = document.querySelector("ul.IDES");
 for (let i = 0; i < 20; i++) {
     const imagems = document.createElement("img");
 
-    const random = (min,max) => Math.random() * (max - min) + min;
-    
+    const random = (min, max) => Math.random() * (max - min) + min;
+
     const size = Math.floor(random(10, 120));
 
-    const randomTrunc = Math.floor(random(1,2));
+    const randomTrunc = Math.floor(random(1, 2));
 
-    const position = random(1,95);
+    const position = random(1, 95);
 
-    const delay = random(5,0.2);
-    const duration = random(24,12);
+    const delay = random(5, 0.2);
+    const duration = random(24, 12);
 
     arrayImage = [
         "img/netbeans.png",
@@ -30,8 +30,8 @@ for (let i = 0; i < 20; i++) {
         "img/vsstudiocode.png"
     ];
 
-    for(let value of arrayImage){
-        var randomImages = Math.floor(random(0,10));
+    for (let value of arrayImage) {
+        var randomImages = Math.floor(random(0, 10));
     }
     console.log(randomImages);
     let imagem = arrayImage[randomImages];
@@ -46,9 +46,9 @@ for (let i = 0; i < 20; i++) {
     imagems.style.left = `${position}%`
 
     imagems.style.animationDelay = `${delay}s`;
-    
+
     imagems.style.animationDuration = `${duration}s`;
-    imagems.style.animationTimingFunction = `cubic-bezier(${Math.random(),Math.random(),Math.random(),Math.random()})`
+    imagems.style.animationTimingFunction = `cubic-bezier(${Math.random(), Math.random(), Math.random(), Math.random()})`
 
     ulIDES.appendChild(imagems);
 }
@@ -76,7 +76,7 @@ function closeModal(mn) {
 
 // FUNCÕES LOGIN
 function entrar() {
-    aguardar();
+    // aguardar();
     var formulario = new URLSearchParams(new FormData(form_login));
     fetch("/usuarios/autenticar", {
         method: "POST",
@@ -88,13 +88,15 @@ function entrar() {
             resposta.json().then(json => {
 
                 sessionStorage.login_usuario_meuapp = json.login;
-                sessionStorage.nome_usuario_meuapp = json.nome;
+                // sessionStorage.nome_usuario_meuapp = json.nome;
 
-                if (json.administrador == 1) {
-                    window.location.href = 'dashboard.html';
-                } else {
-                    window.location.href = 'dashboard_usuario.html';
-                }
+
+                window.location.href = '../Dash/dashboard.html'
+                // if (json.administrador == 1) {
+                //     window.location.href = 'dashboard.html';
+                // } else {
+                //     window.location.href = 'dashboard_usuario.html';
+                // }
             });
 
         } else {
@@ -103,7 +105,7 @@ function entrar() {
 
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizar_aguardar(texto);
+                // finalizar_aguardar(texto);
             });
         }
     });
@@ -122,4 +124,61 @@ function finalizar_aguardar(resposta) {
     img_aguarde.style.visibility = 'hidden';
     div_erro.style.visibility = 'visible';
     div_erro.innerHTML = resposta;
+}
+
+//FUNÇÃO CADASTRO
+function cadastrar() {
+    // aguardar();
+    var formulario = new URLSearchParams(new FormData(form_cadastro));
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        body: formulario
+    }).then(function (response) {
+
+        if (response.ok) {
+
+            // window.location.href='login.html';
+
+            Swal.fire({
+                icon: 'success',
+                title: 'funcionário cadastrado com sucesso!',
+                background: '#CEE4D9',
+                // confirmButtonColor: '#A3C6C1'
+
+              })
+            // window.alert('Funcionario cadastrado com sucesso!')
+
+        } else {
+
+            console.log('Erro de cadastro!');
+            response.text().then(function (resposta) {
+                // div_erro.innerHTML = resposta;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Falha ao cadastrar funcionário!',
+                    background: '#CEE4D9',
+                    confirmButtonColor: '#A3C6C1',
+                    confirmButtonTextColor: '#514E4D',
+                    focusDeny: true
+
+                  })
+                console.log(resposta)
+            });
+            // finalizar_aguardar();
+        }
+    });
+
+    return false;
+}
+
+function aguardar() {
+    btn_entrar.disabled = true;
+    img_aguarde.style.display = 'block';
+    div_erro.style.display = 'none';
+}
+
+function finalizar_aguardar() {
+    btn_entrar.disabled = false;
+    img_aguarde.style.display = 'none';
+    div_erro.style.display = 'block';
 }
