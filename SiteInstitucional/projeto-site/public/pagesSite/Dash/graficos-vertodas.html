@@ -79,9 +79,10 @@
                 </div>
             </div>
         </header>
-        <div class="ides-container">
-
-
+        <div class="ides-container-3">
+            <div id="grafico_1" class="grafico-1">
+            </div>
+        </div>
 
     <div class="footer-ajuda">
 
@@ -116,8 +117,9 @@
                     var testando = JSON.stringify(resposta)
                     var arroz = testando.split("").filter(n => (Number(n) || n == 0)).join("");
                     console.log(arroz)
-                    teste.style.width = `${arroz}%`
-                    teste.style.backgroundColor = 'blue'
+                    grafico_1.style.width = `${arroz}%`
+                    grafico_1.innerHTML = `${arroz}%` 
+                    // teste.style.backgroundColor = 'blue'
 
                     resposta.reverse();
 
