@@ -36,6 +36,7 @@ public class TelaLogin extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
+        lblValida = new javax.swing.JLabel();
         btnLogo = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         btnEntrar = new javax.swing.JButton();
@@ -51,6 +52,7 @@ public class TelaLogin extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(206, 228, 217));
 
         cardLogin.setBackground(new java.awt.Color(110, 150, 146));
+        cardLogin.setForeground(new java.awt.Color(255, 102, 102));
 
         txtEmail.setBackground(new java.awt.Color(237, 230, 221));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -71,6 +73,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 txtEmailActionPerformed(evt);
             }
         });
+
+        lblValida.setBackground(new java.awt.Color(255, 51, 51));
+        lblValida.setForeground(new java.awt.Color(255, 102, 102));
 
         btnLogo.setContentAreaFilled(false);
         btnLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -126,22 +131,14 @@ public class TelaLogin extends javax.swing.JFrame {
         cardLoginLayout.setHorizontalGroup(
             cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblTitleLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogo)
                 .addGap(248, 248, 248))
             .addGroup(cardLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cardLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cardLoginLayout.createSequentialGroup()
                 .addContainerGap()
@@ -151,15 +148,27 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblEmail)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(cardLoginLayout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(lblTitleLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(cardLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cardLoginLayout.setVerticalGroup(
             cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardLoginLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(btnLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
                 .addComponent(lblTitleLogin)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(lblEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -167,8 +176,10 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(lblSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -178,17 +189,17 @@ public class TelaLogin extends javax.swing.JFrame {
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addContainerGap(224, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addContainerGap(208, Short.MAX_VALUE)
                 .addComponent(cardLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(cardLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(cardLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jDesktopPane1.setLayer(background, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -280,20 +291,22 @@ public class TelaLogin extends javax.swing.JFrame {
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
-        
-        System.out.println(txtEmail.getText());
-        
+
+
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtEmail.getText();
-        
-        for (TbUsDados tbUsDados : pegandoUser) {
-            if (tbUsDados.getUs_login().equals(pegandoEmail)&& tbUsDados.getUs_login().equals(pegandoSenha)) {
-                System.out.println("DEU CERTO");
-            } else {
-                
-            }
 
+        if (pegandoUser.size() > 1) {
+
+            for (TbUsDados tbUsDados : pegandoUser) {
+                if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_login().equals(pegandoSenha)) {
+                    lblValida.setText("Correto");
+                }
+            }
+        } else {
+            lblValida.setText("Email ou senha incorretos");
         }
+
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
@@ -336,6 +349,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLogin;
+    private javax.swing.JLabel lblValida;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
