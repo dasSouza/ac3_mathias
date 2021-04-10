@@ -38,7 +38,7 @@ public class TelaLogin extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         btnLogo = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         lblTitleLogin = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
@@ -93,19 +93,19 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(136, 169, 167));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("ENTRAR");
-        jButton1.setBorderPainted(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEntrar.setBackground(new java.awt.Color(136, 169, 167));
+        btnEntrar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEntrar.setText("ENTRAR");
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnEntrarMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
@@ -135,14 +135,14 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(248, 248, 248))
             .addGroup(cardLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cardLoginLayout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cardLoginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblSenha)
@@ -168,7 +168,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -270,27 +270,35 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtSenhaFocusLost
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         Conexao con = new Conexao();
+        TbUsDados teste = new TbUsDados();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
+        
+        System.out.println(txtEmail.getText());
+        
+        String pegandoEmail = txtEmail.getText();
+        String pegandoSenha = txtEmail.getText();
+        
+        for (TbUsDados tbUsDados : pegandoUser) {
+            if (tbUsDados.getUs_login().equals(pegandoEmail)&& tbUsDados.getUs_login().equals(pegandoSenha)) {
+                System.out.println("DEU CERTO");
+            } else {
+                
+            }
 
-        if (pegandoUser.contains(txtEmail.toString()) && pegandoUser.contains(txtSenha.toString())) {
-            System.out.println("DEU CERTO ");
-        } else {
-            System.out.println("NAO TA INDO");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
-
+    }//GEN-LAST:event_btnEntrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -316,15 +324,14 @@ public class TelaLogin extends javax.swing.JFrame {
             new TelaLogin().setVisible(true);
         });
 
-
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnLogo;
     private javax.swing.JPanel cardLogin;
-    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblSenha;
