@@ -134,16 +134,20 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     console.log(`Dados recebidos: ${resposta}`);
                     var testando = JSON.stringify(resposta)
-                    var arroz = testando.split("").filter(n => (Number(n) || n == 0)).join("");
+                    var arroz = testando.split("").filter(n => (Number(n) || n == 0 || n == ".")).join("");
+                    // var arroz = /^[\d,.?!]+$/.replace(testando);
                     console.log(arroz)
-                    grafico_1.style.width = `${arroz}%`
-                    grafico_1.innerHTML = `${arroz}%`
-                    grafico_2.style.width = `${arroz}%`
-                    grafico_2.innerHTML = `${arroz}%`
-                    grafico_3.style.width = `${arroz}%`
-                    grafico_3.innerHTML = `${arroz}%`
-                    grafico_4.style.width = `${arroz}%`
-                    grafico_4.innerHTML = `${arroz}%`
+                    // var resultado = arroz.substr(0, 1) + "." + arroz.substr(1);
+                    // console.log("aa" + resultado)
+                    var number1 = parseFloat(arroz)
+                    grafico_1.style.width = `${number1.toFixed(2)}%`
+                    grafico_1.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_2.style.width = `${number1.toFixed(2)}%`
+                    grafico_2.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_3.style.width = `${number1.toFixed(2)}%`
+                    grafico_3.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_4.style.width = `${number1.toFixed(2)}%`
+                    grafico_4.innerHTML = `${number1.toFixed(2)}%`
                     resposta.reverse();
                     obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idcaminhao), 5000);
                 });
