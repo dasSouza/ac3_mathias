@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ProcessMaqDAO {
     Conection conection = new Conection();
-    JdbcTemplate template = new JdbcTemplate(conection.getBanco());
+    JdbcTemplate template = new JdbcTemplate(conection.getDataSource());
 
     public void maquinaProcess(MaquinaDatas maquinaDatas) {
         String insertProcessValues = "INSERT INTO tb_us_maquina(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total) VALUES (?, ?, ?, ?)";

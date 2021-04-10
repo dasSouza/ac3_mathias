@@ -27,10 +27,10 @@ public class GetAllProcess {
 //        maquina.setUs_memoria_atual(memoria.getEmUso().doubleValue());
 //    }
 
-//    public void memoriaDisponivel(Double ram) {
+//    public void memoriaDisponivel() {
 //        Memoria memoria = new Memoria();
-//        maquina.setUs_ram_total(memoria.getTotal().doubleValue());
-//        maquina.setUs_ram_total(ramTotal.doubleValue());
+//        maquina.setUs_ram_disponivel(memoria.getTotal().doubleValue());
+//        maquina.setUs_ram_disponivel(ramTotal.doubleValue());
 //    }
 
     public void getDiscoTotal() {
@@ -47,7 +47,7 @@ public class GetAllProcess {
         try{
             maquina.setUs_name_pc(InetAddress.getLocalHost().getHostName());
             System.out.println("Atribuindo nome da maquina: " + InetAddress.getLocalHost().getHostName());
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println("Exception caught ="+e.getMessage());
         }
 //        maquina.setUs_name_pc(System.getProperty("user.name"));

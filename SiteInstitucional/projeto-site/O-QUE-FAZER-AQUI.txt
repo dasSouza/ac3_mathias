@@ -15,7 +15,7 @@ username, password, database, host
 
 4. (caso o passo #2 tenha dado errado) executar "npm start"
 
-5. p/ testar acesse este endereço no navegador:  localhost:3000 ou localhost:3000/index.html
+5. p/ testar acesse este endereço no navegador:  localhost:3000 ou localhost:3000/pagesSite/Dash/graficos-vertodas.html
    Deve aparecer a página inicial do projeto, o index
    
 6. sempre que fizer uma alteração (ex: na consulta de login ou de dados de tempo real)...

@@ -79,25 +79,44 @@
                 </div>
             </div>
         </header>
-        <div class="ides-container-3">
-            <div id="grafico_1" class="grafico-1">
+        <div class="ides-container">
+            <div class="container-ides">
+                <div class="separa-graficos">
+                    <img src="../../img/eclipse.png" alt="" id="img-grafic">
+                    <div id="grafico_1" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/intellj.png" alt="" id="img-grafic">
+                    <div id="grafico_2" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/visualstudio.png" alt="" id="img-grafic">
+                    <div id="grafico_3" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/netbeans.png" alt="" id="img-grafic">
+                    <div id="grafico_4" class="graficos-1">
+                    </div>
+                </div>
             </div>
         </div>
-
-    <div class="footer-ajuda">
-
-
-        <div class="ajuda">
-
-            <button id="btn-ajuda">
-                <h1>Ajuda!</h1>
+        <div class="footer-ajuda">
 
 
+            <div class="ajuda">
 
-            </button>
+                <button id="btn-ajuda">
+                    <h1>Ajuda!</h1>
 
+
+
+                </button>
+
+            </div>
         </div>
-    </div>
     </main>
 </body>
 
@@ -118,17 +137,15 @@
                     var arroz = testando.split("").filter(n => (Number(n) || n == 0)).join("");
                     console.log(arroz)
                     grafico_1.style.width = `${arroz}%`
-                    grafico_1.innerHTML = `${arroz}%` 
-                    // teste.style.backgroundColor = 'blue'
-
+                    grafico_1.innerHTML = `${arroz}%`
+                    grafico_2.style.width = `${arroz}%`
+                    grafico_2.innerHTML = `${arroz}%`
+                    grafico_3.style.width = `${arroz}%`
+                    grafico_3.innerHTML = `${arroz}%`
+                    grafico_4.style.width = `${arroz}%`
+                    grafico_4.innerHTML = `${arroz}%`
                     resposta.reverse();
-
-
-
-                    console.log()
-                    proximaAtualizacao = setTimeout(() => obterDadosGraficoPrimeiraVez(idcaminhao), 5000);
-
-                    div_aguarde.style.display = 'none';
+                    obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idcaminhao), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');

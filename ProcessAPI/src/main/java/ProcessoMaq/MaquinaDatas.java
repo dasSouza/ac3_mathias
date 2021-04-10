@@ -1,14 +1,10 @@
 package ProcessoMaq;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class MaquinaDatas {
     private Long us_ram_total;
     private String us_cpu_nome;
     private String us_name_pc;
     private Long us_disco_total;
-
 
     public String getUs_name_pc() {
         return us_name_pc;

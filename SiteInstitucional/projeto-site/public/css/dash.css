@@ -233,12 +233,13 @@ a {
 .ides-container
 {
     width: 100%;
-    height: 55vh;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex: row;
     animation: idescontainer 1s both;
+    overflow: auto;
 }
 
 @keyframes idescontainer {
@@ -690,27 +691,37 @@ a {
     align-items: center;
 
 }
-
-.ides-container-3 {
-    display: flex;
-    align-items: center;
-    width: 60vw;
-    height: 80vh;
-    border: 2px;
-    background-color: #4D4D4E;
-    border-color: #B73447;
-}
-
-.grafico-1 {
-    
+.graficos-1 {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     text-align: center;
+    font-size: 2vmax;
     width: 100%;
-    height: 18%;
+    height: 60%;
     border-radius: 10px;
     background-color: #638481;
 }
 
+.container-ides {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
+.separa-graficos {
+    width: 80%;
+    height: 22%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#img-grafic {
+    width: 10%;
+}
