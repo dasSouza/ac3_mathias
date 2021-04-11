@@ -15,6 +15,30 @@ function darkMode() {
     element.classList.toggle("dark-mode");
  }
 
+
+//  function myFunction() {
+//   var x = document.getElementById("senha_cad");
+//   if (x.type === "password") {
+//     x.type = "text";
+//   } else {
+//     x.type = "password";
+//   }
+// }
+
+
+document.getElementById('olho').addEventListener('mousedown', function() {
+  document.getElementById('senha_cad').type = 'text';
+});
+
+document.getElementById('olho').addEventListener('mouseup', function() {
+  document.getElementById('senha_cad').type = 'password';
+});
+
+// Para que o password não fique exposto apos mover a imagem.
+document.getElementById('olho').addEventListener('mousemove', function() {
+  document.getElementById('senha_cad').type = 'password';
+});
+
 /* teste */
 
 // Set the date we're counting down to

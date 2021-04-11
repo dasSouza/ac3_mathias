@@ -101,25 +101,33 @@
                         <h2>CADASTRAR NOVOS USUARIOS</h2>
                     </div>
                     <div class="inputs-cadastro-novo-usuario">
-                        <div class="formulario">
+                        <div class="box-inputs">
                             <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                                <div class="box-inputs">
 
-                                    <input id="login_cad" name="login_cad" required="required" type="text"
-                                        placeholder="Login" />
+                                <input id="login_cad" name="login_cad" required="required" type="text"
+                                    placeholder="Login" />
 
+                                
+                                <label for="senha_cad" id="senha_cad-label">
                                     <input id="senha_cad" name="senha_cad" required="required" type="password"
-                                        placeholder="Senha" />
-                                </div>
+                                    placeholder="Senha" />
+                                <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+                                    id="olho" class="olho">
+                                </label>
 
-                                <div class="box-inputs">
+                                <input id="nome_cad" name="nome_cad" required="required" type="text"
+                                    placeholder="Nome" />
 
-                                    <input id="nome_cad" name="nome_cad" required="required" type="text"
-                                        placeholder="Nome" />
+                                <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
 
-                                    <input id="cargo" name="cargo" required="required" type="text"
-                                        placeholder="Cargo" />
-                                </div>
+                                <input id="Cpf" name="Cpf" required="required" type="text" placeholder="CPF" />
+                                <br>
+
+                                <label for="adm" id="adm-label">Administrador
+                                    <input id="adm" name="adm" type="checkbox" value="Administrador">
+                                </label>
+                                
+                                <br>
 
                                 <div class="btn-cadastro">
                                     <input type="submit" value="Cadastrar" />
@@ -127,11 +135,8 @@
                             </form>
                         </div>
                     </div>
-                    <!-- <div class="btn-cadastro">
-                        <input type="submit" value="SALVAR" />
-                    </div> -->
-
                 </div>
+            </div>
             </div>
         </section>
         </div>
