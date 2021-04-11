@@ -10,11 +10,13 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
-  <script defer src="../funcoes.js"></script>
+  <!-- <script defer src="../../funcoes.js"></script> -->
   <title>KCODE</title>
 </head>
 
-<body>
+
+
+<body onload="verificar_autenticacao()">
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -170,3 +172,11 @@
 </body>
 
 </html>
+
+<script defer src="../../funcoes.js"></script>
+
+<script>
+
+  verificar_autenticacao();
+
+</script>

@@ -39,9 +39,9 @@
                     </ul>
                 </div>
             </div>
-                <a href="../../index.html">
-                    <h1 class="logo-text">KEEPCODE</h1>
-                </a>
+            <a href="../../index.html">
+                <h1 class="logo-text">KEEPCODE</h1>
+            </a>
         </header>
         <section>
             <div class="box_login">
@@ -98,3 +98,47 @@
     <img src="img/loading.gif" id="img_aguarde">
 
 </div> -->
+
+<script>
+
+    function entrar() {
+        // aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.senha_usuario_meuapp = json.senha;
+                    sessionStorage.administrador_usuario_meuapp = json.adm;
+                    // sessionStorage.nome_usuario_meuapp = json.nome;
+
+
+                    window.location.href = '../Dash/dashboard.html'
+                    // if (json.administrador_usuario_meuapp == 1) {
+                    //     window.location.href = '../Dash/cadastroAdm.html';
+                    // } else {
+                    //     window.location.href = '../Dash/dashboard.html';
+                    // }
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+</script>

@@ -75,43 +75,7 @@ function closeModal(mn) {
 }
 
 // FUNCÕES LOGIN
-function entrar() {
-    // aguardar();
-    var formulario = new URLSearchParams(new FormData(form_login));
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        body: formulario
-    }).then(resposta => {
 
-        if (resposta.ok) {
-
-            resposta.json().then(json => {
-
-                sessionStorage.login_usuario_meuapp = json.login;
-                // sessionStorage.nome_usuario_meuapp = json.nome;
-
-
-                window.location.href = '../Dash/dashboard.html'
-                // if (json.administrador == 1) {
-                //     window.location.href = 'dashboard.html';
-                // } else {
-                //     window.location.href = 'dashboard_usuario.html';
-                // }
-            });
-
-        } else {
-
-            console.log('Erro de login!');
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                // finalizar_aguardar(texto);
-            });
-        }
-    });
-
-    return false;
-}
 
 function aguardar() {
     btn_entrar.disabled = true;
@@ -135,37 +99,54 @@ function cadastrar() {
         body: formulario
     }).then(function (response) {
 
-        if (response.ok) {
+        var regraValida = document.getElementById("Cpf").value;
+        var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;
 
-            // window.location.href='login.html';
+        if (cpfValido.test(regraValida) == true) {
 
-            Swal.fire({
-                icon: 'success',
-                title: 'funcionário cadastrado com sucesso!',
-                background: '#CEE4D9',
-                // confirmButtonColor: '#A3C6C1'
+            console.log("CPF Válido");
+            console.log(regraValida);
 
-              })
-            // window.alert('Funcionario cadastrado com sucesso!')
+            if (response.ok) {
+
+                // window.location.href='login.html';
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'funcionário cadastrado com sucesso!',
+                    background: '#CEE4D9'
+                })
+
+            } else {
+
+                console.log('Erro de cadastro!');
+
+                response.text().then(function (resposta) {
+                    // div_erro.innerHTML = resposta;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Falha ao cadastrar funcionário!',
+                        background: '#CEE4D9',
+                        confirmButtonColor: '#A3C6C1'
+                    })
+                    console.log(resposta)
+                });
+                // finalizar_aguardar();
+            }
 
         } else {
 
-            console.log('Erro de cadastro!');
-            response.text().then(function (resposta) {
-                // div_erro.innerHTML = resposta;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Falha ao cadastrar funcionário!',
-                    background: '#CEE4D9',
-                    confirmButtonColor: '#A3C6C1',
-                    confirmButtonTextColor: '#514E4D',
-                    focusDeny: true
+            console.log("CPF Inválido");
+            console.log(regraValida);
 
-                  })
-                console.log(resposta)
-            });
-            // finalizar_aguardar();
+            Swal.fire({
+                icon: 'error',
+                title: 'Por favor informe um CPF válido.',
+                background: '#CEE4D9',
+                confirmButtonColor: '#A3C6C1'
+            })
         }
+
     });
 
     return false;
@@ -181,4 +162,23 @@ function finalizar_aguardar() {
     btn_entrar.disabled = false;
     img_aguarde.style.display = 'none';
     div_erro.style.display = 'block';
+}
+
+// MASCARA CPF
+function fMasc(objeto, mascara) {
+    obj = objeto
+    masc = mascara
+    setTimeout("fMascEx()", 1)
+}
+
+function fMascEx() {
+    obj.value = masc(obj.value)
+}
+
+function mCPF(cpf) {
+    cpf = cpf.replace(/\D/g, "")
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+    return cpf
 }
