@@ -15,15 +15,15 @@ function darkMode() {
     element.classList.toggle("dark-mode");
  }
 
+ next.addEventListener('click', function() {
+  idesContainer.style.display = 'none';
+  idesContainerPart2.style.display = 'flex';
+});
 
-//  function myFunction() {
-//   var x = document.getElementById("senha_cad");
-//   if (x.type === "password") {
-//     x.type = "text";
-//   } else {
-//     x.type = "password";
-//   }
-// }
+back.addEventListener('click', function() {
+  idesContainerPart2.style.display = 'none';
+  idesContainer.style.display = 'flex';
+});
 
 
 document.getElementById('olho').addEventListener('mousedown', function() {
@@ -70,12 +70,4 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-next.addEventListener('click', function() {
-    idesContainer.style.display = 'none';
-    idesContainerPart2.style.display = 'flex';
-});
 
-back.addEventListener('click', function() {
-    idesContainerPart2.style.display = 'none';
-    idesContainer.style.display = 'flex';
-});

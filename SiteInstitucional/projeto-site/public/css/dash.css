@@ -179,7 +179,7 @@ a {
 .box-recepction 
 {
     width: 100vw;
-    height: 20vh;
+    height: 25vh;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
@@ -239,7 +239,6 @@ a {
     justify-content: center;
     flex: row;
     animation: idescontainer 1s both;
-    overflow: auto;
 }
 
 @keyframes idescontainer {
@@ -281,7 +280,7 @@ a {
 }
 
 .box-ides 
-{
+{   
     width: 100%;
     height: 100%;
     display: flex;
@@ -292,6 +291,7 @@ a {
 
 .idesLogo 
 {
+    position: relative;
     width: 15%;
     height: 100%;
     display: flex;
@@ -766,4 +766,24 @@ label #adm {
 
 #img-grafic {
     width: 10%;
+}
+
+/* perfil dev */
+
+#ides-label {
+    width: 20%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.idesLogo input[type = checkbox]{
+    width: 20%;
+    height: 10%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: none;
 }
