@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/style.css">
+    <script defer src="../../funcoes.js"></script>
     <title>Login</title>
 
 <body>
@@ -98,47 +99,3 @@
     <img src="img/loading.gif" id="img_aguarde">
 
 </div> -->
-
-<script>
-
-    function entrar() {
-        // aguardar();
-        var formulario = new URLSearchParams(new FormData(form_login));
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            body: formulario
-        }).then(resposta => {
-
-            if (resposta.ok) {
-
-                resposta.json().then(json => {
-
-                    sessionStorage.login_usuario_meuapp = json.login;
-                    sessionStorage.senha_usuario_meuapp = json.senha;
-                    sessionStorage.administrador_usuario_meuapp = json.adm;
-                    // sessionStorage.nome_usuario_meuapp = json.nome;
-
-
-                    window.location.href = '../Dash/dashboard.html'
-                    // if (json.administrador_usuario_meuapp == 1) {
-                    //     window.location.href = '../Dash/cadastroAdm.html';
-                    // } else {
-                    //     window.location.href = '../Dash/dashboard.html';
-                    // }
-                });
-
-            } else {
-
-                console.log('Erro de login!');
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizar_aguardar(texto);
-                });
-            }
-        });
-
-        return false;
-    }
-
-</script>

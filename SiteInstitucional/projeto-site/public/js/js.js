@@ -75,7 +75,46 @@ function closeModal(mn) {
 }
 
 // FUNCÕES LOGIN
+function entrar() {
+    // aguardar();
+    var formulario = new URLSearchParams(new FormData(form_login));
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        body: formulario
+    }).then(resposta => {
 
+        if (resposta.ok) {
+
+            resposta.json().then(json => {
+
+                sessionStorage.login_usuario_meuapp = json.us_login;
+                sessionStorage.administrador_usuario_meuapp = json.us_is_adm;
+                sessionStorage.nome_usuario_meuapp = json.us_nome_funcionario;
+                sessionStorage.empresa_usuario_meuapp = json.fk_id_empresa;
+                sessionStorage.cargo_usuario_meuapp = json.us_cargo;
+
+
+                // window.location.href = '../Dash/dashboard.html'
+                if (json.us_is_adm == 1) {
+                    window.location.href = '../Dash/cadastroAdm.html';
+                } else if (json.us_is_adm == 0) {
+                    window.location.href = '../Dash/dashboard.html';
+                }
+            });
+
+        } else {
+
+            console.log('Erro de login!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                // finalizar_aguardar(texto);
+            });
+        }
+    });
+
+    return false;
+}
 
 function aguardar() {
     btn_entrar.disabled = true;

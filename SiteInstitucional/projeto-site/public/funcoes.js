@@ -1,20 +1,29 @@
 let login_usuario;
 let nome_usuario;
 let adm_usuario;
+let nome_empresa;
+let cargo_usuario;
 
-// function redirecionar_login() {
-//     window.location.href = 'login.html';
-// }
+function redirecionar_login() {
+    window.location.href = '../Intitucional/login.html';
+}
 
 function verificar_autenticacao() {
     login_usuario = sessionStorage.login_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     adm_usuario = sessionStorage.administrador_usuario_meuapp;
+    nome_empresa = sessionStorage.empresa_usuario_meuapp;
+    cargo_usuario = sessionStorage.cargo_usuario_meuapp;
+
     
     if (login_usuario == undefined)  {
         redirecionar_login();
     } else {
         b_usuario.innerHTML = nome_usuario;
+        cargo.innerHTML = cargo_usuario;
+        id_adm.style.display = "none";
+        empresa.innerHTML = nome_empresa;
+        
         validar_sessao();
     }
     
