@@ -8,6 +8,7 @@ import tabelas.TbUsDados;
 import jdbc.Conexao;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 /**
@@ -295,15 +296,17 @@ public class TelaLogin extends javax.swing.JFrame {
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
 
-        if (pegandoUser.size() > 1) {
+        if (pegandoUser.isEmpty()) {
 
-            for (TbUsDados tbUsDados : pegandoUser) {
+            lblValida.setText("Email ou senha incorretos");
+        } else {
+            
+            for (Iterator<TbUsDados> it = pegandoUser.iterator(); it.hasNext();) {
+                TbUsDados tbUsDados = it.next();
                 if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
                     lblValida.setText("Correto");
                 }
             }
-        } else {
-            lblValida.setText("Email ou senha incorretos");
         }
         txtEmail.setText("");
         txtSenha.setText("");
