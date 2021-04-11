@@ -96,7 +96,7 @@ function entrar() {
 
                 // window.location.href = '../Dash/dashboard.html'
                 if (json.us_is_adm == 1) {
-                    window.location.href = '../Dash/cadastroAdm.html';
+                    window.location.href = '../Dash/dashgestor.html';
                 } else if (json.us_is_adm == 0) {
                     window.location.href = '../Dash/dashboard.html';
                 }
