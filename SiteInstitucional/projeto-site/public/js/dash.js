@@ -15,6 +15,30 @@ function darkMode() {
     element.classList.toggle("dark-mode");
  }
 
+ next.addEventListener('click', function() {
+  idesContainer.style.display = 'none';
+  idesContainerPart2.style.display = 'flex';
+});
+
+back.addEventListener('click', function() {
+  idesContainerPart2.style.display = 'none';
+  idesContainer.style.display = 'flex';
+});
+
+
+document.getElementById('olho').addEventListener('mousedown', function() {
+  document.getElementById('senha_cad').type = 'text';
+});
+
+document.getElementById('olho').addEventListener('mouseup', function() {
+  document.getElementById('senha_cad').type = 'password';
+});
+
+// Para que o password não fique exposto apos mover a imagem.
+document.getElementById('olho').addEventListener('mousemove', function() {
+  document.getElementById('senha_cad').type = 'password';
+});
+
 /* teste */
 
 // Set the date we're counting down to
@@ -46,12 +70,4 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-next.addEventListener('click', function() {
-    idesContainer.style.display = 'none';
-    idesContainerPart2.style.display = 'flex';
-});
 
-back.addEventListener('click', function() {
-    idesContainerPart2.style.display = 'none';
-    idesContainer.style.display = 'flex';
-});

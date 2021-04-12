@@ -10,9 +10,9 @@ router.post('/autenticar', function(req, res, next) {
 	console.log('Recuperando usuário por login e senha');
 
 	var login = req.body.login; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
+	var senha = req.body.senha;
 	
-	let instrucaoSql = `select * from usuario where login='${login}' and senha='${senha}'`;
+	let instrucaoSql = `select * from tb_us_dados where us_login='${login}' and us_senha='${senha}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
@@ -21,7 +21,7 @@ router.post('/autenticar', function(req, res, next) {
 		console.log(`Encontrados: ${resultado.length}`);
 
 		if (resultado.length == 1) {
-			sessoes.push(resultado[0].dataValues.login);
+			sessoes.push(resultado[0].dataValues.us_login);
 			console.log('sessoes: ',sessoes);
 			res.json(resultado[0]);
 		} else if (resultado.length == 0) {
@@ -40,13 +40,17 @@ router.post('/autenticar', function(req, res, next) {
 router.post('/cadastrar', function(req, res, next) {
 	console.log('Criando um usuário');
 	
+	// var validar = req.body.Cpf
+	var cpf = req.body.cpf.split("").filter(n => (Number(n) || n == 0 )).join("");
+
 	Usuario.create({
-		nome : req.body.nome,
-		login : req.body.login,
-		senha : req.body.senha,
-		email : req.body.email,
-		administrador : 0,
-		fkEmpresa : 1000
+		id_cpf : cpf,
+		us_nome_funcionario : req.body.nome_cad,
+		us_login : req.body.login_cad,
+		us_senha : req.body.senha_cad,
+		us_cargo : req.body.cargo,
+		us_is_adm : req.body.adm = req.body.adm == undefined ? 0 : 1,
+		fk_id_empresa : 1
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
         res.send(resultado);

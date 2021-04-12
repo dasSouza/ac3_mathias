@@ -4,6 +4,7 @@ import DAO.ProcessIdeDAO;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProcessIDE {
@@ -12,59 +13,75 @@ public class ProcessIDE {
     ProcessDatas processDatas = new ProcessDatas();
 
     List<Processo> processoList = looca.getGrupoDeProcessos().getProcessos();
+    List<String> nomesIde = new ArrayList<>();
+    List<String> valoresNomeIDE = new ArrayList<>();
+    List<Float> valoresRamIDE = new ArrayList<>();
+    List<Float> valoresCpuIDE = new ArrayList<>();
+    List<Float> valoresDiscoIDE = new ArrayList<>();
+
+    public void putAllNameIde(){
+        nomesIde.add("Code");
+        nomesIde.add("netbeans64");
+        nomesIde.add("pycharm64");
+        nomesIde.add("Xcode");
+        nomesIde.add("idea64");
+        nomesIde.add("studio64");
+        nomesIde.add("eclipse");
+        nomesIde.add("devenv");
+        nomesIde.add("phpstorm64");
+        nomesIde.add("phpstorm32");
+        nomesIde.add("webstorm64");
+        nomesIde.add("webstorm32");
+    }
 
     public void getIdeName() {
-        // busca por switch case os processos de IDE
         for (Processo processo : processoList) {
-            String nomeIDE = processo.getNome();
-            switch (processo.getNome()) {
-                case "Code":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "netbeans64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "pycharm64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "Xcode":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "idea64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "studio64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "eclipse":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "devenv":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "phpstorm64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "phpstorm32":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "webstorm64":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                case "webstorm32":
-                    processDatas.setUs_ide_nome_processo(nomeIDE);
-                    break;
-                default:
-                    break;
+            for (int i = 0; i < nomesIde.size(); i++) {
+                if (processo.getNome().equals(nomesIde.get(i))) {
+                    processDatas.setUs_ide_nome_processo(nomesIde.get(i));
+                    valoresNomeIDE.add(processDatas.getUs_ide_nome_processo());
+                }
             }
         }
     }
 
-//     busca todos processos no computador
-     public void getAllProcessName(){
+     public void getIdeCpu() {
         for (Processo processo : processoList) {
-            System.out.println(processo.getNome());
+            for (int i = 0; i < nomesIde.size(); i++) {
+                if (processo.getNome().equals(nomesIde.get(i))) {
+                    processDatas.setUs_ide_cpu(processo.getUsoCpu().floatValue());
+                    valoresCpuIDE.add(processDatas.getUs_ide_cpu());
+                }
+            }
         }
+    }
+
+    public void getIdeRam() {
+        for (Processo processo : processoList) {
+            for (int i = 0; i < nomesIde.size(); i++) {
+                if (processo.getNome().equals(nomesIde.get(i))) {
+                    processDatas.setUs_ide_ram(processo.getUsoMemoria().floatValue());
+                    valoresRamIDE.add(processDatas.getUs_ide_ram());
+                }
+            }
+        }
+    }
+    public void getIdeDisco() {
+        for (Processo processo : processoList) {
+            for (int i = 0; i < nomesIde.size(); i++) {
+                if (processo.getNome().equals(nomesIde.get(i))) {
+                    processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada().floatValue());
+                    valoresDiscoIDE.add(processDatas.getUs_ide_disco());
+                }
+            }
+        }
+    }
+
+    public void showAll() {
+        System.out.println(valoresCpuIDE);
+        System.out.println(valoresDiscoIDE);
+        System.out.println(valoresNomeIDE);
+        System.out.println(valoresRamIDE);
     }
 
     public void insertIntoValues() {

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+    <script defer src="../../js/dash.js"></script>
+    <script defer src="../../funcoes.js"></script>
+    <title>KCODE</title>
+</head>
+
+<body onload="verificar_autenticacao()">
+    <main class="page">
+        <div class="menu">
+            <div class="container">
+              <div class="navigation">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+                      </span>
+                      <span class="title">Home</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="perfildev.html">
+                      <span class="icon">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                      </span>
+                      <span class="title">Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tutorial.html">
+                      <span class="icon">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                      </span>
+                      <span class="title">Tutorial</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                        </i>
+                      </span>
+                      <span class="title">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="icon">
+                        <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                      </span>
+                      <span class="title">Sign Out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="toggle"></div>
+            </div>
+          </div>
+        <!-- menu end-->
+        <header>
+            <div class="box-recepction">
+                <div class="recection-welcome">
+                    <h1>Bem vindo, <b id="b_usuario"></b> </h1>
+                    <br>
+                    <p>Veja aqui os gráficos:</p>
+                </div>
+                <div class="logo-recepction">
+                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+
+                </div>
+            </div>
+        </header>
+        <div class="ides-container">
+            <div class="container-ides">
+                <div class="separa-graficos">
+                    <img src="../../img/eclipse.png" alt="" id="img-grafic">
+                    <div id="grafico_1" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/intellj.png" alt="" id="img-grafic">
+                    <div id="grafico_2" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/visualstudio.png" alt="" id="img-grafic">
+                    <div id="grafico_3" class="graficos-1">
+                    </div>
+                </div>
+                <div class="separa-graficos">
+                    <img src="../../img/netbeans.png" alt="" id="img-grafic">
+                    <div id="grafico_4" class="graficos-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-ajuda">
+
+
+            <div class="ajuda">
+
+                <button id="btn-ajuda">
+                    <h1>Ajuda!</h1>
+
+
+
+                </button>
+
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<script>
+
+    window.onload = obterDadosGraficoPrimeiraVez(1);
+
+    function obterDadosGraficoPrimeiraVez(idcaminhao) {
+
+        fetch(`/leituras/ultimas/${idcaminhao}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(`Dados recebidos: ${resposta}`);
+                    var testando = JSON.stringify(resposta)
+                    var arroz = testando.split("").filter(n => (Number(n) || n == 0 || n == ".")).join("");
+                    // var arroz = /^[\d,.?!]+$/.replace(testando);
+                    console.log(arroz)
+                    // var resultado = arroz.substr(0, 1) + "." + arroz.substr(1);
+                    // console.log("aa" + resultado)
+                    var number1 = parseFloat(arroz)
+                    grafico_1.style.width = `${number1.toFixed(2)}%`
+                    grafico_1.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_2.style.width = `${number1.toFixed(2)}%`
+                    grafico_2.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_3.style.width = `${number1.toFixed(2)}%`
+                    grafico_3.innerHTML = `${number1.toFixed(2)}%`
+                    grafico_4.style.width = `${number1.toFixed(2)}%`
+                    grafico_4.innerHTML = `${number1.toFixed(2)}%`
+                    resposta.reverse();
+                    obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idcaminhao), 5000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+</script>

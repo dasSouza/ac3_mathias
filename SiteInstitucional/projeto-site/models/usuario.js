@@ -7,49 +7,49 @@ https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 // tabela usuario
 module.exports = (sequelize, DataTypes) => {
     let Usuario = sequelize.define('Usuario',{
-		id: {
-			field: 'id',
+		id_cpf: {
+			field: 'id_cpf',
 			type: DataTypes.INTEGER,
 			primaryKey: true,
-			autoIncrement: true
+			autoIncrement: false
 		},
-		nome: {
-			field: 'nome',
+		us_nome_funcionario: {
+			field: 'us_nome_funcionario',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		login: {
-			field: 'login',
+		us_cargo: {
+			field: 'us_cargo',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		senha: {
-			field: 'senha',
+		us_login: {
+			field: 'us_login',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		email: { 
-			field: 'email',
+		us_senha: { 
+			field: 'us_senha',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		administrador: {
-			field: 'administrador',
+		us_is_adm: { 
+			field: 'us_is_adm',
 			type: DataTypes.TINYINT,
 			allowNull: false
 		},
-		fkEmpresa: {
-			field: 'fkEmpresa',
+		fk_id_empresa: {
+			field: 'fk_id_empresa',
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
-				model: 'empresa',
-				key: 'idEmpresa'
+				model: 'tb_empresa',
+				key: 'id_comp'
 			}
 		},
 	}, 
 	{
-		tableName: 'Usuario', 
+		tableName: 'tb_us_dados', 
 		freezeTableName: true, 
 		underscored: true,
 		timestamps: false,
@@ -57,56 +57,3 @@ module.exports = (sequelize, DataTypes) => {
 
     return Usuario;
 };
-
-// tabela rota
-// module.exports = (sequelize, DataTypes) => {
-//     let Rota = sequelize.define('Rota',{
-// 		idRota: {
-// 			field: 'idRota',
-// 			type: DataTypes.INTEGER,
-// 			primaryKey: true,
-// 			autoIncrement: true
-// 		},
-// 		inicio: {
-// 			field: 'inicio',
-// 			type: DataTypes.DATE,
-// 			allowNull: false
-// 		},
-// 		fim: {
-// 			field: 'fim',
-// 			type: DataTypes.DATE,
-// 			allowNull: false
-// 		},
-// 		fkCaixa: {
-// 			field: 'fkCaixa',
-// 			type: DataTypes.INTEGER,
-// 			allowNull: false,
-// 			references: {
-// 				model: 'caixa',
-// 				key: 'idCaixa'
-// 			}
-// 		},
-// 		fkOrgao: {
-// 			field: 'fkOrgao',
-// 			type: DataTypes.INTEGER,
-// 			allowNull: false,
-// 			references: {
-// 				model: 'Orgao',
-// 				key: 'idOrgao'
-// 			}
-// 		},
-// 		nomeTransportador: {
-// 			field: 'nomeTransportador',
-// 			type: DataTypes.STRING,
-// 			allowNull: false
-// 		},
-// 	}, 
-// 	{
-// 		tableName: 'Rota', 
-// 		freezeTableName: true, 
-// 		underscored: true,
-// 		timestamps: false,
-// 	});
-
-//     return Rota;
-// };
