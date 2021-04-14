@@ -127,30 +127,23 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGroup(cardLoginLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmail)
+                            .addComponent(lblSenha)
                             .addGroup(cardLoginLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblEmail)))
+                                .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(cardLoginLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardLoginLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblSenha))))
+                        .addGap(68, 68, 68)
+                        .addComponent(lblTitleLogin))
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(cardLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cardLoginLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(cardLoginLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(lblTitleLogin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cardLoginLayout.setVerticalGroup(
             cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,9 +160,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         txtEmail.getAccessibleContext().setAccessibleName("");
@@ -260,13 +253,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
 
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
+        String teste = "1";
 
         if (pegandoUser.isEmpty()) {
 
@@ -275,10 +269,33 @@ public class TelaLogin extends javax.swing.JFrame {
             txtSenha.setText("Senha123");
         } else {
             if (pegandoUser.size() == 1) {
+
                 for (Iterator<TbUsDados> it = pegandoUser.iterator(); it.hasNext();) {
+
                     TbUsDados tbUsDados = it.next();
+
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
-                        lblValida.setText("manda pro site ");
+
+                        if (tbUsDados.getUs_is_adm().equals(teste)) {
+                            try {
+                                // adm entra aqui
+                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
+                                Desktop.getDesktop().browse(link);
+
+                            } catch (Exception erro) {
+                                System.out.println(erro);
+                            }
+                        } else {
+
+                            try {
+                                // normal entra aqui
+                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
+                                Desktop.getDesktop().browse(link);
+                            } catch (Exception erro) {
+                                System.out.println(erro);
+                            }
+                        }
+
                     }
                 }
 
