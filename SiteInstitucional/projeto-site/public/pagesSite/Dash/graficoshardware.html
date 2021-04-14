@@ -111,7 +111,7 @@
             <div class="label-grafico">CPU</div>
           </div>
           <div class="box-graficos">
-              <img src="../../img/relogio.svg" alt="relôgio" style="height: 187px;">
+            <img src="../../img/relogio.svg" alt="relôgio" style="height: 187px;">
             <br>
             <div class="label-grafico">21H 00M</div>
           </div>
@@ -150,34 +150,97 @@
 
 </html>
 
+
+<!-- script cria grafico -->
 <script>
 
-// grafico disco
-  var discoGrafico = new ldBar("#graficoDisco");
-  var discoGrafico2 = document.getElementById('graficoDisco').ldBar;
-  var valorDisco = 90;
-  discoGrafico.set(valorDisco)
+  let valorTempo
+  let valorDisco;
+  let valorRam;
+  let valorCPU;
+  // let valorTempo;
 
-// grafico ram
-  var ramGrafico = new ldBar("#graficoRam");
-  var ramGrafico2 = document.getElementById('graficoRam').ldBar;
-  var valorRam = 20;
-  ramGrafico.set(valorRam)
+  window.onload = obterDadosGraficoPrimeiraVez(1);
 
-  // grafico cpu
-  var cpuGrafico = new ldBar("#graficoCPU");
-  var cpuGrafico2 = document.getElementById('graficoCPU').ldBar;
-  var valorCPU = 32;
-  cpuGrafico.set(valorCPU)
+  function obterDadosGraficoPrimeiraVez(idprocessos) {
 
-  // grafico tempo
-  var tempoGrafico = new ldBar("#graficoTempo");
-  var tempoGrafico2 = document.getElementById('graficoTempo').ldBar;
-  var valorTempo = 32;
-  tempoGrafico.set(valorTempo)
+    fetch(`/leituras/ultimas/${idprocessos}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+
+
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          console.log(`Dados recebidos: ${resposta}`);
+          var resultado = [];
+
+          function percorrer(obj) {
+            for (var propriedade in obj) {
+              if (obj.hasOwnProperty(propriedade)) {
+                if (typeof obj[propriedade] == "object") {
+                  percorrer(obj[propriedade]);
+                } else {
+                  resultado.push(obj[propriedade]);
+                }
+              }
+            }
+          }
+
+          percorrer(resposta);
+          console.log(JSON.stringify(resultado));
+
+          // ram cpu disco = 5 6 7 
+          // var nomeIDE = resultado[3]
+          valorTempo = resultado[0]
+          valorRam = resultado[1]
+          valorCPU = resultado[2]
+          valorDisco = resultado[3]
+
+          console.log("ram " + valorRam)
+          console.log("cpu " + valorCPU)
+          console.log("disco " + valorDisco)
+
+          // grafico disco
+          var discoGrafico = new ldBar("#graficoDisco");
+          var discoGrafico2 = document.getElementById('graficoDisco').ldBar;
+          discoGrafico.set(valorDisco)
+
+          // grafico ram
+          var ramGrafico = new ldBar("#graficoRam");
+          var ramGrafico2 = document.getElementById('graficoRam').ldBar;
+          ramGrafico.set(valorRam)
+
+          // grafico cpu
+          var cpuGrafico = new ldBar("#graficoCPU");
+          var cpuGrafico2 = document.getElementById('graficoCPU').ldBar;
+          cpuGrafico.set(valorCPU)
+
+          // grafico tempo
+          var tempoGrafico = new ldBar("#graficoTempo");
+          var tempoGrafico2 = document.getElementById('graficoTempo').ldBar;
+          valorTempo = 32;
+          tempoGrafico.set(valorTempo)
+
+          resposta.reverse();
+          obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idprocessos), 5000);
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+  }
+
+  console.log("ram2 " + valorRam)
+  console.log("cpu2 " + valorCPU)
+  console.log("disco2 " + valorDisco)
+
 
 </script>
 
+<!-- estilo do grafico -->
 <style>
   .label-center path.mainline {
     stroke-width: 10;
@@ -192,6 +255,7 @@
   }
 </style>
 
+<!-- estilo da label central -->
 <style type="text/css">
   .ldBar-label {
     color: #514E4D;
