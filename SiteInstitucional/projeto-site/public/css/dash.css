@@ -610,6 +610,20 @@ hr {
     width: 20%;
 }
 
+.box-graficos {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.label-grafico {
+    color: #514E4D;
+    font-size: 30px;
+}
+
 .status {
     height: 100%;
     width: 10%;
@@ -784,3 +798,4 @@ hr {
     outline: none;
     margin-left: 15%;
 }
+

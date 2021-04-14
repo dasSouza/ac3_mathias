@@ -10,7 +10,13 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
-  <script defer src="../../funcoes.js"></script>
+  <!-- <script defer src="../../funcoes.js"></script> -->
+
+  <!-- links api -->
+  <link rel="stylesheet" href="../../css/loading-bar.css">
+  <link rel="stylesheet" href="../../css/loading-bar.min.css">
+  <script src="../../js/loading-bar.js"></script>
+  <script src="../../js/loading-bar.min.js"></script>
   <title>KCODE</title>
 </head>
 
@@ -84,9 +90,32 @@
     <section class="section-graficos">
       <div class="container-graficos">
 
-        <div class="graficos"></div>
-        <div class="graficos"></div>
-        <div class="graficos"></div>
+        <div class="graficos">
+          <div class="box-graficos">
+
+            <div id="graficoDisco" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <br>
+            <div class="label-grafico">DISCO</div>
+
+          </div>
+          <div class="box-graficos">
+            <div id="graficoRam" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <br>
+            <div class="label-grafico">RAM</div>
+          </div>
+        </div>
+        <div class="graficos">
+          <div class="box-graficos">
+            <div id="graficoCPU" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <br>
+            <div class="label-grafico">CPU</div>
+          </div>
+          <div class="box-graficos">
+              <img src="../../img/relogio.svg" alt="relôgio" style="height: 187px;">
+            <br>
+            <div class="label-grafico">21H 00M</div>
+          </div>
+        </div>
         <div class="status"></div>
         <div class="logo-ide">
 
@@ -109,10 +138,65 @@
         </button>
 
       </div>
+
     </div>
+
     </div>
+
     </div>
+
   </main>
 </body>
 
 </html>
+
+<script>
+
+// grafico disco
+  var discoGrafico = new ldBar("#graficoDisco");
+  var discoGrafico2 = document.getElementById('graficoDisco').ldBar;
+  var valorDisco = 90;
+  discoGrafico.set(valorDisco)
+
+// grafico ram
+  var ramGrafico = new ldBar("#graficoRam");
+  var ramGrafico2 = document.getElementById('graficoRam').ldBar;
+  var valorRam = 20;
+  ramGrafico.set(valorRam)
+
+  // grafico cpu
+  var cpuGrafico = new ldBar("#graficoCPU");
+  var cpuGrafico2 = document.getElementById('graficoCPU').ldBar;
+  var valorCPU = 32;
+  cpuGrafico.set(valorCPU)
+
+  // grafico tempo
+  var tempoGrafico = new ldBar("#graficoTempo");
+  var tempoGrafico2 = document.getElementById('graficoTempo').ldBar;
+  var valorTempo = 32;
+  tempoGrafico.set(valorTempo)
+
+</script>
+
+<style>
+  .label-center path.mainline {
+    stroke-width: 10;
+    stroke: #6E9692;
+    /* stroke-linecap: round; */
+  }
+
+  .label-center path.baseline {
+    stroke-width: 9;
+    stroke: #A3C6C1;
+    /* stroke-linecap: round; */
+  }
+</style>
+
+<style type="text/css">
+  .ldBar-label {
+    color: #514E4D;
+    font-family: 'Bebas Neue';
+    font-size: 2.5em;
+    font-weight: 900;
+  }
+</style>
