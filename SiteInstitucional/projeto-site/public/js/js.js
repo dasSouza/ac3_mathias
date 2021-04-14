@@ -129,6 +129,28 @@ function finalizar_aguardar(resposta) {
     div_erro.innerHTML = resposta;
 }
 
+// Função validar cpf, recebe a string (strCPF) e retorna true or false.
+function TestaCPF(strCPF) {
+    var Soma;
+    var Resto;
+    Soma = 0;
+    if (strCPF == "00000000000") return false;
+
+    for (i = 1; i <= 9; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(9, 10))) return false;
+
+    Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+
+    if ((Resto == 10) || (Resto == 11)) Resto = 0;
+    if (Resto != parseInt(strCPF.substring(10, 11))) return false;
+    return true;
+}
+
 //FUNÇÃO CADASTRO
 function cadastrar() {
     // aguardar();
@@ -140,10 +162,18 @@ function cadastrar() {
 
         var regraValida = document.getElementById("Cpf").value;
         var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;
+        var strCPF = regraValida.split("").filter(n => (Number(n) || n == 0)).join("");
+        console.log(strCPF)
 
-        if (cpfValido.test(regraValida) == true) {
+        if (TestaCPF(strCPF) == false) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Por favor informe um CPF válido.',
+                background: '#CEE4D9',
+                confirmButtonColor: '#A3C6C1'
+            })
+        } else if (cpfValido.test(regraValida) == true) {
 
-            console.log("CPF Válido");
             console.log(regraValida);
 
             if (response.ok) {
@@ -172,20 +202,7 @@ function cadastrar() {
                 });
                 // finalizar_aguardar();
             }
-
-        } else {
-
-            console.log("CPF Inválido");
-            console.log(regraValida);
-
-            Swal.fire({
-                icon: 'error',
-                title: 'Por favor informe um CPF válido.',
-                background: '#CEE4D9',
-                confirmButtonColor: '#A3C6C1'
-            })
-        }
-
+        } 
     });
 
     return false;

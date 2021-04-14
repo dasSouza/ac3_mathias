@@ -15,9 +15,9 @@ public class ProcessIDE {
     List<Processo> processoList = looca.getGrupoDeProcessos().getProcessos();
     List<String> nomesIde = new ArrayList<>();
     List<String> valoresNomeIDE = new ArrayList<>();
-    List<Float> valoresRamIDE = new ArrayList<>();
+    List<Double> valoresRamIDE = new ArrayList<Double>();
     List<Float> valoresCpuIDE = new ArrayList<>();
-    List<Float> valoresDiscoIDE = new ArrayList<>();
+    List<Long> valoresDiscoIDE = new ArrayList<Long>();
 
     public void putAllNameIde(){
         nomesIde.add("Code");
@@ -60,7 +60,7 @@ public class ProcessIDE {
         for (Processo processo : processoList) {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
-                    processDatas.setUs_ide_ram(processo.getUsoMemoria().floatValue());
+                    processDatas.setUs_ide_ram(processo.getUsoMemoria());
                     valoresRamIDE.add(processDatas.getUs_ide_ram());
                 }
             }
@@ -70,7 +70,7 @@ public class ProcessIDE {
         for (Processo processo : processoList) {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
-                    processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada().floatValue());
+                    processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada().longValue());
                     valoresDiscoIDE.add(processDatas.getUs_ide_disco());
                 }
             }

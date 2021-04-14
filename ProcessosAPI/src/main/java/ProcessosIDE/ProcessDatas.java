@@ -7,8 +7,8 @@ public class ProcessDatas {
     private Date us_dt_end;
     private String us_ide_nome_processo;
     private Float us_ide_cpu;
-    private Float us_ide_disco;
-    private Float us_ide_ram;
+    private long us_ide_disco;
+    private Double us_ide_ram;
 
     public Date getUs_dt_hr_processo() {
         return us_dt_hr_processo;
@@ -50,19 +50,19 @@ public class ProcessDatas {
         this.us_ide_cpu = us_ide_cpu;
     }
 
-    public Float getUs_ide_disco() {
+    public long getUs_ide_disco() {
         return us_ide_disco;
     }
 
-    public void setUs_ide_disco(Float us_ide_disco) {
+    public void setUs_ide_disco(long us_ide_disco) {
         this.us_ide_disco = us_ide_disco;
     }
 
-    public Float getUs_ide_ram() {
+    public Double getUs_ide_ram() {
         return us_ide_ram;
     }
 
-    public void setUs_ide_ram(Float us_ide_ram) {
+    public void setUs_ide_ram(Double us_ide_ram) {
         this.us_ide_ram = us_ide_ram;
     }
 
