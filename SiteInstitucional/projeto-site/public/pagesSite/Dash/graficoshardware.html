@@ -10,12 +10,10 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
-  <!-- <script defer src="../../funcoes.js"></script> -->
 
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
-  <!-- <script src="/scripts/moment.js"></script> -->
-  <!-- <script src="/scripts/moment-precise-range.js"></script> -->
-  require('moment-precise-range-plugin');
+
+
   <!-- links api -->
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
@@ -117,7 +115,7 @@
           <div class="box-graficos">
             <img src="../../img/relogio.svg" alt="relôgio" style="height: 187px;">
             <br>
-            <div class="label-grafico">21H 00M</div>
+            <div id="grafico_tempo_us" class="label-grafico">21H 00M</div>
           </div>
         </div>
         <div class="status">
@@ -239,7 +237,65 @@
           var tempoFim = valorFim[0] + " " + valorFim[1]
           tempoFim = tempoFim.slice(0, -5)
 
-          moment
+          console.log(tempoInicio)
+          console.log(tempoFim)
+
+          var us_data_inicio = valorInicio[0];
+          us_data_inicio = us_data_inicio.split("-").join('');
+
+          var us_data_fim = valorFim[0];
+          us_data_fim = us_data_fim.split("-").join('');
+
+          var us_hr_inicio = valorInicio[1];
+          us_hr_inicio = us_hr_inicio.slice(0, -3);
+
+          var us_hr_fim = valorFim[1];
+          us_hr_fim = us_hr_fim.slice(0, -3);
+
+          var dias_uso = us_data_fim - us_data_inicio;
+          var hr_uso = us_hr_fim - us_hr_inicio;
+
+          function isHoraInicialMenorHoraFinal(horaInicial, horaFinal) {
+            horaIni = horaInicial; horaFim = horaFinal;
+
+            // Verifica as horas. Se forem diferentes, é só ver se a inicial 
+            // é menor que a final. 
+            hIni = parseInt(horaIni[0], 10);
+            hFim = parseInt(horaFim[0], 10);
+            if (hIni != hFim)
+              return hIni < hFim;
+
+            // Se as horas são iguais, verifica os minutos então. 
+            mIni = parseInt(horaIni[1], 10);
+            mFim = parseInt(horaFim[1], 10);
+            if (mIni != mFim)
+              return mIni < mFim;
+          }
+          function diferencaHoras(horaInicial, horaFinal) {
+            if (!isHoraInicialMenorHoraFinal(horaInicial, horaFinal)) {
+              aux = horaFinal;
+              horaFinal = horaInicial;
+              horaInicial = aux;
+            }
+            hIni = horaInicial.split(":");
+            hFim = horaFinal.split(":");
+            horasTotal = parseInt(hFim[0], 10) - parseInt(hIni[0], 10);
+            minutosTotal = parseInt(hFim[1], 10) - parseInt(hIni[1], 10);
+            if (minutosTotal < 0) {
+              minutosTotal += 60; horasTotal -= 1;
+            }
+            horaFinal = dias_uso + "D " + (horasTotal) + "h" + ":" + (minutosTotal) + "m";
+            grafico_tempo_us.innerHTML = horaFinal
+            return horaFinal;
+          }
+
+          console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
+          console.log(dias_uso)
+          console.log(us_data_inicio)
+          console.log(us_data_fim)
+          console.log(us_hr_inicio)
+          console.log(us_hr_fim)
+
 
           // var tempoUso = moment(tempoInicio).preciseDiff(tempoFim);
           var tempoUso = moment.preciseDiff("tempoInicio", "tempoFim");
