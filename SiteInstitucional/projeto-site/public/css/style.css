@@ -461,8 +461,8 @@ hr {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 70vw;
-  height: 70vh;
+  width: 50vw;
+  height: 50vh;
   background-color: beige;
 }
 
@@ -475,11 +475,10 @@ hr {
 .alinhando-texto{
   position: relative;
   width: 100%;
-  height: 5%;  
+  height: 8%;  
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3em;
   color: #B73447;
   opacity: 0;
   animation: nosso-timeMove 0s 1.1s both;
@@ -492,7 +491,7 @@ hr {
 
   .text-alinhado b {
 
-     font-size: 25px;
+     font-size: 2.5vh;
   }
 
 .text-alinhado:after {
@@ -519,18 +518,17 @@ hr {
 
 .box-all-names li {
   list-style: none;
-  font-size: 3vmin;
+  font-size: 3vh;
   margin-bottom: 1em;
 }
 
 .box-names {
-  border-right: 2px solid white;
+  /* border-right: 2px solid white; */
   text-decoration: none;
   height: 33%;
   white-space: nowrap;
   overflow: hidden;
-  animation: cursorPiscando 1s steps(40) infinite normal,
-  escrevendo 4s steps(40) 1s normal both;
+  animation: escrevendo 2s steps(40) 1s normal both;
   cursor: pointer;
 }
 
@@ -543,23 +541,23 @@ hr {
   }
 }
 
-@keyframes cursorPiscando{
+/* @keyframes cursorPiscando{
   from {
     border-right-color: rgba(255, 255, 255, 0.753);     
   }
   to {
     border-right-color: transparent;
   }
-}
+} */
 
 #box-names-left{
-  left: 0;
+  left: 5%;
   position: absolute;
 }
 
 #box-names-right {
   position: absolute;
-  right: 0;
+  right: 5%;
 }
 
 @keyframes blocoDesaparecer{
