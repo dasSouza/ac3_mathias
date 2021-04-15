@@ -14,6 +14,7 @@ router.get('/ultimas/:idprocessos', function (req, res, next) {
 	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 
 	const instrucaoSql = `select top ${limite_linhas} 
+						us_dt_hr_start_IDE,
 						us_dt_hr_end_IDE,
 						us_ide_ram,
 						us_ide_cpu,

@@ -12,6 +12,10 @@
   <script defer src="../../js/dash.js"></script>
   <!-- <script defer src="../../funcoes.js"></script> -->
 
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+  <!-- <script src="/scripts/moment.js"></script> -->
+  <!-- <script src="/scripts/moment-precise-range.js"></script> -->
+  require('moment-precise-range-plugin');
   <!-- links api -->
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
@@ -154,10 +158,14 @@
 <!-- script cria grafico -->
 <script>
 
+  // import 'moment-precise-range-plugin';
+
   let valorTempo
   let valorDisco;
   let valorRam;
   let valorCPU;
+  let inicioIDE;
+  let fimIDE;
   // let valorTempo;
 
   window.onload = obterDadosGraficoPrimeiraVez(1);
@@ -188,13 +196,50 @@
           percorrer(resposta);
           console.log(JSON.stringify(resultado));
 
+
           // ram cpu disco = 5 6 7 
           // var nomeIDE = resultado[3]
-          valorTempo = resultado[0]
-          valorRam = resultado[1]
-          valorCPU = resultado[2]
-          valorDisco = resultado[3]
+          let inicioIDE = resultado[0]
+          let fimIDE = resultado[1]
+          valorRam = resultado[2]
+          valorCPU = resultado[3]
+          valorDisco = resultado[4]
 
+          valorInicio = inicioIDE.split("T")
+          valorFim = fimIDE.split("T")
+
+          // var dtChegada = "20/06/2017 16:40:00";
+          // var dtPartida = "20/06/2017 11:20:00";
+
+
+          var dtChegada = "20/06/2017 16:40:00";
+          var dtPartida = "20/06/2017 11:20:00";
+
+          var ms = moment(dtChegada, "DD/MM/YYYY HH:mm:ss").diff(moment(dtPartida, "DD/MM/YYYY HH:mm:ss"));
+          var d = moment.duration(ms);
+          var s = Math.floor(d.asHours()) + "h" + moment.utc(ms).format(" mm") + "m";
+
+          console.log(s);
+
+
+          var tempoInicio = valorInicio[0] + " " + valorInicio[1]
+          tempoInicio = tempoInicio.slice(0, -5)
+
+          var tempoFim = valorFim[0] + " " + valorFim[1]
+          tempoFim = tempoFim.slice(0, -5)
+
+          moment
+
+          // var tempoUso = moment(tempoInicio).preciseDiff(tempoFim);
+          var tempoUso = moment.preciseDiff("tempoInicio", "tempoFim");
+          // var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+
+          // console.log(d);
+
+          console.log("teste " + tempoUso)
+
+          console.log("inicio " + valorInicio)
+          console.log("fim " + valorFim)
           console.log("ram " + valorRam)
           console.log("cpu " + valorCPU)
           console.log("disco " + valorDisco)
