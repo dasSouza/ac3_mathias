@@ -11,10 +11,7 @@
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
 
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
-
-
-  <!-- links api -->
+    <!-- links api -->
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -167,7 +164,6 @@
 <!-- script cria grafico -->
 <script>
 
-  // import 'moment-precise-range-plugin';
 
   let valorTempo
   let valorDisco;
@@ -175,7 +171,6 @@
   let valorCPU;
   let inicioIDE;
   let fimIDE;
-  // let valorTempo;
 
   window.onload = obterDadosGraficoPrimeiraVez(1);
 
@@ -206,8 +201,6 @@
           console.log(JSON.stringify(resultado));
 
 
-          // ram cpu disco = 5 6 7 
-          // var nomeIDE = resultado[3]
           let inicioIDE = resultado[0]
           let fimIDE = resultado[1]
           valorRam = resultado[2]
@@ -216,10 +209,6 @@
 
           valorInicio = inicioIDE.split("T")
           valorFim = fimIDE.split("T")
-
-          // var dtChegada = "20/06/2017 16:40:00";
-          // var dtPartida = "20/06/2017 11:20:00";
-
 
           var dtChegada = "20/06/2017 16:40:00";
           var dtPartida = "20/06/2017 11:20:00";
@@ -271,6 +260,8 @@
             if (mIni != mFim)
               return mIni < mFim;
           }
+
+          //Função utilizada para calculo de uso em horas já com resultado do calculo de dias.
           function diferencaHoras(horaInicial, horaFinal) {
             if (!isHoraInicialMenorHoraFinal(horaInicial, horaFinal)) {
               aux = horaFinal;
@@ -296,12 +287,6 @@
           console.log(us_hr_inicio)
           console.log(us_hr_fim)
 
-
-          // var tempoUso = moment(tempoInicio).preciseDiff(tempoFim);
-          var tempoUso = moment.preciseDiff("tempoInicio", "tempoFim");
-          // var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
-
-          // console.log(d);
 
           console.log("teste " + tempoUso)
 
