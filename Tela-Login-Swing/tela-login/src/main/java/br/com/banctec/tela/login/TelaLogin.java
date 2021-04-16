@@ -260,7 +260,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
-        String teste = "1";
+        String isAdmin = "1";
 
         if (pegandoUser.isEmpty()) {
 
@@ -276,7 +276,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
-                        if (tbUsDados.getUs_is_adm().equals(teste)) {
+                        if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
                             try {
                                 // adm entra aqui
                                 URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
