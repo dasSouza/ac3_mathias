@@ -293,7 +293,7 @@ input:checked ~ ul {
   justify-content: center;
   flex-direction: row;
   padding-left: 2vmax;
-  font-size: 1.5vmax;
+  font-size: 1.3vw;
   color: #514E4D;
 }
 
@@ -677,7 +677,7 @@ hr {
 .content-limitacao .card-find {
   position: relative;
   width: 600px;
-  height: 350px;
+  height: 43vh;
   margin: 20px;
   display: flex;
   transition: 0.5s;
@@ -689,7 +689,7 @@ hr {
 
 .content-limitacao img {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 30%;
   transform: translateX(-50%);
   height: 250px;
@@ -697,14 +697,20 @@ hr {
 }
 
 .content-limitacao .card-find:hover img {
-  left: 80%;
-  height: 280px;
+  bottom: 10%;
+  left: 75%;
+  width: 55%;
+  height: 55%;
 }
 
 .content-limitacao .card-find .content-find {
   position: relative;
+  height: 100%;
   width: 50%;
   left: 20%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
   padding: 20px 20px 20px 40px;
   opacity: 0;
   visibility: hidden;
@@ -716,6 +722,11 @@ hr {
   visibility: visible;
 }
 
+.content-limitacao img {
+  width: 50%;
+  height: 50%;
+}
+
 .content-limitacao .card-find .content-find h2 {
   color: #514E4Dff;
   text-transform: uppercase;
@@ -724,8 +735,10 @@ hr {
 }
 
 .content-limitacao .card-find .content-find p {
+  margin: 2% 0;
+  height: auto;
   color: #514E4D;
-  font-size: 10px;
+  font-size: 1.3vh;
 }
 
 .content-limitacao .card-find .content-find a {
