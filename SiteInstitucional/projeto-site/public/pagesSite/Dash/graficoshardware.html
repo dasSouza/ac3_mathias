@@ -13,7 +13,7 @@
   <!-- <script defer src="../../funcoes.js"></script> -->
 
 
-    <!-- links api -->
+  <!-- links api -->
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -100,14 +100,16 @@
 
           </div>
           <div class="box-graficos">
-            <div id="graficoRam" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <div id="graficoRam" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1"
+              data-preset="circle"> </div>
             <br>
             <div class="label-grafico">RAM</div>
           </div>
         </div>
         <div class="graficos">
           <div class="box-graficos">
-            <div id="graficoCPU" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <div id="graficoCPU" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1"
+              data-preset="circle"> </div>
             <br>
             <div class="label-grafico">CPU</div>
           </div>
@@ -166,7 +168,6 @@
 <!-- script cria grafico -->
 <script>
 
-
   let valorTempo
   let valorDisco;
   let valorRam;
@@ -175,13 +176,21 @@
   let fimIDE;
 
   window.onload = obterDadosGraficoPrimeiraVez(1);
+  window.onload = carregarGrafico();
+
+  function carregarGrafico() {
+    setInterval(
+      function myFunction() {
+        obterDadosGraficoPrimeiraVez(1)
+      }, 5000)
+
+  };
 
   function obterDadosGraficoPrimeiraVez(idprocessos) {
 
     fetch(`/leituras/ultimas/${idprocessos}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-
 
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           console.log(`Dados recebidos: ${resposta}`);
@@ -202,7 +211,6 @@
           percorrer(resposta);
           console.log(JSON.stringify(resultado));
 
-
           let inicioIDE = resultado[0]
           let fimIDE = resultado[1]
           valorRam = resultado[2]
@@ -211,16 +219,6 @@
 
           valorInicio = inicioIDE.split("T")
           valorFim = fimIDE.split("T")
-
-          var dtChegada = "20/06/2017 16:40:00";
-          var dtPartida = "20/06/2017 11:20:00";
-
-          var ms = moment(dtChegada, "DD/MM/YYYY HH:mm:ss").diff(moment(dtPartida, "DD/MM/YYYY HH:mm:ss"));
-          var d = moment.duration(ms);
-          var s = Math.floor(d.asHours()) + "h" + moment.utc(ms).format(" mm") + "m";
-
-          console.log(s);
-
 
           var tempoInicio = valorInicio[0] + " " + valorInicio[1]
           tempoInicio = tempoInicio.slice(0, -5)
@@ -282,21 +280,21 @@
             return horaFinal;
           }
 
-          console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
-          console.log(dias_uso)
-          console.log(us_data_inicio)
-          console.log(us_data_fim)
-          console.log(us_hr_inicio)
-          console.log(us_hr_fim)
+          // console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
+          // console.log(dias_uso)
+          // console.log(us_data_inicio)
+          // console.log(us_data_fim)
+          // console.log(us_hr_inicio)
+          // console.log(us_hr_fim)
 
+          valorDisco = valorDisco / 1024 / 1024 / 1024
 
-          console.log("teste " + tempoUso)
-
-          console.log("inicio " + valorInicio)
-          console.log("fim " + valorFim)
-          console.log("ram " + valorRam)
-          console.log("cpu " + valorCPU)
-          console.log("disco " + valorDisco)
+          // console.log("inicio " + valorInicio)
+          // console.log("fim " + valorFim)
+          // console.log("ram " + valorRam)
+          // console.log("cpu " + valorCPU)
+          // console.log("disco " + valorDisco)
+          console.log("Resultado: " + resultado)
 
           // grafico disco
           var discoGrafico = new ldBar("#graficoDisco");
@@ -306,12 +304,12 @@
           // grafico ram
           var ramGrafico = new ldBar("#graficoRam");
           var ramGrafico2 = document.getElementById('graficoRam').ldBar;
-          ramGrafico.set(valorRam)
+          ramGrafico.set(valorRam.toFixed(2))
 
           // grafico cpu
           var cpuGrafico = new ldBar("#graficoCPU");
           var cpuGrafico2 = document.getElementById('graficoCPU').ldBar;
-          cpuGrafico.set(valorCPU)
+          cpuGrafico.set(valorCPU.toFixed(2))
 
           // grafico tempo
           var tempoGrafico = new ldBar("#graficoTempo");
@@ -320,7 +318,6 @@
           tempoGrafico.set(valorTempo)
 
           resposta.reverse();
-          obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idprocessos), 5000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -344,13 +341,11 @@
   .label-center path.mainline {
     stroke-width: 10;
     stroke: #6E9692;
-    /* stroke-linecap: round; */
   }
 
   .label-center path.baseline {
     stroke-width: 9;
     stroke: #A3C6C1;
-    /* stroke-linecap: round; */
   }
 </style>
 

@@ -131,6 +131,15 @@
 <script>
 
   window.onload = obterDadosGraficoPrimeiraVez(1);
+  window.onload = carregarGrafico();
+
+  function carregarGrafico() {
+    setInterval(
+      function myFunction() {
+        obterDadosGraficoPrimeiraVez(1)
+      }, 5000)
+
+  };
 
   function obterDadosGraficoPrimeiraVez(idprocessos) {
 
@@ -155,7 +164,6 @@
           percorrer(resposta);
           console.log(JSON.stringify(resultado));
 
-          // ram cpu disco = 5 6 7 
           var nomeIDE = resultado[3]
           var ram = resultado[5]
           var cpu = resultado[6]
@@ -164,19 +172,17 @@
           console.log("ram " + ram)
           console.log("cpu " + cpu)
           console.log("disco " + disco)
-          // console.log(arroz)
 
           var number1 = parseFloat(arroz)
-          grafico_1.style.width = `${number1.toFixed(2)}%`
-          grafico_1.innerHTML = `${number1.toFixed(2)}%`
-          grafico_2.style.width = `${number1.toFixed(2)}%`
-          grafico_2.innerHTML = `${number1.toFixed(2)}%`
-          grafico_3.style.width = `${number1.toFixed(2)}%`
-          grafico_3.innerHTML = `${number1.toFixed(2)}%`
-          grafico_4.style.width = `${number1.toFixed(2)}%`
-          grafico_4.innerHTML = `${number1.toFixed(2)}%`
+          grafico_1.style.width = `${ram.toFixed(2)}%`
+          grafico_1.innerHTML = `${ram.toFixed(2)}%`
+          grafico_2.style.width = `${ram.toFixed(2)}%`
+          grafico_2.innerHTML = `${ram.toFixed(2)}%`
+          grafico_3.style.width = `${ram.toFixed(2)}%`
+          grafico_3.innerHTML = `${ram.toFixed(2)}%`
+          grafico_4.style.width = `${ram.toFixed(2)}%`
+          grafico_4.innerHTML = `${ram.toFixed(2)}%`
           resposta.reverse();
-          obterDadosGraficoPrimeiraVez = setTimeout(() => obterDadosGraficoPrimeiraVez(idprocessos), 5000);
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
