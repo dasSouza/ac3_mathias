@@ -116,7 +116,7 @@
           <div class="box-graficos">
             <img src="../../img/relogio.svg" alt="relôgio" style="height: 187px;">
             <br>
-            <div id="grafico_tempo_us" class="label-grafico">21H 00M</div>
+            <div id="grafico_tempo_us" class="label-grafico"></div>
           </div>
         </div>
         <div class="status">
@@ -262,7 +262,7 @@
           }
 
           //Função utilizada para calculo de uso em horas já com resultado do calculo de dias.
-          function diferencaHoras(horaInicial, horaFinal) {
+          function diferencaHoras(horaFinal, horaInicial) {
             if (!isHoraInicialMenorHoraFinal(horaInicial, horaFinal)) {
               aux = horaFinal;
               horaFinal = horaInicial;
@@ -279,6 +279,8 @@
             grafico_tempo_us.innerHTML = horaFinal
             return horaFinal;
           }
+
+          diferencaHoras(us_hr_inicio, us_hr_fim);
 
           // console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
           // console.log(dias_uso)
