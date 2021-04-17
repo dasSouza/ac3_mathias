@@ -70,7 +70,7 @@ public class ProcessIDE {
         for (Processo processo : processoList) {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
-                    processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada().longValue());
+                    processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada());
                     valoresDiscoIDE.add(processDatas.getUs_ide_disco());
                 }
             }
