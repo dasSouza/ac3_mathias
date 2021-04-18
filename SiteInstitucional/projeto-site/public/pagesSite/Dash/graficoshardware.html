@@ -20,7 +20,7 @@
   <title>KCODE</title>
 </head>
 
-<body onload="verificar_autenticacao()">
+<!-- <body onload="verificar_autenticacao()"> -->
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -119,19 +119,24 @@
           </div>
         </div>
         <div class="status">
-          <div class="livre"></div>
-          <div class="legenda">
+          <div class="box-status">
+            <div class="livre"></div>
             <p>Livre</p>
           </div>
-
+          
+          <div class="box-status">
           <div class="uso"></div>
-          <div class="legenda">
             <p>Em uso</p>
           </div>
 
+          <div class="box-status">
+            <div class="tempo"></div>
+              <p>Tempo</p>
+            </div>
+          
         </div>
-        <div class="logo-ide">
-
+        <div class="container-idehardware">
+          <img src="../../img/net.png" alt="" class="ide-graficohardware">
 
         </div>
 
@@ -174,7 +179,7 @@
   let inicioIDE;
   let fimIDE;
 
-  window.onload = verificar_autenticacao()
+  // window.onload = verificar_autenticacao()
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 
