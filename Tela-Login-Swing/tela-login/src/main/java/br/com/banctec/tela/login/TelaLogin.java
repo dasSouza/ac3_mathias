@@ -3,8 +3,14 @@ package br.com.banctec.tela.login;
 import java.awt.Toolkit;
 import java.awt.Desktop;
 import java.net.URI;
-
-
+import org.springframework.jdbc.core.JdbcTemplate;
+import tabelas.TbUsDados;
+import jdbc.Conexao;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import javax.swing.ImageIcon;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 /**
  *
@@ -17,6 +23,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+
     }
 
     /**
@@ -28,38 +35,29 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
-        btnLogo = new javax.swing.JButton();
         txtEmail = new javax.swing.JTextField();
+        lblValida = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         lblTitleLogin = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 102));
-        setIconImage(Toolkit.getDefaultToolkit().getImage("C:/Users/Pinheiro/Desktop/logo-login.png")
-        );
 
         background.setBackground(new java.awt.Color(206, 228, 217));
 
         cardLogin.setBackground(new java.awt.Color(110, 150, 146));
-
-        btnLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pinheiro\\Desktop\\logo-login.png")); // NOI18N
-        btnLogo.setContentAreaFilled(false);
-        btnLogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoActionPerformed(evt);
-            }
-        });
+        cardLogin.setForeground(new java.awt.Color(255, 102, 102));
 
         txtEmail.setBackground(new java.awt.Color(237, 230, 221));
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(81, 78, 77));
-        txtEmail.setText("Informe seu e-mail aqui");
+        txtEmail.setText("Informe seu login aqui");
         txtEmail.setToolTipText("EMAIL");
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -75,6 +73,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        lblValida.setBackground(new java.awt.Color(255, 51, 51));
+        lblValida.setForeground(new java.awt.Color(255, 102, 102));
+        lblValida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         txtSenha.setBackground(new java.awt.Color(237, 230, 221));
         txtSenha.setForeground(new java.awt.Color(81, 78, 77));
         txtSenha.setText("Senha123");
@@ -88,29 +90,29 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(136, 169, 167));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("ENTRAR");
-        jButton1.setBorderPainted(false);
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnEntrar.setBackground(new java.awt.Color(136, 169, 167));
+        btnEntrar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEntrar.setText("ENTRAR");
+        btnEntrar.setBorderPainted(false);
+        btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnEntrarMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
 
         lblTitleLogin.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitleLogin.setForeground(new java.awt.Color(81, 78, 77));
-        lblTitleLogin.setText("FAZER LOGIN");
+        lblTitleLogin.setText("FAÇA O LOGIN");
 
         lblEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(81, 78, 77));
-        lblEmail.setText("E-mail");
+        lblEmail.setText("Login:");
 
         lblSenha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblSenha.setForeground(new java.awt.Color(81, 78, 77));
@@ -121,47 +123,46 @@ public class TelaLogin extends javax.swing.JFrame {
         cardLoginLayout.setHorizontalGroup(
             cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardLoginLayout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(btnLogo)
-                .addContainerGap(85, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblTitleLogin)
-                .addGap(122, 122, 122))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblSenha)
+                .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardLoginLayout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(106, 106, 106))))
-                    .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblEmail)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(49, 49, 49))
+                            .addComponent(lblEmail)
+                            .addComponent(lblSenha)
+                            .addGroup(cardLoginLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(lblTitleLogin))
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardLoginLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         cardLoginLayout.setVerticalGroup(
             cardLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardLoginLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(btnLogo)
-                .addGap(15, 15, 15)
+                .addGap(64, 64, 64)
                 .addComponent(lblTitleLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addComponent(lblEmail)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblSenha)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblValida, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12))
         );
 
         txtEmail.getAccessibleContext().setAccessibleName("");
@@ -170,28 +171,44 @@ public class TelaLogin extends javax.swing.JFrame {
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(297, 297, 297)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                .addContainerGap(201, Short.MAX_VALUE)
                 .addComponent(cardLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(cardLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        jDesktopPane1.setLayer(background, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cardLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -201,63 +218,104 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
-//BOTÃO LOGO
-    private void btnLogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoActionPerformed
-        // TODO add your handling code here:
-        String[] args;
-        try{
-            URI link = new URI("https://www.youtube.com/watch?v=UKp2CrfmVfw");
-            Desktop.getDesktop().browse(link);
-        }catch(Exception erro){
-            System.out.println(erro);
-        }
-    }//GEN-LAST:event_btnLogoActionPerformed
-
 //    PLACEHOLDER CAMPO EMAIL
     private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
         // TODO add your handling code here:
-        if(txtEmail.getText().equals("Informe seu e-mail aqui")){
-		txtEmail.setText("");
-	}
+        if (txtEmail.getText().equals("Informe seu login aqui")) {
+            txtEmail.setText("");
+        }
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
         // TODO add your handling code here:
-        if(txtEmail.getText().equals("")){
-		txtEmail.setText("Informe seu e-mail aqui");
-	}
+        if (txtEmail.getText().equals("")) {
+            txtEmail.setText("Informe seu login aqui");
+        }
     }//GEN-LAST:event_txtEmailFocusLost
 
 //  PLACEHOLDER CAMPO SENHA    
     private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
         // TODO add your handling code here:
-        if(txtSenha.getText().equals("Senha123")){
-		txtSenha.setText("");
-	}
+        if (txtSenha.getText().equals("Senha123")) {
+            txtSenha.setText("");
+        }
     }//GEN-LAST:event_txtSenhaFocusGained
 
     private void txtSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusLost
         // TODO add your handling code here:
-        if(txtSenha.getText().equals("")){
-		txtSenha.setText("Senha123");
-	}
+        if (txtSenha.getText().equals("")) {
+            txtSenha.setText("Senha123");
+        }
     }//GEN-LAST:event_txtSenhaFocusLost
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        txtSenha.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        Conexao con = new Conexao();
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+
+        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+                new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
+
+        System.out.println(pegandoUser);
+
+        String pegandoEmail = txtEmail.getText();
+        String pegandoSenha = txtSenha.getText();
+        String isAdmin = "1";
+
+        if (pegandoUser.isEmpty()) {
+
+            lblValida.setText("Email ou senha incorretos");
+            txtEmail.setText("Informe seu login aqui");
+            txtSenha.setText("Senha123");
+        } else {
+            if (pegandoUser.size() == 1) {
+
+                for (Iterator<TbUsDados> it = pegandoUser.iterator(); it.hasNext();) {
+
+                    TbUsDados tbUsDados = it.next();
+
+                    if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
+
+                        if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
+                            try {
+                                // adm entra aqui
+                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
+                                Desktop.getDesktop().browse(link);
+
+                            } catch (Exception erro) {
+                                System.out.println(erro);
+                            }
+                        } else {
+
+                            try {
+                                // normal entra aqui
+                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
+                                Desktop.getDesktop().browse(link);
+                            } catch (Exception erro) {
+                                System.out.println(erro);
+                            }
+                        }
+
+                    }
+                }
+
+            } else if (pegandoUser.size() > 1) {
+                txtEmail.setText("Informe seu login aqui");
+                txtSenha.setText("Senha123");
+                lblValida.setText("Email ou senha incorretos:\n Login já utilizado!");
+            }
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
         // TODO add your handling code here:
-        txtSenha.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseClicked
-   
+    }//GEN-LAST:event_btnEntrarMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -265,35 +323,32 @@ public class TelaLogin extends javax.swing.JFrame {
                     break;
                 }
             }
+
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new TelaLogin().setVisible(true);
         });
-        
-        PlaceholderTextField txt = new PlaceholderTextField();
-        txt.setPlaceholder("Email:");
-
     }
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
-    private javax.swing.JButton btnLogo;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JPanel cardLogin;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLogin;
+    private javax.swing.JLabel lblValida;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
-
 
 }
