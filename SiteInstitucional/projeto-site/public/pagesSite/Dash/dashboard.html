@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
-  <!-- <script defer src="../../funcoes.js"></script> -->
+  <script defer src="../../funcoes.js"></script>
   <!-- links api -->
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
@@ -75,7 +75,7 @@
     <header>
       <div class="box-recepction">
         <div class="recection-welcome">
-          <h1>Bem vindo, <b id="b_usuario"></b> </h1>
+          <h1>Bem vindo, <b id="b_usuario">a</b> </h1>
           <br>
           <p>Escolha a IDE que gostaria de consultar:</p>
         </div>
@@ -228,7 +228,7 @@
   let valorRamVisialstudio
   let valorRamSublime
 
-
+  window.onload = verificar_autenticacao()
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 

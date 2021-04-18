@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
-  <!-- <script defer src="../../funcoes.js"></script> -->
+  <script defer src="../../funcoes.js"></script>
   <title>KCODE</title>
   <!-- links api -->
   <link rel="stylesheet" href="loading-bar.css">
@@ -130,6 +130,7 @@
 
 <script>
 
+  window.onload = verificar_autenticacao()
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 

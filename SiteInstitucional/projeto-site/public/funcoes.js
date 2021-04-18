@@ -5,7 +5,7 @@ let nome_empresa;
 let cargo_usuario;
 
 function redirecionar_login() {
-    window.location.href = '../Intitucional/login.html';
+    window.location.href = '../Institucional/login.html';
 }
 
 function verificar_autenticacao() {
