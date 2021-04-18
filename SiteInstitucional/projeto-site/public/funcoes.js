@@ -15,18 +15,24 @@ function verificar_autenticacao() {
     nome_empresa = sessionStorage.empresa_usuario_meuapp;
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
 
-    
-    if (login_usuario == undefined)  {
+
+    if (login_usuario == undefined) {
         redirecionar_login();
     } else {
+
+        if (typeof obterDadosGraficoPrimeiraVez === 'function'){
+            obterDadosGraficoPrimeiraVez(1);
+            carregarGrafico();
+        }
+        
         b_usuario.innerHTML = nome_usuario;
         cargo.innerHTML = cargo_usuario;
         id_adm.style.display = "none";
         empresa.innerHTML = nome_empresa;
-        
+
         validar_sessao();
     }
-    
+
 }
 
 function logoff() {
@@ -36,23 +42,23 @@ function logoff() {
 }
 
 function validar_sessao() {
-    fetch(`/usuarios/sessao/${login_usuario}`, {cache:'no-store'})
-    .then(resposta => {
-        if (resposta.ok) {
-            resposta.text().then(texto => {
-                console.log('Sessão :) ', texto);    
-            });
-        } else {
-            console.error('Sessão :.( ');
-            logoff();
-        } 
-    });    
+    fetch(`/usuarios/sessao/${login_usuario}`, { cache: 'no-store' })
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.text().then(texto => {
+                    console.log('Sessão :) ', texto);
+                });
+            } else {
+                console.error('Sessão :.( ');
+                logoff();
+            }
+        });
 }
 
 function finalizar_sessao() {
-    fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
+    fetch(`/usuarios/sair/${login_usuario}`, { cache: 'no-store' });
 }
 
-function telaDashboard(){
-    window.location.href="grafico-chartjs.html"
+function telaDashboard() {
+    window.location.href = "grafico-chartjs.html"
 }
