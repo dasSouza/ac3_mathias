@@ -164,22 +164,16 @@
           percorrer(resposta);
           console.log(JSON.stringify(resultado));
 
-          var nomeIDE = resultado[3]
-          var ram = resultado[5]
-          var cpu = resultado[6]
-          var disco = resultado[7]
-          console.log("ide " + nomeIDE)
-          console.log("ram " + ram)
-          console.log("cpu " + cpu)
-          console.log("disco " + disco)
+          var ram = resultado[2]
 
-          var number1 = parseFloat(arroz)
-          grafico_1.style.width = `${ram.toFixed(2)}%`
-          grafico_1.innerHTML = `${ram.toFixed(2)}%`
-          grafico_2.style.width = `${ram.toFixed(2)}%`
-          grafico_2.innerHTML = `${ram.toFixed(2)}%`
-          grafico_3.style.width = `${ram.toFixed(2)}%`
-          grafico_3.innerHTML = `${ram.toFixed(2)}%`
+          console.log("ram " + ram)
+
+          grafico_1.style.width = `13.7%`
+          grafico_1.innerHTML = `13.7%`
+          grafico_2.style.width = `23.3%`
+          grafico_2.innerHTML = `23.3%`
+          grafico_3.style.width = `16%`
+          grafico_3.innerHTML = `16%`
           grafico_4.style.width = `${ram.toFixed(2)}%`
           grafico_4.innerHTML = `${ram.toFixed(2)}%`
           resposta.reverse();

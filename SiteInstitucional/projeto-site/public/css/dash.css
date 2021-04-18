@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 @media only screen and (max-device-width: 300px) {
     .page {
         width: 100%;
@@ -467,6 +468,8 @@ label #adm {
 }
 
 .box-inputs input {
+    font-family: 'Inter', sans-serif;
+    color: #514E4D;
     width: 90%;
     height: 13%;
     border-radius: 10px;
@@ -476,6 +479,7 @@ label #adm {
 }
 
 .box-inputs input::placeholder {
+    font-family: Bebas Neue;
     text-transform: uppercase;
     color: #514E4D;
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
 *,
 *:before,
@@ -933,13 +934,19 @@ hr {
 }
 
 .inp_login{
-   width: 80%;
+    font-family: 'Inter', sans-serif;
+    color: #514E4D;
+    width: 80%;
     height: 3.5vh;
     padding-left: 1vw;
     margin-bottom: 8%;
     background-color: rgba(255, 255, 255, 0.5);
     border: 0px;
     border-radius: 3px;
+}
+
+.inp_login::placeholder {
+  font-family: Bebas Neue;
 }
 
 .div_itens {
