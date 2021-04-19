@@ -60,7 +60,7 @@ a {
 
 .container .navigation {
     position: relative;
-    top: 26.5vh;
+    top: 11.5vh;
     width: 80px;
     height: 500px;
     background-color: #A3C6C1;
@@ -127,7 +127,7 @@ a {
 
 .toggle {
     position: absolute;
-    top: calc(75.5% + 120px);
+    top: calc(75.5% + -73px);
     right: -25px;
     width: 40px;
     height: 40px;
@@ -175,11 +175,13 @@ a {
 }
 
 .recection-welcome h1 {
+    color: #4D4D4E;
     font-size: 4.2vmax;
     text-transform: uppercase;
 }
 
 .recection-welcome p {
+    color: #4D4D4E;
     text-transform: uppercase;
 }
 
@@ -268,6 +270,10 @@ a {
     justify-content: center;
     flex-direction: column;
     animation: box 1s 0.3s both;
+}
+
+.idesLogo b {
+    color: #4D4D4E;
 }
 
 @keyframes box {

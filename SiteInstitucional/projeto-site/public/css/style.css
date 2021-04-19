@@ -908,6 +908,8 @@ hr {
 }   
 
 #btn_login{
+  width: 29%;
+    height: 24%;
   background-color: #ffffff73;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
