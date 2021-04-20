@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../css/dash.css">
     <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
     <script defer src="../../js/dash.js"></script>
@@ -14,223 +15,221 @@
 </head>
 
 <body onload="verificar_autenticacao()">
-    <main class="page">
-        <div class="menu">
-            <div class="container">
-                <div class="navigation">
-                    <ul>
-                        <li>
-                            <a href="dashboard.html">
-                                <span class="icon">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                </span>
-                                <span class="title">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
-                                </span>
-                                <span class="title">Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tutorial.html">
-                                <span class="icon">
-                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
-                                </span>
-                                <span class="title">Tutorial</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
-                                    </i>
-                                </span>
-                                <span class="title">Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
-                                </span>
-                                <span class="title">Sign Out</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="toggle"></div>
+<main class="page">
+    <div class="menu">
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <span class="icon">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </span>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
+                            </span>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tutorial.html">
+                            <span class="icon">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                            <span class="title">Tutorial</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                                </i>
+                            </span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                            </span>
+                            <span class="title">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="toggle"></div>
+        </div>
+    </div>
+    <!-- menu end-->
+    <header>
+        <div class="box-recepction">
+            <div class="logo-recepction">
+                <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
             </div>
         </div>
-        <!-- menu end-->
-        <header>
-            <div class="box-recepction">
-                <div class="logo-recepction">
-                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
-                </div>
+    </header>
+    <section class="container-itens">
+        <div class="informacoes-cliente">
+            <div class="img-cliente">
+                <img src="../../img/imagemperfil.png" alt="" id="img-dragaozin">
             </div>
-        </header>
-        <section class="container-itens">
-            <div class="informacoes-cliente">
-                <div class="img-cliente">
-                    <img src="../../img/imagemperfil.png" alt="" id="img-dragaozin">
+            <div class="box-dados-do-cliente">
+                <div class="dados-do-cliente">
+                    <p id="b_usuario">Luis Fernando</p>
+                    <p id="cargo">?</p>
+                    <p id="id_adm">?</p>
+                    <p id="empresa">?</p>
                 </div>
-                <div class="box-dados-do-cliente">
-                    <div class="dados-do-cliente">
-                        <p id="b_usuario">Luis Fernando</p>
-                        <p id="cargo">?</p>
-                        <p id="id_adm">?</p>
-                        <p id="empresa">?</p>
+                <div class="edit">
+                    <div class="tooltip">
+                        <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <span class="tooltiptext">Editar dados</span>
                     </div>
-                    <div class="edit">
-                        <div class="tooltip">
-                            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <span class="tooltiptext">Editar dados</span>
-                        </div>
 
-                    </div>
                 </div>
-            </div>
-        </section>
-        <div class="ides-container">
-            <div class="separation-ides">
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" name="xcode">
-                        <span></span>
-                        <label for="xcode" id="ides-label">
-                        <img src="../../img/xcode.png" alt="" id="xcode" class="logo-ide">
-                        <b class="ide">XCode</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="androidstudio">
-                        <span></span>
-                        <label for="androidstudio" id="ides-label">
-                            <img src="../../img/androidstudio.png" alt="" id="androidstudio" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="eclipse">
-                        <span></span>
-                        <label for="eclipse" id="ides-label">
-                            <img src="../../img/eclipse.png" alt="" id="eclipse" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" name="pycharm">
-                        <span></span>
-                        <label for="pycharm" id="ides-label">
-                            <img src="../../img/pycharm.png" alt="" id="pycharm" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="netbeans">
-                        <span></span>
-                        <label for="netbeans" id="ides-label">
-                            <img src="../../img/netbeans.png" alt="" id="netbeans" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="intellj">
-                        <span></span>
-                        <label for="intellj" id="ides-label">
-                            <img src="../../img/intellj.png" alt="" id="intellj" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="btn" id="next">
-                <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
         </div>
+    </section>
+    <div class="ides-container">
+        <div class="separation-ides">
+            <div class="box-ides">
+                <div class="idesLogo">
+                    <input type="checkbox" name="xcode">
+                    <span></span>
 
-        <div class="ides-container-part2">
-            <div class="separation-ides">
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" name="webstorm">
-                        <span></span>
-                        <label for="webstorm" id="ides-label">
-                            <img src="../../img/webstorm.png" alt="" id="webstorm" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="vscode">
-                        <span></span>
-                        <label for="vscode" id="ides-label">
-                            <img src="../../img/vscode.png" alt="" id="vscode" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="phpstorm">
-                        <span></span>
-                        <label for="phpstorm" id="ides-label">
-                            <img src="../../img/phpstorm.png" alt="" id="phpstorm" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
+                    <img src="../../img/xcode.png" alt="" id="xcode" class="logo-ide">
+                    <b class="ide">XCode</b>
+
                 </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="androidstudio">
+                    <span></span>
+                    <img src="../../img/androidstudio.png" alt="" id="netbeans" class="logo-ide">
+                    <b id="ide">Android Studio</b>
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="eclipse">
+                    <span></span>
 
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" name="visualstudio">
-                        <span></span>
-                        <label for="visualstudio" id="ides-label">
-                            <img src="../../img/visualstudio.png" alt="" id="visualstudio" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" name="sublime">
-                        <span></span>
-                        <label for="sublime" id="ides-label">
-                            <img src="../../img/sublime.png" alt="" id="sublime" class="logo-ide">
-                            <b class="ide">a</b>
-                        </label>
-                    </div>
-                    <div class="idesLogo">
-                        <!-- <input type="checkbox" name="xcode">
+                    <img src="../../img/eclipse.png" alt="" id="eclipse" class="logo-ide">
+                    <b class="ide">Eclipse</b>
+
+                </div>
+            </div>
+
+            <div class="box-ides">
+                <div class="idesLogo">
+                    <input type="checkbox" name="pycharm">
+                    <span></span>                      
+                        <img src="../../img/pycharm.png" alt="" id="android" class="logo-ide">
+                        
+                        <b id="ide">PyCharm</b>
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="netbeans">
+                    <span></span>
+
+                    <img src="../../img/netbeans.png" alt="" id="netbeans" class="logo-ide">
+                    <b id="ide">Netbeans</b>
+
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="intellj">
+                    <span></span>
+
+                    <img src="../../img/intellj.png" alt="" id="intellj" class="logo-ide">
+                    <b id="ide">Intellij</b>
+
+                </div>
+            </div>
+        </div>
+        <div class="btn" id="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="ides-container-part2">
+        <div class="separation-ides">
+            <div class="box-ides">
+                <div class="idesLogo">
+                    <input type="checkbox" name="webstorm">
+                    <span></span>
+
+                    <img src="../../img/webstorm.png" alt="" id="webstorm" class="logo-ide">
+                    <b id="ide">WebStorm</b>
+
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="vscode">
+                    <span></span>
+
+                    <img src="../../img/vscode.png" alt="" id="netbeans" class="logo-ide">
+
+                    <b id="ide">Visual Studio Code</b>
+
+
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="phpstorm">
+                    <span></span>
+
+                    <img src="../../img/phpstorm.png" alt="" id="phpstorm" class="logo-ide">
+                    <b id="ide">PhpStorm</b>
+
+                </div>
+            </div>
+
+            <div class="box-ides">
+                <div class="idesLogo">
+                    <input type="checkbox" name="visualstudio">
+                    <span></span>
+
+                    <img src="../../img/visualstudio.png" alt="" id="visualstudio" class="logo-ide">
+                    <b id="ide">Visual Studio</b>
+
+                </div>
+                <div class="idesLogo">
+                    <input type="checkbox" name="sublime">
+                    <span></span>
+
+                    <img src="../../img/sublime.png" alt="" id="sublime" class="logo-ide">
+                    <b id="ide">SublimeText</b>
+
+                </div>
+                <div class="idesLogo">
+                    <!-- <input type="checkbox" name="xcode">
                         <label for="xcode" id="ides-label">
                             <img src="../../img/xcode.png" alt="" id="xcode" class="logo-ide">
                             <b id="ide">a</b>
                         </label> -->
-                    </div>
                 </div>
             </div>
-            <div class="btn" id="back">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            </div>
         </div>
-
-        <div class="footer-salvar">
-
-
-            <div class="salvar">
-
-                <button id="btn-salvar">
-                    <h1>Salvar</h1>
-
-
-
-                </button>
-
-            </div>
+        <div class="btn" id="back">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </div>
-    </main>
+    </div>
+
+    <div class="footer-salvar">
+
+
+        <div class="salvar">
+
+            <input type="submit" value="Salvar" />
+
+
+
+            
+
+        </div>
+    </div>
+</main>
 </body>
 
 </html>
