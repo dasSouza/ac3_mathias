@@ -14,10 +14,7 @@ public class ProcessIDE {
 
     List<Processo> processoList = looca.getGrupoDeProcessos().getProcessos();
     List<String> nomesIde = new ArrayList<>();
-    List<String> valoresNomeIDE = new ArrayList<>();
-    List<Double> valoresRamIDE = new ArrayList<Double>();
-    List<Float> valoresCpuIDE = new ArrayList<>();
-    List<Long> valoresDiscoIDE = new ArrayList<Long>();
+
 
     public void putAllNameIde(){
         nomesIde.add("Code");
@@ -39,7 +36,7 @@ public class ProcessIDE {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
                     processDatas.setUs_ide_nome_processo(nomesIde.get(i));
-                    valoresNomeIDE.add(processDatas.getUs_ide_nome_processo());
+                    processDatas.valoresNomeIDE.add(processDatas.getUs_ide_nome_processo());
                 }
             }
         }
@@ -50,7 +47,7 @@ public class ProcessIDE {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
                     processDatas.setUs_ide_cpu(processo.getUsoCpu().floatValue());
-                    valoresCpuIDE.add(processDatas.getUs_ide_cpu());
+                    processDatas.valoresCpuIDE.add(processDatas.getUs_ide_cpu());
                 }
             }
         }
@@ -61,27 +58,28 @@ public class ProcessIDE {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
                     processDatas.setUs_ide_ram(processo.getUsoMemoria());
-                    valoresRamIDE.add(processDatas.getUs_ide_ram());
+                    processDatas.valoresRamIDE.add(processDatas.getUs_ide_ram());
                 }
             }
         }
     }
+
     public void getIdeDisco() {
         for (Processo processo : processoList) {
             for (int i = 0; i < nomesIde.size(); i++) {
                 if (processo.getNome().equals(nomesIde.get(i))) {
                     processDatas.setUs_ide_disco(processo.getMemoriaVirtualUtilizada());
-                    valoresDiscoIDE.add(processDatas.getUs_ide_disco());
+                    processDatas.valoresDiscoIDE.add(processDatas.getUs_ide_disco());
                 }
             }
         }
     }
 
     public void showAll() {
-        System.out.println(valoresCpuIDE);
-        System.out.println(valoresDiscoIDE);
-        System.out.println(valoresNomeIDE);
-        System.out.println(valoresRamIDE);
+        System.out.println(processDatas.valoresCpuIDE);
+        System.out.println(processDatas.valoresDiscoIDE);
+        System.out.println(processDatas.valoresNomeIDE);
+        System.out.println(processDatas.valoresRamIDE);
     }
 
     public void insertIntoValues() {

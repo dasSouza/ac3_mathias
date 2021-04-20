@@ -1,13 +1,20 @@
 package ProcessosIDE;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ProcessDatas {
+    List<String> valoresNomeIDE = new ArrayList<>();
+    List<Double> valoresRamIDE = new ArrayList<>();
+    List<Float> valoresCpuIDE = new ArrayList<>();
+    List<Long> valoresDiscoIDE = new ArrayList<>();
+
     private Date us_dt_hr_processo;
     private Date us_dt_start;
     private Date us_dt_end;
     private String us_ide_nome_processo;
     private Float us_ide_cpu;
-    private long us_ide_disco;
+    private Long us_ide_disco;
     private Double us_ide_ram;
 
     public Date getUs_dt_hr_processo() {
@@ -66,6 +73,37 @@ public class ProcessDatas {
         this.us_ide_ram = us_ide_ram;
     }
 
+    public List<String> getValoresNomeIDE() {
+        return valoresNomeIDE;
+    }
+
+    public void setValoresNomeIDE(List<String> valoresNomeIDE) {
+        this.valoresNomeIDE = valoresNomeIDE;
+    }
+
+    public List<Double> getValoresRamIDE() {
+        return valoresRamIDE;
+    }
+
+    public void setValoresRamIDE(List<Double> valoresRamIDE) {
+        this.valoresRamIDE = valoresRamIDE;
+    }
+
+    public List<Float> getValoresCpuIDE() {
+        return valoresCpuIDE;
+    }
+
+    public void setValoresCpuIDE(List<Float> valoresCpuIDE) {
+        this.valoresCpuIDE = valoresCpuIDE;
+    }
+
+    public List<Long> getValoresDiscoIDE() {
+        return valoresDiscoIDE;
+    }
+
+    public void setValoresDiscoIDE(List<Long> valoresDiscoIDE) {
+        this.valoresDiscoIDE = valoresDiscoIDE;
+    }
 
     @Override
     public String toString() {
