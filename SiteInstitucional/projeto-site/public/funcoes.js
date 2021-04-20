@@ -35,6 +35,14 @@ function verificar_autenticacao() {
 
 }
 
+function admOuNao() {
+    if (adm_usuario == 0) {
+        window.location.href = "perfildev.html"
+    } else {
+        window.location.href = "cadastroAdm.html"
+    }
+}
+
 function logoff() {
     finalizar_sessao();
     sessionStorage.clear();
