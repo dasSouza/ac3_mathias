@@ -125,9 +125,9 @@
 
             <div class="box-ides">
                 <div class="idesLogo">
-                    <input type="checkbox" name="pycharm">
+                    <input id="teste" type="checkbox" name="pycharm">
                     <span></span>                      
-                        <img src="../../img/pycharm.png" alt="" id="android" class="logo-ide">
+                        <img src="../../img/pycharm.png" alt="" id="android" onclick="checar()" class="logo-ide">
                         
                         <b id="ide">PyCharm</b>
                 </div>
@@ -228,3 +228,18 @@
 </body>
 
 </html>
+
+<script>
+
+function checar() {
+
+    if (teste.checked) {
+        teste.checked = false
+    } else {
+        teste.checked = true;
+    }
+    
+
+}
+
+</script>
