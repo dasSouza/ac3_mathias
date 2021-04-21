@@ -130,14 +130,14 @@
                                 <label for="adm" id="adm-label">
                                     <p>Administrador</p>
                                     <input type="checkbox" name="adm">
-                                    <span></span>
                                 </label>
 
                                 <br>
 
                                 <div class="btn-cadastro">
-                                    <input type="submit" value="Cadastrar" />
+                                    <input type="submit" id="btn_login" value="Cadastrar" />
                                 </div>
+                                <div id="img_aguarde" style="visibility: hidden;" class="lds-ring"><div></div><div></div><div></div><div></div></div>
                             </form>
                         </div>
                     </div>
@@ -150,6 +150,7 @@
     <script src="../../js/js.js">
     </script>
 </body>
+
 </html>
 <script>
     document.getElementById('olho').addEventListener('mousedown', function () {

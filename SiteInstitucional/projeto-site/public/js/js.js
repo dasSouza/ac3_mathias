@@ -76,7 +76,7 @@ function closeModal(mn) {
 
 // FUNCÕES LOGIN
 function entrar() {
-    // aguardar();
+    aguardar2();
     var formulario = new URLSearchParams(new FormData(form_login));
     fetch("/usuarios/autenticar", {
         method: "POST",
@@ -93,8 +93,6 @@ function entrar() {
                 sessionStorage.empresa_usuario_meuapp = json.fk_id_empresa;
                 sessionStorage.cargo_usuario_meuapp = json.us_cargo;
 
-
-                // window.location.href = '../Dash/dashboard.html'
                 if (json.us_is_adm == 1) {
                     window.location.href = '../Dash/dashgestor.html';
                 } else if (json.us_is_adm == 0) {
@@ -108,7 +106,7 @@ function entrar() {
 
             resposta.text().then(texto => {
                 console.error(texto);
-                // finalizar_aguardar(texto);
+                finalizar_aguardar2(texto);
             });
         }
     });
@@ -116,16 +114,18 @@ function entrar() {
     return false;
 }
 
-function aguardar() {
-    btn_entrar.disabled = true;
-    img_aguarde.style.visibility = 'visible';
-    div_erro.style.visibility = 'hidden';
+function aguardar2() {
+    btn_login.disabled = true;
+    btn_login.style.display = "none"
+    img_aguarde.style.display = 'block';
+    div_erro.style.display = 'none';
 }
 
-function finalizar_aguardar(resposta) {
-    btn_entrar.disabled = false;
-    img_aguarde.style.visibility = 'hidden';
-    div_erro.style.visibility = 'visible';
+function finalizar_aguardar2(resposta) {
+    btn_login.disabled = false;
+    btn_login.style.display = "block"
+    img_aguarde.style.display = 'none';
+    div_erro.style.display = 'block';
     div_erro.innerHTML = resposta;
 }
 
@@ -153,7 +153,7 @@ function TestaCPF(strCPF) {
 
 //FUNÇÃO CADASTRO
 function cadastrar() {
-    // aguardar();
+    aguardar();
     var formulario = new URLSearchParams(new FormData(form_cadastro));
     fetch("/usuarios/cadastrar", {
         method: "POST",
@@ -178,8 +178,6 @@ function cadastrar() {
 
             if (response.ok) {
 
-                // window.location.href='login.html';
-
                 Swal.fire({
                     icon: 'success',
                     title: 'funcionário cadastrado com sucesso!',
@@ -191,7 +189,7 @@ function cadastrar() {
                 console.log('Erro de cadastro!');
 
                 response.text().then(function (resposta) {
-                    // div_erro.innerHTML = resposta;
+                    div_erro.innerHTML = resposta;
                     Swal.fire({
                         icon: 'error',
                         title: 'Falha ao cadastrar funcionário!',
@@ -203,21 +201,22 @@ function cadastrar() {
                 // finalizar_aguardar();
             }
         } 
+        finalizar_aguardar();
     });
 
     return false;
 }
 
 function aguardar() {
-    btn_entrar.disabled = true;
-    img_aguarde.style.display = 'block';
-    div_erro.style.display = 'none';
+    btn_login.disabled = true;
+    btn_login.style.display = "none"
+    img_aguarde.style.visibility = "visible"
 }
 
 function finalizar_aguardar() {
-    btn_entrar.disabled = false;
-    img_aguarde.style.display = 'none';
-    div_erro.style.display = 'block';
+    btn_login.disabled = false;
+    btn_login.style.display = "block"
+    img_aguarde.style.visibility = "hidden"
 }
 
 // MASCARA CPF
