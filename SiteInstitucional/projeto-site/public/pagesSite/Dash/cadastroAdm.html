@@ -15,7 +15,9 @@
     <title>KCODE</title>
 </head>
 
-<!-- <body onload="verificar_autenticacao()"> -->
+
+
+<body onload="verificar_autenticacao()">
     <main class="page">
         <div class="menu">
             <div class="container">
@@ -145,7 +147,16 @@
         </section>
         </div>
     </main>
-    <script src="../../js/js.js"></script>
+    <script src="../../js/js.js">
+    </script>
 </body>
-
 </html>
+<script>
+    document.getElementById('olho').addEventListener('mousedown', function () {
+        document.getElementById('senha_cad').type = 'text';
+    });
+
+    document.getElementById('olho').addEventListener('mouseup', function () {
+        document.getElementById('senha_cad').type = 'password';
+    });
+</script>

@@ -92,10 +92,13 @@
 </body>
 
 </html>
-<!-- <div class="extra">
-    <div id="div_erro" class="msg_erro">
-    </div>
 
-    <img src="img/loading.gif" id="img_aguarde">
+<script>
+    document.getElementById('olho').addEventListener('mousedown', function () {
+        document.getElementById('senha_cad').type = 'text';
+    });
 
-</div> -->
+    document.getElementById('olho').addEventListener('mouseup', function () {
+        document.getElementById('senha_cad').type = 'password';
+    });
+</script>

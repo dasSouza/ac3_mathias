@@ -19,7 +19,7 @@
   <script src="loading-bar.min.js"></script>
 </head>
 
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -159,7 +159,7 @@
 
 <script>
 
-  // window.onload = verificar_autenticacao()
+  window.onload = verificar_autenticacao();
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 
@@ -197,15 +197,17 @@
           var ram = resultado[2]
 
           console.log("ram " + ram)
-
+          if(ram <= 4) {
+            
+          }
           grafico_1.style.width = `13.7%`
           grafico_1.innerHTML = `13.7%`
           grafico_2.style.width = `23.3%`
           grafico_2.innerHTML = `23.3%`
           grafico_3.style.width = `16%`
           grafico_3.innerHTML = `16%`
-          grafico_4.style.width = `${ram.toFixed(2)}%`
-          grafico_4.innerHTML = `${ram.toFixed(2)}%`
+          grafico_4.style.width = `4%`
+          grafico_4.innerHTML = `4%`
           resposta.reverse();
         });
       } else {

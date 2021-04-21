@@ -25,15 +25,6 @@ back.addEventListener('click', function() {
   idesContainer.style.display = 'flex';
 });
 
-
-document.getElementById('olho').addEventListener('mousedown', function() {
-  document.getElementById('senha_cad').type = 'text';
-});
-
-document.getElementById('olho').addEventListener('mouseup', function() {
-  document.getElementById('senha_cad').type = 'password';
-});
-
 // Para que o password não fique exposto apos mover a imagem.
 document.getElementById('olho').addEventListener('mousemove', function() {
   document.getElementById('senha_cad').type = 'password';
