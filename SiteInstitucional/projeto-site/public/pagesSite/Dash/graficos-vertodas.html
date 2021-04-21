@@ -19,7 +19,7 @@
   <script src="loading-bar.min.js"></script>
 </head>
 
-<body onload="verificar_autenticacao()">
+<!-- <body onload="verificar_autenticacao()"> -->
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -88,29 +88,60 @@
     <div class="ides-container">
       <div class="container-ides">
         <div class="separa-graficos">
+         
           <img src="../../img/eclipse.png" alt="" id="img-grafic">
           <div id="grafico_1" class="graficos-1">
+            
+          </div>
+          <div class="container-relogio">
+            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
+
           </div>
         </div>
         <div class="separa-graficos">
           <img src="../../img/intellj.png" alt="" id="img-grafic">
           <div id="grafico_2" class="graficos-1">
           </div>
+          <div class="container-relogio">
+            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
+
+          </div>
         </div>
         <div class="separa-graficos">
           <img src="../../img/visualstudio.png" alt="" id="img-grafic">
           <div id="grafico_3" class="graficos-1">
+            
+            
+          </div>
+          <div class="container-relogio">
+            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
+
           </div>
         </div>
         <div class="separa-graficos">
           <img src="../../img/netbeans.png" alt="" id="img-grafic">
           <div id="grafico_4" class="graficos-1">
+           
+          </div>
+          <div class="container-relogio">
+            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
+
           </div>
         </div>
       </div>
     </div>
     <div class="footer-ajuda">
 
+      <div class="box-legenda">
+        <div class="uso-hardware"></div>
+          <p>Tempo</p>
+        </div>
+
+
+        <div class="box-legenda">
+          <div class="uso-ram"></div>
+            <p>Uso</p>
+          </div>
 
       <div class="ajuda">
 
@@ -130,7 +161,7 @@
 
 <script>
 
-  window.onload = verificar_autenticacao()
+  // window.onload = verificar_autenticacao()
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 
