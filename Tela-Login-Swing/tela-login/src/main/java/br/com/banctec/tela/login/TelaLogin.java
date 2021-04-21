@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 /**
@@ -35,7 +36,10 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        DashGestor = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
         txtEmail = new javax.swing.JTextField();
@@ -45,6 +49,34 @@ public class TelaLogin extends javax.swing.JFrame {
         lblTitleLogin = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
+
+        jLabel1.setText("Bem Vindo,");
+
+        jLabel2.setText("Escolha uma maquina");
+
+        javax.swing.GroupLayout DashGestorLayout = new javax.swing.GroupLayout(DashGestor.getContentPane());
+        DashGestor.getContentPane().setLayout(DashGestorLayout);
+        DashGestorLayout.setHorizontalGroup(
+            DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashGestorLayout.createSequentialGroup()
+                .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashGestorLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel1))
+                    .addGroup(DashGestorLayout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel2)))
+                .addContainerGap(242, Short.MAX_VALUE))
+        );
+        DashGestorLayout.setVerticalGroup(
+            DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashGestorLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(302, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 102));
@@ -58,7 +90,7 @@ public class TelaLogin extends javax.swing.JFrame {
         txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(81, 78, 77));
         txtEmail.setText("Informe seu login aqui");
-        txtEmail.setToolTipText("EMAIL");
+        txtEmail.setToolTipText("LOGIN");
         txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtEmailFocusGained(evt);
@@ -184,19 +216,19 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jDesktopPane1.setLayer(background, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        TelaLogin.setLayer(background, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        javax.swing.GroupLayout TelaLoginLayout = new javax.swing.GroupLayout(TelaLogin);
+        TelaLogin.setLayout(TelaLoginLayout);
+        TelaLoginLayout.setHorizontalGroup(
+            TelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelaLoginLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        TelaLoginLayout.setVerticalGroup(
+            TelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -204,11 +236,11 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(TelaLogin, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(TelaLogin, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -277,14 +309,17 @@ public class TelaLogin extends javax.swing.JFrame {
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
-                            try {
-                                // adm entra aqui
-                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
-                                Desktop.getDesktop().browse(link);
 
-                            } catch (Exception erro) {
-                                System.out.println(erro);
-                            }
+                            this.setVisible(false);
+                            this.dispose();
+                            DashGestor.setVisible(true);
+                            //try {
+                            // adm entra aqui
+                            // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
+                            // Desktop.getDesktop().browse(link);
+                            //} catch (Exception erro) {
+                            //    System.out.println(erro);
+                            // }
                         } else {
 
                             try {
@@ -306,6 +341,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
+    private void jButton_exitActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        Runtime.getRuntime().exit(0);
+    }
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
         // TODO add your handling code here:
@@ -339,10 +378,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame DashGestor;
+    private javax.swing.JDesktopPane TelaLogin;
     private javax.swing.JPanel background;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JPanel cardLogin;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLogin;
