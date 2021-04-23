@@ -39,6 +39,12 @@ public class TelaLogin extends javax.swing.JFrame {
         DashGestor = new javax.swing.JFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jblNomeGestor = new javax.swing.JLabel();
+        jMenu1 = new javax.swing.JMenu();
+        DashDev = new javax.swing.JFrame();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jblNomeDev = new javax.swing.JLabel();
         TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
@@ -54,6 +60,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Escolha uma maquina");
 
+        jblNomeGestor.setText("nome");
+
         javax.swing.GroupLayout DashGestorLayout = new javax.swing.GroupLayout(DashGestor.getContentPane());
         DashGestor.getContentPane().setLayout(DashGestorLayout);
         DashGestorLayout.setHorizontalGroup(
@@ -62,20 +70,60 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DashGestorLayout.createSequentialGroup()
                         .addGap(145, 145, 145)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblNomeGestor))
                     .addGroup(DashGestorLayout.createSequentialGroup()
-                        .addGap(174, 174, 174)
+                        .addGap(173, 173, 173)
                         .addComponent(jLabel2)))
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         DashGestorLayout.setVerticalGroup(
             DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashGestorLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jLabel1)
+                .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jblNomeGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(302, Short.MAX_VALUE))
+        );
+
+        jMenu1.setText("jMenu1");
+
+        jLabel3.setText("Bem Vindo,");
+
+        jLabel4.setText("Escolha sua");
+
+        jblNomeDev.setText("nome");
+
+        javax.swing.GroupLayout DashDevLayout = new javax.swing.GroupLayout(DashDev.getContentPane());
+        DashDev.getContentPane().setLayout(DashDevLayout);
+        DashDevLayout.setHorizontalGroup(
+            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashDevLayout.createSequentialGroup()
+                .addGroup(DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DashDevLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblNomeDev))
+                    .addGroup(DashDevLayout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addComponent(jLabel4)))
+                .addContainerGap(187, Short.MAX_VALUE))
+        );
+        DashDevLayout.setVerticalGroup(
+            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DashDevLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jblNomeDev))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -285,13 +333,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_nome_funcionario, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
 
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
+
         String isAdmin = "1";
 
         if (pegandoUser.isEmpty()) {
@@ -309,10 +358,10 @@ public class TelaLogin extends javax.swing.JFrame {
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
-
                             this.setVisible(false);
                             this.dispose();
                             DashGestor.setVisible(true);
+                            jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             //try {
                             // adm entra aqui
                             // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
@@ -321,14 +370,17 @@ public class TelaLogin extends javax.swing.JFrame {
                             //    System.out.println(erro);
                             // }
                         } else {
-
-                            try {
-                                // normal entra aqui
-                                URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
-                                Desktop.getDesktop().browse(link);
-                            } catch (Exception erro) {
-                                System.out.println(erro);
-                            }
+                            this.setVisible(false);
+                            this.dispose();
+                            DashDev.setVisible(true);
+                            jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
+                            //try {
+                            // normal entra aqui
+                            // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
+                            // Desktop.getDesktop().browse(link);
+                            // } catch (Exception erro) {
+                            //    System.out.println(erro);
+                            // }
                         }
 
                     }
@@ -378,6 +430,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame DashDev;
     private javax.swing.JFrame DashGestor;
     private javax.swing.JDesktopPane TelaLogin;
     private javax.swing.JPanel background;
@@ -385,6 +438,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel cardLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jblNomeDev;
+    private javax.swing.JLabel jblNomeGestor;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLogin;
