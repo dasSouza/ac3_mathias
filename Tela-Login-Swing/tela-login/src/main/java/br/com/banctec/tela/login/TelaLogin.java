@@ -37,14 +37,26 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         DashGestor = new javax.swing.JFrame();
+        TelaDashGestor = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jblNomeGestor = new javax.swing.JLabel();
-        jMenu1 = new javax.swing.JMenu();
+        btnHome = new javax.swing.JButton();
+        btnMaquina1 = new javax.swing.JButton();
+        btnHome1 = new javax.swing.JButton();
+        btnHome2 = new javax.swing.JButton();
+        btnHome3 = new javax.swing.JButton();
+        btnHome4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        btnMaquina5 = new javax.swing.JButton();
+        btnMaquina6 = new javax.swing.JButton();
+        btnMaquina7 = new javax.swing.JButton();
         DashDev = new javax.swing.JFrame();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jblNomeDev = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
@@ -56,41 +68,239 @@ public class TelaLogin extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
 
+        DashGestor.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        DashGestor.setBackground(new java.awt.Color(206, 228, 217));
+        DashGestor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jPanel1.setBackground(new java.awt.Color(206, 228, 217));
+        jPanel1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(667, 420));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
         jLabel1.setText("Bem Vindo,");
 
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
         jLabel2.setText("Escolha uma maquina");
 
-        jblNomeGestor.setText("nome");
+        jblNomeGestor.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
+        jblNomeGestor.setText("Nome");
+
+        btnHome.setBackground(new java.awt.Color(183, 51, 73));
+        btnHome.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHome.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome.setText("Settings");
+        btnHome.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
+
+        btnMaquina1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina1.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina1.setText("VMNOTE - 143");
+        btnMaquina1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaquina1ActionPerformed(evt);
+            }
+        });
+
+        btnHome1.setBackground(new java.awt.Color(183, 51, 73));
+        btnHome1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHome1.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome1.setText("Profile");
+        btnHome1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome1ActionPerformed(evt);
+            }
+        });
+
+        btnHome2.setBackground(new java.awt.Color(183, 51, 73));
+        btnHome2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHome2.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome2.setText("Logout");
+        btnHome2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHome2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome2ActionPerformed(evt);
+            }
+        });
+
+        btnHome3.setBackground(new java.awt.Color(183, 51, 73));
+        btnHome3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHome3.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome3.setText("Tutorials");
+        btnHome3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHome3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome3ActionPerformed(evt);
+            }
+        });
+
+        btnHome4.setBackground(new java.awt.Color(183, 51, 73));
+        btnHome4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnHome4.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome4.setText("Home");
+        btnHome4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnHome4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome4ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(183, 51, 73));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("KEEPCODE");
+
+        btnMaquina5.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina5.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina5.setText("VMNOTE - 144");
+        btnMaquina5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaquina5ActionPerformed(evt);
+            }
+        });
+
+        btnMaquina6.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina6.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina6.setText("VMNOTE - 141");
+        btnMaquina6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaquina6ActionPerformed(evt);
+            }
+        });
+
+        btnMaquina7.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina7.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina7.setText("VMNOTE - 142");
+        btnMaquina7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaquina7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnHome4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnHome1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHome2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHome3, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                                .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnMaquina1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jblNomeGestor)
+                                .addGap(42, 42, 42))
+                            .addComponent(jLabel2))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblNomeGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(41, 41, 41)
+                .addComponent(btnHome4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(btnHome1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMaquina6)
+                            .addComponent(btnMaquina1))))
+                .addGap(32, 32, 32)
+                .addComponent(btnHome3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btnHome)
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMaquina7)
+                            .addComponent(btnMaquina5))
+                        .addGap(9, 9, 9)))
+                .addComponent(btnHome2)
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+
+        TelaDashGestor.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout TelaDashGestorLayout = new javax.swing.GroupLayout(TelaDashGestor);
+        TelaDashGestor.setLayout(TelaDashGestorLayout);
+        TelaDashGestorLayout.setHorizontalGroup(
+            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+        );
+        TelaDashGestorLayout.setVerticalGroup(
+            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout DashGestorLayout = new javax.swing.GroupLayout(DashGestor.getContentPane());
         DashGestor.getContentPane().setLayout(DashGestorLayout);
         DashGestorLayout.setHorizontalGroup(
             DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashGestorLayout.createSequentialGroup()
-                .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DashGestorLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblNomeGestor))
-                    .addGroup(DashGestorLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel2)))
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TelaDashGestor)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         DashGestorLayout.setVerticalGroup(
             DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashGestorLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jblNomeGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(302, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TelaDashGestor)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("jMenu1");
 
         jLabel3.setText("Bem Vindo,");
 
@@ -125,6 +335,8 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addContainerGap(210, Short.MAX_VALUE))
         );
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 102));
@@ -293,40 +505,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
-
-//    PLACEHOLDER CAMPO EMAIL
-    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
-        // TODO add your handling code here:
-        if (txtEmail.getText().equals("Informe seu login aqui")) {
-            txtEmail.setText("");
-        }
-    }//GEN-LAST:event_txtEmailFocusGained
-
-    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
-        // TODO add your handling code here:
-        if (txtEmail.getText().equals("")) {
-            txtEmail.setText("Informe seu login aqui");
-        }
-    }//GEN-LAST:event_txtEmailFocusLost
-
-//  PLACEHOLDER CAMPO SENHA    
-    private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
-        // TODO add your handling code here:
-        if (txtSenha.getText().equals("Senha123")) {
-            txtSenha.setText("");
-        }
-    }//GEN-LAST:event_txtSenhaFocusGained
-
-    private void txtSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusLost
-        // TODO add your handling code here:
-        if (txtSenha.getText().equals("")) {
-            txtSenha.setText("Senha123");
-        }
-    }//GEN-LAST:event_txtSenhaFocusLost
+    private void jButton_exitActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
+        Runtime.getRuntime().exit(0);
+    }
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         Conexao con = new Conexao();
@@ -334,7 +516,7 @@ public class TelaLogin extends javax.swing.JFrame {
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
         List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_nome_funcionario, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
-                new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
+            new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
 
@@ -363,24 +545,24 @@ public class TelaLogin extends javax.swing.JFrame {
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             //try {
-                            // adm entra aqui
-                            // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
-                            // Desktop.getDesktop().browse(link);
-                            //} catch (Exception erro) {
-                            //    System.out.println(erro);
-                            // }
+                                // adm entra aqui
+                                // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashgestor.html");
+                                // Desktop.getDesktop().browse(link);
+                                //} catch (Exception erro) {
+                                //    System.out.println(erro);
+                                // }
                         } else {
                             this.setVisible(false);
                             this.dispose();
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             //try {
-                            // normal entra aqui
-                            // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
-                            // Desktop.getDesktop().browse(link);
-                            // } catch (Exception erro) {
-                            //    System.out.println(erro);
-                            // }
+                                // normal entra aqui
+                                // URI link = new URI("http://localhost:3000/pagesSite/Dash/dashboard.html");
+                                // Desktop.getDesktop().browse(link);
+                                // } catch (Exception erro) {
+                                //    System.out.println(erro);
+                                // }
                         }
 
                     }
@@ -393,14 +575,80 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-    private void jButton_exitActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);
-        Runtime.getRuntime().exit(0);
-    }
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEntrarMouseClicked
+
+    private void txtSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusLost
+        // TODO add your handling code here:
+        if (txtSenha.getText().equals("")) {
+            txtSenha.setText("Senha123");
+        }
+    }//GEN-LAST:event_txtSenhaFocusLost
+
+//  PLACEHOLDER CAMPO SENHA    
+    private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
+        // TODO add your handling code here:
+        if (txtSenha.getText().equals("Senha123")) {
+            txtSenha.setText("");
+        }
+    }//GEN-LAST:event_txtSenhaFocusGained
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+        if (txtEmail.getText().equals("")) {
+            txtEmail.setText("Informe seu login aqui");
+        }
+    }//GEN-LAST:event_txtEmailFocusLost
+
+//    PLACEHOLDER CAMPO EMAIL
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        // TODO add your handling code here:
+        if (txtEmail.getText().equals("Informe seu login aqui")) {
+            txtEmail.setText("");
+        }
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    private void btnHome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHome4ActionPerformed
+
+    private void btnHome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHome3ActionPerformed
+
+    private void btnHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHome2ActionPerformed
+
+    private void btnHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHome1ActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnMaquina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMaquina1ActionPerformed
+
+    private void btnMaquina5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMaquina5ActionPerformed
+
+    private void btnMaquina6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMaquina6ActionPerformed
+
+    private void btnMaquina7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMaquina7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -432,15 +680,27 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame DashDev;
     private javax.swing.JFrame DashGestor;
+    private javax.swing.JDesktopPane TelaDashGestor;
     private javax.swing.JDesktopPane TelaLogin;
     private javax.swing.JPanel background;
     private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnHome1;
+    private javax.swing.JButton btnHome2;
+    private javax.swing.JButton btnHome3;
+    private javax.swing.JButton btnHome4;
+    private javax.swing.JButton btnMaquina1;
+    private javax.swing.JButton btnMaquina5;
+    private javax.swing.JButton btnMaquina6;
+    private javax.swing.JButton btnMaquina7;
     private javax.swing.JPanel cardLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblNomeDev;
     private javax.swing.JLabel jblNomeGestor;
     private javax.swing.JLabel lblEmail;
