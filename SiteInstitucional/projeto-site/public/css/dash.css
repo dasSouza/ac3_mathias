@@ -471,10 +471,10 @@ a {
 #adm-label input[type=checkbox] {
     position: absolute;
     margin-left: 10px;
-    width: 6.5%;
-    height: 7.5%;;
+    width: 4.5%;
+    height: 6.4%;
     border-radius: 3px;
-    top: 12.1rem;;
+    top: 10.7rem;;
     left: 5rem;
 }
 
