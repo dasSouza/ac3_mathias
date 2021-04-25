@@ -215,6 +215,7 @@ a {
     justify-content: center;
     flex: row;
     animation: idescontainer 1s both;
+    margin-left: 3%;
 }
 
 @keyframes idescontainer {

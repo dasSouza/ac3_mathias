@@ -19,7 +19,7 @@
   <script src="loading-bar.min.js"></script>
 </head>
 
-<body onload="verificar_autenticacao()">
+<!-- <body onload="verificar_autenticacao()"> -->
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -131,6 +131,11 @@
     <div class="footer-ajuda">
 
       <div class="box-legenda">
+        <div class="legenda"></div>
+          <p>*Ram</p>
+        </div>
+
+      <div class="box-legenda">
         <div class="uso-hardware"></div>
           <p>Tempo</p>
         </div>
@@ -159,7 +164,7 @@
 
 <script>
 
-  window.onload = verificar_autenticacao();
+  // window.onload = verificar_autenticacao();
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 
