@@ -93,7 +93,7 @@
         <div class="graficos">
           <div class="box-graficos">
 
-            <div id="graficoDisco" style="width: 70%; height: 70%;" class="label-center" data-preset="circle"> </div>
+            <div id="graficoDisco" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1" data-preset="circle"> </div>
             <br>
             <div class="label-grafico">DISCO</div>
 
@@ -299,13 +299,13 @@
           // console.log("fim " + valorFim)
           // console.log("ram " + valorRam)
           // console.log("cpu " + valorCPU)
-          // console.log("disco " + valorDisco)
+          console.log("disco " + valorDisco)
           console.log("Resultado: " + resultado)
 
           // grafico disco
           var discoGrafico = new ldBar("#graficoDisco");
           var discoGrafico2 = document.getElementById('graficoDisco').ldBar;
-          discoGrafico.set(valorDisco)
+          discoGrafico.set(valorDisco.toFixed(2))
 
           // grafico ram
           var ramGrafico = new ldBar("#graficoRam");
@@ -318,10 +318,7 @@
           cpuGrafico.set(valorCPU.toFixed(2))
 
           // grafico tempo
-          var tempoGrafico = new ldBar("#graficoTempo");
-          var tempoGrafico2 = document.getElementById('graficoTempo').ldBar;
           valorTempo = 32;
-          tempoGrafico.set(valorTempo)
 
           resposta.reverse();
         });
