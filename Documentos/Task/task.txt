@@ -1,0 +1,56 @@
+# Relacionamento de usuário (DEV) com a dash ->
+[ ] 1# Gráficos de rosca (hardware IDE)
+    [ ] Adicionar tempo utilzado
+    [ ] Adicionar funcionalidade ao hardware(CPU,RAM,DISCO) para cada IDE
+    [ ] Alterar imagem para cada IDE conforme selecionada
+[ ] 2# Gráfico de barra tela inicial da dash(RAM IDE)
+    [ ] Adicionar referencia de dados para cada IDE
+    [ ] Deixar visivel para o usário caso que ele não possui IDES escolhidas
+    [ ] Mostrar imagem referente a RAM da IDE
+    [ ] Mostrar APENAS imagens de IDE's selecionadas no perfil
+    [ ] Apenas poder passar para segunda pagina se tiver mais de 6 IDE escolhidas
+[ ] 3# Perfil de selecionar IDE
+    [ ] Mostrar para o usuário dados tratados
+    [ ] Adicionar ação ao botão SALVAR
+    [ ] Deixar visivel qual IDE já tem escolhida (checkbox)
+    [ ] Popup de confirmação ao clicar em SALVAR
+
+
+# Relacionamento de usuário (Gestor) com a dash ->
+[ ] 1# Parte do gestor ver dados da equipe ao clicar na respectiva Maquina
+    [ ] O campo deve haver dados do usário para que o gestor possa ver (?)
+[ ] 2# Gráficos de barra (gestor)
+    [ ] Mostrar apenas IDE's que o usuário(dev) tem escolhidas
+    [ ] Tornar funcional o gráfico
+    [ ] Linkar imagens com que foi escolhido pelo usuário(dev) 
+    [ ] Arrumar funcionalidade de tempo utilzado
+[ ] 3# Editar dados dos membros da equipe (gestor)
+    [ ] Adicionar funcionalidade para o botão de edição de dados (abrir popup para edição de dados);
+[ ] 4# Gestor editar apenas seus própios dados na parte de perfil de gestor
+    [ ] Adicionar ação ao botão de edição
+[ ] 5# O gestor deverá ver de quem é a maquina que ele está clicando
+    [ ] Mostrar nomes de cada usuário(dev) na pagina inicial da dashboard de gestor
+[ ] 6# Dashboard gestor deve conter nomes dos usuários ao invés do nome das maquinas
+    [ ] Mostrar apenas usuários cadastrados na equipe daquele gestor
+
+
+** Java Swing **
+Tela de dev
+[ ] 1# Tela de java swing deverá conter uma pagina que mostra as IDE's e RAM utilizadas pelo dev
+[ ] 2# Tirar o menu
+[ ] 3# Buscar apenas IDE's na qual o usuário escolheu na dash web
+[ ] 4# Deixar funcional ao clicar na IDE escolhida na tela inicial
+[ ] 5# Criar tela secundaria na qual contem dados de CPU,RAM,DISCO e TEMPO
+    [ ] Buscar ram
+    [ ] Buscar disco
+    [ ] Buscar tempo
+    [ ] Buscar cpu
+
+Tela de gestor
+[ ] 1# Tela de java swing deverá conter pagina onde mostra apenas o nome dos dev que o gestor cuida
+[ ] 2# Deixar funcional ao clicar em cada nome
+[ ] 3# Criar tela secundaria na qual contem dados de CPU,RAM,DISCO e TEMPO do dev
+    [ ] Buscar ram
+    [ ] Buscar disco
+    [ ] Buscar tempo
+    [ ] Buscar cpu
