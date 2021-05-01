@@ -1,86 +1,109 @@
-CREATE TABLE tb_empresa (
-	id_comp BIGINT IDENTITY(1,1) PRIMARY KEY,
-	kc_nome_comp VARCHAR(255) NOT NULL,
-	kc_cep_comp CHAR(8) NOT NULL,
-	kc_cnpj_comp CHAR(14) NOT NULL,
-	kc_telefone_comp CHAR(13) NOT NULL,
-	kc_email_comp VARCHAR(255)
+CREATE TABLE  tb_empresa (
+  id_comp BIGINT NOT NULL IDENTITY,
+  kc_nome_comp VARCHAR(255) NOT NULL,
+  kc_cep_comp CHAR(8) NOT NULL,
+  kc_cnpj_comp CHAR(14) NOT NULL,
+  kc_telefone_comp CHAR(13) NOT NULL,
+  kc_email_comp VARCHAR(255) NULL,
+  PRIMARY KEY (id_comp)
 )
 
-CREATE TABLE tb_us_dados (
-	id_cpf BIGINT PRIMARY KEY,
-	us_nome_funcionario VARCHAR(255),
-	us_cargo VARCHAR(255),
-	us_login VARCHAR(50),
-	us_senha VARCHAR(30),
-	us_is_adm TINYINT,
-	fk_id_empresa BIGINT,
-	CONSTRAINT fk_id_empresa FOREIGN KEY (fk_id_empresa) REFERENCES tb_empresa (id_comp)
+CREATE TABLE  tb_us_dados (
+  id_cpf BIGINT NOT NULL,
+  us_nome_funcionario VARCHAR(255) NOT NULL,
+  us_cargo VARCHAR(255) NOT NULL,
+  us_login VARCHAR(50) NOT NULL,
+  us_senha VARCHAR(30) NOT NULL,
+  us_equipe VARCHAR(45) NOT NULL,
+  us_is_adm TINYINT NOT NULL,
+  fk_id_empresa BIGINT NOT NULL,
+  PRIMARY KEY (id_cpf),
+  CONSTRAINT fk_usuario_empresa
+    FOREIGN KEY (fk_id_empresa)
+    REFERENCES tb_empresa (id_comp)
 )
 
-CREATE TABLE tb_us_maquina(
-	id_maquina BIGINT IDENTITY(1,1) PRIMARY KEY,
-	us_nome_maquina VARCHAR(255),
-	us_vl_ram_total DECIMAL(4,2),
-	us_vl_disco_total DECIMAL(6,2),
-	us_vl_cpu_total VARCHAR(50),
-	fk_id_funcionario BIGINT,
-	CONSTRAINT fk_id_funcionario FOREIGN KEY(fk_id_funcionario) REFERENCES tb_us_dados (id_cpf)
+CREATE TABLE  tb_us_maquina (
+  id_maquina BIGINT NOT NULL IDENTITY,
+  us_nome_maquina VARCHAR(100) NOT NULL,
+  us_vl_ram_total FLOAT NULL,
+  us_vl_disco_total FLOAT NULL,
+  us_vl_cpu_total VARCHAR(50) NULL,
+  fk_id_funcionario BIGINT NOT NULL,
+  PRIMARY KEY (id_maquina),
+  CONSTRAINT fk_maquina_usuario
+    FOREIGN KEY (fk_id_funcionario)
+    REFERENCES tb_us_dados (id_cpf)
 )
 
-CREATE TABLE tb_ide_maquina(
-	id_ide BIGINT IDENTITY(1,1) PRIMARY KEY,
-	us_nome_ide VARCHAR(255),
-	fk_id_maquina BIGINT,
-	CONSTRAINT fk_id_maquina FOREIGN KEY (fk_id_maquina) REFERENCES tb_us_maquina (id_maquina)
+
+CREATE TABLE  tb_log_hardware (
+  id_log BIGINT NOT NULL,
+  us_dt_hr_log DATETIME NOT NULL,
+  us_log_hardware VARCHAR(255) NULL,
+  us_total_ram FLOAT NOT NULL,
+  us_total_cpu FLOAT NOT NULL,
+  us_total_disco FLOAT NOT NULL,
+  fk_id_maq BIGINT NOT NULL,
+  PRIMARY KEY (id_log),
+  CONSTRAINT fk_maquina
+    FOREIGN KEY (fk_id_maq)
+    REFERENCES tb_us_maquina (id_maquina)
 )
 
-CREATE TABLE tb_processos_ide(
-	id_processos BIGINT IDENTITY(1,1) PRIMARY KEY,
-	us_dt_hr_processo DATETIME,
-	us_ide_nome_processo VARCHAR(255),
-	us_extensao_IDE VARCHAR(50),
-	us_ide_ram DECIMAL(4,2),
-	us_ide_cpu DECIMAL(4,2),
-	us_ide_disco DECIMAL(4,2),
-	us_ide_total_processo(4,2),
-	fk_id_ide BIGINT,
-	CHECK (us_ide_total_processo >=0 AND us_ide_total_processo <=100)
-	CONSTRAINT fk_id_ide FOREIGN KEY(fk_id_ide) REFERENCES tb_ide_maquina (id_ide)
+CREATE TABLE  tb_ide_maquina (
+  id_ide BIGINT NOT NULL,
+  us_nome_ide VARCHAR(255) NULL,
+  PRIMARY KEY (id_ide)
 )
 
-CREATE TABLE tb_log_hardware(
-	id_log BIGINT IDENTITY(1,1) PRIMARY KEY,
-	us_dt_hr_log DATETIME,
-	us_log_hardware VARCHAR(255),
-	us_total_ram DECIMAL(4,2),
-	us_total_cpu DECIMAL(4,2),
-	us_total_disco DECIMAL(4,2),
-	fk_id_maq BIGINT,
-	CONSTRAINT fk_id_maq FOREIGN KEY (fk_id_maq) REFERENCES tb_us_maquina (id_maquina)
+
+CREATE TABLE  tb_processos_ide (
+  id_processos BIGINT NOT NULL IDENTITY,
+  us_dt_hr_start_IDE DATETIME NULL,
+  us_dt_hr_end_IDE DATETIME NULL,
+  us_ide_nome_processo VARCHAR(255) NOT NULL,
+  us_ide_ram FLOAT NOT NULL,
+  us_ide_cpu FLOAT NOT NULL,
+  us_ide_disco FLOAT NOT NULL,
+  fk_id_maquina BIGINT NOT NULL,
+  PRIMARY KEY (id_processos),
+  CONSTRAINT fk_tb_processos_ide_tb_us_maquina
+    FOREIGN KEY (fk_id_maquina)
+    REFERENCES tb_us_maquina (id_maquina)
 )
 
-insert into tb_empresa values ('valemobi', 0255505,10535290000121
+CREATE TABLE  tb_us_ass_maquina (
+  tb_us_maquina_id_maquina BIGINT NOT NULL,
+  tb_ide_maquina_id_ide BIGINT NOT NULL,
+  PRIMARY KEY (tb_us_maquina_id_maquina, tb_ide_maquina_id_ide),
+  CONSTRAINT tb_us_ass_maq
+    FOREIGN KEY (tb_us_maquina_id_maquina)
+    REFERENCES tb_us_maquina (id_maquina),
+  CONSTRAINT tb_us_ass_maq_ide
+    FOREIGN KEY (tb_ide_maquina_id_ide)
+    REFERENCES tb_ide_maquina (id_ide)
+)
+
+insert into tb_empresa values ('valemobi', '02555050', '10535290000121'
 ,'1185476358','valemobi@vm.com.br')
 
-select * from tb_empresa
+insert into tb_us_dados values (71907792058, 'Samuel Lopes', 'estágiario','samuel','Teste123', 'Paquetá','0', 1)
 
-insert into tb_us_dados values (49633264750, 'Samuel Lopes Almeida', 'estágiario','samuca','Teste123', '0', 1)
+insert into tb_us_maquina values ('vm007', 16.00, 10.00, 'i5-9400f', 71907792058)
 
-select * from tb_us_dados
+insert into tb_log_hardware values (1,GETDATE(), 'google chrome', 8.32, 48.20, 62.10, 1)
 
-insert into tb_us_maquina values ('vm007', 16.00, 10.00, 'i5-9400f', 49633264750)
+insert into tb_ide_maquina values (1,'idea64', 1)
 
-select * from tb_us_maquina
+insert into tb_processos_ide values (GETDATE(), GETDATE(), 'idea64', 6.00, 22.17, 6.00, 1)
 
-insert into tb_ide_maquina values ('idea64', 1)
+insert into tb_us_ass_maquina values (1,1)
 
-select * from tb_ide_maquina
-
-insert into tb_processos_ide values (GETDATE(), 'idea64', '.java', 6.00, 22.17, 6.00, 70.30, 1)
-
-select * from tb_processos_ide
-
-insert into tb_log_hardware values (GETDATE(), 'google chrome', 8.32, 48.20, 62.10, 1)
-
-select * from tb_log_hardware
+DROP TABLE tb_us_ass_maquina;
+DROP TABLE tb_processos_ide;
+DROP TABLE tb_ide_maquina;
+DROP TABLE tb_log_hardware;
+DROP TABLE tb_us_maquina;
+DROP TABLE tb_us_dados;
+DROP TABLE tb_empresa;
