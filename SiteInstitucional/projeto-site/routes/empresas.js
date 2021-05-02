@@ -25,7 +25,6 @@ router.get('/autenticar/:login', function (req, res, next) {
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
 		console.log(resultado)
-		console.log("foi porra")
 		sessoes2.push(resultado[0].dataValues.kc_nome_comp);
 		console.log('sessoes: ', sessoes2);
 		res.json(resultado[0]);

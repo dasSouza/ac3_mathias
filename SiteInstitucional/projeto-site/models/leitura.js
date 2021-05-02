@@ -13,13 +13,18 @@ module.exports = (sequelize, DataTypes) => {
 			primaryKey: true,
 			autoIncrement: true
 		},	
-		us_dt_hr_processo: {
-			field: 'us_dt_hr_processo',
+		us_dt_hr_start_IDE: {
+			field: 'us_dt_hr_start_IDE',
 			type: DataTypes.DATE,
 			allowNull: false
 		},
-		us_extensao_IDE: {
-			field: 'us_extensao_IDE',
+		us_dt_hr_end_IDE: {
+			field: 'us_dt_hr_end_IDE',
+			type: DataTypes.DATE,
+			allowNull: false
+		},
+		us_ide_nome_processo: {
+			field: 'us_ide_nome_processo',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
@@ -38,18 +43,13 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.DOUBLE,
 			allowNull: false
 		},
-		us_ide_total_processo: {
-			field: 'us_ide_total_processo',
-			type: DataTypes.DOUBLE,
-			allowNull: false
-		},
-		fk_id_ide: {
-			field: 'fk_id_ide',
+		fk_id_maquina: {
+			field: 'fk_id_maquina',
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
-				model: 'tb_ide_maquina',
-				key: 'id_ide'
+				model: 'tb_us_maquina',
+				key: 'id_maquina'
 			}
 		}
 	}, 

@@ -199,6 +199,7 @@ a {
 }
 
 .separation-ides {
+    position: relative;
     width: 80vw;
     height: 55vh;
     display: flex;
@@ -275,6 +276,17 @@ a {
 
 .idesLogo b {
     color: #4D4D4E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.idesLogo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .ide {
@@ -929,7 +941,7 @@ hr {
     top: 0;
 }
 
-.idesLogo {
+.idesLogo img {
     display: inline-flex;
     cursor: pointer;
     position: relative;

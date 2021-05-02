@@ -24,11 +24,13 @@ function verificar_autenticacao() {
             carregarGrafico();
         }
 
+        
+
         locateEmpresa()
-        b_usuario.innerHTML = nome_usuario;
-        cargo.innerHTML = cargo_usuario;
-        id_adm.style.display = "none";
-        empresa.innerHTML = nome_empresa;
+        typeof b_usuario === 'undefined' ? null : (b_usuario.innerHTML = nome_usuario);
+        typeof cargo === 'undefined' ? null : (cargo.innerHTML = cargo_usuario);
+        typeof id_adm === 'undefined' ? null : (id_adm.style.display = "none");
+        typeof empresa === 'undefined' ? null : (empresa.innerHTML = nome_empresa);
 
         validar_sessao();
     }
