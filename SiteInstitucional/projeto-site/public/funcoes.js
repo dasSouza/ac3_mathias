@@ -15,16 +15,16 @@ function verificar_autenticacao() {
     nome_empresa = sessionStorage.empresa_usuario_meuapp;
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
 
-
     if (login_usuario == undefined) {
         redirecionar_login();
     } else {
-
+        
         if (typeof obterDadosGraficoPrimeiraVez === 'function'){
             obterDadosGraficoPrimeiraVez(1);
             carregarGrafico();
         }
-        
+
+        locateEmpresa()
         b_usuario.innerHTML = nome_usuario;
         cargo.innerHTML = cargo_usuario;
         id_adm.style.display = "none";
@@ -61,6 +61,21 @@ function validar_sessao() {
                 logoff();
             }
         });
+}
+
+function locateEmpresa() {
+    fetch(`/empresas/autenticar/${login_usuario}`, { cache: 'no-store' })
+    .then(resposta => {
+        if (resposta.ok) {
+
+            resposta.json().then(json => {
+                sessionStorage.empresa_usuario_meuapp = json.kc_nome_comp
+            });
+
+        } else {
+            console.log('Erro ao encontrar empresa');
+        }
+    });
 }
 
 function finalizar_sessao() {

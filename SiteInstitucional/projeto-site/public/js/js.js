@@ -90,7 +90,6 @@ function entrar() {
                 sessionStorage.login_usuario_meuapp = json.us_login;
                 sessionStorage.administrador_usuario_meuapp = json.us_is_adm;
                 sessionStorage.nome_usuario_meuapp = json.us_nome_funcionario;
-                sessionStorage.empresa_usuario_meuapp = json.fk_id_empresa;
                 sessionStorage.cargo_usuario_meuapp = json.us_cargo;
 
                 if (json.us_is_adm == 1) {
