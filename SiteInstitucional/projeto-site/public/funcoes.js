@@ -3,6 +3,7 @@ let nome_usuario;
 let adm_usuario;
 let nome_empresa;
 let cargo_usuario;
+let id_usuario
 
 function redirecionar_login() {
     window.location.href = '../Institucional/login.html';
@@ -14,13 +15,14 @@ function verificar_autenticacao() {
     adm_usuario = sessionStorage.administrador_usuario_meuapp;
     nome_empresa = sessionStorage.empresa_usuario_meuapp;
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
+    id_usuario = sessionStorage.id_usuario_meuapp;
 
     if (login_usuario == undefined) {
         redirecionar_login();
     } else {
         
         if (typeof obterDadosGraficoPrimeiraVez === 'function'){
-            obterDadosGraficoPrimeiraVez(1);
+            obterDadosGraficoPrimeiraVez(id_usuario);
             carregarGrafico();
         }
 

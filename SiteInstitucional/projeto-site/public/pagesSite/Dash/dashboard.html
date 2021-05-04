@@ -167,15 +167,16 @@
 
 <!-- script cria grafico -->
 <script>
+
+  let contadorCriarElemento = 0
+  let contadorGrafico = 0
   let contador = 0
-  let contador2 = 0
 
   window.onload = verificar_autenticacao()
   window.onload = obterDadosGraficoPrimeiraVez(1);
   window.onload = carregarGrafico();
 
   function aguardar() {
-
     let loading = document.createElement('img')
     loading.style.position = "absolute";
     loading.src = "../../img/loading-dash.gif"
@@ -187,39 +188,38 @@
   }
 
   function finalizar_aguardar() {
-
     let carregar = document.querySelector('.carregando')
     carregar.style.display = "none";
-
   }
 
   function carregarGrafico() {
-    if (contador2 == 0) {
+    if (contadorGrafico == 0) {
       aguardar()
-      obterDadosGraficoPrimeiraVez(1)
-      contador2++
+      obterDadosGraficoPrimeiraVez(id_usuario)
+      contadorGrafico++
       return carregarGrafico();
     } else {
       setInterval(
         function myFunction() {
-          obterDadosGraficoPrimeiraVez(1)
+          obterDadosGraficoPrimeiraVez(id_usuario)
         }, 5000)
     }
-
   };
 
-  function obterDadosGraficoPrimeiraVez(idprocessos) {
+  function obterDadosGraficoPrimeiraVez(id_usuario) {
 
-    fetch(`/leituras/processos/ram/`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/leituras/processos/ram/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         finalizar_aguardar()
         response.json().then(function (resposta) {
           console.log("Entrou na RAM")
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           console.log(`Dados recebidos: ${resposta}`);
-          var resultado = [];
+          let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
+
+          resultadoIDE.length <= 6 ? next.style.visibility = "hidden" : next.style.visibility = "visible"
 
           function percorrer(obj) {
             for (var propriedade in obj) {
@@ -235,8 +235,6 @@
 
           percorrer(resposta);
           console.log(JSON.stringify(resultado));
-
-          valorRamNetbeans = resultado[2]
 
           console.log("Resultado: " + resultado)
           resultado = resultado.reverse();
@@ -255,66 +253,68 @@
 
           }
 
-          if (contador == 0) {
-            if (resultadoIDE.length && resultadoRam.length != 0) {
-              console.log("FOI")
+          function chamarGraficos() {
+            if (contadorCriarElemento == 0) {
+              if (resultadoIDE.length && resultadoRam.length != 0) {
+                console.log("FOI")
 
-              for (let index = 0; index < resultadoIDE.length; index++) {
+                for (let index = 0; index < resultadoIDE.length; index++) {
 
-                let ramIDE = resultadoRam[index]
-                let nomeIDE = resultadoIDE[index]
-                var logoIDE = document.querySelectorAll('#criaImg');
-                var first = logoIDE[index];
-                console.log(first.getAttribute('value'))
+                  let ramIDE = resultadoRam[index]
+                  let nomeIDE = resultadoIDE[index]
+                  var logoIDE = document.querySelectorAll('#criaImg');
+                  var first = logoIDE[index];
+                  console.log(first.getAttribute('value'))
 
-                if (first.getAttribute('value') == index) {
-                  let img1 = document.createElement('img')
-                  img1.src = `../../img/${nomeIDE}.png`
-                  img1.id = nomeIDE
-                  img1.addEventListener('click', function() {
-                    window.location.href = 'graficoshardware.html'
-                  })
+                  if (first.getAttribute('value') == index) {
+                    let img1 = document.createElement('img')
+                    img1.src = `../../img/${nomeIDE}.png`
+                    img1.id = nomeIDE
+                    img1.addEventListener('click', function () {
+                      window.location.href = 'graficoshardware.html'
+                    })
 
-                  first.appendChild(img1);
-                  if (img1.classList) img1.classList.add("logo-ide");
-                  else img1.className += " logo-ide";
+                    first.appendChild(img1);
+                    if (img1.classList) img1.classList.add("logo-ide");
+                    else img1.className += " logo-ide";
 
-                  let bIde = document.createElement('b')
-                  bIde.innerHTML = `${nomeIDE}`
-                  first.appendChild(bIde);
+                    let bIde = document.createElement('b')
+                    bIde.innerHTML = `${nomeIDE}`
+                    first.appendChild(bIde);
 
-                  let div1 = document.createElement('div')
-                  div1.id = `${nomeIDE}${index}`
-                  div1.setAttribute('data-fill-background', '#A3C6C1')
-                  div1.setAttribute('data-fill', '#B73447')
-                  div1.setAttribute('data-preset', 'energy')
-                  div1.style = "width: 60%; height: 20%;"
-                  first.appendChild(div1);
+                    let div1 = document.createElement('div')
+                    div1.id = `${nomeIDE}${index}`
+                    div1.setAttribute('data-fill-background', '#A3C6C1')
+                    div1.setAttribute('data-fill', '#B73447')
+                    div1.setAttribute('data-preset', 'energy')
+                    div1.style = "width: 60%; height: 20%;"
+                    first.appendChild(div1);
 
-                  if (div1.classList) div1.classList.add("label-center");
-                  else div1.className += " label-center";
+                    if (div1.classList) div1.classList.add("label-center");
+                    else div1.className += " label-center";
+                  }
+
                 }
 
+              } else {
+                console.error("Erro ao criar elementos")
               }
+              contadorCriarElemento++
+            }
 
+            if (resultadoIDE.length && resultadoRam.length != 0) {
+
+              for (let index = 0; index < resultadoIDE.length; index++) {
+                let nomeIDE = resultadoIDE[index]
+                let ramIDE = resultadoRam[index]
+
+                nomeIDE = `${nomeIDE}${index}`
+
+                criarGrafico(nomeIDE, ramIDE);
+              }
             } else {
-              console.error("Erro ao criar elementos")
+              console.error("Erro ao criar gráfico")
             }
-            contador++
-          }
-
-          if (resultadoIDE.length && resultadoRam.length != 0) {
-
-            for (let index = 0; index < resultadoIDE.length; index++) {
-              let nomeIDE = resultadoIDE[index]
-              let ramIDE = resultadoRam[index]
-
-              nomeIDE = `${nomeIDE}${index}`
-
-              criarGrafico(nomeIDE, ramIDE);
-            }
-          } else {
-            console.error("Erro ao criar gráfico")
           }
 
           function criarGrafico(id, valor) {
@@ -325,8 +325,23 @@
 
           function clickImagem(id) {
 
-            
-            
+
+
+          }
+
+          if (contador == 0) {
+            if (resposta == 0) {
+              let aviso = document.createElement('div')
+              aviso.style.position = "absolute";
+              aviso.style.fontSize = "8vh";
+              aviso.style.textAlign = "center"
+              aviso.innerHTML = "Você não tem nenhuma IDE selecionada <br> Vá até Profile e selecione a IDE que deseja monitorar"
+              aviso.id = "aviso"
+              document.querySelector('.ides-container').appendChild(aviso);
+              contador++
+            } else {
+              chamarGraficos()
+            }
           }
 
         });

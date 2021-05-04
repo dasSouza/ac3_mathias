@@ -253,6 +253,7 @@ a {
     font-size: 3vh;
     color: #B73447;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .box-ides {

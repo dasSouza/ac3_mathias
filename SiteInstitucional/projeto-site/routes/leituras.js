@@ -37,12 +37,12 @@ router.get('/ultimas/:idprocessos', function (req, res, next) {
 });
 
 /* Recuperar a RAM */
-router.get('/processos/ram', function (req, res, next) {
+router.get('/processos/ram/:id_usuario', function (req, res, next) {
 
 	// quantas são as últimas leituras que quer? 8 está bom?
 	// const limite_linhas = 1;
 
-	// var CPF = req.params.CPF;
+	var CPF = req.params.id_usuario;
 
 	// console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 	console.log("Encontrei a RAM 1")
@@ -50,7 +50,7 @@ router.get('/processos/ram', function (req, res, next) {
 						FROM tb_processos_ide AS processo
 						JOIN tb_us_maquina AS maq
 						ON maq.id_maquina = processo.fk_id_maquina 
-						AND fk_id_funcionario = 71907792058;`;
+						AND fk_id_funcionario = ${CPF}`;
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
