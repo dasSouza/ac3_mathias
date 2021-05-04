@@ -15,6 +15,7 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import tabelas.TbUsMaquina;
 
 /**
  *
@@ -27,7 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-        
+
     }
 
     /**
@@ -61,6 +62,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jblEmpresa = new javax.swing.JLabel();
         jblEquipe = new javax.swing.JLabel();
         jblCargo = new javax.swing.JLabel();
+        lblNomemaquina = new javax.swing.JLabel();
         DashGestor = new javax.swing.JFrame();
         TelaDashGestor = new javax.swing.JDesktopPane();
         jpFundo = new javax.swing.JPanel();
@@ -285,6 +287,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jblCargo.setForeground(new java.awt.Color(102, 102, 102));
         jblCargo.setText("cargo");
 
+        lblNomemaquina.setText("nome maquina");
+
         javax.swing.GroupLayout TelaDashDevLayout = new javax.swing.GroupLayout(TelaDashDev);
         TelaDashDev.setLayout(TelaDashDevLayout);
         TelaDashDevLayout.setHorizontalGroup(
@@ -328,13 +332,16 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGap(353, 353, 353)
                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jblEmpresa)
-                            .addComponent(jblNomeDev)
+                            .addGroup(TelaDashDevLayout.createSequentialGroup()
+                                .addComponent(jblNomeDev)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNomemaquina))
                             .addComponent(jblEquipe)
                             .addComponent(jblCargo)))
                     .addGroup(TelaDashDevLayout.createSequentialGroup()
                         .addGap(295, 295, 295)
                         .addComponent(jblEscolha)))
-                .addContainerGap(411, Short.MAX_VALUE))
+                .addContainerGap(408, Short.MAX_VALUE))
         );
         TelaDashDevLayout.setVerticalGroup(
             TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,7 +349,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(jLabel3)
                 .addGap(36, 36, 36)
-                .addComponent(jblNomeDev)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblNomeDev)
+                    .addComponent(lblNomemaquina))
                 .addGap(5, 5, 5)
                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jblLogo1)
@@ -405,7 +414,6 @@ public class TelaLogin extends javax.swing.JFrame {
         DashGestor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         DashGestor.setLocation(new java.awt.Point(0, 0));
         DashGestor.setMinimumSize(new java.awt.Dimension(1280, 720));
-        DashGestor.setPreferredSize(new java.awt.Dimension(1401, 742));
         DashGestor.setSize(new java.awt.Dimension(0, 0));
 
         TelaDashGestor.setAutoscrolls(true);
@@ -829,7 +837,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
         TelaLoginLayout.setVerticalGroup(
             TelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -852,56 +860,58 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         Conexao con = new Conexao();
-        
+
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
-        
+
         List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
+        List<TbUsMaquina> pegandoUser2 = template.query("SELECT * FROM tb_us_maquina",
+                new BeanPropertyRowMapper<>(TbUsMaquina.class));
         
         System.out.println(pegandoUser);
-        
+        System.out.println(pegandoUser2);
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
-        
+
         String isAdmin = "1";
-        
+
         if (pegandoUser.isEmpty()) {
-            
+
             lblValida.setText("Email ou senha incorretos");
             txtEmail.setText("Informe seu login aqui");
             txtSenha.setText("Senha123");
         } else {
             if (pegandoUser.size() == 1) {
-                
+
                 for (Iterator<TbUsDados> it = pegandoUser.iterator(); it.hasNext();) {
-                    
+
                     TbUsDados tbUsDados = it.next();
                     
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
-                        
+
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
                             this.setVisible(false);
                             this.dispose();
-                            
+
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             lblGestorEquipe.setText(tbUsDados.getUs_equipe());
-                            
+
                         } else {
                             this.setVisible(false);
                             this.dispose();
-                            
+
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             jblEquipe.setText(tbUsDados.getUs_equipe());
                             //jblEmpresa.setText(tbUsDados.getFk_id_empresa());
                             jblCargo.setText(tbUsDados.getUs_cargo());
-                            
+                            //lblNomemaquina.setTe;
                         }
-                        
+
                     }
                 }
-                
+
             } else if (pegandoUser.size() > 1) {
                 txtEmail.setText("Informe seu login aqui");
                 txtSenha.setText("Senha123");
@@ -909,14 +919,14 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
-    
+
     private void chamarTelaFuncionario() {
         this.dispose();
-        
+
         DashDev.setVisible(true);
-        
+
         DashDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
+
     }
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
@@ -1022,7 +1032,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPhpStorm1ActionPerformed
 
     private void btnEclipse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipse1ActionPerformed
-        
+
         chamarDetalhes();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEclipse1ActionPerformed
@@ -1044,12 +1054,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEclipse6ActionPerformed
-    
+
     private void chamarDetalhes() {
         this.dispose();
-        
+
         DetalheDev.setVisible(true);
-        
+
         DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
@@ -1057,7 +1067,7 @@ public class TelaLogin extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1065,7 +1075,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     break;
                 }
             }
-            
+
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -1077,6 +1087,7 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new TelaLogin().setVisible(true);
         });
+
     }
 
 
@@ -1125,6 +1136,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jpFundo;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGestorEquipe;
+    private javax.swing.JLabel lblNomemaquina;
     private javax.swing.JLabel lblSenha;
     private javax.swing.JLabel lblTitleLogin;
     private javax.swing.JLabel lblValida;
