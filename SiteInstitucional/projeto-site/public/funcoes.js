@@ -3,7 +3,8 @@ let nome_usuario;
 let adm_usuario;
 let nome_empresa;
 let cargo_usuario;
-let id_usuario
+let id_usuario;
+let ide_usuario;
 
 function redirecionar_login() {
     window.location.href = '../Institucional/login.html';
@@ -16,17 +17,22 @@ function verificar_autenticacao() {
     nome_empresa = sessionStorage.empresa_usuario_meuapp;
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
     id_usuario = sessionStorage.id_usuario_meuapp;
+    ide_usuario = sessionStorage.ide_usuario_meu_app;
 
     if (login_usuario == undefined) {
         redirecionar_login();
     } else {
-        
-        if (typeof obterDadosGraficoPrimeiraVez === 'function'){
-            obterDadosGraficoPrimeiraVez(id_usuario);
+
+        if (typeof obterDadosGraficoRam === 'function') {
+            obterDadosGraficoRam(id_usuario);
             carregarGrafico();
         }
 
-        
+        if (typeof obterDadosGraficoIDE === 'function') {
+            obterDadosGraficoIDE(ide_usuario, id_usuario);
+            carregarGrafico();
+        }
+
 
         locateEmpresa()
         typeof b_usuario === 'undefined' ? null : (b_usuario.innerHTML = nome_usuario);
@@ -69,17 +75,17 @@ function validar_sessao() {
 
 function locateEmpresa() {
     fetch(`/empresas/autenticar/${login_usuario}`, { cache: 'no-store' })
-    .then(resposta => {
-        if (resposta.ok) {
+        .then(resposta => {
+            if (resposta.ok) {
 
-            resposta.json().then(json => {
-                sessionStorage.empresa_usuario_meuapp = json.kc_nome_comp
-            });
+                resposta.json().then(json => {
+                    sessionStorage.empresa_usuario_meuapp = json.kc_nome_comp
+                });
 
-        } else {
-            console.log('Erro ao encontrar empresa');
-        }
-    });
+            } else {
+                console.log('Erro ao encontrar empresa');
+            }
+        });
 }
 
 function finalizar_sessao() {

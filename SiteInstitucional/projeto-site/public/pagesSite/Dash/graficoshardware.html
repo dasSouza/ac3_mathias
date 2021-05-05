@@ -27,7 +27,7 @@
         <div class="navigation">
           <ul>
             <li>
-              <a href="#">
+              <a href="dashboard.html">
                 <span class="icon">
                   <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
                 </span>
@@ -179,20 +179,22 @@
   let inicioIDE;
   let fimIDE;
 
+  let contadorGrafico = 0
+
   window.onload = verificar_autenticacao()
-  window.onload = obterDadosGraficoPrimeiraVez(1);
-  window.onload = carregarGrafico();
+  // window.onload = obterDadosGraficoIDE(1);
+  // window.onload = carregarGrafico();
 
   function carregarGrafico() {
     setInterval(
       function myFunction() {
-        obterDadosGraficoPrimeiraVez(1)
+        obterDadosGraficoIDE(ide_usuario, id_usuario)
       }, 5000)
 
   };
 
-  function obterDadosGraficoPrimeiraVez(idprocessos) {
-    fetch(`/leituras/ultimas/${idprocessos}`, { cache: 'no-store' }).then(function (response) {
+  function obterDadosGraficoIDE(IDE, id_usuario) {
+    fetch(`/leituras/processos/ide/${IDE}/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
 
