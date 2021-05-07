@@ -15,6 +15,7 @@ import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import tabelas.TbProcessosIde;
 import tabelas.TbUsMaquina;
 
 /**
@@ -62,7 +63,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jblEmpresa = new javax.swing.JLabel();
         jblEquipe = new javax.swing.JLabel();
         jblCargo = new javax.swing.JLabel();
-        lblNomemaquina = new javax.swing.JLabel();
+        jblEquipe1 = new javax.swing.JLabel();
+        lblimagemDragon = new javax.swing.JLabel();
         DashGestor = new javax.swing.JFrame();
         TelaDashGestor = new javax.swing.JDesktopPane();
         jpFundo = new javax.swing.JPanel();
@@ -80,6 +82,16 @@ public class TelaLogin extends javax.swing.JFrame {
         DetalheDev = new javax.swing.JFrame();
         DashDetalhesDev = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
+        jblLogo2 = new javax.swing.JLabel();
+        lblNomeIdeDtelhes = new javax.swing.JLabel();
+        lblDiscoDev = new javax.swing.JLabel();
+        lblCpuDev = new javax.swing.JLabel();
+        lblRamDev = new javax.swing.JLabel();
+        lblTempoUsoDev = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
@@ -100,9 +112,9 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaDashDev.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TelaDashDev.setPreferredSize(new java.awt.Dimension(1366, 720));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Bem Vindo");
+        jLabel3.setText("Bem Vindo,");
 
         jblEscolha.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jblEscolha.setForeground(new java.awt.Color(102, 102, 102));
@@ -287,24 +299,42 @@ public class TelaLogin extends javax.swing.JFrame {
         jblCargo.setForeground(new java.awt.Color(102, 102, 102));
         jblCargo.setText("cargo");
 
-        lblNomemaquina.setText("nome maquina");
+        jblEquipe1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblEquipe1.setForeground(new java.awt.Color(102, 102, 102));
+        jblEquipe1.setText("nome maquina");
+
+        lblimagemDragon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/banctec/tela/login/Contato__39_-removebg-preview 1.png"))); // NOI18N
+        lblimagemDragon.setMaximumSize(new java.awt.Dimension(480, 240));
+        lblimagemDragon.setPreferredSize(new java.awt.Dimension(185, 119));
 
         javax.swing.GroupLayout TelaDashDevLayout = new javax.swing.GroupLayout(TelaDashDev);
         TelaDashDev.setLayout(TelaDashDevLayout);
         TelaDashDevLayout.setHorizontalGroup(
             TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TelaDashDevLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addComponent(lblimagemDragon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jblEquipe1)
+                            .addComponent(jblEquipe)
+                            .addComponent(jblCargo)
+                            .addComponent(jblEmpresa)
+                            .addComponent(jblNomeDev)))
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                                .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(15, 15, 15)))
+                        .addGap(46, 46, 46)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jblEscolha)
                             .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addGap(249, 249, 249)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
-                                        .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(15, 15, 15)))
-                                .addGap(46, 46, 46)
                                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnEclipse))
@@ -319,67 +349,58 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addGap(49, 49, 49)
                                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnEclipse1)
-                                    .addComponent(btnXcode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addComponent(jblLogo1)
-                                .addGap(356, 356, 356)
-                                .addComponent(jLabel3)))
-                        .addGap(80, 80, 80)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPyCharm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEclipse6)))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(353, 353, 353)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jblEmpresa)
-                            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addComponent(jblNomeDev)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNomemaquina))
-                            .addComponent(jblEquipe)
-                            .addComponent(jblCargo)))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(295, 295, 295)
-                        .addComponent(jblEscolha)))
-                .addContainerGap(408, Short.MAX_VALUE))
+                                    .addComponent(btnXcode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(80, 80, 80)
+                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnPyCharm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnEclipse6))))))
+                .addGap(321, 321, 321))
+            .addGroup(TelaDashDevLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jblLogo1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TelaDashDevLayout.setVerticalGroup(
             TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel3)
-                .addGap(36, 36, 36)
-                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jblNomeDev)
-                    .addComponent(lblNomemaquina))
-                .addGap(5, 5, 5)
-                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jblLogo1)
+                .addContainerGap()
+                .addComponent(jblLogo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addComponent(lblimagemDragon, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jblNomeDev))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblEquipe1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jblEquipe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jblEmpresa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblCargo)
-                        .addGap(44, 44, 44)
-                        .addComponent(jblEscolha)
-                        .addGap(79, 79, 79)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPyCharm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEclipse)
-                            .addComponent(btnIntellij1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEclipse1)
-                            .addComponent(btnPyCharm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(99, 99, 99)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnXcode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPhpStorm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEclipse5)
-                            .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEclipse6))))
-                .addGap(184, 184, 184))
+                        .addComponent(jblCargo)))
+                .addGap(88, 88, 88)
+                .addComponent(jblEscolha)
+                .addGap(87, 87, 87)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPyCharm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEclipse)
+                    .addComponent(btnIntellij1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEclipse1)
+                    .addComponent(btnPyCharm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(99, 99, 99)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnXcode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPhpStorm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEclipse5)
+                    .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEclipse6))
+                .addGap(158, 158, 158))
         );
 
         DashDevTela.setLayer(TelaDashDev, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -388,11 +409,13 @@ public class TelaLogin extends javax.swing.JFrame {
         DashDevTela.setLayout(DashDevTelaLayout);
         DashDevTelaLayout.setHorizontalGroup(
             DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TelaDashDev, javax.swing.GroupLayout.DEFAULT_SIZE, 1401, Short.MAX_VALUE)
+            .addGroup(DashDevTelaLayout.createSequentialGroup()
+                .addComponent(TelaDashDev, javax.swing.GroupLayout.PREFERRED_SIZE, 1377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         DashDevTelaLayout.setVerticalGroup(
             DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TelaDashDev, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
+            .addComponent(TelaDashDev, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         TelaDashDev.getAccessibleContext().setAccessibleParent(this);
@@ -613,7 +636,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TelaDashGestorLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -637,16 +660,83 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaDashGestor.getAccessibleContext().setAccessibleParent(this);
 
         jPanel1.setBackground(new java.awt.Color(206, 228, 217));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1368, 720));
+
+        jblLogo2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jblLogo2.setForeground(new java.awt.Color(183, 51, 73));
+        jblLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblLogo2.setText("KEEPCODE");
+
+        lblNomeIdeDtelhes.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        lblNomeIdeDtelhes.setForeground(new java.awt.Color(102, 102, 102));
+        lblNomeIdeDtelhes.setText("ide");
+
+        lblDiscoDev.setText("Disco");
+
+        lblCpuDev.setText("CPU");
+
+        lblRamDev.setText("Ram");
+
+        lblTempoUsoDev.setText("Tempo de uso");
+
+        jLabel6.setText("grafico");
+
+        jLabel7.setText("jLabel7");
+
+        jLabel8.setText("jLabel8");
+
+        jLabel9.setText("jLabel9");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 656, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jblLogo2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblDiscoDev)
+                            .addComponent(lblCpuDev)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel9))
+                        .addGap(460, 460, 460)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblRamDev)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(lblTempoUsoDev, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(492, 492, 492)
+                        .addComponent(lblNomeIdeDtelhes)))
+                .addContainerGap(567, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jblLogo2)
+                .addGap(42, 42, 42)
+                .addComponent(lblNomeIdeDtelhes)
+                .addGap(120, 120, 120)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDiscoDev)
+                    .addComponent(lblRamDev))
+                .addGap(106, 106, 106)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCpuDev)
+                    .addComponent(lblTempoUsoDev))
+                .addGap(0, 299, Short.MAX_VALUE))
         );
 
         DashDetalhesDev.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -655,18 +745,18 @@ public class TelaLogin extends javax.swing.JFrame {
         DashDetalhesDev.setLayout(DashDetalhesDevLayout);
         DashDetalhesDevLayout.setHorizontalGroup(
             DashDetalhesDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         DashDetalhesDevLayout.setVerticalGroup(
             DashDetalhesDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout DetalheDevLayout = new javax.swing.GroupLayout(DetalheDev.getContentPane());
         DetalheDev.getContentPane().setLayout(DetalheDevLayout);
         DetalheDevLayout.setHorizontalGroup(
             DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 656, Short.MAX_VALUE)
+            .addGap(0, 1368, Short.MAX_VALUE)
             .addGroup(DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DetalheDevLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -675,7 +765,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
         DetalheDevLayout.setVerticalGroup(
             DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
             .addGroup(DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(DetalheDevLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -865,11 +955,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
-        List<TbUsMaquina> pegandoUser2 = template.query("SELECT * FROM tb_us_maquina",
-                new BeanPropertyRowMapper<>(TbUsMaquina.class));
-        
+        //List<TbUsMaquina> pegandoUser2 = template.query("SELECT * FROM tb_us_maquina",
+        //      new BeanPropertyRowMapper<>(TbUsMaquina.class));
+
         System.out.println(pegandoUser);
-        System.out.println(pegandoUser2);
+        ///System.out.println(pegandoUser2);
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
 
@@ -886,7 +976,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 for (Iterator<TbUsDados> it = pegandoUser.iterator(); it.hasNext();) {
 
                     TbUsDados tbUsDados = it.next();
-                    
+
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
@@ -921,11 +1011,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void chamarTelaFuncionario() {
-        this.dispose();
 
+        Conexao con = new Conexao();
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+        List<TbUsMaquina> maquinaDev = template.query("SELECT * FROM tb_us_maquina",
+                new BeanPropertyRowMapper<>(TbUsMaquina.class));
+        System.out.println(maquinaDev);
+
+        this.dispose();
         DashDev.setVisible(true);
 
-        DashDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
 
@@ -1056,10 +1152,18 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEclipse6ActionPerformed
 
     private void chamarDetalhes() {
+        Conexao con = new Conexao();
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+        //List<TbProcessosIde> maquinaDev = template.query("SELECT * FROM tb_us_maquina",
+         //      new BeanPropertyRowMapper<>(TbUsMaquina.class));
+        //System.out.println(maquinaDev);
         this.dispose();
 
         DetalheDev.setVisible(true);
-
+       // lblCpuDev.setText(TbUsMaquina.get);
+        //lblDiscoDev;
+        //lblRamDev;
+        //lblTempoUsoDev DashDev
         DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
@@ -1122,24 +1226,35 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnXcode1;
     private javax.swing.JPanel cardLogin;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblBemVindo;
     private javax.swing.JLabel jblCargo;
     private javax.swing.JLabel jblEmpresa;
     private javax.swing.JLabel jblEquipe;
+    private javax.swing.JLabel jblEquipe1;
     private javax.swing.JLabel jblEscolha;
     private javax.swing.JLabel jblLogo;
     private javax.swing.JLabel jblLogo1;
+    private javax.swing.JLabel jblLogo2;
     private javax.swing.JLabel jblMaquinaa;
     private javax.swing.JLabel jblNomeDev;
     private javax.swing.JLabel jblNomeGestor;
     private javax.swing.JPanel jpFundo;
+    private javax.swing.JLabel lblCpuDev;
+    private javax.swing.JLabel lblDiscoDev;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGestorEquipe;
-    private javax.swing.JLabel lblNomemaquina;
+    private javax.swing.JLabel lblNomeIdeDtelhes;
+    private javax.swing.JLabel lblRamDev;
     private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblTempoUsoDev;
     private javax.swing.JLabel lblTitleLogin;
     private javax.swing.JLabel lblValida;
+    private javax.swing.JLabel lblimagemDragon;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
