@@ -12,8 +12,10 @@ import jdbc.Conexao;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import tabelas.TbProcessosIde;
 import tabelas.TbUsMaquina;
@@ -31,6 +33,8 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
 
     }
+
+    public Integer cpf;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,7 +68,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jblEquipe = new javax.swing.JLabel();
         jblCargo = new javax.swing.JLabel();
         jblEquipe1 = new javax.swing.JLabel();
-        lblimagemDragon = new javax.swing.JLabel();
         DashGestor = new javax.swing.JFrame();
         TelaDashGestor = new javax.swing.JDesktopPane();
         jpFundo = new javax.swing.JPanel();
@@ -303,29 +306,14 @@ public class TelaLogin extends javax.swing.JFrame {
         jblEquipe1.setForeground(new java.awt.Color(102, 102, 102));
         jblEquipe1.setText("nome maquina");
 
-        lblimagemDragon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/banctec/tela/login/Contato__39_-removebg-preview 1.png"))); // NOI18N
-        lblimagemDragon.setMaximumSize(new java.awt.Dimension(480, 240));
-        lblimagemDragon.setPreferredSize(new java.awt.Dimension(185, 119));
-
         javax.swing.GroupLayout TelaDashDevLayout = new javax.swing.GroupLayout(TelaDashDev);
         TelaDashDev.setLayout(TelaDashDevLayout);
         TelaDashDevLayout.setHorizontalGroup(
             TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
-                .addContainerGap(312, Short.MAX_VALUE)
                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addComponent(lblimagemDragon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jblEquipe1)
-                            .addComponent(jblEquipe)
-                            .addComponent(jblCargo)
-                            .addComponent(jblEmpresa)
-                            .addComponent(jblNomeDev)))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGap(212, 315, Short.MAX_VALUE)
                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
@@ -353,7 +341,17 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addGap(80, 80, 80)
                                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnPyCharm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnEclipse6))))))
+                                    .addComponent(btnEclipse6)))))
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGap(465, 465, 465)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jblEquipe1)
+                            .addComponent(jblEquipe)
+                            .addComponent(jblCargo)
+                            .addComponent(jblEmpresa)
+                            .addComponent(jblNomeDev))))
                 .addGap(321, 321, 321))
             .addGroup(TelaDashDevLayout.createSequentialGroup()
                 .addContainerGap()
@@ -366,22 +364,17 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jblLogo1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addComponent(lblimagemDragon, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jblNomeDev))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblEquipe1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jblEquipe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblEmpresa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblCargo)))
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jblNomeDev))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblEquipe1)
+                .addGap(73, 73, 73)
+                .addComponent(jblEquipe)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblEmpresa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jblCargo)
                 .addGap(88, 88, 88)
                 .addComponent(jblEscolha)
                 .addGap(87, 87, 87)
@@ -636,7 +629,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TelaDashGestorLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -712,7 +705,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(492, 492, 492)
                         .addComponent(lblNomeIdeDtelhes)))
-                .addContainerGap(567, Short.MAX_VALUE))
+                .addContainerGap(574, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -949,6 +942,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+
+//        this.dispose();
+//        DashDev.setVisible(true);
         Conexao con = new Conexao();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
@@ -980,17 +976,28 @@ public class TelaLogin extends javax.swing.JFrame {
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
+                            
+                            // gestor entra aqui
+                            
                             this.setVisible(false);
                             this.dispose();
-
+                            this.cpf = tbUsDados.getId_cpf() * (-1);
+                            
+        
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             lblGestorEquipe.setText(tbUsDados.getUs_equipe());
 
                         } else {
+                            
+                            // dev entra aqui
+                            
                             this.setVisible(false);
                             this.dispose();
 
+//                            this.cpf = tbUsDados.getId_cpf() * (-1);
+                            this.cpf = tbUsDados.getId_cpf();
+                            
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             jblEquipe.setText(tbUsDados.getUs_equipe());
@@ -1010,7 +1017,7 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
-    private void chamarTelaFuncionario() {
+    private void chamarTelaFuncionario(String nome) {
 
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
@@ -1064,20 +1071,19 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailFocusGained
 
     private void btnMaquina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina1ActionPerformed
-        chamarTelaFuncionario();
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note1");
     }//GEN-LAST:event_btnMaquina1ActionPerformed
 
     private void btnMaquina5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina5ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note6");
     }//GEN-LAST:event_btnMaquina5ActionPerformed
 
     private void btnMaquina6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina6ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note2");
     }//GEN-LAST:event_btnMaquina6ActionPerformed
 
     private void btnMaquina7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina7ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note3");
     }//GEN-LAST:event_btnMaquina7ActionPerformed
 
     private void btnIntellij1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellij1ActionPerformed
@@ -1086,11 +1092,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIntellij1ActionPerformed
 
     private void btnMaquina8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina8ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note5");
     }//GEN-LAST:event_btnMaquina8ActionPerformed
 
     private void btnMaquina9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina9ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note4");
     }//GEN-LAST:event_btnMaquina9ActionPerformed
 
     private void btnIntellijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellijActionPerformed
@@ -1154,24 +1160,23 @@ public class TelaLogin extends javax.swing.JFrame {
     private void chamarDetalhes() {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
-        //List<TbProcessosIde> maquinaDev = template.query("SELECT * FROM tb_us_maquina",
-         //      new BeanPropertyRowMapper<>(TbUsMaquina.class));
-        //System.out.println(maquinaDev);
+
+        List<TbProcessosIde> ideDev = template.query("SELECT us_ide_ram, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina  AND fk_id_funcionario = ?",
+                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
+
+
+        System.out.println(ideDev);
+
         this.dispose();
 
         DetalheDev.setVisible(true);
-       // lblCpuDev.setText(TbUsMaquina.get);
-        //lblDiscoDev;
-        //lblRamDev;
-        //lblTempoUsoDev DashDev
+
         DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
 
+//        JOptionPane.showInternalMessageDialog(null, "teste de argumento", "teste titulo", 2);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1254,7 +1259,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTempoUsoDev;
     private javax.swing.JLabel lblTitleLogin;
     private javax.swing.JLabel lblValida;
-    private javax.swing.JLabel lblimagemDragon;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
