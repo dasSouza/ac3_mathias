@@ -13,9 +13,8 @@ public class TbProcessosIde {
     private Double us_ide_ram;
     private Double us_ide_cpu;
     private Double us_ide_disco;
-    private Integer fk_id_maquina;
-    
-    
+    private Long fk_id_maquina;
+
     public Integer getId_processos() {
         return id_processos;
     }
@@ -39,6 +38,8 @@ public class TbProcessosIde {
     public void setUs_dt_hr_end_IDE(String us_dt_hr_end_IDE) {
         this.us_dt_hr_end_IDE = us_dt_hr_end_IDE;
     }
+
+ 
 
     public String getUs_ide_nome_processo() {
         return us_ide_nome_processo;
@@ -72,13 +73,16 @@ public class TbProcessosIde {
         this.us_ide_disco = us_ide_disco;
     }
 
-    public Integer getFk_id_maquina() {
+    public Long getFk_id_maquina() {
         return fk_id_maquina;
     }
 
-    public void setFk_id_maquina(Integer fk_id_maquina) {
+    public void setFk_id_maquina(Long fk_id_maquina) {
         this.fk_id_maquina = fk_id_maquina;
     }
+    
+    
+    
 
     @Override
     public String toString() {

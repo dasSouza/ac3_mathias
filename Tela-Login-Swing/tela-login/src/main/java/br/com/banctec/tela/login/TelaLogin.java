@@ -29,12 +29,12 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
+    public Long cpf = 15000000000l;
+
     public TelaLogin() {
         initComponents();
 
     }
-
-    public Integer cpf;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -986,8 +986,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             this.dispose();
 
 //                            this.cpf = tbUsDados.getId_cpf() * (-1);
-                            //this.cpf = tbUsDados.getId_cpf();
-
+                            this.cpf = tbUsDados.getId_cpf();
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             jblEquipe.setText(tbUsDados.getUs_equipe());
@@ -1078,7 +1077,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMaquina7ActionPerformed
 
     private void btnSublimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSublimeActionPerformed
-        chamarDetalhes();
+//        chamarDetalhes();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSublimeActionPerformed
 
@@ -1090,71 +1089,83 @@ public class TelaLogin extends javax.swing.JFrame {
         chamarTelaFuncionario("note4");
 
     }//GEN-LAST:event_btnMaquina9ActionPerformed
-    private void chamarDetalhes() {
+    private void chamarDetalhes(String nome_ide) {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
-
-        List<TbProcessosIde> ideDev = template.query("SELECT us_ide_ram, us_ide_nome_processo "
-                + "FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina "
-                + "= processo.fk_id_maquina  AND fk_id_funcionario = ?",
-                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
+        System.out.println(this.cpf);
+//        List<TbProcessosIde> ideDev = template.query("SELECT us_ide_ram, us_ide_nome_processo "
+//                + "FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina "
+//                + "= processo.fk_id_maquina  AND fk_id_funcionario = ?",
+//                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
+        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1\n"
+                + "                        us_dt_hr_start_IDE,\n"
+                + "                        us_dt_hr_end_IDE,\n"
+                + "                        us_ide_ram,\n"
+                + "                        us_ide_cpu,\n"
+                + "                        us_ide_disco\n"
+                + "                        FROM tb_processos_ide AS processo\n"
+                + "                        JOIN tb_us_maquina AS maq\n"
+                + "                        ON maq.id_maquina = processo.fk_id_maquina \n"
+                + "                        where us_ide_nome_processo = 'idea64' \n"
+                + "                        AND fk_id_funcionario = 2578386005 ",
+                new BeanPropertyRowMapper<>(TbProcessosIde.class));
 
         System.out.println(ideDev);
 
         this.dispose();
 
         DetalheDev.setVisible(true);
-        
+
         DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     private void btnIntellijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellijActionPerformed
-        chamarDetalhes();
-       
+        chamarDetalhes("idea64");
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIntellijActionPerformed
 
     private void btnPhpStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhpStormActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("phpstorm64");
     }//GEN-LAST:event_btnPhpStormActionPerformed
 
     private void btnEclipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipseActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("eclipse");
 
     }//GEN-LAST:event_btnEclipseActionPerformed
 
     private void btnXcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXcodeActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("Xcode");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXcodeActionPerformed
 
     private void btnPyCharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPyCharmActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("pycharm64");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPyCharmActionPerformed
 
     private void btnWebStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWebStormActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("webstorm64");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnWebStormActionPerformed
 
     private void btnVisualStudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualStudioActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("devenv");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVisualStudioActionPerformed
 
     private void btnAndoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndoridActionPerformed
 
-        chamarDetalhes();
+        chamarDetalhes("studio64");
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAndoridActionPerformed
 
     private void btnNetBeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetBeansActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("netbeans64");
     }//GEN-LAST:event_btnNetBeansActionPerformed
 
     private void btnVsCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVsCodeActionPerformed
-        chamarDetalhes();
+        chamarDetalhes("Code");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVsCodeActionPerformed
