@@ -173,8 +173,6 @@
   let contador = 0
 
   window.onload = verificar_autenticacao()
-  // window.onload = obterDadosGraficoRam(1);
-  // window.onload = carregarGrafico();
 
   function aguardar() {
     let loading = document.createElement('img')
@@ -218,6 +216,9 @@
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
+          let resultadoLimpo = []
+          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
+            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
 
           resultadoIDE.length <= 6 ? next.style.visibility = "hidden" : next.style.visibility = "visible"
 
@@ -239,6 +240,35 @@
           console.log("Resultado: " + resultado)
           resultado = resultado.reverse();
           console.log("Resultado invertido: " + resultado)
+
+          var unico = resultado.filter(function (elem, index, self) {
+            if (index === self.indexOf(elem)) {
+
+            } else {
+              resultadoLimpo.push(index);
+            }
+
+            return index === self.indexOf(elem)
+          });
+
+          for (let index = 0, index2 = 0; index < resultado.length; index++) {
+            if (index == resultadoLimpo[index2]) {
+              let index4 = resultadoLimpo.length
+              index4--
+
+              for (let index3 = 0, index5 = 0; index3 < resultadoLimpo.length; index3++) {
+
+                const element = resultadoLimpo[index3]
+
+                if (index == element) {
+                  resultado.splice(resultadoLimpo[index4], 2)
+                  index2 = resultadoLimpo[index4]
+                  index4--
+                  index = resultadoLimpo[++index5]
+                }
+              }
+            }
+          }
 
           for (let index = 0; index < resultado.length; index++) {
             const element = resultado[index]
@@ -264,7 +294,6 @@
                   let nomeIDE = resultadoIDE[index]
                   var logoIDE = document.querySelectorAll('#criaImg');
                   var first = logoIDE[index];
-                  console.log(first.getAttribute('value'))
 
                   if (first.getAttribute('value') == index) {
                     let img1 = document.createElement('img')
@@ -280,7 +309,42 @@
                     else img1.className += " logo-ide";
 
                     let bIde = document.createElement('b')
-                    bIde.innerHTML = `${nomeIDE}`
+
+                    switch (nomeIDE) {
+                      case "Xcode":
+                        bIde.innerHTML = nomesTratadosIDE[0]
+                        break;
+                      case "pycharm64":
+                        bIde.innerHTML = nomesTratadosIDE[1]
+                        break;
+                      case "Code":
+                        bIde.innerHTML = nomesTratadosIDE[2]
+                        break;
+                      case "netbeans64":
+                        bIde.innerHTML = nomesTratadosIDE[3]
+                        break;
+                      case "idea64":
+                        bIde.innerHTML = nomesTratadosIDE[4]
+                        break;
+                      case "studio64":
+                        bIde.innerHTML = nomesTratadosIDE[5]
+                        break;
+                      case "phpstorm64":
+                        bIde.innerHTML = nomesTratadosIDE[6]
+                        break;
+                      case "webstorm64":
+                        bIde.innerHTML = nomesTratadosIDE[7]
+                        break;
+                      case "eclipse":
+                        bIde.innerHTML = nomesTratadosIDE[8]
+                        break;
+                      case "devenv":
+                        bIde.innerHTML = nomesTratadosIDE[9]
+                        break;
+                      default:
+                        break;
+                    }
+
                     first.appendChild(bIde);
 
                     let div1 = document.createElement('div')

@@ -10,16 +10,7 @@ router.get('/processos/ide/:IDE/:id_usuario', function (req, res, next) {
 	var CPF = req.params.id_usuario;
 
 	console.log("Encontrei a IDE 1")
-	const instrucaoSql = //`select 
-	// 					us_dt_hr_start_IDE,
-	// 					us_dt_hr_end_IDE,
-	// 					us_ide_ram,
-	// 					us_ide_cpu,
-	// 					us_ide_disco
-	// 					from tb_processos_ide
-	// 					where us_ide_nome_processo = '${IDE}' 
-	// 					and fk_id_maquina = ${CPF}`;
-
+	const instrucaoSql = 
 						`SELECT TOP 1
 						us_dt_hr_start_IDE,
 						us_dt_hr_end_IDE,
@@ -30,7 +21,8 @@ router.get('/processos/ide/:IDE/:id_usuario', function (req, res, next) {
 						JOIN tb_us_maquina AS maq
 						ON maq.id_maquina = processo.fk_id_maquina 
 						where us_ide_nome_processo = '${IDE}' 
-						AND fk_id_funcionario = ${CPF}`;
+						AND fk_id_funcionario = ${CPF}
+						ORDER BY id_processos DESC`;
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
@@ -53,13 +45,14 @@ router.get('/processos/ram/:id_usuario', function (req, res, next) {
 	var CPF = req.params.id_usuario;
 
 	console.log("Encontrei a RAM 1")
-	const instrucaoSql = `SELECT TOP 2
+	const instrucaoSql = `SELECT
 						us_ide_ram, 
 						us_ide_nome_processo 
 						FROM tb_processos_ide AS processo
 						JOIN tb_us_maquina AS maq
 						ON maq.id_maquina = processo.fk_id_maquina 
-						AND fk_id_funcionario = ${CPF}`;
+						AND fk_id_funcionario = ${CPF}
+						ORDER BY us_dt_hr_start_IDE`;
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
