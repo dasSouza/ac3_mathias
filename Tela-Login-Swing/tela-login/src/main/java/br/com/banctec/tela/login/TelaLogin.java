@@ -5,6 +5,7 @@ import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.math.BigInteger;
 import java.net.URI;
 import org.springframework.jdbc.core.JdbcTemplate;
 import tabelas.TbUsDados;
@@ -29,7 +30,10 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-    public Long cpf = 15000000000l;
+
+    public Long cpf = 15000000000L;
+
+    BigInteger bigIntegerFromLong = BigInteger.valueOf(cpf);
 
     public TelaLogin() {
         initComponents();
@@ -94,6 +98,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        lblNomeIde = new javax.swing.JLabel();
         TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
@@ -188,7 +193,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnIntellij.setBackground(new java.awt.Color(255, 255, 255));
         btnIntellij.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnIntellij.setForeground(new java.awt.Color(0, 0, 0));
-        btnIntellij.setIcon(new javax.swing.ImageIcon("C:\\Users\\DOM\\Downloads\\Untitled\\intellj 1.png")); // NOI18N
         btnIntellij.setText("Intelij");
         btnIntellij.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnIntellij.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -242,8 +246,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnVisualStudio.setText("VisualST");
         btnVisualStudio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnVisualStudio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnVisualStudio.setMaximumSize(new java.awt.Dimension(63, 23));
-        btnVisualStudio.setMinimumSize(new java.awt.Dimension(63, 23));
         btnVisualStudio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVisualStudioActionPerformed(evt);
@@ -297,7 +299,7 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaDashDevLayout.setHorizontalGroup(
             TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
-                .addContainerGap(261, Short.MAX_VALUE)
+                .addContainerGap(266, Short.MAX_VALUE)
                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jblEscolha)
                     .addGroup(TelaDashDevLayout.createSequentialGroup()
@@ -315,7 +317,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSublime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVisualStudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnVisualStudio))
                         .addGap(49, 49, 49)
                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAndorid)
@@ -373,7 +375,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(99, 99, 99)
                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNetBeans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVisualStudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVisualStudio)
                     .addComponent(btnWebStorm)
                     .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -616,7 +618,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(TelaDashGestorLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -649,7 +651,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         lblNomeIdeDtelhes.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
         lblNomeIdeDtelhes.setForeground(new java.awt.Color(102, 102, 102));
-        lblNomeIdeDtelhes.setText("Detalhes sobre a IDE");
+        lblNomeIdeDtelhes.setText("Detalhes sobre:");
 
         lblDiscoDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         lblDiscoDev.setText("Disco");
@@ -675,6 +677,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabel9.setText("Uso da CPU");
 
+        lblNomeIde.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblNomeIde.setText("Disco");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -698,7 +703,10 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(lblTempoUsoDev, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(lblNomeIdeDtelhes))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblNomeIdeDtelhes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNomeIde)))
                 .addContainerGap(245, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -706,7 +714,9 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jblLogo2)
                 .addGap(42, 42, 42)
-                .addComponent(lblNomeIdeDtelhes)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomeIdeDtelhes)
+                    .addComponent(lblNomeIde))
                 .addGap(158, 158, 158)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -1093,26 +1103,38 @@ public class TelaLogin extends javax.swing.JFrame {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
         System.out.println(this.cpf);
-//        List<TbProcessosIde> ideDev = template.query("SELECT us_ide_ram, us_ide_nome_processo "
-//                + "FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina "
-//                + "= processo.fk_id_maquina  AND fk_id_funcionario = ?",
-//                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
-        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1\n"
-                + "                        us_dt_hr_start_IDE,\n"
-                + "                        us_dt_hr_end_IDE,\n"
-                + "                        us_ide_ram,\n"
-                + "                        us_ide_cpu,\n"
-                + "                        us_ide_disco\n"
-                + "                        FROM tb_processos_ide AS processo\n"
-                + "                        JOIN tb_us_maquina AS maq\n"
-                + "                        ON maq.id_maquina = processo.fk_id_maquina \n"
-                + "                        where us_ide_nome_processo = 'idea64' \n"
-                + "                        AND fk_id_funcionario = 2578386005 ",
-                new BeanPropertyRowMapper<>(TbProcessosIde.class));
+
+//        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1\n"
+//                + "                        us_dt_hr_start_IDE,\n"
+//                + "                        us_dt_hr_end_IDE,\n"
+//                + "                        us_ide_ram,\n"
+//                + "                        us_ide_cpu,\n"
+//                + "                        us_ide_disco,\n"
+//                + "                        us_ide_nome_processo\n"
+//                + "                        FROM tb_processos_ide AS processo\n"
+//                + "                        JOIN tb_us_maquina AS maq\n"
+//                + "                        ON maq.id_maquina = processo.fk_id_maquina \n"
+//                + "                        where us_ide_nome_processo = 'idea64' \n"
+//                + "                        AND fk_id_funcionario = 2578386005",
+//                new BeanPropertyRowMapper<>(TbProcessosIde.class));
+        System.out.println(nome_ide);
+
+        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
 
         System.out.println(ideDev);
 
         this.dispose();
+
+        for (Iterator<TbProcessosIde> iterator = ideDev.iterator(); iterator.hasNext();) {
+            TbProcessosIde tbProcessosIde = iterator.next();
+
+            lblCpuDev.setText(tbProcessosIde.getUs_ide_cpu());
+            lblDiscoDev.setText(tbProcessosIde.getUs_ide_disco());
+            lblRamDev.setText(tbProcessosIde.getUs_ide_ram());
+            lblNomeIde.setText(tbProcessosIde.getUs_ide_nome_processo());
+
+        }
 
         DetalheDev.setVisible(true);
 
@@ -1247,6 +1269,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblDiscoDev;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblGestorEquipe;
+    private javax.swing.JLabel lblNomeIde;
     private javax.swing.JLabel lblNomeIdeDtelhes;
     private javax.swing.JLabel lblRamDev;
     private javax.swing.JLabel lblSenha;
