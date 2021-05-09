@@ -90,8 +90,8 @@ function entrar() {
                 sessionStorage.login_usuario_meuapp = json.us_login;
                 sessionStorage.administrador_usuario_meuapp = json.us_is_adm;
                 sessionStorage.nome_usuario_meuapp = json.us_nome_funcionario;
-                sessionStorage.empresa_usuario_meuapp = json.fk_id_empresa;
                 sessionStorage.cargo_usuario_meuapp = json.us_cargo;
+                sessionStorage.id_usuario_meuapp = json.id_cpf
 
                 if (json.us_is_adm == 1) {
                     window.location.href = '../Dash/dashgestor.html';

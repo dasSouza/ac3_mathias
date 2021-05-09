@@ -4,29 +4,62 @@ var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
 
 /* Recuperar as últimas N leituras */
-router.get('/ultimas/:idprocessos', function (req, res, next) {
+router.get('/processos/ide/:IDE/:id_usuario', function (req, res, next) {
 
-	// quantas são as últimas leituras que quer? 8 está bom?
-	const limite_linhas = 1;
+	var IDE = req.params.IDE;
+	var CPF = req.params.id_usuario;
 
-	var idprocessos = req.params.idprocessos;
-
-	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
-
-	const instrucaoSql = `select top ${limite_linhas} 
+	console.log("Encontrei a IDE 1")
+	const instrucaoSql = 
+						`SELECT TOP 1
 						us_dt_hr_start_IDE,
 						us_dt_hr_end_IDE,
 						us_ide_ram,
 						us_ide_cpu,
 						us_ide_disco
-						from tb_processos_ide
-						order by id_processos desc`;
+						FROM tb_processos_ide AS processo
+						JOIN tb_us_maquina AS maq
+						ON maq.id_maquina = processo.fk_id_maquina 
+						where us_ide_nome_processo = '${IDE}' 
+						AND fk_id_funcionario = ${CPF}
+						ORDER BY id_processos DESC`;
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
 		mapToModel: true
 	})
 		.then(resultado => {
+			console.log("Encontrei a IDE 1")
+			console.log(`Encontrados: ${resultado.length}`);
+			console.log(resultado)
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+});
+
+/* Recuperar a RAM */
+router.get('/processos/ram/:id_usuario', function (req, res, next) {
+
+	var CPF = req.params.id_usuario;
+
+	console.log("Encontrei a RAM 1")
+	const instrucaoSql = `SELECT
+						us_ide_ram, 
+						us_ide_nome_processo 
+						FROM tb_processos_ide AS processo
+						JOIN tb_us_maquina AS maq
+						ON maq.id_maquina = processo.fk_id_maquina 
+						AND fk_id_funcionario = ${CPF}
+						ORDER BY us_dt_hr_start_IDE`;
+						
+	sequelize.query(instrucaoSql, {
+		model: Leitura,
+		mapToModel: true
+	})
+		.then(resultado => {
+			console.log("Encontrei a RAM")
 			console.log(`Encontrados: ${resultado.length}`);
 			console.log(resultado)
 			res.json(resultado);

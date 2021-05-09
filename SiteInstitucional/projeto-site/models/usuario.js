@@ -33,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		us_equipe: {
+			field: 'us_equipe',
+			type: DataTypes.STRING,
+			allowNull: false
+		},
 		us_is_adm: { 
 			field: 'us_is_adm',
 			type: DataTypes.TINYINT,

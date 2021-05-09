@@ -199,6 +199,7 @@ a {
 }
 
 .separation-ides {
+    position: relative;
     width: 80vw;
     height: 55vh;
     display: flex;
@@ -265,6 +266,7 @@ a {
     font-size: 3vh;
     color: #B73447;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .box-ides {
@@ -288,6 +290,17 @@ a {
 
 .idesLogo b {
     color: #4D4D4E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.idesLogo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .ide {
@@ -742,7 +755,7 @@ hr {
 }
 
 .ide-graficohardware {
-    width: 38%;
+    width: 100%;
     height: 24%;
     margin-right: 3vw;
 
@@ -942,7 +955,7 @@ hr {
     top: 0;
 }
 
-.idesLogo {
+.idesLogo img {
     display: inline-flex;
     cursor: pointer;
     position: relative;

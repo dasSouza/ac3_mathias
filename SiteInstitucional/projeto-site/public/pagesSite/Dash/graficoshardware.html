@@ -27,7 +27,7 @@
         <div class="navigation">
           <ul>
             <li>
-              <a href="#">
+              <a href="dashboard.html">
                 <span class="icon">
                   <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
                 </span>
@@ -122,7 +122,7 @@
           
         </div>
         <div class="container-idehardware">
-          <img src="../../img/net.png" alt="" class="ide-graficohardware">
+          <img src="../../img/net.png" alt="" id="imgLogoIDE"  class="ide-graficohardware">
 
         </div>
 
@@ -179,25 +179,27 @@
   let inicioIDE;
   let fimIDE;
 
-  // window.onload = verificar_autenticacao()
-  window.onload = obterDadosGraficoPrimeiraVez(1);
-  window.onload = carregarGrafico();
+  let contadorGrafico = 0
+
+  window.onload = verificar_autenticacao()
+  // window.onload = obterDadosGraficoIDE(1);
+  // window.onload = carregarGrafico();
 
   function carregarGrafico() {
     setInterval(
       function myFunction() {
-        obterDadosGraficoPrimeiraVez(1)
+        obterDadosGraficoIDE(ide_usuario, id_usuario)
       }, 5000)
 
   };
 
-  function obterDadosGraficoPrimeiraVez(idprocessos) {
-    fetch(`/leituras/ultimas/${idprocessos}`, { cache: 'no-store' }).then(function (response) {
+  function obterDadosGraficoIDE(IDE, id_usuario) {
+    fetch(`/leituras/processos/ide/${IDE}/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
 
-          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          console.log(`Dados recebidos: ${resposta}`);
+          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          // console.log(`Dados recebidos: ${resposta}`);
           var resultado = [];
 
           function percorrer(obj) {
@@ -212,8 +214,10 @@
             }
           }
 
+          imgLogoIDE.src = `../../img/${IDE}.png`
+
           percorrer(resposta);
-          console.log(JSON.stringify(resultado));
+          // console.log(JSON.stringify(resultado));
 
           let inicioIDE = resultado[0]
           let fimIDE = resultado[1]
@@ -230,8 +234,8 @@
           var tempoFim = valorFim[0] + " " + valorFim[1]
           tempoFim = tempoFim.slice(0, -5)
 
-          console.log(tempoInicio)
-          console.log(tempoFim)
+          // console.log(tempoInicio)
+          // console.log(tempoFim)
 
           var us_data_inicio = valorInicio[0];
           us_data_inicio = us_data_inicio.split("-").join('');
@@ -286,7 +290,7 @@
 
           diferencaHoras(us_hr_inicio, us_hr_fim);
 
-          // console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
+          console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
           // console.log(dias_uso)
           // console.log(us_data_inicio)
           // console.log(us_data_fim)
@@ -296,9 +300,9 @@
           valorDisco = valorDisco / 1024 / 1024 / 1024
 
           // console.log("inicio " + valorInicio)
-          // console.log("fim " + valorFim)
-          // console.log("ram " + valorRam)
-          // console.log("cpu " + valorCPU)
+          console.log("fim " + valorFim)
+          console.log("ram " + valorRam)
+          console.log("cpu " + valorCPU)
           console.log("disco " + valorDisco)
           console.log("Resultado: " + resultado)
 
