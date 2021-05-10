@@ -10,9 +10,9 @@ public class TbProcessosIde {
     private String us_dt_hr_start_IDE;
     private String us_dt_hr_end_IDE;
     private String us_ide_nome_processo;
-    private String us_ide_ram;
-    private String us_ide_cpu;
-    private String us_ide_disco;
+    private Integer us_ide_ram;
+    private Integer us_ide_cpu;
+    private Integer us_ide_disco;
     private Long fk_id_maquina;
 
     public Integer getId_processos() {
@@ -47,27 +47,27 @@ public class TbProcessosIde {
         this.us_ide_nome_processo = us_ide_nome_processo;
     }
 
-    public String getUs_ide_ram() {
+    public Integer getUs_ide_ram() {
         return us_ide_ram;
     }
 
-    public void setUs_ide_ram(String us_ide_ram) {
+    public void setUs_ide_ram(Integer us_ide_ram) {
         this.us_ide_ram = us_ide_ram;
     }
 
-    public String getUs_ide_cpu() {
+    public Integer getUs_ide_cpu() {
         return us_ide_cpu;
     }
 
-    public void setUs_ide_cpu(String us_ide_cpu) {
+    public void setUs_ide_cpu(Integer us_ide_cpu) {
         this.us_ide_cpu = us_ide_cpu;
     }
 
-    public String getUs_ide_disco() {
+    public Integer getUs_ide_disco() {
         return us_ide_disco;
     }
 
-    public void setUs_ide_disco(String us_ide_disco) {
+    public void setUs_ide_disco(Integer us_ide_disco) {
         this.us_ide_disco = us_ide_disco;
     }
 
@@ -79,7 +79,7 @@ public class TbProcessosIde {
         this.fk_id_maquina = fk_id_maquina;
     }
 
-
+   
     @Override
     public String toString() {
         return "TbProcessosIde{" + "id_processos=" + id_processos + ", us_dt_hr_start_IDE=" + us_dt_hr_start_IDE + ", us_dt_hr_end_IDE=" + us_dt_hr_end_IDE + ", us_ide_nome_processo=" + us_ide_nome_processo + ", us_ide_ram=" + us_ide_ram + ", us_ide_cpu=" + us_ide_cpu + ", us_ide_disco=" + us_ide_disco + ", fk_id_maquina=" + fk_id_maquina + '}';
