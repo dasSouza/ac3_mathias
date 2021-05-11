@@ -5,6 +5,7 @@ let nome_empresa;
 let cargo_usuario;
 let id_usuario;
 let ide_usuario;
+let fk_id_empresa;
 
 function redirecionar_login() {
     window.location.href = '../Institucional/login.html';
@@ -18,6 +19,7 @@ function verificar_autenticacao() {
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
     id_usuario = sessionStorage.id_usuario_meuapp;
     ide_usuario = sessionStorage.ide_usuario_meu_app;
+    fk_id_empresa = sessionStorage.fk_id_empresa_meu_app;
 
     if (login_usuario == undefined) {
         redirecionar_login();

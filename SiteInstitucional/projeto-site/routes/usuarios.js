@@ -50,7 +50,7 @@ router.post('/cadastrar', function (req, res, next) {
 		us_senha: req.body.senha_cad,
 		us_cargo: req.body.cargo,
 		us_is_adm: req.body.adm = req.body.adm == undefined ? 0 : 1,
-		fk_id_empresa: 1
+		fk_id_empresa: sessionStorage.fk_id_empresa_meu_app
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
 		res.send(resultado);
