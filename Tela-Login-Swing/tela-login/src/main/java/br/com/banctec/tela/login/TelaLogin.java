@@ -30,9 +30,11 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-    public Long cpf = 15000000000L;
+    public Long cpfDev = 15000000000L;
+    public Long cpfGestor = 15000000000L;
 
-    BigInteger bigIntegerFromLong = BigInteger.valueOf(cpf);
+    BigInteger bigCpfDev = BigInteger.valueOf(cpfDev);
+    BigInteger BigCpfGestor = BigInteger.valueOf(cpfDev);
 
     public TelaLogin() {
         initComponents();
@@ -968,11 +970,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
-        //List<TbUsMaquina> pegandoUser2 = template.query("SELECT * FROM tb_us_maquina",
-        //      new BeanPropertyRowMapper<>(TbUsMaquina.class));
 
         System.out.println(pegandoUser);
-        ///System.out.println(pegandoUser2);
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
 
@@ -997,17 +996,19 @@ public class TelaLogin extends javax.swing.JFrame {
                             // gestor entra aqui
                             this.setVisible(false);
                             this.dispose();
+                            this.cpfGestor  = tbUsDados.getId_cpf();
+                            // AQUI TEM QUE IR O SELECT PARA PEGAR TODOS OS QUE O GESTOR COMANDA
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             lblGestorEquipe.setText(tbUsDados.getUs_equipe());
-                            btnMaquina1.setText("acho que funcionou");
+                            btnMaquina1.setText("Matheus");
 
                         } else {
 
                             // dev entra aqui
                             this.setVisible(false);
                             this.dispose();
-                            this.cpf = tbUsDados.getId_cpf();
+                            this.cpfDev = tbUsDados.getId_cpf();
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             jblEquipe.setText(tbUsDados.getUs_equipe());
@@ -1030,16 +1031,30 @@ public class TelaLogin extends javax.swing.JFrame {
     private void chamarTelaFuncionario(String nome) {
 
         Conexao con = new Conexao();
+
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
-        List<TbUsMaquina> maquinaDev = template.query("SELECT * FROM tb_us_maquina",
-                new BeanPropertyRowMapper<>(TbUsMaquina.class));
-        System.out.println(maquinaDev);
 
+        List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
+                new BeanPropertyRowMapper<>(TbUsDados.class), btnMaquina1.getText());
+
+        System.out.println(pegandoUser);
+        
         this.dispose();
+        
         DashDev.setVisible(true);
+        
 
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        for (Iterator<TbUsDados> iterator = pegandoUser.iterator(); iterator.hasNext();) {
+            TbUsDados tbUsDados = iterator.next();
+            this.cpfDev = tbUsDados.getId_cpf();
+            jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
+            jblEquipe.setText(tbUsDados.getUs_equipe());
+            jblCargo.setText(tbUsDados.getUs_cargo());
+        }
 
+
+        DashDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
     }
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
@@ -1108,7 +1123,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void chamarDetalhes(String nome_ide) {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
-        System.out.println(this.cpf);
+        System.out.println(this.cpfDev);
 
 //        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1\n"
 //                + "                        us_dt_hr_start_IDE,\n"
@@ -1123,16 +1138,18 @@ public class TelaLogin extends javax.swing.JFrame {
 //                + "                        where us_ide_nome_processo = 'idea64' \n"
 //                + "                        AND fk_id_funcionario = 2578386005",
 //                new BeanPropertyRowMapper<>(TbProcessosIde.class));
+
         System.out.println(nome_ide);
 
         List<TbProcessosIde> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
-                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpf);
+                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpfDev);
 
         System.out.println(ideDev);
 
         this.dispose();
 
         for (Iterator<TbProcessosIde> iterator = ideDev.iterator(); iterator.hasNext();) {
+            
             TbProcessosIde tbProcessosIde = iterator.next();
 
             String disco = Integer.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
@@ -1205,6 +1222,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public static void main(String args[]) {
 
 //        JOptionPane.showInternalMessageDialog(null, "teste de argumento", "teste titulo", 2);
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
