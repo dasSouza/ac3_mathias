@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
     <script defer src="../../js/dash.js"></script>
     <script defer src="../../funcoes.js"></script>
+    <script defer src="../../js/js.js"></script>
     <title>KCODE</title>
 </head>
 
@@ -81,109 +82,115 @@
                 </div>
                 <div class="box-dados-do-cliente">
                     <div class="dados-do-cliente">
-                        <p id="b_usuario">Luis Fernando</p>
+                        <p id="b_usuario">?</p>
                         <p id="cargo">?</p>
                         <p id="id_adm">?</p>
                         <p id="empresa">?</p>
                     </div>
-                    <div class="edit">
-                        <div class="tooltip">
-                            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <span class="tooltiptext">Editar dados</span>
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </section>
-        <div class="ides-container">
-            <div class="separation-ides">
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideXcode" name="xcode">
-                        <img src="../../img/xcode.png" alt="" id="xcode" onclick="checar(ideXcode)" class="logo-ide">
-                        <b class="ide">XCode</b>
+        <form id="form_cadastro_ides" method="post" onsubmit="return Salvar()">
+            <div class="ides-container">
+                <div class="separation-ides">
+                    <div class="box-ides">
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideXcode" name="xcode" value="1">
+                            <img src="../../img/xcode.png" alt="" id="xcode" onclick="checar(ideXcode)"
+                                class="logo-ide">
+                            <b class="ide">XCode</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideAndroid" name="androidstudio" value="6">
+                            <img src="../../img/studio64.png" alt="" id="netbeans" onclick="checar(ideAndroid)"
+                                class="logo-ide">
+                            <b id="ide">Android Studio</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideEclipse" name="eclipse" value="9">
+                            <img src="../../img/eclipse.png" alt="" id="eclipse" onclick="checar(ideEclipse)"
+                                class="logo-ide">
+                            <b id="ide">Eclipse</b>
+                        </div>
                     </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideAndroid" name="androidstudio">
-                        <img src="../../img/androidstudio.png" alt="" id="netbeans" onclick="checar(ideAndroid)" class="logo-ide">
-                        <b id="ide">Android Studio</b>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideEclipse" name="eclipse">
-                        <img src="../../img/eclipse.png" alt="" id="eclipse" onclick="checar(ideEclipse)" class="logo-ide">
-                        <b id="ide">Eclipse</b>
+
+                    <div class="box-ides">
+                        <div class="idesLogo">
+                            <input id="idePyCharm" type="checkbox" name="pycharm" value="2">
+                            <img src="../../img/pycharm64.png" alt="" id="android" onclick="checar(idePyCharm)"
+                                class="logo-ide">
+                            <b id="ide">PyCharm</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input id="ideNetbeans" type="checkbox" name="netbeans" value="4">
+                            <img src="../../img/netbeans64.png" alt="" id="netbeans" onclick="checar(ideNetbeans)"
+                                class="logo-ide">
+                            <b id="ide">Netbeans</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideIntellij" name="intellj" value="5">
+                            <img src="../../img/idea64.png" alt="" id="intellj" onclick="checar(ideIntellij)"
+                                class="logo-ide">
+                            <b id="ide">Intellij</b>
+                        </div>
                     </div>
                 </div>
-
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input id="idePyCharm" type="checkbox" name="pycharm">
-                        <img src="../../img/pycharm.png" alt="" id="android" onclick="checar(idePyCharm)" class="logo-ide">
-                        <b id="ide">PyCharm</b>
-                    </div>
-                    <div class="idesLogo">
-                        <input id="ideNetbeans" type="checkbox" name="netbeans">
-                        <img src="../../img/netbeans.png" alt="" id="netbeans" onclick="checar(ideNetbeans)" class="logo-ide">
-                        <b id="ide">Netbeans</b>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideIntellij" name="intellj">
-                        <img src="../../img/intellj.png" alt="" id="intellj" onclick="checar(ideIntellij)" class="logo-ide">
-                        <b id="ide">Intellij</b>
-                    </div>
+                <div class="btn" id="next">
+                    <i class="fa fa-chevron-right" aria-hidden="true" style="visibility: visible;"></i>
                 </div>
             </div>
-            <div class="btn" id="next">
-                <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </div>
-        </div>
 
-        <div class="ides-container-part2">
-            <div class="separation-ides">
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideWebStorm" name="webstorm">
-                        <img src="../../img/webstorm.png" alt="" id="webstorm" onclick="checar(ideWebStorm)" class="logo-ide">
-                        <b id="ide">WebStorm</b>
+            <div class="ides-container-part2">
+                <div class="separation-ides">
+                    <div class="box-ides">
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideWebStorm" name="webstorm" value="8">
+                            <img src="../../img/webstorm64.png" alt="" id="webstorm" onclick="checar(ideWebStorm)"
+                                class="logo-ide">
+                            <b id="ide">WebStorm</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideVsCode" name="vscode" value="3">
+                            <img src="../../img/code.png" alt="" id="netbeans" onclick="checar(ideVsCode)"
+                                class="logo-ide">
+                            <b id="ide">Visual Studio Code</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="idePhpStorm" name="phpstorm" value="7">
+                            <img src="../../img/phpstorm64.png" alt="" id="phpstorm" onclick="checar(idePhpStorm)"
+                                class="logo-ide">
+                            <b id="ide">PhpStorm</b>
+                        </div>
                     </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideVsCode" name="vscode">
-                        <img src="../../img/vscode.png" alt="" id="netbeans" onclick="checar(ideVsCode)" class="logo-ide">
-                        <b id="ide">Visual Studio Code</b>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="idePhpStorm" name="phpstorm">
-                        <img src="../../img/phpstorm.png" alt="" id="phpstorm" onclick="checar(idePhpStorm)" class="logo-ide">
-                        <b id="ide">PhpStorm</b>
+
+                    <div class="box-ides">
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideVisualStudio" name="visualstudio" value="10">
+                            <img src="../../img/devenv.png" alt="" id="visualstudio"
+                                onclick="checar(ideVisualStudio)" class="logo-ide">
+                            <b id="ide">Visual Studio</b>
+                        </div>
+                        <div class="idesLogo">
+                            <input type="checkbox" id="ideSublime" name="sublime" value="">
+                            <img src="../../img/sublime.png" alt="" id="sublime" onclick="checar(ideSublime)"
+                                class="logo-ide">
+                            <b id="ide">SublimeText</b>
+                        </div>
+                        <div class="idesLogo">
+                        </div>
                     </div>
                 </div>
-
-                <div class="box-ides">
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideVisualStudio" name="visualstudio">
-                        <img src="../../img/visualstudio.png" alt="" id="visualstudio" onclick="checar(ideVisualStudio)" class="logo-ide">
-                        <b id="ide">Visual Studio</b>
-                    </div>
-                    <div class="idesLogo">
-                        <input type="checkbox" id="ideSublime" name="sublime">
-                        <img src="../../img/sublime.png" alt="" id="sublime" onclick="checar(ideSublime)" class="logo-ide">
-                        <b id="ide">SublimeText</b>
-                    </div>
-                    <div class="idesLogo">
-                    </div>
+                <div class="btn" id="back">
+                    <i class="fa fa-chevron-left" aria-hidden="true" style="visibility: visible;"></i>
                 </div>
             </div>
-            <div class="btn" id="back">
-                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-            </div>
-        </div>
 
-        <div class="footer-salvar">
-            <div class="salvar">
-                <input type="submit" value="Salvar" />
+            <div class="footer-salvar">
+                <div class="salvar">
+                    <input type="submit" value="Salvar" />
+                </div>
             </div>
-        </div>
+        </form>
     </main>
 </body>
 
@@ -192,14 +199,15 @@
 <script>
 
     function checar(idDiv) {
-
         if (idDiv.checked) {
             idDiv.checked = false
         } else {
             idDiv.checked = true;
         }
+    }
 
-
+    function myFunct(idDiv) {
+        
     }
 
 </script>

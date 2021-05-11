@@ -36,10 +36,10 @@
 
 ** Java Swing **
 Tela de dev
-[ ] 1# Tela de java swing deverá conter uma pagina que mostra as IDE's e RAM utilizadas pelo dev
-[ ] 2# Tirar o menu
+[x] 1# Tela de java swing deverá conter uma pagina que mostra as IDE's e RAM utilizadas pelo dev
+[x] 2# Tirar o menu
 [ ] 3# Buscar apenas IDE's na qual o usuário escolheu na dash web
-[ ] 4# Deixar funcional ao clicar na IDE escolhida na tela inicial
+[x] 4# Deixar funcional ao clicar na IDE escolhida na tela inicial
 [ ] 5# Criar tela secundaria na qual contem dados de CPU,RAM,DISCO e TEMPO
     [ ] Buscar ram
     [ ] Buscar disco
@@ -47,9 +47,9 @@ Tela de dev
     [ ] Buscar cpu
 
 Tela de gestor
-[ ] 1# Tela de java swing deverá conter pagina onde mostra apenas o nome dos dev que o gestor cuida
-[ ] 2# Deixar funcional ao clicar em cada nome
-[ ] 3# Criar tela secundaria na qual contem dados de CPU,RAM,DISCO e TEMPO do dev
+[x] 1# Tela de java swing deverá conter pagina onde mostra apenas o nome dos dev que o gestor cuida
+[x] 2# Deixar funcional ao clicar em cada nome
+[x] 3# Criar tela secundaria na qual contem dados de CPU,RAM,DISCO e TEMPO do dev
     [ ] Buscar ram
     [ ] Buscar disco
     [ ] Buscar tempo

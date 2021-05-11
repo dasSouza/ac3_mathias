@@ -5,19 +5,20 @@ package tabelas;
  * @author mathias.de.carvalho
  */
 public class TbUsDados {
-    private Integer id_cpf;
+    private Long id_cpf;
     private String us_nome_funcionario;
     private String us_cargo;
     private String us_login;
     private String us_senha;
+    private String us_equipe;
     private String us_is_adm;
     private Integer fk_id_empresa;
 
-    public Integer getId_cpf() {
+    public Long getId_cpf() {
         return id_cpf;
     }
 
-    public void setId_cpf(Integer id_cpf) {
+    public void setId_cpf(Long id_cpf) {
         this.id_cpf = id_cpf;
     }
 
@@ -53,6 +54,14 @@ public class TbUsDados {
         this.us_senha = us_senha;
     }
 
+    public String getUs_equipe() {
+        return us_equipe;
+    }
+
+    public void setUs_equipe(String us_equipe) {
+        this.us_equipe = us_equipe;
+    }
+
     public String getUs_is_adm() {
         return us_is_adm;
     }
@@ -71,8 +80,12 @@ public class TbUsDados {
 
     @Override
     public String toString() {
-        return "TbUsDados{" + "id_cpf=" + id_cpf + ", us_nome_funcionario=" + us_nome_funcionario + ", us_cargo=" + us_cargo + ", us_login=" + us_login + ", us_senha=" + us_senha + ", us_is_adm=" + us_is_adm + ", fk_id_empresa=" + fk_id_empresa + '}';
+        return "TbUsDados{" + "id_cpf=" + id_cpf + ", us_nome_funcionario=" + us_nome_funcionario + ", us_cargo=" + us_cargo + ", us_login=" + us_login + ", us_senha=" + us_senha + ", us_equipe=" + us_equipe + ", us_is_adm=" + us_is_adm + ", fk_id_empresa=" + fk_id_empresa + '}';
     }
+
+    
+
+
     
     
 }

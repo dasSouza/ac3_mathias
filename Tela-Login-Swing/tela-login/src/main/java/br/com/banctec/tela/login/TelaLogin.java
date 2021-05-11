@@ -2,8 +2,10 @@ package br.com.banctec.tela.login;
 
 import java.awt.Toolkit;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.math.BigInteger;
 import java.net.URI;
 import org.springframework.jdbc.core.JdbcTemplate;
 import tabelas.TbUsDados;
@@ -11,9 +13,13 @@ import jdbc.Conexao;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import tabelas.TbProcessosIde;
+import tabelas.TbUsMaquina;
 
 /**
  *
@@ -24,6 +30,12 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
+    public Long cpfDev = 15000000000L;
+    public Long cpfGestor = 15000000000L;
+
+    BigInteger bigCpfDev = BigInteger.valueOf(cpfDev);
+    BigInteger BigCpfGestor = BigInteger.valueOf(cpfDev);
+
     public TelaLogin() {
         initComponents();
 
@@ -38,6 +50,20 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DashGestor = new javax.swing.JFrame();
+        TelaDashGestor = new javax.swing.JDesktopPane();
+        jpFundo = new javax.swing.JPanel();
+        jblBemVindo = new javax.swing.JLabel();
+        jblMaquinaa = new javax.swing.JLabel();
+        jblNomeGestor = new javax.swing.JLabel();
+        btnMaquina1 = new javax.swing.JButton();
+        jblLogo = new javax.swing.JLabel();
+        btnMaquina5 = new javax.swing.JButton();
+        btnMaquina6 = new javax.swing.JButton();
+        btnMaquina7 = new javax.swing.JButton();
+        btnMaquina8 = new javax.swing.JButton();
+        btnMaquina9 = new javax.swing.JButton();
+        lblGestorEquipe = new javax.swing.JLabel();
         DashDev = new javax.swing.JFrame();
         DashDevTela = new javax.swing.JDesktopPane();
         TelaDashDev = new javax.swing.JPanel();
@@ -50,40 +76,29 @@ public class TelaLogin extends javax.swing.JFrame {
         btnPhpStorm = new javax.swing.JButton();
         btnXcode = new javax.swing.JButton();
         btnIntellij = new javax.swing.JButton();
-        btnEclipse5 = new javax.swing.JButton();
-        btnEclipse6 = new javax.swing.JButton();
-        btnXcode1 = new javax.swing.JButton();
-        btnPhpStorm1 = new javax.swing.JButton();
-        btnIntellij1 = new javax.swing.JButton();
-        btnEclipse1 = new javax.swing.JButton();
-        btnPyCharm1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        btnLogout = new javax.swing.JButton();
-        btnSettings = new javax.swing.JButton();
-        btnTurorials = new javax.swing.JButton();
-        btnProfile = new javax.swing.JButton();
-        btnHome9 = new javax.swing.JButton();
-        jblMneuDev = new javax.swing.JLabel();
-        DashGestor = new javax.swing.JFrame();
-        TelaDashGestor = new javax.swing.JDesktopPane();
-        jpFundo = new javax.swing.JPanel();
-        jblBemVindo = new javax.swing.JLabel();
-        jblMaquinaa = new javax.swing.JLabel();
-        jblNomeGestor = new javax.swing.JLabel();
-        btnMaquina1 = new javax.swing.JButton();
-        jblLogo = new javax.swing.JLabel();
-        btnMaquina5 = new javax.swing.JButton();
-        btnMaquina6 = new javax.swing.JButton();
-        btnMaquina7 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        btnSettingsGestor = new javax.swing.JButton();
-        btnProfileGestor = new javax.swing.JButton();
-        btnLogoutGestor = new javax.swing.JButton();
-        btnTutorialsGestor = new javax.swing.JButton();
-        btnHomeGestor = new javax.swing.JButton();
-        jblMenu = new javax.swing.JLabel();
-        btnMaquina8 = new javax.swing.JButton();
-        btnMaquina9 = new javax.swing.JButton();
+        btnWebStorm = new javax.swing.JButton();
+        btnVsCode = new javax.swing.JButton();
+        btnNetBeans = new javax.swing.JButton();
+        btnVisualStudio = new javax.swing.JButton();
+        btnAndorid = new javax.swing.JButton();
+        jblEmpresa = new javax.swing.JLabel();
+        jblEquipe = new javax.swing.JLabel();
+        jblCargo = new javax.swing.JLabel();
+        jblEquipe1 = new javax.swing.JLabel();
+        DetalheDev = new javax.swing.JFrame();
+        DashDetalhesDev = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
+        jblLogo2 = new javax.swing.JLabel();
+        lblNomeIdeDtelhes = new javax.swing.JLabel();
+        lblDiscoDev = new javax.swing.JLabel();
+        lblCpuDev = new javax.swing.JLabel();
+        lblRamDev = new javax.swing.JLabel();
+        lblTempoUsoDev = new javax.swing.JLabel();
+        lblgrafico = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblNomeIde = new javax.swing.JLabel();
         TelaLogin = new javax.swing.JDesktopPane();
         background = new javax.swing.JPanel();
         cardLogin = new javax.swing.JPanel();
@@ -95,320 +110,12 @@ public class TelaLogin extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         lblSenha = new javax.swing.JLabel();
 
-        DashDev.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        TelaDashDev.setBackground(new java.awt.Color(206, 228, 217));
-        TelaDashDev.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TelaDashDev.setPreferredSize(new java.awt.Dimension(1366, 720));
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel3.setText("Bem Vindo,");
-
-        jblEscolha.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        jblEscolha.setForeground(new java.awt.Color(102, 102, 102));
-        jblEscolha.setText("Escolha as IDE's que serão monitoradas");
-
-        jblNomeDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        jblNomeDev.setForeground(new java.awt.Color(102, 102, 102));
-        jblNomeDev.setText("nome");
-
-        jblLogo1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jblLogo1.setForeground(new java.awt.Color(183, 51, 73));
-        jblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jblLogo1.setText("KEEPCODE");
-
-        btnEclipse.setBackground(new java.awt.Color(255, 255, 255));
-        btnEclipse.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnEclipse.setText("ECLIPSE");
-        btnEclipse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPyCharm.setBackground(new java.awt.Color(255, 255, 255));
-        btnPyCharm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnPyCharm.setText("PYCHARM");
-        btnPyCharm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPhpStorm.setBackground(new java.awt.Color(255, 255, 255));
-        btnPhpStorm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnPhpStorm.setText("PHPSTORM");
-        btnPhpStorm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnXcode.setBackground(new java.awt.Color(255, 255, 255));
-        btnXcode.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnXcode.setText("XCODE");
-        btnXcode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnIntellij.setBackground(new java.awt.Color(255, 255, 255));
-        btnIntellij.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnIntellij.setText("INTELLIJ");
-        btnIntellij.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnEclipse5.setBackground(new java.awt.Color(255, 255, 255));
-        btnEclipse5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnEclipse5.setText("ECLIPSE");
-        btnEclipse5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnEclipse6.setBackground(new java.awt.Color(255, 255, 255));
-        btnEclipse6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnEclipse6.setText("ECLIPSE");
-        btnEclipse6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnXcode1.setBackground(new java.awt.Color(255, 255, 255));
-        btnXcode1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnXcode1.setText("XCODE");
-        btnXcode1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPhpStorm1.setBackground(new java.awt.Color(255, 255, 255));
-        btnPhpStorm1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnPhpStorm1.setText("PHPSTORM");
-        btnPhpStorm1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnIntellij1.setBackground(new java.awt.Color(255, 255, 255));
-        btnIntellij1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnIntellij1.setText("VSCODE");
-        btnIntellij1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnIntellij1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIntellij1ActionPerformed(evt);
-            }
-        });
-
-        btnEclipse1.setBackground(new java.awt.Color(255, 255, 255));
-        btnEclipse1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnEclipse1.setText("ECLIPSE");
-        btnEclipse1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnPyCharm1.setBackground(new java.awt.Color(255, 255, 255));
-        btnPyCharm1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnPyCharm1.setText("PYCHARM");
-        btnPyCharm1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jPanel2.setBackground(new java.awt.Color(110, 150, 146));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("SansSerif", 1, 14))); // NOI18N
-
-        btnLogout.setBackground(new java.awt.Color(183, 51, 73));
-        btnLogout.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Logout");
-        btnLogout.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
-        btnSettings.setBackground(new java.awt.Color(183, 51, 73));
-        btnSettings.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSettings.setForeground(new java.awt.Color(255, 255, 255));
-        btnSettings.setText("Settings");
-        btnSettings.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSettings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSettingsActionPerformed(evt);
-            }
-        });
-
-        btnTurorials.setBackground(new java.awt.Color(183, 51, 73));
-        btnTurorials.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnTurorials.setForeground(new java.awt.Color(255, 255, 255));
-        btnTurorials.setText("Tutorials");
-        btnTurorials.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnTurorials.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTurorialsActionPerformed(evt);
-            }
-        });
-
-        btnProfile.setBackground(new java.awt.Color(183, 51, 73));
-        btnProfile.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnProfile.setForeground(new java.awt.Color(255, 255, 255));
-        btnProfile.setText("Profile");
-        btnProfile.setToolTipText("");
-        btnProfile.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnProfile.setPreferredSize(new java.awt.Dimension(45, 25));
-        btnProfile.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfileActionPerformed(evt);
-            }
-        });
-
-        btnHome9.setBackground(new java.awt.Color(183, 51, 73));
-        btnHome9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnHome9.setForeground(new java.awt.Color(255, 255, 255));
-        btnHome9.setText("Home");
-        btnHome9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnHome9.setName(""); // NOI18N
-        btnHome9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHome9ActionPerformed(evt);
-            }
-        });
-
-        jblMneuDev.setText("Menu");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLogout)
-                            .addComponent(btnTurorials)
-                            .addComponent(btnSettings)
-                            .addComponent(btnHome9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jblMneuDev)
-                        .addGap(56, 56, 56))))
-        );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnHome9, btnLogout, btnProfile, btnSettings, btnTurorials});
-
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jblMneuDev)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                .addComponent(btnHome9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnProfile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnTurorials)
-                .addGap(35, 35, 35)
-                .addComponent(btnSettings)
-                .addGap(29, 29, 29)
-                .addComponent(btnLogout)
-                .addGap(30, 30, 30))
-        );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnHome9, btnLogout, btnProfile, btnSettings, btnTurorials});
-
-        javax.swing.GroupLayout TelaDashDevLayout = new javax.swing.GroupLayout(TelaDashDev);
-        TelaDashDev.setLayout(TelaDashDevLayout);
-        TelaDashDevLayout.setHorizontalGroup(
-            TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jblLogo1)
-                            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(108, 108, 108)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnPhpStorm)
-                                    .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(46, 46, 46)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnXcode)
-                                    .addComponent(btnEclipse))
-                                .addGap(54, 54, 54)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnPyCharm)
-                                    .addComponent(btnEclipse5))
-                                .addGap(53, 53, 53)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnIntellij1)
-                                    .addComponent(btnPhpStorm1))
-                                .addGap(59, 59, 59)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnXcode1)
-                                    .addComponent(btnEclipse1))))
-                        .addGap(70, 70, 70)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPyCharm1)
-                            .addComponent(btnEclipse6)))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(523, 523, 523)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jblNomeDev))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(jblEscolha)))
-                .addContainerGap(222, Short.MAX_VALUE))
-        );
-
-        TelaDashDevLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnEclipse, btnEclipse1, btnEclipse5, btnEclipse6, btnIntellij, btnIntellij1, btnPhpStorm, btnPhpStorm1, btnPyCharm, btnPyCharm1, btnXcode, btnXcode1});
-
-        TelaDashDevLayout.setVerticalGroup(
-            TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
-                .addComponent(jblLogo1)
-                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(319, 319, 319)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEclipse1)
-                            .addComponent(btnPyCharm1))
-                        .addGap(133, 133, 133)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPhpStorm1)
-                            .addComponent(btnXcode1)
-                            .addComponent(btnEclipse6)
-                            .addComponent(btnPhpStorm)
-                            .addComponent(btnXcode)
-                            .addComponent(btnEclipse5)))
-                    .addGroup(TelaDashDevLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jblNomeDev))
-                        .addGap(60, 60, 60)
-                        .addComponent(jblEscolha)
-                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addGap(149, 149, 149)
-                                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnPyCharm)
-                                    .addComponent(btnEclipse)
-                                    .addComponent(btnIntellij1)))
-                            .addGroup(TelaDashDevLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-        );
-
-        TelaDashDevLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnEclipse, btnEclipse1, btnEclipse5, btnEclipse6, btnIntellij, btnIntellij1, btnPhpStorm, btnPhpStorm1, btnPyCharm, btnPyCharm1, btnXcode, btnXcode1});
-
-        DashDevTela.setLayer(TelaDashDev, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout DashDevTelaLayout = new javax.swing.GroupLayout(DashDevTela);
-        DashDevTela.setLayout(DashDevTelaLayout);
-        DashDevTelaLayout.setHorizontalGroup(
-            DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TelaDashDev, javax.swing.GroupLayout.DEFAULT_SIZE, 1401, Short.MAX_VALUE)
-        );
-        DashDevTelaLayout.setVerticalGroup(
-            DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TelaDashDev, javax.swing.GroupLayout.DEFAULT_SIZE, 742, Short.MAX_VALUE)
-        );
-
-        TelaDashDev.getAccessibleContext().setAccessibleParent(this);
-
-        javax.swing.GroupLayout DashDevLayout = new javax.swing.GroupLayout(DashDev.getContentPane());
-        DashDev.getContentPane().setLayout(DashDevLayout);
-        DashDevLayout.setHorizontalGroup(
-            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DashDevTela)
-        );
-        DashDevLayout.setVerticalGroup(
-            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DashDevTela, javax.swing.GroupLayout.Alignment.TRAILING)
-        );
-
         DashGestor.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         DashGestor.setBackground(new java.awt.Color(206, 228, 217));
         DashGestor.setBounds(new java.awt.Rectangle(0, 0, 500, 500));
         DashGestor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         DashGestor.setLocation(new java.awt.Point(0, 0));
         DashGestor.setMinimumSize(new java.awt.Dimension(1280, 720));
-        DashGestor.setPreferredSize(new java.awt.Dimension(1401, 742));
         DashGestor.setSize(new java.awt.Dimension(0, 0));
 
         TelaDashGestor.setAutoscrolls(true);
@@ -416,17 +123,6 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaDashGestor.setInheritsPopupMenu(true);
         TelaDashGestor.setName(""); // NOI18N
         TelaDashGestor.setPreferredSize(new java.awt.Dimension(1401, 742));
-
-        javax.swing.GroupLayout TelaDashGestorLayout = new javax.swing.GroupLayout(TelaDashGestor);
-        TelaDashGestor.setLayout(TelaDashGestorLayout);
-        TelaDashGestorLayout.setHorizontalGroup(
-            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        TelaDashGestorLayout.setVerticalGroup(
-            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 742, Short.MAX_VALUE)
-        );
 
         jpFundo.setBackground(new java.awt.Color(206, 228, 217));
         jpFundo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -438,7 +134,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jblMaquinaa.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
         jblMaquinaa.setForeground(new java.awt.Color(102, 102, 102));
-        jblMaquinaa.setText("Escolha a maquina de um funcionário");
+        jblMaquinaa.setText("Equipe:");
 
         jblNomeGestor.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
         jblNomeGestor.setForeground(new java.awt.Color(102, 102, 102));
@@ -448,7 +144,9 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina1.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina1.setText("VMNOTE - 144");
-        btnMaquina1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina1.setBorderPainted(false);
+        btnMaquina1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina1ActionPerformed(evt);
@@ -464,7 +162,9 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina5.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina5.setText("VMNOTE - 146");
-        btnMaquina5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina5.setBorderPainted(false);
+        btnMaquina5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina5ActionPerformed(evt);
@@ -475,7 +175,9 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina6.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina6.setText("VMNOTE - 142");
-        btnMaquina6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina6.setBorderPainted(false);
+        btnMaquina6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina6ActionPerformed(evt);
@@ -486,119 +188,22 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina7.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina7.setText("VMNOTE - 143");
-        btnMaquina7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina7.setBorderPainted(false);
+        btnMaquina7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina7ActionPerformed(evt);
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(110, 150, 146));
-
-        btnSettingsGestor.setBackground(new java.awt.Color(183, 51, 73));
-        btnSettingsGestor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnSettingsGestor.setForeground(new java.awt.Color(255, 255, 255));
-        btnSettingsGestor.setText("Settings");
-        btnSettingsGestor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnSettingsGestor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSettingsGestorActionPerformed(evt);
-            }
-        });
-
-        btnProfileGestor.setBackground(new java.awt.Color(183, 51, 73));
-        btnProfileGestor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnProfileGestor.setForeground(new java.awt.Color(255, 255, 255));
-        btnProfileGestor.setText("Profile");
-        btnProfileGestor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnProfileGestor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProfileGestorActionPerformed(evt);
-            }
-        });
-
-        btnLogoutGestor.setBackground(new java.awt.Color(183, 51, 73));
-        btnLogoutGestor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnLogoutGestor.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogoutGestor.setText("Logout");
-        btnLogoutGestor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnLogoutGestor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutGestorActionPerformed(evt);
-            }
-        });
-
-        btnTutorialsGestor.setBackground(new java.awt.Color(183, 51, 73));
-        btnTutorialsGestor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnTutorialsGestor.setForeground(new java.awt.Color(255, 255, 255));
-        btnTutorialsGestor.setText("Tutorials");
-        btnTutorialsGestor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnTutorialsGestor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTutorialsGestorActionPerformed(evt);
-            }
-        });
-
-        btnHomeGestor.setBackground(new java.awt.Color(183, 51, 73));
-        btnHomeGestor.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnHomeGestor.setForeground(new java.awt.Color(255, 255, 255));
-        btnHomeGestor.setText("Home");
-        btnHomeGestor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnHomeGestor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeGestorActionPerformed(evt);
-            }
-        });
-
-        jblMenu.setText("Menu");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnSettingsGestor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnTutorialsGestor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnProfileGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnLogoutGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnHomeGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jblMenu)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnHomeGestor, btnLogoutGestor, btnProfileGestor, btnSettingsGestor, btnTutorialsGestor});
-
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jblMenu)
-                .addGap(9, 9, 9)
-                .addComponent(btnHomeGestor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnProfileGestor)
-                .addGap(32, 32, 32)
-                .addComponent(btnTutorialsGestor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnSettingsGestor)
-                .addGap(29, 29, 29)
-                .addComponent(btnLogoutGestor)
-                .addGap(24, 24, 24))
-        );
-
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnHomeGestor, btnLogoutGestor, btnProfileGestor, btnSettingsGestor, btnTutorialsGestor});
-
         btnMaquina8.setBackground(new java.awt.Color(255, 255, 255));
         btnMaquina8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina8.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina8.setText("VMNOTE - 145");
-        btnMaquina8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina8.setBorderPainted(false);
+        btnMaquina8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina8ActionPerformed(evt);
@@ -609,12 +214,18 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina9.setForeground(new java.awt.Color(0, 0, 0));
         btnMaquina9.setText("VMNOTE - 141");
-        btnMaquina9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnMaquina9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina9.setBorderPainted(false);
+        btnMaquina9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMaquina9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina9ActionPerformed(evt);
             }
         });
+
+        lblGestorEquipe.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
+        lblGestorEquipe.setForeground(new java.awt.Color(102, 102, 102));
+        lblGestorEquipe.setText("NOME DA EQUIPE");
 
         javax.swing.GroupLayout jpFundoLayout = new javax.swing.GroupLayout(jpFundo);
         jpFundo.setLayout(jpFundoLayout);
@@ -623,33 +234,31 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jpFundoLayout.createSequentialGroup()
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpFundoLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMaquina1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(461, 461, 461)
+                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jpFundoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jblLogo)
                             .addGroup(jpFundoLayout.createSequentialGroup()
-                                .addGap(163, 163, 163)
+                                .addGap(387, 387, 387)
                                 .addComponent(jblBemVindo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jblNomeGestor))))
                     .addGroup(jpFundoLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179)
-                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jblMaquinaa)
-                            .addGroup(jpFundoLayout.createSequentialGroup()
-                                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnMaquina1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jpFundoLayout.createSequentialGroup()
-                                        .addGap(278, 278, 278)
-                                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(347, Short.MAX_VALUE))
+                        .addGap(466, 466, 466)
+                        .addComponent(jblMaquinaa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblGestorEquipe, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
 
         jpFundoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnMaquina1, btnMaquina5, btnMaquina6, btnMaquina7});
@@ -657,56 +266,524 @@ public class TelaLogin extends javax.swing.JFrame {
         jpFundoLayout.setVerticalGroup(
             jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpFundoLayout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(jblMaquinaa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMaquina1))
-                .addGap(59, 59, 59)
-                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMaquina5)
-                    .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(139, 139, 139))
-            .addGroup(jpFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jblLogo)
                 .addGap(12, 12, 12)
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jblBemVindo)
                     .addComponent(jblNomeGestor))
-                .addGap(162, 162, 162)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblMaquinaa, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGestorEquipe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
+                        .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
+                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnMaquina1)
+                            .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)))
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMaquina5)
+                    .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(139, 139, 139))
         );
 
         jpFundoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnMaquina1, btnMaquina5, btnMaquina6, btnMaquina7});
+
+        TelaDashGestor.setLayer(jpFundo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout TelaDashGestorLayout = new javax.swing.GroupLayout(TelaDashGestor);
+        TelaDashGestor.setLayout(TelaDashGestorLayout);
+        TelaDashGestorLayout.setHorizontalGroup(
+            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TelaDashGestorLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        TelaDashGestorLayout.setVerticalGroup(
+            TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 742, Short.MAX_VALUE)
+            .addGroup(TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(TelaDashGestorLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        jpFundo.getAccessibleContext().setAccessibleParent(TelaLogin);
 
         javax.swing.GroupLayout DashGestorLayout = new javax.swing.GroupLayout(DashGestor.getContentPane());
         DashGestor.getContentPane().setLayout(DashGestorLayout);
         DashGestorLayout.setHorizontalGroup(
             DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashGestorLayout.createSequentialGroup()
-                .addComponent(jpFundo, javax.swing.GroupLayout.PREFERRED_SIZE, 1443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(TelaDashGestor, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(TelaDashGestor, javax.swing.GroupLayout.DEFAULT_SIZE, 1395, Short.MAX_VALUE)
                 .addContainerGap())
         );
         DashGestorLayout.setVerticalGroup(
             DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DashGestorLayout.createSequentialGroup()
-                .addGroup(DashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TelaDashGestor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TelaDashGestor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         TelaDashGestor.getAccessibleContext().setAccessibleParent(this);
-        jpFundo.getAccessibleContext().setAccessibleParent(TelaLogin);
+
+        DashDev.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        DashDev.setLocation(new java.awt.Point(0, 0));
+        DashDev.setMinimumSize(new java.awt.Dimension(1280, 720));
+        DashDev.setSize(new java.awt.Dimension(0, 0));
+
+        TelaDashDev.setBackground(new java.awt.Color(206, 228, 217));
+        TelaDashDev.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TelaDashDev.setPreferredSize(new java.awt.Dimension(1366, 720));
+
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 28)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel3.setText("Bem Vindo,");
+
+        jblEscolha.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblEscolha.setForeground(new java.awt.Color(102, 102, 102));
+        jblEscolha.setText("Escolha  seu ambiente de desenvolvimento");
+
+        jblNomeDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblNomeDev.setForeground(new java.awt.Color(102, 102, 102));
+        jblNomeDev.setText("nome");
+
+        jblLogo1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jblLogo1.setForeground(new java.awt.Color(183, 51, 73));
+        jblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblLogo1.setText("KEEPCODE");
+
+        btnEclipse.setBackground(new java.awt.Color(255, 255, 255));
+        btnEclipse.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnEclipse.setForeground(new java.awt.Color(0, 0, 0));
+        btnEclipse.setText("Eclipse");
+        btnEclipse.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEclipse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEclipse.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnEclipse.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnEclipse.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnEclipse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEclipseActionPerformed(evt);
+            }
+        });
+
+        btnPyCharm.setBackground(new java.awt.Color(255, 255, 255));
+        btnPyCharm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnPyCharm.setForeground(new java.awt.Color(0, 0, 0));
+        btnPyCharm.setText("PyCharm");
+        btnPyCharm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPyCharm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPyCharm.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnPyCharm.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnPyCharm.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnPyCharm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPyCharmActionPerformed(evt);
+            }
+        });
+
+        btnPhpStorm.setBackground(new java.awt.Color(255, 255, 255));
+        btnPhpStorm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnPhpStorm.setForeground(new java.awt.Color(0, 0, 0));
+        btnPhpStorm.setText("PhpStorm");
+        btnPhpStorm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPhpStorm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPhpStorm.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnPhpStorm.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnPhpStorm.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnPhpStorm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPhpStormActionPerformed(evt);
+            }
+        });
+
+        btnXcode.setBackground(new java.awt.Color(255, 255, 255));
+        btnXcode.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnXcode.setForeground(new java.awt.Color(0, 0, 0));
+        btnXcode.setText("Xcode");
+        btnXcode.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXcode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnXcode.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnXcode.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnXcode.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnXcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXcodeActionPerformed(evt);
+            }
+        });
+
+        btnIntellij.setBackground(new java.awt.Color(255, 255, 255));
+        btnIntellij.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnIntellij.setForeground(new java.awt.Color(0, 0, 0));
+        btnIntellij.setText("Intelij");
+        btnIntellij.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnIntellij.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIntellij.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIntellijActionPerformed(evt);
+            }
+        });
+
+        btnWebStorm.setBackground(new java.awt.Color(255, 255, 255));
+        btnWebStorm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnWebStorm.setForeground(new java.awt.Color(0, 0, 0));
+        btnWebStorm.setText("WebStorm");
+        btnWebStorm.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnWebStorm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnWebStorm.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnWebStorm.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnWebStorm.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnWebStorm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWebStormActionPerformed(evt);
+            }
+        });
+
+        btnVsCode.setBackground(new java.awt.Color(255, 255, 255));
+        btnVsCode.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnVsCode.setForeground(new java.awt.Color(0, 0, 0));
+        btnVsCode.setText("VsCode");
+        btnVsCode.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVsCode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVsCode.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnVsCode.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnVsCode.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnVsCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVsCodeActionPerformed(evt);
+            }
+        });
+
+        btnNetBeans.setBackground(new java.awt.Color(255, 255, 255));
+        btnNetBeans.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnNetBeans.setForeground(new java.awt.Color(0, 0, 0));
+        btnNetBeans.setText("NetBeans");
+        btnNetBeans.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNetBeans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNetBeans.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnNetBeans.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnNetBeans.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnNetBeans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNetBeansActionPerformed(evt);
+            }
+        });
+
+        btnVisualStudio.setBackground(new java.awt.Color(255, 255, 255));
+        btnVisualStudio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnVisualStudio.setForeground(new java.awt.Color(0, 0, 0));
+        btnVisualStudio.setText("VisualST");
+        btnVisualStudio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnVisualStudio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVisualStudio.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnVisualStudio.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnVisualStudio.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnVisualStudio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVisualStudioActionPerformed(evt);
+            }
+        });
+
+        btnAndorid.setBackground(new java.awt.Color(255, 255, 255));
+        btnAndorid.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnAndorid.setForeground(new java.awt.Color(0, 0, 0));
+        btnAndorid.setText("AndroidST");
+        btnAndorid.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAndorid.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAndorid.setMaximumSize(new java.awt.Dimension(39, 23));
+        btnAndorid.setMinimumSize(new java.awt.Dimension(39, 23));
+        btnAndorid.setPreferredSize(new java.awt.Dimension(39, 23));
+        btnAndorid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAndoridActionPerformed(evt);
+            }
+        });
+
+        jblEmpresa.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblEmpresa.setForeground(new java.awt.Color(102, 102, 102));
+        jblEmpresa.setText("empresa");
+
+        jblEquipe.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblEquipe.setForeground(new java.awt.Color(102, 102, 102));
+        jblEquipe.setText("equipe");
+
+        jblCargo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblCargo.setForeground(new java.awt.Color(102, 102, 102));
+        jblCargo.setText("cargo");
+
+        jblEquipe1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jblEquipe1.setForeground(new java.awt.Color(102, 102, 102));
+        jblEquipe1.setText("nome maquina");
+
+        javax.swing.GroupLayout TelaDashDevLayout = new javax.swing.GroupLayout(TelaDashDev);
+        TelaDashDev.setLayout(TelaDashDevLayout);
+        TelaDashDevLayout.setHorizontalGroup(
+            TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jblNomeDev)
+                            .addComponent(jblEquipe1)
+                            .addComponent(jblEquipe)
+                            .addComponent(jblEmpresa)
+                            .addComponent(jblCargo)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jblEscolha)))
+                .addGap(557, 557, 557))
+            .addGroup(TelaDashDevLayout.createSequentialGroup()
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jblLogo1))
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEclipse, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnIntellij, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(TelaDashDevLayout.createSequentialGroup()
+                                .addComponent(btnPyCharm, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAndorid, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(TelaDashDevLayout.createSequentialGroup()
+                                .addComponent(btnWebStorm, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(btnVisualStudio, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnVsCode, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNetBeans, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(306, Short.MAX_VALUE))
+        );
+
+        TelaDashDevLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAndorid, btnEclipse, btnNetBeans, btnPhpStorm, btnPyCharm, btnVisualStudio, btnVsCode, btnWebStorm, btnXcode});
+
+        TelaDashDevLayout.setVerticalGroup(
+            TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jblLogo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGap(249, 249, 249)
+                        .addComponent(jblEscolha))
+                    .addGroup(TelaDashDevLayout.createSequentialGroup()
+                        .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jblNomeDev)
+                            .addComponent(jLabel3))
+                        .addGap(10, 10, 10)
+                        .addComponent(jblEquipe1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblEquipe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblEmpresa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jblCargo)))
+                .addGap(76, 76, 76)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPyCharm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEclipse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAndorid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVsCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIntellij))
+                .addGap(99, 99, 99)
+                .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnWebStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPhpStorm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVisualStudio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNetBeans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+
+        TelaDashDevLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAndorid, btnEclipse, btnIntellij, btnNetBeans, btnPhpStorm, btnPyCharm, btnVisualStudio, btnVsCode, btnWebStorm, btnXcode});
+
+        DashDevTela.setLayer(TelaDashDev, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout DashDevTelaLayout = new javax.swing.GroupLayout(DashDevTela);
+        DashDevTela.setLayout(DashDevTelaLayout);
+        DashDevTelaLayout.setHorizontalGroup(
+            DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashDevTelaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(TelaDashDev, javax.swing.GroupLayout.PREFERRED_SIZE, 1377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        DashDevTelaLayout.setVerticalGroup(
+            DashDevTelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(TelaDashDev, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        TelaDashDev.getAccessibleContext().setAccessibleParent(this);
+
+        javax.swing.GroupLayout DashDevLayout = new javax.swing.GroupLayout(DashDev.getContentPane());
+        DashDev.getContentPane().setLayout(DashDevLayout);
+        DashDevLayout.setHorizontalGroup(
+            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(DashDevTela)
+        );
+        DashDevLayout.setVerticalGroup(
+            DashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(DashDevTela, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
+        jPanel1.setBackground(new java.awt.Color(206, 228, 217));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1368, 720));
+
+        jblLogo2.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jblLogo2.setForeground(new java.awt.Color(183, 51, 73));
+        jblLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jblLogo2.setText("KEEPCODE");
+
+        lblNomeIdeDtelhes.setFont(new java.awt.Font("SansSerif", 0, 36)); // NOI18N
+        lblNomeIdeDtelhes.setForeground(new java.awt.Color(102, 102, 102));
+        lblNomeIdeDtelhes.setText("Detalhes sobre:");
+
+        lblDiscoDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblDiscoDev.setText("Disco");
+
+        lblCpuDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblCpuDev.setText("CPU");
+
+        lblRamDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblRamDev.setText("Ram");
+
+        lblTempoUsoDev.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblTempoUsoDev.setText("Tempo de uso");
+
+        lblgrafico.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblgrafico.setText("Uso do Disco");
+
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel7.setText("Uso da RAM");
+
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel8.setText("Tempo de Uso");
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel9.setText("Uso da CPU");
+
+        lblNomeIde.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        lblNomeIde.setText("Disco");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jblLogo2)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(356, 356, 356)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDiscoDev)
+                    .addComponent(lblgrafico)
+                    .addComponent(jLabel9)
+                    .addComponent(lblCpuDev))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(lblNomeIdeDtelhes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNomeIde)
+                        .addContainerGap(489, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblRamDev)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(lblTempoUsoDev, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(246, 246, 246))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblgrafico)
+                                .addGap(4, 4, 4)
+                                .addComponent(lblDiscoDev)
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel9))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(4, 4, 4)
+                                .addComponent(lblRamDev)
+                                .addGap(106, 106, 106)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblTempoUsoDev)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblCpuDev))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jblLogo2)
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNomeIdeDtelhes)
+                            .addComponent(lblNomeIde))
+                        .addGap(364, 364, 364)))
+                .addGap(0, 235, Short.MAX_VALUE))
+        );
+
+        DashDetalhesDev.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout DashDetalhesDevLayout = new javax.swing.GroupLayout(DashDetalhesDev);
+        DashDetalhesDev.setLayout(DashDetalhesDevLayout);
+        DashDetalhesDevLayout.setHorizontalGroup(
+            DashDetalhesDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        DashDetalhesDevLayout.setVerticalGroup(
+            DashDetalhesDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        javax.swing.GroupLayout DetalheDevLayout = new javax.swing.GroupLayout(DetalheDev.getContentPane());
+        DetalheDev.getContentPane().setLayout(DetalheDevLayout);
+        DetalheDevLayout.setHorizontalGroup(
+            DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1368, Short.MAX_VALUE)
+            .addGroup(DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DetalheDevLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DashDetalhesDev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        DetalheDevLayout.setVerticalGroup(
+            DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(DetalheDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(DetalheDevLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DashDetalhesDev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 102));
@@ -759,6 +836,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEntrar.setForeground(new java.awt.Color(0, 0, 0));
         btnEntrar.setText("ENTRAR");
         btnEntrar.setBorderPainted(false);
+        btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEntrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnEntrarMouseClicked(evt);
@@ -861,7 +939,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
         TelaLoginLayout.setVerticalGroup(
             TelaLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -883,15 +961,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+
+//        this.dispose();
+//        DashDev.setVisible(true);
         Conexao con = new Conexao();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<TbUsDados> pegandoUser = template.query("SELECT us_login, us_senha, us_nome_funcionario, us_is_adm FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+        List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
                 new BeanPropertyRowMapper<>(TbUsDados.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
-
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
 
@@ -912,24 +992,29 @@ public class TelaLogin extends javax.swing.JFrame {
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
                         if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
+
+                            // gestor entra aqui
                             this.setVisible(false);
                             this.dispose();
-                          //  GraphicsEnvironment graphics
-                                //    = GraphicsEnvironment.getLocalGraphicsEnvironment();
-                            
-                           // GraphicsDevice device = graphics.getDefaultScreenDevice();
-                            
+                            this.cpfGestor  = tbUsDados.getId_cpf();
+                            // AQUI TEM QUE IR O SELECT PARA PEGAR TODOS OS QUE O GESTOR COMANDA
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
-                            
-                          // device.setFullScreenWindow(DashGestor);
+                            lblGestorEquipe.setText(tbUsDados.getUs_equipe());
+                            btnMaquina1.setText("Matheus");
+
                         } else {
+
+                            // dev entra aqui
                             this.setVisible(false);
                             this.dispose();
-                           
+                            this.cpfDev = tbUsDados.getId_cpf();
                             DashDev.setVisible(true);
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
-                             
+                            jblEquipe.setText(tbUsDados.getUs_equipe());
+                            //jblEmpresa.setText(tbUsDados.getFk_id_empresa());
+                            jblCargo.setText(tbUsDados.getUs_cargo());
+                            //lblNomemaquina.setTe;
                         }
 
                     }
@@ -942,6 +1027,35 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void chamarTelaFuncionario(String nome) {
+
+        Conexao con = new Conexao();
+
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+
+        List<TbUsDados> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
+                new BeanPropertyRowMapper<>(TbUsDados.class), btnMaquina1.getText());
+
+        System.out.println(pegandoUser);
+        
+        this.dispose();
+        
+        DashDev.setVisible(true);
+        
+
+        for (Iterator<TbUsDados> iterator = pegandoUser.iterator(); iterator.hasNext();) {
+            TbUsDados tbUsDados = iterator.next();
+            this.cpfDev = tbUsDados.getId_cpf();
+            jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
+            jblEquipe.setText(tbUsDados.getUs_equipe());
+            jblCargo.setText(tbUsDados.getUs_cargo());
+        }
+
+
+        DashDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+    }
 
     private void btnEntrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseClicked
         // TODO add your handling code here:
@@ -981,78 +1095,133 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEmailFocusGained
 
-    private void btnHomeGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeGestorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeGestorActionPerformed
-
-    private void btnTutorialsGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutorialsGestorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTutorialsGestorActionPerformed
-
-    private void btnLogoutGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutGestorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutGestorActionPerformed
-
-    private void btnProfileGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileGestorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProfileGestorActionPerformed
-
-    private void btnSettingsGestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsGestorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSettingsGestorActionPerformed
-
     private void btnMaquina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina1ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note1");
+
     }//GEN-LAST:event_btnMaquina1ActionPerformed
 
     private void btnMaquina5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina5ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note6");
     }//GEN-LAST:event_btnMaquina5ActionPerformed
 
     private void btnMaquina6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina6ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note2");
     }//GEN-LAST:event_btnMaquina6ActionPerformed
 
     private void btnMaquina7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina7ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note3");
     }//GEN-LAST:event_btnMaquina7ActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSettingsActionPerformed
-
-    private void btnTurorialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTurorialsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTurorialsActionPerformed
-
-    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnProfileActionPerformed
-
-    private void btnHome9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHome9ActionPerformed
-
-    private void btnIntellij1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellij1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIntellij1ActionPerformed
-
     private void btnMaquina8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina8ActionPerformed
-        // TODO add your handling code here:
+        chamarTelaFuncionario("note5");
     }//GEN-LAST:event_btnMaquina8ActionPerformed
 
     private void btnMaquina9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMaquina9ActionPerformed
+        chamarTelaFuncionario("note4");
 
-    /**
-     * @param args the command line arguments
-     */
+    }//GEN-LAST:event_btnMaquina9ActionPerformed
+    private void chamarDetalhes(String nome_ide) {
+        Conexao con = new Conexao();
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+        System.out.println(this.cpfDev);
+
+//        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1\n"
+//                + "                        us_dt_hr_start_IDE,\n"
+//                + "                        us_dt_hr_end_IDE,\n"
+//                + "                        us_ide_ram,\n"
+//                + "                        us_ide_cpu,\n"
+//                + "                        us_ide_disco,\n"
+//                + "                        us_ide_nome_processo\n"
+//                + "                        FROM tb_processos_ide AS processo\n"
+//                + "                        JOIN tb_us_maquina AS maq\n"
+//                + "                        ON maq.id_maquina = processo.fk_id_maquina \n"
+//                + "                        where us_ide_nome_processo = 'idea64' \n"
+//                + "                        AND fk_id_funcionario = 2578386005",
+//                new BeanPropertyRowMapper<>(TbProcessosIde.class));
+
+        System.out.println(nome_ide);
+
+        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+                new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpfDev);
+
+        System.out.println(ideDev);
+
+        this.dispose();
+
+        for (Iterator<TbProcessosIde> iterator = ideDev.iterator(); iterator.hasNext();) {
+            
+            TbProcessosIde tbProcessosIde = iterator.next();
+
+            String disco = Integer.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
+            String cpu = Integer.toString(tbProcessosIde.getUs_ide_cpu());
+            String ram = Integer.toString(tbProcessosIde.getUs_ide_ram());
+
+            lblCpuDev.setText(cpu + "%");
+            lblDiscoDev.setText(disco + "%");
+            lblRamDev.setText(ram + "%");
+            lblNomeIde.setText(tbProcessosIde.getUs_ide_nome_processo());
+
+        }
+
+        DetalheDev.setVisible(true);
+
+        DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    }
+
+    private void btnIntellijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellijActionPerformed
+        chamarDetalhes("idea64");
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIntellijActionPerformed
+
+    private void btnPhpStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhpStormActionPerformed
+        chamarDetalhes("phpstorm64");
+    }//GEN-LAST:event_btnPhpStormActionPerformed
+
+    private void btnEclipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipseActionPerformed
+        chamarDetalhes("eclipse");
+
+    }//GEN-LAST:event_btnEclipseActionPerformed
+
+    private void btnXcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXcodeActionPerformed
+        chamarDetalhes("Xcode");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXcodeActionPerformed
+
+    private void btnPyCharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPyCharmActionPerformed
+        chamarDetalhes("pycharm64");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPyCharmActionPerformed
+
+    private void btnWebStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWebStormActionPerformed
+        chamarDetalhes("webstorm64");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWebStormActionPerformed
+
+    private void btnVisualStudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualStudioActionPerformed
+        chamarDetalhes("devenv");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVisualStudioActionPerformed
+
+    private void btnAndoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndoridActionPerformed
+
+        chamarDetalhes("studio64");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAndoridActionPerformed
+
+    private void btnNetBeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetBeansActionPerformed
+        chamarDetalhes("netbeans64");
+    }//GEN-LAST:event_btnNetBeansActionPerformed
+
+    private void btnVsCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVsCodeActionPerformed
+        chamarDetalhes("Code");
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVsCodeActionPerformed
+
     public static void main(String args[]) {
+
+//        JOptionPane.showInternalMessageDialog(null, "teste de argumento", "teste titulo", 2);
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -1073,64 +1242,68 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new TelaLogin().setVisible(true);
         });
+
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane DashDetalhesDev;
     private javax.swing.JFrame DashDev;
     private javax.swing.JDesktopPane DashDevTela;
     private javax.swing.JFrame DashGestor;
+    private javax.swing.JFrame DetalheDev;
     private javax.swing.JPanel TelaDashDev;
     private javax.swing.JDesktopPane TelaDashGestor;
     private javax.swing.JDesktopPane TelaLogin;
     private javax.swing.JPanel background;
+    private javax.swing.JButton btnAndorid;
     private javax.swing.JButton btnEclipse;
-    private javax.swing.JButton btnEclipse1;
-    private javax.swing.JButton btnEclipse5;
-    private javax.swing.JButton btnEclipse6;
     private javax.swing.JButton btnEntrar;
-    private javax.swing.JButton btnHome9;
-    private javax.swing.JButton btnHomeGestor;
     private javax.swing.JButton btnIntellij;
-    private javax.swing.JButton btnIntellij1;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnLogoutGestor;
     private javax.swing.JButton btnMaquina1;
     private javax.swing.JButton btnMaquina5;
     private javax.swing.JButton btnMaquina6;
     private javax.swing.JButton btnMaquina7;
     private javax.swing.JButton btnMaquina8;
     private javax.swing.JButton btnMaquina9;
+    private javax.swing.JButton btnNetBeans;
     private javax.swing.JButton btnPhpStorm;
-    private javax.swing.JButton btnPhpStorm1;
-    private javax.swing.JButton btnProfile;
-    private javax.swing.JButton btnProfileGestor;
     private javax.swing.JButton btnPyCharm;
-    private javax.swing.JButton btnPyCharm1;
-    private javax.swing.JButton btnSettings;
-    private javax.swing.JButton btnSettingsGestor;
-    private javax.swing.JButton btnTurorials;
-    private javax.swing.JButton btnTutorialsGestor;
+    private javax.swing.JButton btnVisualStudio;
+    private javax.swing.JButton btnVsCode;
+    private javax.swing.JButton btnWebStorm;
     private javax.swing.JButton btnXcode;
-    private javax.swing.JButton btnXcode1;
     private javax.swing.JPanel cardLogin;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblBemVindo;
+    private javax.swing.JLabel jblCargo;
+    private javax.swing.JLabel jblEmpresa;
+    private javax.swing.JLabel jblEquipe;
+    private javax.swing.JLabel jblEquipe1;
     private javax.swing.JLabel jblEscolha;
     private javax.swing.JLabel jblLogo;
     private javax.swing.JLabel jblLogo1;
+    private javax.swing.JLabel jblLogo2;
     private javax.swing.JLabel jblMaquinaa;
-    private javax.swing.JLabel jblMenu;
-    private javax.swing.JLabel jblMneuDev;
     private javax.swing.JLabel jblNomeDev;
     private javax.swing.JLabel jblNomeGestor;
     private javax.swing.JPanel jpFundo;
+    private javax.swing.JLabel lblCpuDev;
+    private javax.swing.JLabel lblDiscoDev;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGestorEquipe;
+    private javax.swing.JLabel lblNomeIde;
+    private javax.swing.JLabel lblNomeIdeDtelhes;
+    private javax.swing.JLabel lblRamDev;
     private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lblTempoUsoDev;
     private javax.swing.JLabel lblTitleLogin;
     private javax.swing.JLabel lblValida;
+    private javax.swing.JLabel lblgrafico;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JPasswordField txtSenha;
     // End of variables declaration//GEN-END:variables
