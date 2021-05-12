@@ -6,27 +6,27 @@ const idesContainer = document.querySelector('.ides-container');
 const idesContainerPart2 = document.querySelector('.ides-container-part2');
 
 document.querySelector('.toggle').onclick = function () {
-    this.classList.toggle('active');
-    navigation.classList.toggle('active');
+  this.classList.toggle('active');
+  navigation.classList.toggle('active');
 }
 
 function darkMode() {
-    var element = document.querySelector('.page');
-    element.classList.toggle("dark-mode");
- }
+  var element = document.querySelector('.page');
+  element.classList.toggle("dark-mode");
+}
 
- next.addEventListener('click', function() {
+next.addEventListener('click', function () {
   idesContainer.style.display = 'none';
   idesContainerPart2.style.display = 'flex';
 });
 
-back.addEventListener('click', function() {
+back.addEventListener('click', function () {
   idesContainerPart2.style.display = 'none';
   idesContainer.style.display = 'flex';
 });
 
 // Para que o password não fique exposto apos mover a imagem.
-document.getElementById('olho').addEventListener('mousemove', function() {
+document.getElementById('olho').addEventListener('mousemove', function () {
   document.getElementById('senha_cad').type = 'password';
 });
 
@@ -36,7 +36,7 @@ document.getElementById('olho').addEventListener('mousemove', function() {
 var countDownDate = new Date("Apr 10, 2021 15:37:25").getTime();
 
 // Update the count down every 1 second
-var x = setInterval(function() {
+var x = setInterval(function () {
 
   // Get todays date and time
   var now = new Date().getTime();
@@ -52,7 +52,7 @@ var x = setInterval(function() {
 
   // Display the result in an element with id="demo"
   demo.innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+    + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
   if (distance < 0) {

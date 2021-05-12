@@ -3,6 +3,9 @@ let nome_usuario;
 let adm_usuario;
 let nome_empresa;
 let cargo_usuario;
+let id_usuario;
+let ide_usuario;
+let fk_id_empresa;
 
 function redirecionar_login() {
     window.location.href = '../Institucional/login.html';
@@ -14,21 +17,30 @@ function verificar_autenticacao() {
     adm_usuario = sessionStorage.administrador_usuario_meuapp;
     nome_empresa = sessionStorage.empresa_usuario_meuapp;
     cargo_usuario = sessionStorage.cargo_usuario_meuapp;
-
+    id_usuario = sessionStorage.id_usuario_meuapp;
+    ide_usuario = sessionStorage.ide_usuario_meu_app;
+    fk_id_empresa = sessionStorage.fk_id_empresa_meu_app;
 
     if (login_usuario == undefined) {
         redirecionar_login();
     } else {
 
-        if (typeof obterDadosGraficoPrimeiraVez === 'function'){
-            obterDadosGraficoPrimeiraVez(1);
+        if (typeof obterDadosGraficoRam === 'function') {
+            obterDadosGraficoRam(id_usuario);
             carregarGrafico();
         }
-        
-        b_usuario.innerHTML = nome_usuario;
-        cargo.innerHTML = cargo_usuario;
-        id_adm.style.display = "none";
-        empresa.innerHTML = nome_empresa;
+
+        if (typeof obterDadosGraficoIDE === 'function') {
+            obterDadosGraficoIDE(ide_usuario, id_usuario);
+            carregarGrafico();
+        }
+
+
+        locateEmpresa()
+        typeof b_usuario === 'undefined' ? null : (b_usuario.innerHTML = nome_usuario);
+        typeof cargo === 'undefined' ? null : (cargo.innerHTML = cargo_usuario);
+        typeof id_adm === 'undefined' ? null : (id_adm.style.display = "none");
+        typeof empresa === 'undefined' ? null : (empresa.innerHTML = nome_empresa);
 
         validar_sessao();
     }
@@ -59,6 +71,21 @@ function validar_sessao() {
             } else {
                 console.error('Sessão :.( ');
                 logoff();
+            }
+        });
+}
+
+function locateEmpresa() {
+    fetch(`/empresas/autenticar/${login_usuario}`, { cache: 'no-store' })
+        .then(resposta => {
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+                    sessionStorage.empresa_usuario_meuapp = json.kc_nome_comp
+                });
+
+            } else {
+                console.log('Erro ao encontrar empresa');
             }
         });
 }

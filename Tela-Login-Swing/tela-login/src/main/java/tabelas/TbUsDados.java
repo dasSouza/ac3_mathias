@@ -5,7 +5,7 @@ package tabelas;
  * @author mathias.de.carvalho
  */
 public class TbUsDados {
-    private Integer id_cpf;
+    private Long id_cpf;
     private String us_nome_funcionario;
     private String us_cargo;
     private String us_login;
@@ -14,11 +14,11 @@ public class TbUsDados {
     private String us_is_adm;
     private Integer fk_id_empresa;
 
-    public Integer getId_cpf() {
+    public Long getId_cpf() {
         return id_cpf;
     }
 
-    public void setId_cpf(Integer id_cpf) {
+    public void setId_cpf(Long id_cpf) {
         this.id_cpf = id_cpf;
     }
 
