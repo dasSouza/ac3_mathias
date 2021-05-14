@@ -199,8 +199,9 @@ a {
 }
 
 .separation-ides {
+    margin-top: 1.5%;
     position: relative;
-    width: 80vw;
+    width: 65vw;
     height: 55vh;
     display: flex;
     flex-direction: column;
@@ -280,17 +281,20 @@ a {
 
 .idesLogo {
     position: relative;
-    width: 15%;
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     animation: box 1s 0.3s both;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
 }
 
 .idesLogo b {
-    color: #4D4D4E;
+    color: #B73447;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1084,7 +1088,7 @@ hr {
 
    /* pre perfil */
 
-   .container-prelogin {
+.container-prelogin {
     width: 100%;
     height: 50%;
     display: flex;
@@ -1093,9 +1097,9 @@ hr {
     align-items: center;
     margin-top: 3%;
 
-   }
+}
 
-   .perfil-escolha {
+.perfil-escolha {
     width: 25%;
     height: 100%;
     display: flex;
@@ -1105,43 +1109,43 @@ hr {
 
 
 
-   }
+}
 
    
-   .perfil-escolha a {
+.perfil-escolha a {
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 
-   }
+}
 
-   .perfil-escolha p {
+.perfil-escolha p {
     font-size: 20px;
     color: #514E4D;
     margin-top: 4%;
 
-   }
+}
 
-   .cadastro-escolha p {
+.cadastro-escolha p {
     font-size: 20px;
     color: #514E4D;
     margin-top: 4%;
 
-   }
+}
 
  
-   .cadastro-escolha  a {
+.cadastro-escolha  a {
     height: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
 
-   }
+}
 
-   .cadastro-escolha {
+.cadastro-escolha {
     width: 25%;
     height: 100%;
     display: flex;
@@ -1157,7 +1161,7 @@ hr {
     transform: scale(1.2); 
   }
 
-  .perfil-escolha:hover {
+.perfil-escolha:hover {
     -ms-transform: scale(1.2); /* IE 9 */
     -webkit-transform: scale(1.2); /* Safari 3-8 */
     transform: scale(1.2); 
@@ -1175,3 +1179,61 @@ hr {
     width: 75%;
     height: 75%;
 }
+
+   /* dash gestor */
+
+.container-info {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.info-time {
+    height: 45%;
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+
+}
+
+   
+.container-titulo h1 {
+    font-size: 25px;
+    color: #B73447;
+    text-align: center;
+
+}
+
+.info-time p { 
+    font-size: 20px;
+    color: #514E4D;
+}
+
+.container-label {
+    width: 100%;
+    height: 60%;
+    margin-left: 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+.container-titulo {
+    margin-top: 3%;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+     
+}
+
+
+
