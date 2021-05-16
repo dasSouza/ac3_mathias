@@ -1097,8 +1097,8 @@ public class TelaLogin extends javax.swing.JFrame {
                                 teste.gravarLog("login do dev efetuado com sucesso");
 
                             } catch (IOException ex) {
-
                                 Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+
                             }
                         }
                     }
@@ -1122,9 +1122,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void chamarTelaFuncionario(String nome) {
-        
-         GerandoLog gravandoLog = new GerandoLog();
-        
+
+        GerandoLog gravandoLog = new GerandoLog();
+
         try {
             gravandoLog.gravarLog("gestor chamando dev");
 
@@ -1132,7 +1132,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Conexao con = new Conexao();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
@@ -1277,8 +1277,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void chamarDetalhes(String nome_ide, Integer id_ide) {
 
-         GerandoLog gravandoLog = new GerandoLog();
-        
+        GerandoLog gravandoLog = new GerandoLog();
+
         try {
             gravandoLog.gravarLog("dev chamando detalhe da ide");
 
@@ -1286,7 +1286,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
@@ -1325,7 +1325,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public static void main(String args[]) throws IOException {
 
         GerandoLog gravandoLog = new GerandoLog();
-        
+
         try {
             gravandoLog.gravarLog("INICIANDO APLICAÇÃO KEEP CODE");
 
@@ -1333,10 +1333,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-//        JOptionPane.showInternalMessageDialog(null, "gravandoLog de argumento", "gravandoLog titulo", 2);
 
+//        JOptionPane.showInternalMessageDialog(null, "gravandoLog de argumento", "gravandoLog titulo", 2);
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1358,7 +1356,15 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new TelaLogin().setVisible(true);
         });
+        
+        
+        try {
+            gravandoLog.gravarLog("finalizando aplicação");
 
+        } catch (IOException ex) {
+
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
