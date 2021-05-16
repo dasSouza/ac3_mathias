@@ -729,8 +729,8 @@ hr {
 }
 
 .box-graficos {
-    width: 100%;
-    height: 50%;
+    width: 99%;
+    height: 48%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -745,6 +745,7 @@ hr {
 .label-grafico {
     color: #514E4D;
     font-size: 30px;
+    margin-top: 1vh;
 }
 
 .status {
@@ -913,7 +914,7 @@ hr {
 
 .footer-ajuda {
     width: 100vw;
-    height: 20%;
+    height: 23%;
     display: flex;
     justify-content: flex-end;
 }
