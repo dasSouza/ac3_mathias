@@ -9,15 +9,15 @@ import java.util.Scanner;
 
 public class GerandoLog {
 
-    Date dataHoraAtual = new Date();
-    String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
-    String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-
     public void gravarLog(String textoLog) throws IOException {
-        FileWriter arq = new FileWriter("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\log.txt", true);
+        Date dataHoraAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
+        String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+        FileWriter arq = new FileWriter("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\log.txt", true);
+//        FileWriter arq = new FileWriter("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\log.txt", true);
         PrintWriter gravarArq = new PrintWriter(arq);
 
-        gravarArq.println(textoLog);
+        gravarArq.println(String.format("%s %s %s \n", data, hora, textoLog));
 
         arq.close();
 

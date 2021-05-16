@@ -992,6 +992,14 @@ public class TelaLogin extends javax.swing.JFrame {
             lblValida.setText("Email ou senha incorretos");
             txtEmail.setText("Informe seu login aqui");
             txtSenha.setText("Senha123");
+
+            try {
+                teste.gravarLog("usuario nao encontrado");
+
+            } catch (IOException ex) {
+
+                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             if (pegandoUser.size() == 1) {
 
@@ -1016,7 +1024,7 @@ public class TelaLogin extends javax.swing.JFrame {
 //                            Image image = Toolkit.getDefaultToolkit().getImage("MY/PATH/TO_IMAGE");
 
                             try {
-                                teste.gravarLog("este é um arquivo vindo do login do gestor");
+                                teste.gravarLog("login do gestor efetuado com sucesso");
 
                             } catch (IOException ex) {
 
@@ -1084,6 +1092,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
                                 }
                             }
+
+                            try {
+                                teste.gravarLog("login do dev efetuado com sucesso");
+
+                            } catch (IOException ex) {
+
+                                Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         }
                     }
                 }
@@ -1093,12 +1109,30 @@ public class TelaLogin extends javax.swing.JFrame {
                 txtEmail.setText("Informe seu login aqui");
                 txtSenha.setText("Senha123");
                 lblValida.setText("Email ou senha incorretos:\n Login já utilizado!");
+
+                try {
+                    teste.gravarLog("login de usuario duplicado");
+
+                } catch (IOException ex) {
+
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void chamarTelaFuncionario(String nome) {
+        
+         GerandoLog gravandoLog = new GerandoLog();
+        
+        try {
+            gravandoLog.gravarLog("gestor chamando dev");
 
+        } catch (IOException ex) {
+
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         Conexao con = new Conexao();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
@@ -1243,6 +1277,16 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void chamarDetalhes(String nome_ide, Integer id_ide) {
 
+         GerandoLog gravandoLog = new GerandoLog();
+        
+        try {
+            gravandoLog.gravarLog("dev chamando detalhe da ide");
+
+        } catch (IOException ex) {
+
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
@@ -1280,7 +1324,19 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public static void main(String args[]) throws IOException {
 
-//        JOptionPane.showInternalMessageDialog(null, "teste de argumento", "teste titulo", 2);
+        GerandoLog gravandoLog = new GerandoLog();
+        
+        try {
+            gravandoLog.gravarLog("INICIANDO APLICAÇÃO KEEP CODE");
+
+        } catch (IOException ex) {
+
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+//        JOptionPane.showInternalMessageDialog(null, "gravandoLog de argumento", "gravandoLog titulo", 2);
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1303,9 +1359,6 @@ public class TelaLogin extends javax.swing.JFrame {
             new TelaLogin().setVisible(true);
         });
 
-        GerandoLog teste = new GerandoLog();
-
-        teste.gravarLog("este é um texto com log vindo da main do java swing");
     }
 
 
