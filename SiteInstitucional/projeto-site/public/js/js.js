@@ -47,8 +47,9 @@ for (let i = 0; i < 20; i++) {
   imagems.style.animationDelay = `${delay}s`;
 
   imagems.style.animationDuration = `${duration}s`;
-  imagems.style.animationTimingFunction = `cubic-bezier(${(Math.random(), Math.random(), Math.random(), Math.random())
-    })`;
+  imagems.style.animationTimingFunction = `cubic-bezier(${
+    (Math.random(), Math.random(), Math.random(), Math.random())
+  })`;
 
   ulIDES.appendChild(imagems);
 }
@@ -234,67 +235,127 @@ function mCPF(cpf) {
 
 // SALVAR IDES
 function Salvar() {
-  validarDiferenca()
+    Swal.fire({
+        title: 'Você tem certeza?',
+        text: "Caso clique em confirmar, você estará aceitando as consequencias",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, aceito!',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // CONFIRMOU
+
+            validacaoIdeSelecionadas()
+        } else {
+            // CANCELOU
+            Swal.fire(
+                'Cancelado!',
+                'Você ainda pode escolher outras IDEs!',
+                'success'
+            )
+        }
+    })
+}
+
+function validacaoIdeSelecionadas() {
+  validarDiferenca();
 
   if (apagarIDE.length == 0 && diferencaValue.length == 0) {
-    alert("Você não alterou nada")
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Você não alterou nada !😢',
+    })
   }
-
+  
   if (apagarIDE.length != 0) {
     for (let index = 0; index < apagarIDE.length; index++) {
       const element = apagarIDE[index];
-      removeIDE(element)
+      removeIDE(element);
     }
+      var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }      
+    })
+    
   }
 
   if (diferencaValue.length != 0) {
-    console.log("diferença: " + diferencaValue)
+    console.log("diferença: " + diferencaValue);
     let arrUnique = [...new Set(diferencaValue)];
 
     for (let index = 0; index < arrUnique.length; index++) {
       const element = arrUnique[index];
-      addIDE(element)
+      addIDE(element);
     }
 
+      var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }      
+    })
   }
-  diferencaValue = []
-  valuesIDE = []
-  apagarIDE = []
-  recuperaIDE = []
 
-  window.location.href = "dashboard.html"
+  diferencaValue = [];
+  valuesIDE = [];
+  apagarIDE = [];
+  recuperaIDE = [];
+
+  if(Toast) {
+    Toast.fire({
+      icon: 'success',
+      title: 'Alteração realizada com sucesso !😍'
+    })
+    document.getElementById('salvarbtn').disabled = true;
+    document.getElementById('salvarbtn').style.visibility = 'hidden';
+    setTimeout(function(){  window.location.href = "dashboard.html"}, 3100);
+  }
 }
 
 function addIDE(ideValor) {
   var idFuncionario = sessionStorage.id_usuario_meuapp;
-  console.log("Entrei no addIDE")
-  fetch(`/ides/cadastrarIDE/${ideValor}/${idFuncionario}`, { method: "POST" })
-    .then(resposta => {
-      if (resposta.ok) {
-
-        resposta.json().then(json => {
-          console.log("adicionou IDE")
-        });
-
-      } else {
-        console.log('Erro ao cadastrar IDE');
-      }
-    });
+  console.log("Entrei no addIDE");
+  fetch(`/ides/cadastrarIDE/${ideValor}/${idFuncionario}`, {
+    method: "POST",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        console.log("adicionou IDE");
+      });
+    } else {
+      console.log("Erro ao cadastrar IDE");
+    }
+  });
 }
 
 function removeIDE(ideValor) {
   var idFuncionario = sessionStorage.id_usuario_meuapp;
-  console.log("Entrei no removeIDE")
-  fetch(`/ides/descadastrarIDE/${ideValor}/${idFuncionario}`, { method: "POST" })
-    .then(resposta => {
-      if (resposta.ok) {
-
-        resposta.json().then(json => {
-          console.log("apagou IDE")
-        });
-
-      } else {
-        console.log('Erro ao descadastrar IDE');
-      }
-    });
+  console.log("Entrei no removeIDE");
+  fetch(`/ides/descadastrarIDE/${ideValor}/${idFuncionario}`, {
+    method: "POST",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        console.log("apagou IDE");
+      });
+    } else {
+      console.log("Erro ao descadastrar IDE");
+    }
+  });
 }
