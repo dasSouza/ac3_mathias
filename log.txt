@@ -1,1 +1,5 @@
 este é um arquivo vindo do login do gestor
+este é um texto com log vindo da main do java swing
+este é um arquivo vindo do login do gestor
+este é um texto com log vindo da main do java swing
+este é um arquivo vindo do login do gestor
