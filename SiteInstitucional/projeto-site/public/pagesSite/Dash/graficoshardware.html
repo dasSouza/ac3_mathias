@@ -76,7 +76,7 @@
     <header>
       <div class="box-recepction">
         <div class="recection-welcome">
-          <h1>Bem vindo, <b id="b_usuario"></b> </h1>
+          <h1>Bem vindo, <b id="b_usuario0"></b> </h1>
           <p>Veja aqui seu consumo de hardware em relação a IDE</p>
         </div>
         <div class="logo-recepction">
@@ -210,7 +210,8 @@
           // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           // console.log(`Dados recebidos: ${resposta}`);
           var resultado = [];
-
+          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
+            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
           function percorrer(obj) {
             for (var propriedade in obj) {
               if (obj.hasOwnProperty(propriedade)) {
@@ -224,7 +225,40 @@
           }
 
           imgLogoIDE.src = `../../img/${IDE}.png`
-          nomeIDE.innerHTML= `${IDE}`
+          switch (IDE) {
+                      case "Xcode":
+                        nomeIDE.innerHTML = nomesTratadosIDE[0]
+                        break;
+                      case "pycharm64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[1]
+                        break;
+                      case "Code":
+                        nomeIDE.innerHTML = nomesTratadosIDE[2]
+                        break;
+                      case "netbeans64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[3]
+                        break;
+                      case "idea64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[4]
+                        break;
+                      case "studio64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[5]
+                        break;
+                      case "phpstorm64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[6]
+                        break;
+                      case "webstorm64":
+                        nomeIDE.innerHTML = nomesTratadosIDE[7]
+                        break;
+                      case "eclipse":
+                        nomeIDE.innerHTML = nomesTratadosIDE[8]
+                        break;
+                      case "devenv":
+                        nomeIDE.innerHTML = nomesTratadosIDE[9]
+                        break;
+                      default:
+                        break;
+                    }
 
           percorrer(resposta);
           // console.log(JSON.stringify(resultado));

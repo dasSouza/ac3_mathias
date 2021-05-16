@@ -1255,6 +1255,7 @@ hr {
     border: none;
     z-index: 2;
     margin-top: 5vh;
+    display: disabled;
 }
 
 .salvar input:active {
