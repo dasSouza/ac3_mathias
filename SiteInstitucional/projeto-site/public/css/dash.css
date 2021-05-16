@@ -181,6 +181,7 @@ a {
 }
 
 .recection-welcome p {
+    font-size: 20px;
     color: #4D4D4E;
     text-transform: uppercase;
 }
@@ -199,7 +200,6 @@ a {
 }
 
 .separation-ides {
-    margin-top: 1.5%;
     position: relative;
     width: 65vw;
     height: 55vh;
@@ -288,9 +288,7 @@ a {
     justify-content: center;
     flex-direction: column;
     animation: box 1s 0.3s both;
-    background-color: #D6ECE1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
+    
 }
 
 .idesLogo b {
@@ -685,22 +683,43 @@ hr {
 
 .section-graficos {
     width: 100vw;
-    height: 60vh;
+    height: 80vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-graficos {
     height: 100%;
-    width: 87%;
+    width: 66%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.info-img {
+    height: 45%;
+    width: 58%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    
+    
+}
+
+.info-img p {
+    color: #4D4D4E;
+    text-align: center;
+    font-size: 20px;
 }
 
 .graficos {
     height: 100%;
-    width: 20%;
+    width: 25%;
 }
 
 .box-graficos {
@@ -710,6 +729,11 @@ hr {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    margin-bottom: 6vh;
+
 }
 
 .label-grafico {
@@ -762,8 +786,6 @@ hr {
 
 .ide-graficohardware {
     width: 100%;
-    height: 24%;
-    margin-right: 3vw;
 
 }
 
@@ -787,44 +809,90 @@ hr {
 }
 
 .legenda {
-    width: 22%;
-    height: 12%;
-    border-radius: 3px;
-    margin-right: 10%;
-    background-color: #a3c6c100;
+    height: 34%;
+    width: 94%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
 }
 
-.box-legenda p {
-    color: #4D4D4E;
+.legenda-2 {
+    height: 40%;
+    width: 57%;
+    display: flex;
+    flex-direction: row;
+
 }
 
-.livre-ram {
-    width: 22%;
-    height: 12%;
-    border-radius: 3px;
-    margin-right: 10%;
-    background-color: #A3C6C1;
+.box-ram {
+    
+    width:50% ;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+
+}
+
+.box-legenda {
+    width:100% ;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 4vh;
+    margin-top: 1vh;
 
 }
 
 .uso-ram {
-    width: 18px;
-    height: 16px;
-    border-radius: 3px;
-    margin-right: 10%;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+   display: flex;
+   justify-content: center;
     background-color: #B73447;
-
 
 }
 
-.uso-hardware {
-    width: 18px;
-    height: 16px;
-    border-radius: 3px;
-    margin-right: 10%;
+.uso-livre {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+   display: flex;
+   justify-content: center;
+    background-color: #A3C6C1;
+
+}
+
+.uso-tempo {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+   display: flex;
+   justify-content: center;
     background-color: #638481;
 
 }
+
+.box-ram p {
+  font-size: 16px;
+  color: #4D4D4E;
+  margin-top: 2%;
+  margin-left: 5%;
+
+}
+
+.box-legenda p {
+    font-size: 16px;
+    color: #4D4D4E;
+    margin-top: 2%;
+    margin-left: 5%;
+  
+  }
 
 .footer-ajuda {
     width: 100vw;
@@ -898,7 +966,7 @@ hr {
     text-align: center;
     font-size: 2vmax;
     width: 100%;
-    height: 60%;
+    height: 90%;
     border-radius: 10px;
     background-color: #B73447;
 }
@@ -910,7 +978,7 @@ hr {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-left: 2%;
+    margin-left: 5%;
 
 }
 
@@ -920,27 +988,127 @@ hr {
     justify-content: center;
 }
 
+.label-hora p {
+  color: #4D4D4E;
+  font-size: 13px;
+
+}
+
 .container-ides {
-    width: 80%;
-    height: 100%;
+    width: 70%;
+    height: 95.05%;
     margin: auto;
     display: flex;
-    
-    justify-content: center;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
     flex-direction: column;
 }
 
+.titulo-hardware {
+    margin-top: 2vh;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.titulo-hardware p {
+    font-size: 30px;
+    color: #4D4D4E;
+
+}
+
+.label-info {
+    width: 40%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+
+.label-info p {
+    color: #4D4D4E;
+    font-size: 23px;
+    margin-right: 6%;
+}
+
+.grafic {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.container-grafic {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+
+}
+
+.container-labell {
+    margin-top: 1vh;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}
+
+.teste-grafico {
+    width: 70%;
+    height: 80%;
+    border-radius: 100%;
+    background-color: #B73447;
+
+}
+
+.box-grafic {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   margin-top: 2vh;
+
+}
+
+
 .separa-graficos {
-    width: 80%;
+    width: 90%;
     height: 22%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    
+}
+
+.grafic-container {
+    width: 100%;
+    height: 60%;
+
+    overflow-x: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
 }
 
 #img-grafic {
-    width: 10%;
+    width: 30%;
+
 }
 
 
@@ -1211,7 +1379,7 @@ hr {
 }
 
 .info-time p { 
-    font-size: 20px;
+    font-size: 19px;
     color: #514E4D;
 }
 

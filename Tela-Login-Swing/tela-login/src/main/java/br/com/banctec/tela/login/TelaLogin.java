@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import tabelas.TbProcessosIde;
 import tabelas.TbUsMaquina;
+import tabelas.TbUsMaquinaIdMaquina;
 
 /**
  *
@@ -32,7 +33,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public Long cpfDev = 15000000000L;
     public Long cpfGestor = 15000000000L;
-
+    
     BigInteger bigCpfDev = BigInteger.valueOf(cpfDev);
     BigInteger BigCpfGestor = BigInteger.valueOf(cpfDev);
 
@@ -1120,7 +1121,7 @@ public class TelaLogin extends javax.swing.JFrame {
         chamarTelaFuncionario("note4");
 
     }//GEN-LAST:event_btnMaquina9ActionPerformed
-    private void chamarDetalhes(String nome_ide) {
+    private void chamarDetalhes(String nome_ide, Integer id_ide) {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
         System.out.println(this.cpfDev);
@@ -1141,13 +1142,23 @@ public class TelaLogin extends javax.swing.JFrame {
 
         System.out.println(nome_ide);
 
+        List<TbUsMaquinaIdMaquina> sabendoIde = template.query("SELECT tb_ide_maquina_id_ide FROM tb_us_ass_maquina WHERE tb_us_maquina_id_maquina = (SELECT DISTINCT id_maquina FROM tb_us_maquina WHERE fk_id_funcionario = ? AND tb_ide_maquina_id_ide = ?)",
+                new BeanPropertyRowMapper<>(TbUsMaquinaIdMaquina.class), this.cpfDev, id_ide);
+        
         List<TbProcessosIde> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
                 new BeanPropertyRowMapper<>(TbProcessosIde.class), this.cpfDev);
 
         System.out.println(ideDev);
 
         this.dispose();
+        
 
+        for (Iterator<TbUsMaquinaIdMaquina> iterator = sabendoIde.iterator(); iterator.hasNext();) {
+            TbUsMaquinaIdMaquina next = iterator.next();
+            System.out.println(next.getTb_ide_maquina_id_ide());
+            
+        }
+        
         for (Iterator<TbProcessosIde> iterator = ideDev.iterator(); iterator.hasNext();) {
             
             TbProcessosIde tbProcessosIde = iterator.next();
@@ -1169,52 +1180,52 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     private void btnIntellijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntellijActionPerformed
-        chamarDetalhes("idea64");
+        chamarDetalhes("idea64", 5);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIntellijActionPerformed
 
     private void btnPhpStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhpStormActionPerformed
-        chamarDetalhes("phpstorm64");
+        chamarDetalhes("phpstorm64", 7);
     }//GEN-LAST:event_btnPhpStormActionPerformed
 
     private void btnEclipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipseActionPerformed
-        chamarDetalhes("eclipse");
+        chamarDetalhes("eclipse", 9);
 
     }//GEN-LAST:event_btnEclipseActionPerformed
 
     private void btnXcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXcodeActionPerformed
-        chamarDetalhes("Xcode");
+        chamarDetalhes("Xcode", 1);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXcodeActionPerformed
 
     private void btnPyCharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPyCharmActionPerformed
-        chamarDetalhes("pycharm64");
+        chamarDetalhes("pycharm64", 2);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPyCharmActionPerformed
 
     private void btnWebStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWebStormActionPerformed
-        chamarDetalhes("webstorm64");
+        chamarDetalhes("webstorm64", 8);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnWebStormActionPerformed
 
     private void btnVisualStudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualStudioActionPerformed
-        chamarDetalhes("devenv");
+        chamarDetalhes("devenv", 10);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVisualStudioActionPerformed
 
     private void btnAndoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndoridActionPerformed
 
-        chamarDetalhes("studio64");
+        chamarDetalhes("studio64", 6);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAndoridActionPerformed
 
     private void btnNetBeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetBeansActionPerformed
-        chamarDetalhes("netbeans64");
+        chamarDetalhes("netbeans64", 4);
     }//GEN-LAST:event_btnNetBeansActionPerformed
 
     private void btnVsCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVsCodeActionPerformed
-        chamarDetalhes("Code");
+        chamarDetalhes("Code", 3);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVsCodeActionPerformed
