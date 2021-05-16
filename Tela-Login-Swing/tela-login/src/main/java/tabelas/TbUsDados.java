@@ -80,7 +80,15 @@ public class TbUsDados {
 
     @Override
     public String toString() {
-        return "TbUsDados{" + "id_cpf=" + id_cpf + ", us_nome_funcionario=" + us_nome_funcionario + ", us_cargo=" + us_cargo + ", us_login=" + us_login + ", us_senha=" + us_senha + ", us_equipe=" + us_equipe + ", us_is_adm=" + us_is_adm + ", fk_id_empresa=" + fk_id_empresa + '}';
+        return " TbUsDados{" 
+                + "\n id_cpf : " + id_cpf 
+                + "\n us_nome_funcionario : " + us_nome_funcionario 
+                + "\n us_cargo : " + us_cargo 
+                + "\n us_login :" + us_login 
+                + "\n us_senha : " + us_senha 
+                + "\n us_equipe : " + us_equipe 
+                + "\n us_is_adm : " + us_is_adm 
+                + "\n fk_id_empresa : " + fk_id_empresa + '}';
     }
 
     

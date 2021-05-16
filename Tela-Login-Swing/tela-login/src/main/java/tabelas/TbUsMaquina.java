@@ -63,7 +63,15 @@ public class TbUsMaquina {
 
     @Override
     public String toString() {
-        return "TbUsMaquina{" + "id_maquina=" + id_maquina + ", us_nome_maquina=" + us_nome_maquina + ", us_vl_ram_total=" + us_vl_ram_total + ", us_vl_disco_total=" + us_vl_disco_total + ", us_vl_cpu_total=" + us_vl_cpu_total + ", fk_id_funcionario=" + fk_id_funcionario + '}';
+        return String.format("TbUsMaquina: \n"
+                + "id_maquina: %x \n "
+                + "us_nome_maquina: %s \n"
+                + "us_vl_ram_total: %f"
+                + "us_vl_disco_total: %s"
+                + "us_vl_cpu_total: %s"
+                + "fk_id_funcionario: %x", id_maquina, us_nome_maquina, us_vl_ram_total, us_vl_disco_total, us_vl_cpu_total, fk_id_funcionario);
+        
+//        return "TbUsMaquina{" + "id_maquina=" + id_maquina + ", us_nome_maquina=" + us_nome_maquina + ", us_vl_ram_total=" + us_vl_ram_total + ", us_vl_disco_total=" + us_vl_disco_total + ", us_vl_cpu_total=" + us_vl_cpu_total + ", fk_id_funcionario=" + fk_id_funcionario + '}';
     }
 
 }

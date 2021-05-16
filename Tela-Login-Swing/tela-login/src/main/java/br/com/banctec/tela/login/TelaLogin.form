@@ -502,20 +502,6 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="jblNomeDev" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jblEquipe1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jblEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jblEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jblEscolha" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -553,13 +539,25 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnVsCode" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                           <Component id="btnNetBeans" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jblNomeDev" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jblEquipe1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jblEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jblEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -568,39 +566,35 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jblLogo1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="31" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
-                                  <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jblNomeDev" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="jblEquipe1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jblEquipe" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jblEmpresa" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Component id="jblNomeDev" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          <Component id="jblEquipe1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jblEquipe" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jblEmpresa" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="83" max="32767" attributes="0"/>
+                          <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnPyCharm" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                               <Component id="btnAndorid" linkSize="8" alignment="1" min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="btnVsCode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnIntellij" linkSize="8" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnEclipse" linkSize="8" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnVsCode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEclipse" linkSize="8" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="btnWebStorm" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                               <Component id="btnXcode" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                               <Component id="btnPhpStorm" linkSize="8" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="btnVisualStudio" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnNetBeans" linkSize="8" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="btnNetBeans" linkSize="8" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="btnVisualStudio" linkSize="8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
@@ -757,9 +751,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\xcode_1.png"/>
-                    </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -792,7 +783,7 @@
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\intellj_1.png"/>
+                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\images\intellj_1.png"/>
                     </Property>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
