@@ -3,7 +3,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Empresa = require('../models').Empresa;
 
-let sessoes2 = [];
+let empresas = [];
 
 /* Recuperar usuário por login e senha */
 router.get('/autenticar/:login', function (req, res, next) {
@@ -25,11 +25,9 @@ router.get('/autenticar/:login', function (req, res, next) {
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
 		console.log(resultado)
-		sessoes2.push(resultado[0].dataValues.kc_nome_comp);
-		console.log('sessoes: ', sessoes2);
+		empresas.push(resultado[0].dataValues.kc_nome_comp);
+		console.log('Enpresas: ', empresas);
 		res.json(resultado[0]);
-		console.log(resultado);
-
 	}).catch(erro => {
 		console.log("DEU ERRO!")
 		console.error(erro);

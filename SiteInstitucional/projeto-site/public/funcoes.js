@@ -35,6 +35,9 @@ function verificar_autenticacao() {
             carregarGrafico();
         }
 
+        if (typeof recuperarIDE === 'function') {
+            recuperarIDE();
+        }
 
         locateEmpresa()
         typeof b_usuario === 'undefined' ? null : (b_usuario.innerHTML = nome_usuario);
