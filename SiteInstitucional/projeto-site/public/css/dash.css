@@ -220,6 +220,9 @@ a {
     margin: auto;
 }
 
+
+
+
 #computador1 {
 
     opacity: 0.4;
@@ -292,7 +295,7 @@ a {
 }
 
 .idesLogo b {
-    color: #B73447;
+    color: #638481;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,6 +315,10 @@ a {
      height: 20%;
 }
 
+.ide p {
+
+    color: #4D4D4E;
+}
 @keyframes box {
     0% {
         transform: translate(20deg);
@@ -421,7 +428,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4vh;
     width: 10%;
     height: 78%;
     padding-left: 2vh;
@@ -730,10 +736,10 @@ hr {
     align-items: center;
     justify-content: center;
     background-color: #D6ECE1;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
     border-radius: 6px;
-    margin-bottom: 6vh;
-
+    margin-bottom: 4vh;
+    margin-top: 1.5vh;
 }
 
 .label-grafico {
@@ -809,12 +815,13 @@ hr {
 }
 
 .legenda {
-    height: 34%;
-    width: 94%;
+    height: 15%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+    margin-left: 1vh;
     
 }
 
@@ -823,6 +830,15 @@ hr {
     width: 57%;
     display: flex;
     flex-direction: row;
+
+}
+
+.legenda-3 {
+    height: 40%;
+    width: 57%;
+    display: flex;
+    flex-direction: row;
+
 
 }
 
@@ -862,9 +878,10 @@ hr {
     height: 20px;
     width: 20px;
     border-radius: 4px;
-   display: flex;
-   justify-content: center;
+    display: flex;
+    justify-content: center;
     background-color: #A3C6C1;
+    margin-left: 3vh;
 
 }
 
@@ -966,11 +983,24 @@ hr {
     text-align: center;
     font-size: 2vmax;
     width: 100%;
-    height: 90%;
-    border-radius: 10px;
+    height: 81%;
+    border-radius: 6px;
     background-color: #B73447;
 }
 
+
+.alert {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15%;
+    height: 17%;
+    background-color: rgb(252, 112, 112);
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
 .container-relogio {
     width: 6%;
     height: 100%;
@@ -1024,7 +1054,7 @@ hr {
 
 .label-info {
     width: 40%;
-    height: 35%;
+    height: 85%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1073,6 +1103,7 @@ hr {
     height: 80%;
     border-radius: 100%;
     background-color: #B73447;
+    margin-right: 2vh;
 
 }
 
@@ -1088,26 +1119,48 @@ hr {
 
 .separa-graficos {
     width: 90%;
-    height: 22%;
+    height: 24.5%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 1.5vh;
     
 }
 
 .grafic-container {
     width: 100%;
-    height: 60%;
-
+    height: 66%;
     overflow-x: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
 
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #b8dbca;
+    border-radius: 6px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A3C6C1; 
+    border-radius: 6px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:#638481; 
+  }
+
 #img-grafic {
-    width: 30%;
+    width: 23%;
 
 }
 
@@ -1179,20 +1232,19 @@ hr {
 }
 
 .salvar {
-    width: 20%;
+    width: 100%;
     height: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-top: -2%;
+    justify-content: center;
 }
 
 
 .salvar input {
-    font-family: Bebas Neue;
+       font-family: Bebas Neue;
     padding: 0;
-    width: 6vw;
-    height: 4vh;
-    font-size: 1.8vh;
+    width: 8vw;
+    height: 6vh;
+    font-size: 2.8vh;
     font-weight: bold;
     border-radius: 5px;
     color: #4D4D4E;
@@ -1200,6 +1252,7 @@ hr {
     background-color: #A3C6C1;
     border: none;
     z-index: 2;
+    margin-top: 5vh;
 }
 
 .salvar input:active {
@@ -1360,6 +1413,7 @@ hr {
 }
 
 .info-time {
+    
     height: 45%;
     width: 58%;
     display: flex;

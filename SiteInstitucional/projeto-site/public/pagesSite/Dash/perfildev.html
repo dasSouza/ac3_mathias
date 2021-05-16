@@ -15,7 +15,7 @@
     <title>KCODE</title>
 </head>
 
-<body onload="verificar_autenticacao()">
+<!-- <body onload="verificar_autenticacao()"> -->
     <main class="page">
         <div class="menu">
             <div class="container">
@@ -70,13 +70,19 @@
         <!-- menu end-->
         <header>
             <div class="box-recepction">
-                <div class="logo-recepction">
-                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+                <div class="recection-welcome">
+                  <h1>Bem vindo, <b id="b_usuario">a</b> </h1>
+                 
+                  <p>Escolha as IDES que deseja visualizar:</p>
                 </div>
-            </div>
+                <div class="logo-recepction">
+                  <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+        
+                </div>
+              </div>
         </header>
         <section class="container-itens">
-            <div class="informacoes-cliente">
+            <!-- <div class="informacoes-cliente">
                 <div class="img-cliente">
                     <img src="../../img/imagemperfil.png" alt="" id="img-dragaozin">
                 </div>
@@ -88,10 +94,44 @@
                         <p id="empresa">?</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
         <form id="form_cadastro_ides" method="post" onsubmit="return Salvar()">
+            
             <div class="ides-container">
+                <div class="container-info">
+
+                    <div class="info-time">
+                      <div class="container-titulo">
+                        <h1>Perfil</h1>
+                      </div>
+                      
+              
+                      <div class="container-label">
+                        <p id="b_usuario">?</p>
+                        <p id="cargo">?</p>
+                        <p id="id_adm">?</p>
+                        <p id="empresa">?</p>
+                      </div>
+                      
+                      
+                    </div>
+            
+                    <div class="legenda-3">
+            
+                    <div class="box-ram">
+                     <div class="uso-container"></div> 
+                     <p></p> 
+                    </div>
+            
+                    <div class="box-ram">
+                      <div class="uso-container"></div> 
+                      <p></p> 
+                     </div>
+            
+                    </div>
+                    
+                    </div>
                 <div class="separation-ides">
                     <div class="box-ides">
                         <div class="idesLogo">
@@ -134,6 +174,11 @@
                             <b id="ide">Intellij</b>
                         </div>
                     </div>
+                    <div class="footer-salvar">
+                        <div class="salvar">
+                            <input type="submit" value="Salvar" />
+                        </div>
+                    </div>
                 </div>
                 <div class="btn" id="next">
                     <i class="fa fa-chevron-right" aria-hidden="true" style="visibility: visible;"></i>
@@ -141,6 +186,39 @@
             </div>
 
             <div class="ides-container-part2">
+                <div class="container-info">
+
+                    <div class="info-time">
+                      <div class="container-titulo">
+                        <h1>Perfil</h1>
+                      </div>
+                      
+              
+                      <div class="container-label">
+                        <p id="b_usuario">?</p>
+                        <p id="cargo">?</p>
+                        <p id="id_adm">?</p>
+                        <p id="empresa">?</p>
+                      </div>
+                      
+                      
+                    </div>
+            
+                    <div class="legenda-3">
+            
+                    <div class="box-ram">
+                     <div class="uso-container"></div> 
+                     <p></p> 
+                    </div>
+            
+                    <div class="box-ram">
+                      <div class="uso-container"></div> 
+                      <p></p> 
+                     </div>
+            
+                    </div>
+                    
+                    </div>
                 <div class="separation-ides">
                     <div class="box-ides">
                         <div class="idesLogo">
@@ -179,17 +257,18 @@
                         <div class="idesLogo">
                         </div>
                     </div>
+                    <div class="footer-salvar">
+                        <div class="salvar">
+                            <input type="submit" value="Salvar" />
+                        </div>
+                    </div>
                 </div>
                 <div class="btn" id="back">
                     <i class="fa fa-chevron-left" aria-hidden="true" style="visibility: visible;"></i>
                 </div>
             </div>
 
-            <div class="footer-salvar">
-                <div class="salvar">
-                    <input type="submit" value="Salvar" />
-                </div>
-            </div>
+            
         </form>
     </main>
 </body>
