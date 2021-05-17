@@ -1,10 +1,18 @@
 package br.com.banctec.tela.login;
 
+import java.awt.AWTException;
 import java.awt.Toolkit;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.TrayIcon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URI;
@@ -14,10 +22,13 @@ import jdbc.Conexao;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -25,6 +36,7 @@ import tabelas.TbProcessosIde;
 import log.GerandoLog;
 import tabelas.TbUsMaquina;
 import tabelas.TbUsMaquinaIdMaquina;
+import AppKeepCode.KeepCodeAPI;
 
 /**
  *
@@ -148,7 +160,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina1.setBackground(new java.awt.Color(255, 255, 255));
         btnMaquina1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina1.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\solucao-part1_3_1.png")); // NOI18N
         btnMaquina1.setText("VMNOTE - 144");
         btnMaquina1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnMaquina1.setBorderPainted(false);
@@ -382,7 +393,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnEclipse.setBackground(new java.awt.Color(255, 255, 255));
         btnEclipse.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnEclipse.setForeground(new java.awt.Color(0, 0, 0));
-        btnEclipse.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\eclipse.png")); // NOI18N
         btnEclipse.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEclipse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEclipse.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -397,7 +407,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnPyCharm.setBackground(new java.awt.Color(206, 228, 217));
         btnPyCharm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPyCharm.setForeground(new java.awt.Color(0, 0, 0));
-        btnPyCharm.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\pycharm_1_2.png")); // NOI18N
         btnPyCharm.setBorder(null);
         btnPyCharm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPyCharm.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -412,7 +421,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnPhpStorm.setBackground(new java.awt.Color(206, 228, 217));
         btnPhpStorm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnPhpStorm.setForeground(new java.awt.Color(0, 0, 0));
-        btnPhpStorm.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\phpstorm_1_2.png")); // NOI18N
         btnPhpStorm.setBorder(null);
         btnPhpStorm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPhpStorm.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -453,7 +461,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnWebStorm.setBackground(new java.awt.Color(206, 228, 217));
         btnWebStorm.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnWebStorm.setForeground(new java.awt.Color(0, 0, 0));
-        btnWebStorm.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\webstorm_1_1.png")); // NOI18N
         btnWebStorm.setBorder(null);
         btnWebStorm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnWebStorm.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -468,7 +475,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnVsCode.setBackground(new java.awt.Color(255, 255, 255));
         btnVsCode.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnVsCode.setForeground(new java.awt.Color(0, 0, 0));
-        btnVsCode.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\code.png")); // NOI18N
         btnVsCode.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnVsCode.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVsCode.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -483,7 +489,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnNetBeans.setBackground(new java.awt.Color(206, 228, 217));
         btnNetBeans.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnNetBeans.setForeground(new java.awt.Color(0, 0, 0));
-        btnNetBeans.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\netbeans_1.png")); // NOI18N
         btnNetBeans.setBorder(null);
         btnNetBeans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNetBeans.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -498,7 +503,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnVisualStudio.setBackground(new java.awt.Color(206, 228, 217));
         btnVisualStudio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnVisualStudio.setForeground(new java.awt.Color(0, 0, 0));
-        btnVisualStudio.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\visualstudio_1_2.png")); // NOI18N
         btnVisualStudio.setBorder(null);
         btnVisualStudio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVisualStudio.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -513,7 +517,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnAndorid.setBackground(new java.awt.Color(206, 228, 217));
         btnAndorid.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnAndorid.setForeground(new java.awt.Color(0, 0, 0));
-        btnAndorid.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\androidstudio_1.png")); // NOI18N
         btnAndorid.setBorder(null);
         btnAndorid.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAndorid.setMaximumSize(new java.awt.Dimension(39, 23));
@@ -793,7 +796,6 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 102));
 
         background.setBackground(new java.awt.Color(206, 228, 217));
@@ -968,6 +970,11 @@ public class TelaLogin extends javax.swing.JFrame {
         Runtime.getRuntime().exit(0);
     }
 
+    protected JDesktopPane getTelaLogin() {
+        return TelaLogin;
+    }
+
+
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
 //        this.dispose();
@@ -1020,8 +1027,9 @@ public class TelaLogin extends javax.swing.JFrame {
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             lblGestorEquipe.setText(tbUsDados.getUs_equipe());
                             btnMaquina1.setText("Matheus");
-                            btnMaquina1.setIcon(new javax.swing.ImageIcon("Tela-Login-Swing\\tela-login\\src\\main\\resoures\\solucao-part1_3_1.png")); // NOI18N
 //                            Image image = Toolkit.getDefaultToolkit().getImage("MY/PATH/TO_IMAGE");
+
+                            DashGestor.setDefaultCloseOperation(HIDE_ON_CLOSE);
 
                             try {
                                 teste.gravarLog("login do gestor efetuado com sucesso");
@@ -1324,47 +1332,105 @@ public class TelaLogin extends javax.swing.JFrame {
 
     public static void main(String args[]) throws IOException {
 
-        GerandoLog gravandoLog = new GerandoLog();
-
-        try {
-            gravandoLog.gravarLog("INICIANDO APLICAÇÃO KEEP CODE");
-
-        } catch (IOException ex) {
-
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        if (!SystemTray.isSupported()) {
+            System.out.println("sistema não suportado !!!!");
+            return;
         }
+        //get the systemTray of the system
+        SystemTray systemTray = SystemTray.getSystemTray();
 
-//        JOptionPane.showInternalMessageDialog(null, "gravandoLog de argumento", "gravandoLog titulo", 2);
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+        //Toolkit.getDefaultToolkit().getImage("src/resources/busylogo.jpg");
+        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\SiteInstitucional\\projeto-site\\public\\img\\logo-login.png");
+
+        //popupmenu
+        PopupMenu trayPopupMenu = new PopupMenu();
+
+        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
+        int interval = 1000;  // intervalo no qual a tarefa será executada.
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+//                System.out.println("Olá World!");
+                KeepCodeAPI api = new KeepCodeAPI();
+                
+                api.chamandoProcessos();
+            }
+        }, delay, interval);
+
+        //1t menuitem for popupmenu
+        MenuItem action = new MenuItem("Abrir tela");
+        action.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                JOptionPane.showMessageDialog(null, "teste de click");
+
+                GerandoLog gravandoLog = new GerandoLog();
+
+                try {
+                    gravandoLog.gravarLog("INICIANDO APLICAÇÃO KEEP CODE");
+
+                } catch (IOException ex) {
+
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                try {
+                    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                        if ("Nimbus".equals(info.getName())) {
+                            javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                            break;
+
+                        }
+                    }
+
+                } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+                    java.util.logging.Logger.getLogger(TelaLogin.class
+                            .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+                //</editor-fold>
+
+                //</editor-fold>
+
+                /* Create and display the form */
+                java.awt.EventQueue.invokeLater(() -> {
+                    new TelaLogin().setVisible(true);
+                });
+
+                try {
+                    gravandoLog.gravarLog("finalizando aplicação");
+
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
 
                 }
+
             }
-
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new TelaLogin().setVisible(true);
         });
-        
-        
+        trayPopupMenu.add(action);
+
+        //2nd menuitem of popupmenu
+        MenuItem close = new MenuItem("fechar");
+        close.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        trayPopupMenu.add(close);
+
+        //setting tray icon
+        TrayIcon trayIcon = new TrayIcon(image, "KCODE", trayPopupMenu);
+        //adjust to default size as per system recommendation 
+        trayIcon.setImageAutoSize(true);
+
         try {
-            gravandoLog.gravarLog("finalizando aplicação");
-
-        } catch (IOException ex) {
-
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            systemTray.add(trayIcon);
+        } catch (AWTException awtException) {
+            awtException.printStackTrace();
         }
+        System.out.println("end of main");
+
     }
 
 

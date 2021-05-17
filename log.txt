@@ -1,0 +1,60 @@
+16/05/2021 15:56:16 INICIANDO APLICAÇÃO KEEP CODE 
+
+16/05/2021 15:56:16 finalizando aplicação 
+
+16/05/2021 15:56:27 iniciando conexão com o banco 
+
+16/05/2021 15:56:32 login do gestor efetuado com sucesso 
+
+16/05/2021 15:56:33 gestor chamando dev 
+
+16/05/2021 15:56:33 iniciando conexão com o banco 
+
+16/05/2021 15:56:37 dev chamando detalhe da ide 
+
+16/05/2021 15:56:37 iniciando conexão com o banco 
+
+16/05/2021 16:33:19 INICIANDO APLICAÇÃO KEEP CODE 
+
+16/05/2021 16:33:19 finalizando aplicação 
+
+16/05/2021 16:33:27 iniciando conexão com o banco 
+
+16/05/2021 16:33:32 login do gestor efetuado com sucesso 
+
+16/05/2021 16:36:01 INICIANDO APLICAÇÃO KEEP CODE 
+
+16/05/2021 16:36:01 finalizando aplicação 
+
+16/05/2021 16:36:08 iniciando conexão com o banco 
+
+16/05/2021 16:36:12 login do gestor efetuado com sucesso 
+
+17/05/2021 17:58:42 INICIANDO APLICAÇÃO KEEP CODE 
+
+17/05/2021 17:58:42 finalizando aplicação 
+
+17/05/2021 17:59:39 INICIANDO APLICAÇÃO KEEP CODE 
+
+17/05/2021 17:59:39 finalizando aplicação 
+
+17/05/2021 17:59:54 iniciando conexão com o banco 
+
+17/05/2021 17:59:58 login do gestor efetuado com sucesso 
+
+17/05/2021 18:00:00 gestor chamando dev 
+
+17/05/2021 18:00:00 iniciando conexão com o banco 
+
+17/05/2021 18:01:33 INICIANDO APLICAÇÃO KEEP CODE 
+
+17/05/2021 18:01:33 finalizando aplicação 
+
+17/05/2021 18:08:45 INICIANDO APLICAÇÃO KEEP CODE 
+
+17/05/2021 18:08:45 finalizando aplicação 
+
+17/05/2021 18:41:33 iniciando conexão com o banco 
+
+17/05/2021 18:41:33 iniciando conexão com o banco 
+
