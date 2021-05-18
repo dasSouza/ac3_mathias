@@ -76,7 +76,6 @@
       <div class="box-recepction">
         <div class="recection-welcome">
           <h1>Bem vindo, <b id="b_usuario0">a</b> </h1>
-         
           <p>Escolha a IDE que gostaria de consultar:</p>
         </div>
         <div class="logo-recepction">
@@ -86,38 +85,32 @@
       </div>
     </header>
     <div class="ides-container">
-      <div class="container-info">
 
+      <div class="container-info">
         <div class="info-time">
           <div class="container-titulo">
             <h1>Máquina</h1>
           </div>
-          
-  
           <div class="container-label">
             <p id="ram"> Total Ram: </p>
-            <p id="disco"> Total Disco:</p>
-            <p id="cpu"> Total CPU:</p>
+            <p id="disco"> Total Disco: </p>
+            <p id="cpu"> Processador: </p>
           </div>
-          
-          
         </div>
 
         <div class="legenda-3">
+          <div class="box-ram">
+            <div class="uso-ram"></div>
+            <p>Uso de Ram</p>
+          </div>
 
-        <div class="box-ram">
-         <div class="uso-ram"></div> 
-         <p>Uso de Ram</p> 
+          <div class="box-ram">
+            <div class="uso-livre"></div>
+            <p>Livre</p>
+          </div>
         </div>
+      </div>
 
-        <div class="box-ram">
-          <div class="uso-livre"></div> 
-          <p>Livre</p> 
-         </div>
-
-        </div>
-        
-        </div>
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
@@ -127,6 +120,7 @@
           <div class="idesLogo" id="criaImg" value="2">
           </div>
         </div>
+
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="3">
           </div>
@@ -136,6 +130,7 @@
           </div>
         </div>
       </div>
+
       <div class="btn" id="next">
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </div>
@@ -143,37 +138,31 @@
 
     <div class="ides-container-part2">
       <div class="container-info">
-
         <div class="info-time">
           <div class="container-titulo">
             <h1>Máquina</h1>
           </div>
-          
-  
+
           <div class="container-label">
-            <p id="ram"> Total Ram: </p>
-            <p id="disco"> Total Disco:</p>
-            <p id="cpu"> Total CPU:</p>
+            <p id="ram2"> Total Ram: </p>
+            <p id="disco2"> Total Disco: </p>
+            <p id="cpu2"> Processador: </p>
           </div>
-          
-          
         </div>
 
         <div class="legenda-3">
+          <div class="box-ram">
+            <div class="uso-ram"></div>
+            <p>Uso de Ram</p>
+          </div>
 
-        <div class="box-ram">
-         <div class="uso-ram"></div> 
-         <p>Uso de Ram</p> 
+          <div class="box-ram">
+            <div class="uso-livre"></div>
+            <p>Livre</p>
+          </div>
         </div>
 
-        <div class="box-ram">
-          <div class="uso-livre"></div> 
-          <p>Livre</p> 
-         </div>
-
-        </div>
-        
-        </div>
+      </div>
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
@@ -198,17 +187,9 @@
     </div>
 
     <div class="footer-ajuda">
-
-     
-
       <div class="ajuda">
-
         <input type="submit" value="Ajuda" />
-
-
-
         </button>
-
       </div>
     </div>
   </main>
@@ -242,6 +223,7 @@
   function carregarGrafico() {
     if (contadorGrafico == 0) {
       aguardar()
+      obterTotalHardware(id_usuario)
       obterDadosGraficoRam(id_usuario)
       contadorGrafico++
       return carregarGrafico();
@@ -252,6 +234,37 @@
         }, 5000)
     }
   };
+
+  function obterTotalHardware(id_usuario) {
+    fetch(`/maquinas/dadosHardware/${id_usuario}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          let recuperaDadosHardware = []
+
+          resposta.json().then(json => {
+            recuperaDadosHardware.push(json[0].us_vl_ram_total);
+            recuperaDadosHardware.push(json[0].us_vl_disco_total);
+            recuperaDadosHardware.push(json[0].us_vl_cpu_total);
+
+            ram.innerHTML += recuperaDadosHardware[0] + " Gb"
+            disco.innerHTML += recuperaDadosHardware[1] + " Gb"
+            cpu.innerHTML += recuperaDadosHardware[2]
+
+            ram2.innerHTML += recuperaDadosHardware[0] + " Gb"
+            disco2.innerHTML += recuperaDadosHardware[1] + " Gb"
+            cpu2.innerHTML += recuperaDadosHardware[2] + " Gb"
+
+            console.log(JSON.stringify(json))
+            console.log("Dados hardware1 ", recuperaDadosHardware)
+          });
+
+          console.log("Dados hardware2 ", recuperaDadosHardware)
+
+        } else {
+          console.log('Erro ao recuperar os daods de Hardware');
+        }
+      });
+  }
 
   function obterDadosGraficoRam(id_usuario) {
 
@@ -284,11 +297,7 @@
           }
 
           percorrer(resposta);
-          console.log(JSON.stringify(resultado));
-
-          console.log("Resultado: " + resultado)
           resultado = resultado.reverse();
-          console.log("Resultado invertido: " + resultado)
 
           var unico = resultado.filter(function (elem, index, self) {
             if (index === self.indexOf(elem)) {
