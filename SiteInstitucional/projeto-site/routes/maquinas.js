@@ -3,8 +3,6 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Maquina = require('../models').Empresa;
 
-let dadosCaptruados = []
-
 /* Recuperar usuário por login e senha */
 router.get('/dadosHardware/:cpf', function (req, res, next) {
 	console.log('Recuperando os dados de hardware');
