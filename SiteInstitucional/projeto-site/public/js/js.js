@@ -243,7 +243,7 @@ function Salvar() {
     icon: 'warning',
     iconColor: '#c73535',
     showCancelButton: true,
-    confirmButtonColor: '#A3C6C1',
+    confirmButtonColor: ' #88A9A7',
     cancelButtonColor: '#B73447',
     confirmButtonText: 'Sim, aceito!',
     cancelButtonText: 'Cancelar',
@@ -277,7 +277,7 @@ function validacaoIdeSelecionadas() {
       title: 'Oops...',
       text: 'Você não alterou nada !😢',
       confirmButtonText: 'OK',
-      confirmButtonColor: '#A3C6C1',
+      confirmButtonColor: ' #88A9A7',
       background: "#D6ECE1"
     })
   }
@@ -333,7 +333,7 @@ function validacaoIdeSelecionadas() {
       icon: 'success',
       iconColor: '#50d150',
       background: "#D6ECE1",
-      title: 'Alteração realizada com sucesso !😍'
+      title: 'Alteração realizada com sucesso! 😍'
     })
     document.getElementById('salvarbtn').disabled = true;
     document.getElementById('salvarbtn').style.visibility = 'hidden';

@@ -17,7 +17,7 @@
 
 
 
-<body onload="verificar_autenticacao()">
+<!-- <body onload="verificar_autenticacao()"> -->
     <main class="page">
         <div class="menu">
             <div class="container">
@@ -77,27 +77,8 @@
                 </div>
             </div>
         </header>
+        
         <section class="container-itens">
-            <div class="informacoes-cliente">
-                <div class="img-cliente">
-                    <img src="../../img/imagemperfil.png" alt="" id="img-dragaozin">
-                </div>
-                <div class="box-dados-do-cliente">
-                    <div class="dados-do-cliente">
-                        <p id="b_usuario0">?</p>
-                        <p id="cargo2">?</p>
-                        <p id="id_adm">Administrador</p>
-                        <p id="empresa">?</p>
-                    </div>
-                    <div class="edit">
-                        <div class="tooltip">
-                            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <span class="tooltiptext">Editar dados</span>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
             <div class="cadastro-novos-usuarios">
                 <div class="container-cadastro-novos-usuarios">
                     <div class="text-cadastro-novo-usuario">
@@ -114,13 +95,14 @@
                                 <label for="senha_cad" id="senha_cad-label">
                                     <input id="senha_cad" name="senha_cad" required="required" type="password"
                                         placeholder="Senha" />
+                               <label>Senha</label> 
                                     <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
                                         id="olho" class="olho">
                                 </label>
 
                                 <input id="nome_cad" name="nome_cad" required="required" type="text"
                                     placeholder="Nome" />
-
+                                    <label>Nome</label> 
                                 <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
 
                                 <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"

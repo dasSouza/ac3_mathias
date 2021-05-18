@@ -66,7 +66,7 @@ a {
     background-color: #A3C6C1;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     transition: 0.5s;
     z-index: 1;
 }
@@ -171,12 +171,33 @@ a {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .recection-welcome h1 {
     color: #4D4D4E;
+    font-size: 3vmax;
+    text-transform: uppercase;
+    margin-top: 4vmax;
+}
+
+.recection-welcome-b h1 {
+    color: #4D4D4E;
     font-size: 4.2vmax;
+    text-transform: uppercase;
+}
+
+.recection-welcome-b {
+    width: 55vmax;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.recection-welcome-b p {
+    font-size: 25px;
+    color: #4D4D4E;
     text-transform: uppercase;
 }
 
@@ -217,7 +238,8 @@ a {
     justify-content: center;
     flex: row;
     animation: idescontainer 1s both;
-    margin: auto;
+        /* margin: auto; */
+        margin-left: 10vh;
 }
 
 
@@ -254,7 +276,8 @@ a {
     align-items: center;
     justify-content: center;
     flex: row;
-    margin: auto;
+       /* margin: auto; */
+       margin-left: 10vh;
     animation: idescontainer 1s both;
 }
 
@@ -300,6 +323,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-size: 20px;
 }
 
 .idesLogo a {
@@ -370,10 +394,12 @@ a {
 /* PAGINA DE CADASTRO ADM */
 
 .container-itens {
-    width: 80%;
-    position: absolute;
+    width: 100%;
     height: 100%;
-    left: 10%;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+   
 }
 
 .informacoes-cliente {
@@ -391,7 +417,10 @@ a {
 
 .cadastro-novos-usuarios {
     width: 100%;
-    height: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-cliente {
@@ -449,9 +478,10 @@ a {
 }
 
 .text-cadastro-novo-usuario {
+    font-size: 23px;
     width: 100%;
-    height: 20%;
-    color: #638481;
+    height: 10%;
+    color: #514E4D;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -466,6 +496,9 @@ a {
 
 .box-inputs {
     margin: auto;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
     width: 80%;
     height: 100%;
     display: flex;
@@ -503,6 +536,121 @@ a {
 
 
 
+#senha_cad-label{
+    position: relative;
+    padding-top: 13px;
+  }
+  
+  #senha_cad-label input{
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.534);
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius: 6px;
+    
+  }
+  
+ #senha_cad-label input:focus{
+    border-bottom: 2px solid #638481;
+  }
+  
+  #senha_cad-label input::placeholder{
+    color:transparent;
+  }
+  
+  #senha_cad-label label{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    padding-left: 1vh;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+  
+  #senha_cad-label input:required:invalid + label{
+    color: #B73447;
+    
+    
+  }
+  #senha_cad-label input:focus:required:invalid{
+    border-bottom: 2px solid #B73447;
+   
+    
+  }
+ 
+  #senha_cad-label input:focus + label,
+  #senha_cad-label input:not(:placeholder-shown) + label{
+    font-size: 13px;
+    margin-top: 0;
+    color: #638481;
+    
+  }
+
+  #login_cad{
+    position: relative;
+    padding-top: 13px;
+  }
+  
+  #login_cad input{
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.534);
+    outline: none;
+    min-width: 180px;
+    font-size: 16px;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -webkit-appearance:none;
+    border-radius: 6px;
+    
+  }
+  
+  #login_cad input:focus{
+    border-bottom: 2px solid #638481;
+  }
+  
+  #login_cad input::placeholder{
+    color:transparent;
+  }
+  
+  #login_cad label{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 13px;
+    padding-left: 1vh;
+    transition: all .3s ease-out;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+  }
+  
+  #login_cad input:required:invalid + label{
+    color: #B73447;
+    
+    
+  }
+  #login_cadl input:focus:required:invalid{
+    border-bottom: 2px solid #B73447;
+   
+    
+  }
+ 
+  #login_cad input:focus + label,
+  #login_cad input:not(:placeholder-shown) + label{
+    font-size: 13px;
+    margin-top: 0;
+    color: #638481;
+    
+  }
 
 
 #adm-label input[type=checkbox] {
@@ -564,7 +712,7 @@ a {
     height: 13%;
     border-radius: 5px;
     border: none;
-    margin-top: 1vh;
+    margin-bottom: 2vh;
     padding-left: 20px;
     background-color: rgba(255, 255, 255, 0.911);
 }
@@ -573,6 +721,7 @@ a {
     font-family: Bebas Neue;
     text-transform: uppercase;
     color: #514E4D;
+   
 }
 
 
@@ -1000,9 +1149,20 @@ hr {
     background-color: rgb(252, 112, 112);
     border-radius: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items:center;
+    justify-content: center;
 
 
 }
+
+.alert p {
+
+    color: #CEE4D9;
+    font-size: 20px;
+
+}
+
 .container-relogio {
     width: 6%;
     height: 100%;

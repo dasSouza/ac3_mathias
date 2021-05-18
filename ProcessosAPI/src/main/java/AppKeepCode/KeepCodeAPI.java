@@ -19,11 +19,12 @@ public class KeepCodeAPI {
 
         processosIDE.putAllNameIde();
         processosIDE.getIdeName();
-//        processosIDE.getIdeCpu();
-//        processosIDE.getIdeRam();
-//        processosIDE. getIdeDisco();
-//
-////        processosIDE.showAll();
+        processosIDE.getIdeCpu();
+        processosIDE.getIdeRam();
+        processosIDE.getIdeDisco();
+        processosIDE.getRamValues();
+
+//        processosIDE.showAll();
 //
 //        processosIDE.insertIntoValues();
 
