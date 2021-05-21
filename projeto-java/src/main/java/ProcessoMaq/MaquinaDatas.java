@@ -1,11 +1,16 @@
 package ProcessoMaq;
 
+import Usuario.UsuarioDatas;
+
 public class MaquinaDatas {
     private Long us_ram_total;
+    private Integer id_maquina;
     private String us_cpu_nome;
     private String us_name_pc;
     private Long us_disco_total;
+    private Long fk_id_funcionario;
 
+    
     public String getUs_name_pc() {
         return us_name_pc;
     }
@@ -14,6 +19,16 @@ public class MaquinaDatas {
         this.us_name_pc = us_name_pc;
     }
 
+    public Integer getId_maquina() {
+        return id_maquina;
+    }
+
+    public void setId_maquina(Integer id_maquina) {
+        this.id_maquina = id_maquina;
+    }
+
+    
+    
     public Long getUs_ram_total() {
         return us_ram_total/1000000000l;
     }
@@ -38,6 +53,14 @@ public class MaquinaDatas {
         this.us_disco_total = us_disco_total;
     }
 
+    public Long getFk_id_funcionario() {
+        return fk_id_funcionario;
+    }
+
+    public void setFk_id_funcionario(Long fk_id_funcionario) {
+        this.fk_id_funcionario = fk_id_funcionario;
+    }
+    
     @Override
     public String toString() {
         return String.format("nome %s " +

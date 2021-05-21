@@ -1,6 +1,6 @@
 package jdbc;
 
-import br.com.banctec.tela.login.TelaLogin;
+import com.mycompany.projeto.java.TelaLogin;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;

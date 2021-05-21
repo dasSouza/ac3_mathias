@@ -2,8 +2,13 @@ package DAO;
 
 import ConectionBDA.Conection;
 import ProcessosIDE.ProcessDatas;
+import java.util.List;
 import jdbc.Conexao;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import tabelas.TbUsMaquinaIdMaquina;
+import ProcessoMaq.MaquinaDatas;
+import Usuario.UsuarioDatas;
 
 public class ProcessIdeDAO {
     Conection conection = new Conection();
@@ -12,6 +17,7 @@ public class ProcessIdeDAO {
 
 
     public void insertIdeProcess(ProcessDatas allIdeDates) {
+        
         for (int i = 0; i < allIdeDates.getValoresNomeIDE().size(); i++) {
             Long disco = allIdeDates.getValoresDiscoIDE().get(i);
             String nomeIDE = allIdeDates.getValoresNomeIDE().get(i);
@@ -22,5 +28,9 @@ public class ProcessIdeDAO {
             template.update(insertProcessValues, nomeIDE,ram, cpu, disco);
             System.out.println("inserindo no banco: " + "nome da IDE: " + nomeIDE + "\nRam: " + ram + "\nCPU:" + cpu + "\nDisco: " + disco);
         }
+    }
+    
+    public void pegandoUsuario(Usuario.UsuarioDatas usuario){
+    
     }
 }

@@ -11,14 +11,19 @@ import java.time.LocalTime;
 import jdbc.Conexao;
 
 
-public class ProcessMaqDAO {
+public class ProcessMaqDAO extends Usuario.UsuarioDatas{
     Conection conection = new Conection();
     Conexao con = new Conexao();
     JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
+    public ProcessMaqDAO(String us_nome_funcionario, String us_cargo, String us_login, String us_senha, Boolean us_is_adm, Integer fk_id_empresa) {
+        super(us_nome_funcionario, us_cargo, us_login, us_senha, us_is_adm, fk_id_empresa);
+    }
+    
+
     public void maquinaProcess(MaquinaDatas maquinaDatas) {
-        String insertProcessValues = "INSERT INTO tb_us_maquina(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total) VALUES (?, ?, ?, ?)";
-       template.update(insertProcessValues,maquinaDatas.getUs_name_pc(), maquinaDatas.getUs_ram_total().toString(), maquinaDatas.getUs_disco_total().toString(), maquinaDatas.getUs_cpu_nome());
+        String insertProcessValues = "INSERT INTO tb_us_maquina(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total, fk_id_funcionario) VALUES (?, ?, ?, ?, ?)";
+       template.update(insertProcessValues,maquinaDatas.getUs_name_pc(), maquinaDatas.getUs_ram_total().toString(), maquinaDatas.getUs_disco_total().toString(), maquinaDatas.getUs_cpu_nome(), super.getId_cpf());
         System.out.println("Inserindo dados no banco de dados: " + maquinaDatas.toString());
 
 //        Parte do SLACK

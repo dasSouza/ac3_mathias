@@ -1,3 +1,5 @@
+package com.mycompany.projeto.java;
+
 //package br.com.banctec.tela.login;
 //
 //import java.awt.AWTException;
