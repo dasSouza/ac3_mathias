@@ -18,75 +18,115 @@
 
 
 <!-- <body onload="verificar_autenticacao()"> -->
-    <main class="page">
-        <div class="menu">
-            <div class="container">
-                <div class="navigation">
-                    <ul>
-                        <li>
-                            <a href="dashgestor.html">
-                                <span class="icon">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                </span>
-                                <span class="title">Home</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon">
-                                    <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
-                                </span>
-                                <span class="title">Profile</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tutorial.html">
-                                <span class="icon">
-                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
-                                </span>
-                                <span class="title">Tutorial</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
-                                    </i>
-                                </span>
-                                <span class="title">Settings</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
-                                </span>
-                                <span class="title">Sign Out</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="toggle"></div>
+<main class="page">
+    <div class="menu">
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="dashgestor.html">
+                            <span class="icon">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </span>
+                            <span class="title">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="icon">
+                                <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
+                            </span>
+                            <span class="title">Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tutorial.html">
+                            <span class="icon">
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
+                            </span>
+                            <span class="title">Tutorial</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                                </i>
+                            </span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                            </span>
+                            <span class="title">Sign Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="toggle"></div>
+        </div>
+    </div>
+    <!-- menu end-->
+    <header>
+        <div class="box-recepction">
+            <div class="recection-welcome-b">
+                <h1>Olá, <b id="b_usuario0">Isabella lanches</b></h1>
+                <p> aqui você pode cadastrar novos usuários!</p>
+            </div>
+            <div class="logo-recepction">
+                <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
             </div>
         </div>
-        <!-- menu end-->
-        <header>
-            <div class="box-recepction">
-                <div class="logo-recepction">
-                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+    </header>
+
+    <section class="container-itens">
+        <div class="cadastro-novos-usuarios">
+            <div class="container-cadastro-novos-usuarios">
+                <div class="text-cadastro-novo-usuario">
+                    <h2>CADASTRAR NOVOS USUARIOS</h2>
+                </div>
+                <div class="inputs-cadastro-novo-usuario">
+                    <div class="box-inputs">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            <div class="separations-inputs">
+
+                            </div>
+                            <div class="separations-inputs">
+
+                            </div>
+                            <div class="toButton">
+                                <button></button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </header>
-        
-        <section class="container-itens">
-            <div class="cadastro-novos-usuarios">
-                <div class="container-cadastro-novos-usuarios">
-                    <div class="text-cadastro-novo-usuario">
-                        <h2>CADASTRAR NOVOS USUARIOS</h2>
-                    </div>
-                    <div class="inputs-cadastro-novo-usuario">
-                        <div class="box-inputs">
-                            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+        </div>
+        </div>
+    </section>
+    </div>
+</main>
+<script src="../../js/js.js">
+</script>
+</body>
+
+</html>
+<script>
+    document.getElementById('olho').addEventListener('mousedown', function () {
+        document.getElementById('senha_cad').type = 'text';
+    });
+
+    document.getElementById('olho').addEventListener('mouseup', function () {
+        document.getElementById('senha_cad').type = 'password';
+    });
+</script>
+
+
+<!-- 
+      <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
 
                                 <input id="login_cad" name="login_cad" required="required" type="text"
                                     placeholder="Login" />
@@ -106,7 +146,7 @@
                                 <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
 
                                 <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
-                                    placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF )" />
+                                    placeholder="CPF" onkeydown="javascript: fMasc(this, mCPF)" />
                                 <br>
 
                                 <label for="adm" id="adm-label">
@@ -121,25 +161,4 @@
                                 </div>
                                 <div id="img_aguarde" style="visibility: hidden;" class="lds-ring"><div></div><div></div><div></div><div></div></div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        </div>
-    </main>
-    <script src="../../js/js.js">
-    </script>
-</body>
-
-</html>
-<script>
-    document.getElementById('olho').addEventListener('mousedown', function () {
-        document.getElementById('senha_cad').type = 'text';
-    });
-
-    document.getElementById('olho').addEventListener('mouseup', function () {
-        document.getElementById('senha_cad').type = 'password';
-    });
-</script>
+ -->
