@@ -4,10 +4,14 @@ import DAO.CompanyDAO;
 //import DAO.UsuariosDAO;
 import ProcessoMaq.GetAllProcess;
 import ProcessosIDE.ProcessIDE;
+import Usuario.UsuarioDatas;
 
 public class KeepCodeAPI {
 
-    public void chamandoProcessos() {
+    public KeepCodeAPI(UsuarioDatas user) {
+    }
+
+    public void chamandoProcessos(Usuario.UsuarioDatas usuario) {
         GetAllProcess getAllDatesProcess = new GetAllProcess();
         ProcessIDE processosIDE = new ProcessIDE();
 
@@ -16,16 +20,19 @@ public class KeepCodeAPI {
         getAllDatesProcess.getCpuNome();
         getAllDatesProcess.memoriaTotal();
 
-        getAllDatesProcess.insertDatesMaquina();
+        getAllDatesProcess.insertDatesMaquina(usuario);
 
         processosIDE.putAllNameIde();
         processosIDE.getIdeName();
         processosIDE.getIdeCpu();
         processosIDE.getIdeRam();
         processosIDE.getIdeDisco();
+        processosIDE.getFkIdMaquina(usuario);
 
 //        processosIDE.showAll();
         processosIDE.insertIntoValues();
 
     }
+
+
 }

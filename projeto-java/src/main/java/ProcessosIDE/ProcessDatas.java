@@ -1,13 +1,23 @@
 package ProcessosIDE;
+
+import Usuario.UsuarioDatas;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import ProcessoMaq.MaquinaDatas;
+import java.util.Iterator;
+import jdbc.Conexao;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ProcessDatas {
+
     List<String> valoresNomeIDE = new ArrayList<>();
     List<Double> valoresRamIDE = new ArrayList<>();
     List<Float> valoresCpuIDE = new ArrayList<>();
     List<Long> valoresDiscoIDE = new ArrayList<>();
+//    List<BigInteger> valoresFkMaq = new ArrayList<>();
 
     private Date us_dt_hr_processo;
     private Date us_dt_start;
@@ -16,6 +26,13 @@ public class ProcessDatas {
     private Float us_ide_cpu;
     private Long us_ide_disco;
     private Double us_ide_ram;
+    private Integer fk_id_maquina;
+
+    public ProcessDatas() {
+        ProcessoMaq.MaquinaDatas teste = new ProcessoMaq.MaquinaDatas();
+        this.fk_id_maquina = teste.getId_maquina();
+
+    }
 
     public Date getUs_dt_hr_processo() {
         return us_dt_hr_processo;
@@ -105,15 +122,47 @@ public class ProcessDatas {
         this.valoresDiscoIDE = valoresDiscoIDE;
     }
 
+//    public List<BigInteger> getValoresFkMaq() {
+//        return valoresFkMaq;
+//    }
+//
+//    public void setValoresFkMaq(List<BigInteger> valoresFkMaq) {
+//        this.valoresFkMaq = valoresFkMaq;
+//    }
+    public Integer getFk_id_maquina() {
+        return fk_id_maquina;
+    }
+
+    public void getFk_id_maquina(Usuario.UsuarioDatas usuario) {
+        Conexao con = new Conexao();
+        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+
+        List<MaquinaDatas> pegandoFkMaq = template.query("SELECT id_maquina FROM tb_us_maquina WHERE fk_id_funcionario = ?",
+                new BeanPropertyRowMapper<>(MaquinaDatas.class), usuario.getId_cpf());
+
+        for (Iterator<MaquinaDatas> iterator = pegandoFkMaq.iterator(); iterator.hasNext();) {
+            MaquinaDatas proximo = iterator.next();
+            proximo.setId_maquina(proximo.getId_maquina());
+
+            System.out.println("fk do vadio " + proximo.getId_maquina());
+        }
+//        return pegandoFkMaq;
+    }
+
+    public void setFk_id_maquina(Integer fk_id_maquina) {
+        this.fk_id_maquina = fk_id_maquina;
+    }
+
     @Override
     public String toString() {
-        return String.format("Nome da Ide: %s " +
-                "CPU: %.2f " +
-                "RAM: %.2f " +
-                "DISCO: %.2f ",
+        return String.format("Nome da Ide: %s "
+                + "CPU: %.2f "
+                + "RAM: %.2f "
+                + "DISCO: %.2f ",
                 getUs_ide_nome_processo(),
                 getUs_ide_cpu(),
                 getUs_ide_ram(),
                 getUs_ide_disco());
     }
+
 }

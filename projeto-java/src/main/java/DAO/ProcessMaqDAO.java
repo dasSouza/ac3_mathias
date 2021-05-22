@@ -16,9 +16,10 @@ public class ProcessMaqDAO extends Usuario.UsuarioDatas{
     Conexao con = new Conexao();
     JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-    public ProcessMaqDAO(String us_nome_funcionario, String us_cargo, String us_login, String us_senha, Boolean us_is_adm, Integer fk_id_empresa) {
-        super(us_nome_funcionario, us_cargo, us_login, us_senha, us_is_adm, fk_id_empresa);
+    public ProcessMaqDAO() {
     }
+
+    
     
 
     public void maquinaProcess(MaquinaDatas maquinaDatas) {

@@ -1,8 +1,14 @@
 package ProcessoMaq;
 
 import Usuario.UsuarioDatas;
+import java.util.Iterator;
+import java.util.List;
+import jdbc.Conexao;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MaquinaDatas {
+
     private Long us_ram_total;
     private Integer id_maquina;
     private String us_cpu_nome;
@@ -10,7 +16,11 @@ public class MaquinaDatas {
     private Long us_disco_total;
     private Long fk_id_funcionario;
 
-    
+    public MaquinaDatas() {
+        Usuario.UsuarioDatas usuarioDados = new Usuario.UsuarioDatas();
+        this.fk_id_funcionario = usuarioDados.getId_cpf();
+    }
+
     public String getUs_name_pc() {
         return us_name_pc;
     }
@@ -27,10 +37,8 @@ public class MaquinaDatas {
         this.id_maquina = id_maquina;
     }
 
-    
-    
     public Long getUs_ram_total() {
-        return us_ram_total/1000000000l;
+        return us_ram_total / 1000000000l;
     }
 
     public void setUs_ram_total(Long us_ram_total) {
@@ -46,7 +54,7 @@ public class MaquinaDatas {
     }
 
     public Long getUs_disco_total() {
-        return us_disco_total/1024l/1024l/1024l;
+        return us_disco_total / 1024l / 1024l / 1024l;
     }
 
     public void setUs_disco_total(Long us_disco_total) {
@@ -60,13 +68,13 @@ public class MaquinaDatas {
     public void setFk_id_funcionario(Long fk_id_funcionario) {
         this.fk_id_funcionario = fk_id_funcionario;
     }
-    
+
     @Override
     public String toString() {
-        return String.format("nome %s " +
-                "ram = %d " +
-                "cpu = %s " +
-                "disco = %d",
+        return String.format("nome %s "
+                + "ram = %d "
+                + "cpu = %s "
+                + "disco = %d",
                 getUs_name_pc(),
                 getUs_ram_total(),
                 getUs_cpu_nome(),

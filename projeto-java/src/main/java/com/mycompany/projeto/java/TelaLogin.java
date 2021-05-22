@@ -453,7 +453,6 @@ public class TelaLogin extends javax.swing.JFrame {
         btnIntellij.setBackground(new java.awt.Color(206, 228, 217));
         btnIntellij.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnIntellij.setForeground(new java.awt.Color(0, 0, 0));
-        btnIntellij.setIcon(new javax.swing.ImageIcon("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\Tela-Login-Swing\\tela-login\\src\\main\\resoures\\images\\intellj_1.png")); // NOI18N
         btnIntellij.setBorder(null);
         btnIntellij.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIntellij.addActionListener(new java.awt.event.ActionListener() {
@@ -998,7 +997,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         GerandoLog teste = new GerandoLog();
 
-        Usuario.UsuarioDatas user = null;
+        Usuario.UsuarioDatas userObj = new Usuario.UsuarioDatas();
 
         if (pegandoUser.isEmpty()) {
 
@@ -1022,7 +1021,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
-                        if (tbUsDados.getUs_is_adm().equals(isAdmin)) {
+                        if (tbUsDados.getUs_is_adm()) {
 
                             // gestor entra aqui
                             this.setVisible(false);
@@ -1032,16 +1031,15 @@ public class TelaLogin extends javax.swing.JFrame {
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             DashGestor.setDefaultCloseOperation(HIDE_ON_CLOSE);
-                            
-                            
-                            user.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
-                            user.setFk_id_empresa(tbUsDados.getFk_id_empresa());
-                            user.setId_cpf(tbUsDados.getId_cpf());
-                            user.setUs_cargo(tbUsDados.getUs_cargo());
-                            user.setUs_login(tbUsDados.getUs_login());
-                            user.setUs_senha(tbUsDados.getUs_senha());
-                            user.setUs_is_adm(true);
-                                    
+
+                            userObj.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
+                            userObj.setFk_id_empresa(tbUsDados.getFk_id_empresa());
+                            userObj.setId_cpf(tbUsDados.getId_cpf());
+                            userObj.setUs_cargo(tbUsDados.getUs_cargo());
+                            userObj.setUs_login(tbUsDados.getUs_login());
+                            userObj.setUs_senha(tbUsDados.getUs_senha());
+                            userObj.setUs_is_adm(true);
+
                             try {
                                 teste.gravarLog("login do gestor efetuado com sucesso");
 
@@ -1139,19 +1137,19 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
 
-//        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
-//        int interval = 1000;  // intervalo no qual a tarefa será executada.
-//        Timer timer = new Timer();
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            public void run() {
-////                System.out.println("Olá World!");
-//                KeepCodeAPI api = new KeepCodeAPI();
-//
-//                api.chamandoProcessos();
-//            }
-//        }, delay, interval);
+        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
+        int interval = 1000;  // intervalo no qual a tarefa será executada.
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+//                System.out.println("Olá World!");
+                KeepCodeAPI api = new KeepCodeAPI(userObj);
 
-        System.out.println(user);
+                api.chamandoProcessos(userObj);
+            }
+        }, delay, interval);
+
+//        System.out.println(userObj);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void chamarTelaFuncionario(String nome) {
