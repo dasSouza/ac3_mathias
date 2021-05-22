@@ -480,18 +480,18 @@ a {
 .text-cadastro-novo-usuario {
     font-size: 23px;
     width: 100%;
-    height: 10%;
-    color: #514E4D;
+    height: 7%;
+    color: #B73447;
     display: flex;
-    align-items: center;
     justify-content: center;
+    margin-top: 2vh;
 }
 
 .inputs-cadastro-novo-usuario {
     width: 100%;
-    height: 68%;
+    height: 80%;
     display: flex;
-    flex-direction: row;
+    
 }
 
 .box-inputs {
@@ -499,178 +499,101 @@ a {
     background-color: #D6ECE1;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
-    width: 90%;
+    width: 87%;
     height: 100%;
     display: flex;
-    align-items: center;
-    flex-direction: row;
+    
+   flex-direction: column;
     justify-content: center;
 }
 
-.toButton {
+.container-input {
+
     width: 100%;
-    height:20%;
-}
-
-.separations-inputs {
-    width: 50%;
-    height: 100%;
-    background-color: #638481;
-    border: 1px solid black;
-}
-
-#senha_cad-label {
-    width: 90%;
-    height: 15%;
+    height: 85%;
+   
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-evenly;
+
 }
 
-#senha_cad {
-    width: 96%;
-    height: 85%;
+
+.inputs1 {
+    height: 100%;
+    width: 40%;
+   
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+
 }
+
+
+
 
 .olho {
     cursor: pointer;
-    width: 25px;
+    position: absolute;
+    margin-left: 10px;
+    width: 2.5%;
+    height: 4.4%;
+    top: 20.7rem;
+    left: 36rem;
 }
 
 #form_cadastro {
     width: 100%;
-    height: 80%;
-    position: relative;
+    height: 100%;
     display: flex;
-    align-items: flex-start;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
 }
 
-#senha_cad-label{
-    position: relative;
-    padding-top: 13px;
-  }
-  
-  #senha_cad-label input{
-    border: 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.534);
-    outline: none;
-    min-width: 180px;
-    font-size: 16px;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -webkit-appearance:none;
-    border-radius: 6px;
-    
-  }
-  
- #senha_cad-label input:focus{
-    border-bottom: 2px solid #638481;
-  }
-  
-  #senha_cad-label input::placeholder{
-    color:transparent;
-  }
-  
-  #senha_cad-label label{
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 13px;
-    padding-left: 1vh;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-  }
-  
-  #senha_cad-label input:required:invalid + label{
-    color: #B73447;
-    
-    
-  }
-  #senha_cad-label input:focus:required:invalid{
-    border-bottom: 2px solid #B73447;
-   
-    
-  }
- 
-  #senha_cad-label input:focus + label,
-  #senha_cad-label input:not(:placeholder-shown) + label{
-    font-size: 13px;
-    margin-top: 0;
-    color: #638481;
-    
-  }
+.label-input {
+    width: 87%;
+    height: 10%;
+    color: #514E4D;
+    font-size: 20px;
+    margin-top: 2vh;
+}
 
-  #login_cad{
-    position: relative;
-    padding-top: 13px;
-  }
-  
-  #login_cad input{
-    border: 0;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.534);
-    outline: none;
-    min-width: 180px;
-    font-size: 16px;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-    -webkit-appearance:none;
-    border-radius: 6px;
-    
-  }
-  
-  #login_cad input:focus{
-    border-bottom: 2px solid #638481;
-  }
-  
-  #login_cad input::placeholder{
-    color:transparent;
-  }
-  
-  #login_cad label{
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 13px;
-    padding-left: 1vh;
-    transition: all .3s ease-out;
-    -webkit-transition: all .3s ease-out;
-    -moz-transition: all .3s ease-out;
-  }
-  
-  #login_cad input:required:invalid + label{
-    color: #B73447;
-    
-    
-  }
-  #login_cadl input:focus:required:invalid{
-    border-bottom: 2px solid #B73447;
-   
-    
-  }
- 
-  #login_cad input:focus + label,
-  #login_cad input:not(:placeholder-shown) + label{
-    font-size: 13px;
-    margin-top: 0;
-    color: #638481;
-    
-  }
+.label-adm {
+
+    width: 87%;
+    height: 34%;
+    color: #514E4D;
+    font-size: 20px;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+
+}
+
+.container-aguarde {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 
 #adm-label input[type=checkbox] {
     position: absolute;
     margin-left: 10px;
-    width: 4.5%;
-    height: 6.4%;
+    width: 2.5%;
+    height: 4.4%;
     border-radius: 3px;
-    top: 10.7rem;;
-    left: 5rem;
+    top: 29.1rem;
+    left: 25rem;
+
 }
 
 #adm-label p {
@@ -715,22 +638,59 @@ a {
     border: none;
 }
 
+
+.toButton {
+    width: 20%;
+    height:15%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
 .box-inputs input {
     font-family: 'Inter', sans-serif;
     color: #514E4D;
     width: 90%;
-    height: 13%;
+    height: 30%;
     border-radius: 5px;
     border: none;
-    margin-bottom: 2vh;
-    padding-left: 20px;
+    padding-left: 1vh;
     background-color: rgba(255, 255, 255, 0.911);
+}
+
+
+.toButton input {
+    font-family: Bebas Neue;
+    padding: 0;
+    width: 7vw;
+    height: 5vh;
+    font-size: 2.2vh;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #4D4D4E;
+    text-align: center;
+    background-color: #A3C6C1;
+    border: none;
+}
+
+.toButton input:active {
+    color: #A3C6C1;
+    background-color: #4D4D4E;
+}
+
+.toButton input:hover {
+    transform: scale(1.1);
+    background-color: #638481;
+    color: white;
+    font-weight: normal;
 }
 
 .box-inputs input::placeholder {
     font-family: Bebas Neue;
     text-transform: uppercase;
-    color: #514E4D;
+    color: #514e4d83;
    
 }
 
@@ -1447,7 +1407,13 @@ hr {
     position: relative;
     width: 80px;
     height: 80px;
-  }
+    
+    position: absolute;
+    margin-left: 10px;
+    top: 29.5rem;
+    left: 39.8rem;
+}
+  
   .lds-ring div {
     box-sizing: border-box;
     display: block;

@@ -603,9 +603,10 @@ hr {
   padding: 5px 10px 5px 10px;
   cursor: pointer;
   transition: background .3s;
-  border-radius: 5px;
+  border-radius: 6px;
   color: #B73447;
   margin-left: 12px;
+  border: none;
 }
 
 .btn:hover {
@@ -891,33 +892,90 @@ hr {
 
 /* Login */
 
-.box_login{
-  background-color: #A3C6C1;
-  height: 59vh;
-  width: 29vw;
+.container-login {
+  width: 100%;
+  height: 75%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  
+ 
+
+}
+
+.login {
+  height: 85%;
+  width: 33%;
+  background-color: #A3C6C1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  margin-bottom: 2vh;
+  display: flex;
+ align-items: center;
   flex-direction: column;
-  border-radius: 5%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}   
+
+}
+
+  .logo-login {
+    width: 100%;
+    height: 61%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;;
+  }
+
+  .logo-login p {
+    font-size: 30px;
+    color: #514E4D;
+
+  }
+
+  .container-input {
+      width: 75%;
+      height: 40%;
+     
+
+
+  }
+
+  .container-btn {
+
+    width: 20%;
+    height: 20%;
+    
+
+
+  }
+
+  .input-login {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    
+
+  }
+  
+
+
 
 #btn_login{
-  width: 29%;
-    height: 24%;
+  width: 89%;
+  height: 76%;
   background-color: #ffffff73;
   padding: 5px 10px 5px 10px;
   cursor: pointer;
   transition: background .3s;
-  border-radius: 5px;
+  border-radius: 6px;
   color: #B73447;
-  margin-left: 12px;
+
+  border: none;
 }
+
 
 #btn_login:hover {
   background-color: #B73447;
@@ -929,49 +987,37 @@ hr {
   
 }
 
-#img_login{
-  margin-top: -2vh;
-  height: 23vh;
-  width: 22vw;
-}
+
 
 .inp_login{
-    font-family: 'Inter', sans-serif;
-    color: #514E4D;
-    width: 80%;
-    height: 3.5vh;
-    padding-left: 1vw;
-    margin-bottom: 8%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 0px;
-    border-radius: 3px;
+  font-family: 'Inter', sans-serif;
+  color: #514E4D;
+  width: 100%;
+  height: 5.5vh;
+  padding-left: 1vw;
+  margin-bottom: 4vh;
+  background-color: rgba(255, 255, 255, 0.76);
+  border: none;
+  border-radius: 6px;
 }
 
 .inp_login::placeholder {
   font-family: Bebas Neue;
 }
 
-.div_itens {
+
+
+.login form {
+  width: 100%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
 
-.div_itens form {
-  width: 40vh;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
+  
 }
 
 
-.box_login span{
-  color: #514E4D;
-  font-size: 20px;
-  position: absolute;
-}
 
 /* CARROSSEL */
 
@@ -1075,15 +1121,19 @@ img {vertical-align: middle; width: 50%; }
 .lds-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 33rem;
+  left: 47.7rem;
 }
+
 .lds-ring div {
   box-sizing: border-box;
   display: block;
   position: absolute;
-  width: 64px;
-  height: 64px;
+  width: 50px;
+    height: 50px;
   margin: 8px;
   border: 8px solid #fff;
   border-radius: 50%;

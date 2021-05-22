@@ -72,9 +72,9 @@
     <!-- menu end-->
     <header>
         <div class="box-recepction">
-            <div class="recection-welcome-b">
-                <h1>Olá, <b id="b_usuario0">Isabella lanches</b></h1>
-                <p> aqui você pode cadastrar novos usuários!</p>
+            <div class="recection-welcome">
+                <h1>aqui você pode cadastrar novos usuários!</h1>
+
             </div>
             <div class="logo-recepction">
                 <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
@@ -85,26 +85,81 @@
     <section class="container-itens">
         <div class="cadastro-novos-usuarios">
             <div class="container-cadastro-novos-usuarios">
-                <div class="text-cadastro-novo-usuario">
-                    <h2>CADASTRAR NOVOS USUARIOS</h2>
-                </div>
                 <div class="inputs-cadastro-novo-usuario">
                     <div class="box-inputs">
-                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-                            <div class="separations-inputs">
 
-                            </div>
-                            <div class="separations-inputs">
+                        <div class="text-cadastro-novo-usuario">
+                            <h2>CADASTRAR NOVOS USUARIOS</h2>
+                        </div>
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                            <div class="container-input">
+
+                                <div class="inputs1">
+
+
+                                    <label class="label-input">Login</label>
+                                    <input id="login_cad" name="login_cad" required="required" type="text"
+                                        placeholder="Digite o login" />
+
+                                    <label class="label-input">Senha</label>
+                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
+                                        placeholder="Digite a senha" />
+                                    <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+                                        id="olho" class="olho">
+
+                                    <label class="label-input">Nome</label>
+                                    <input id="nome_cad" name="nome_cad" required="required" type="text"
+                                        placeholder="Digite o nome" />
+
+                                    <label class="label-adm" for="adm" id="adm-label">
+                                        <p>Administrador</p>
+                                        <input type="checkbox" name="adm">
+                                    </label>
+
+                                </div>
+                                <div class="inputs1">
+
+                                    <label class="label-input">Cargo</label>
+                                    <input id="cargo" name="cargo" required="required" type="text"
+                                        placeholder="Digite o cargo" />
+
+                                    <label class="label-input">CPF</label>
+                                    <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
+                                        placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
+
+                                    <label class="label-input">Time</label>
+                                    <input id="time" name="time" required="required" type="text"
+                                        placeholder="Digite o time" />
+
+                                    <label class="label-adm" for="adm" id="adm-label">
+                                        <p></p>
+
+                                    </label>
+
+                                </div>
+
+
+
 
                             </div>
                             <div class="toButton">
-                                <button></button>
+                                <input type="submit" id="btn_login" value="Cadastrar" class="btn-login" />
                             </div>
+
                         </form>
+
+                    </div>
+
+                </div>
+                <div class="container-aguarde">
+                    <div id="img_aguarde" style="visibility: hidden;" class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     </div>
@@ -136,8 +191,7 @@
                                     <input id="senha_cad" name="senha_cad" required="required" type="password"
                                         placeholder="Senha" />
                                <label>Senha</label> 
-                                    <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
-                                        id="olho" class="olho">
+                                    
                                 </label>
 
                                 <input id="nome_cad" name="nome_cad" required="required" type="text"
