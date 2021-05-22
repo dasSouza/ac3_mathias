@@ -84,6 +84,64 @@ router.get('/sessao/:login', function (req, res, next) {
 
 });
 
+// Encontra a quantidade e integrantes em um equipe
+router.get('/equipe/:idEmpresa/:equipe', function (req, res, next) {
+	console.log('Recuperando quantidade de integrantes na equipe');
+
+    var idEmpresa = req.params.idEmpresa;
+	var equipe = req.params.equipe;
+
+	let instrucaoSql = `SELECT 
+						COUNT(us_equipe) as somaEq 
+						from tb_us_dados 
+						WHERE us_equipe = '${equipe}'
+						and fk_id_empresa = ${idEmpresa};
+	`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log(resultado)
+		res.json(resultado[0]);
+	}).catch(erro => {
+		console.log("DEU ERRO!")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
+// Encontra todas informmações da equipe
+router.post('/equipe/integrantes/:idEmpresa/:equipe', function (req, res, next) {
+	console.log('Recuperando quantidade de integrantes na equipe');
+
+    var idEmpresa = req.params.idEmpresa;
+	var equipe = req.params.equipe;
+
+	let instrucaoSql = `SELECT 
+						us_nome_funcionario,
+						us_cargo
+						FROM tb_us_dados 
+						WHERE us_equipe = '${equipe}'
+							and fk_id_empresa = ${idEmpresa}
+							and us_is_adm = 0;`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log(resultado)
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO!")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
 
 /* Logoff de usuário */
 router.get('/sair/:login', function (req, res, next) {

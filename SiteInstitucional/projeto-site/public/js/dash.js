@@ -2,6 +2,7 @@ const navigation = document.querySelector('.navigation');
 const next = document.querySelector('#next');
 const back = document.querySelector('#back');
 const btn = document.querySelector('.btn');
+const signout = document.querySelector('.fa fa-sign-out')
 const idesContainer = document.querySelector('.ides-container');
 const idesContainerPart2 = document.querySelector('.ides-container-part2');
 
@@ -13,6 +14,12 @@ document.querySelector('.toggle').onclick = function () {
 function darkMode() {
   var element = document.querySelector('.page');
   element.classList.toggle("dark-mode");
+}
+
+if (typeof signout === 'class') {
+  signout.addEventListener('click', function () {
+    logoff();
+  })
 }
 
 next.addEventListener('click', function () {

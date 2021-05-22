@@ -35,4 +35,37 @@ router.get('/dadosHardware/:cpf', function (req, res, next) {
 	});
 });
 
+router.get('/dadosHardware/integrante/:nomeIntegrante', function (req, res, next) {
+	console.log('Recuperando os dados de hardware de um integrante');
+
+    var nomeIntegrante = req.params.nomeIntegrante;
+
+	// SELECT PARA SABER EMPRESA
+	let instrucaoSql = `SELECT DISTINCT
+						us_nome_maquina,
+						us_vl_ram_total,
+						us_vl_disco_total,
+						us_vl_cpu_total
+						FROM tb_us_maquina
+						WHERE fk_id_funcionario = (
+							SELECT id_cpf 
+							FROM tb_us_dados 
+							WHERE us_nome_funcionario = '${nomeIntegrante}');`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Maquina
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+
+		console.log("Dados hardware ",resultado)
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO ao recuperar os dados do hardware de um integrante")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
 module.exports = router;

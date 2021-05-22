@@ -29,7 +29,7 @@
             <li>
               <a href="dashgestor.html">
                 <span class="icon">
-                  <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+                  <i class="fa fa-home" aria-hidden="true"></i>
                 </span>
                 <span class="title">Home</span>
               </a>
@@ -102,9 +102,9 @@
 
 
           <div class="container-label">
-            <p id="nome"> Nome: </p>
-            <p id="gestor"> Cargo:</p>
-            <p id="qtd_membros"> Time:</p>
+            <p id="nome_integrante"> Nome: </p>
+            <p id="cargo_integrante"> Cargo: </p>
+            <p id="nome_equipe"> Time: </p>
           </div>
 
 
@@ -115,10 +115,10 @@
           </div>
 
           <div class="container-label">
-            <p id="nome"> Nome: </p>
-            <p id="nome"> Total ram: </p>
-            <p id="gestor"> Total disco:</p>
-            <p id="qtd_membros"> Total CPU:</p>
+            <p id="nomePc"> Nome: </p>
+            <p id="total_ram"> Total ram: </p>
+            <p id="total_disco"> Total disco: </p>
+            <p id="cpu"> Total CPU: </p>
           </div>
 
         </div>
@@ -240,18 +240,9 @@
     </div>
 
     <div class="footer-ajuda">
-
-
-
       <div class="ajuda">
-
         <input type="submit" value="Ajuda" />
-
-
-
-
         </button>
-
       </div>
     </div>
   </main>
@@ -261,14 +252,6 @@
 
 <script>
 
-  // window.onload = verificar_autenticacao();
-  // window.onload = obterDadosGraficoPrimeiraVez(1);
-  // window.onload = carregarGrafico();
- 
- 
-
-  
-
   function carregarGrafico() {
     setInterval(
       function myFunction() {
@@ -276,6 +259,30 @@
       }, 5000)
 
   };
+
+  function obterDadosMaquina(nome_integrante_app) {
+    fetch(`/maquinas/dadosHardware/integrante/${nome_integrante_app}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          let recuperaDadosHardware = []
+
+          resposta.json().then(json => {
+            recuperaDadosHardware.push(json[0].us_nome_maquina);
+            recuperaDadosHardware.push(json[0].us_vl_ram_total);
+            recuperaDadosHardware.push(json[0].us_vl_disco_total);
+            recuperaDadosHardware.push(json[0].us_vl_cpu_total);
+
+            nomePc.innerHTML += recuperaDadosHardware[0]
+            total_ram.innerHTML += recuperaDadosHardware[1] + " Gb"
+            total_disco.innerHTML += recuperaDadosHardware[2] + " Gb"
+            cpu.innerHTML += recuperaDadosHardware[3]
+          });
+
+        } else {
+          console.log('Erro ao recuperar os dados de Hardware');
+        }
+      });
+  }
 
   function obterDadosGraficoPrimeiraVez(idprocessos) {
 
@@ -325,9 +332,9 @@
       });
 
   }
-  grafico_1.style.width = `13.7%`
-  grafico_1.innerHTML = `13.7%`
-  grafico_3.style.width = `50.7%`
-  grafico_3.innerHTML = `50.7%`
+  // grafico_1.style.width = `13.7%`
+  // grafico_1.innerHTML = `13.7%`
+  // grafico_3.style.width = `50.7%`
+  // grafico_3.innerHTML = `50.7%`
   
 </script>

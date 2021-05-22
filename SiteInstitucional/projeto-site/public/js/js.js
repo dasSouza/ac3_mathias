@@ -88,6 +88,7 @@ function entrar() {
         sessionStorage.cargo_usuario_meuapp = json.us_cargo;
         sessionStorage.id_usuario_meuapp = json.id_cpf;
         sessionStorage.fk_id_empresa_meuapp = json.fk_id_empresa;
+        sessionStorage.equipe_usuario_meuapp = json.us_equipe
 
         if (json.us_is_adm == 1) {
           window.location.href = "../Dash/dashgestor.html";
