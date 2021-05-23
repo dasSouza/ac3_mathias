@@ -2,12 +2,12 @@
 
 const ulIDES = document.querySelector("ul.IDES");
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   const imagems = document.createElement("img");
 
   const random = (min, max) => Math.random() * (max - min) + min;
 
-  const size = Math.floor(random(10, 120));
+  const size = Math.floor(random(60, 120));
 
   const randomTrunc = Math.floor(random(1, 2));
 
@@ -17,30 +17,30 @@ for (let i = 0; i < 20; i++) {
   const duration = random(24, 12);
 
   arrayImage = [
-    "img/netbeans.png",
-    "img/androidstudio.png",
+    "img/netbeans64.png",
+    "img/studio64.png",
     "img/eclipse.png",
-    "img/intellij.png",
-    "img/phpstorm.png",
+    "img/idea64.png",
+    "img/phpstorm64.png",
     "img/xcode.png",
-    "img/sublimetext.png",
-    "img/pycharm.png",
-    "img/sublimetext.png",
-    "img/vsstudiocode.png",
+    "img/sublime.png",
+    "img/pycharm64.png",
+    "img/Code.png",
+    "img/devenv.png",
+    "img/webstorm64.png"
   ];
 
   for (let value of arrayImage) {
-    var randomImages = Math.floor(random(0, 10));
+    var randomImages = Math.floor(random(0, 11));
   }
-  console.log(randomImages);
   let imagem = arrayImage[randomImages];
 
   imagems.src = `${imagem}`;
-  imagems.style.width = `${size}px`;
 
-  imagems.style.height = `${size}px`;
+  imagems.style.width = `140px`;
+  imagems.style.height = `80px`;
+
   imagems.style.bottom = `-${size}px`;
-  imagems.style.borderRadius = `50%`;
 
   imagems.style.left = `${position}%`;
 

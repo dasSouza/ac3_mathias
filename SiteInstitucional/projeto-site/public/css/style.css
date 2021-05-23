@@ -176,7 +176,7 @@ header {
   color: #B73447;
   -webkit-text-stroke-width: 1px;  /* largura da borda */
   -webkit-text-stroke-color: rgba(0, 0, 0, 0.198); /* cor da borda */
-  
+  z-index: 3;
   position: absolute;
 }
 
@@ -189,7 +189,7 @@ header {
   right: 2.7vh;
   position: fixed;
   cursor:pointer;
-  z-index: 2;
+  z-index: 3;
   transition: box-shadow .8s ease-in-out;
 }
 
@@ -211,6 +211,7 @@ a {
   position: relative;
   background: #000;
   transition: 0.5s ease-in-out;
+  z-index: 3;
 }
 
 .hamburguer:before,
@@ -223,6 +224,7 @@ a {
   background: #000;
   position: absolute;
   transition: 0.5s ease-in-out;
+  z-index: 3;
 }
 
 .hamburguer:before {
@@ -241,6 +243,7 @@ a {
 
   background-color: #6E9692;
   transition: 1.3s ease-in-out;
+  z-index: 1;
 }
 
 .lista-opcoes {
@@ -313,6 +316,7 @@ footer {
   align-items: center;
   flex-direction: row;
   background-color: #88A9A7;
+  z-index: 2;
 }
 
 .box-footer{
@@ -377,13 +381,27 @@ footer span {
 
 #email-contato input::placeholder {
   color: rgba(0, 0, 0, 0.692);
-
 }
 
 #parcerias {
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+}
+
+.partgit {
+  position: absolute;
+  background-image: url(../img/git.png);
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  border-width: 60px;
+}
+
+.partgit img {
+  width:100%
 }
 
 .box-img {
@@ -412,6 +430,7 @@ hr {
   transform:translate(-50%,-50%);
   transition: 2s;
   animation: logo-centro 1.5s both;
+  z-index: 1;
 }
 
 @keyframes logo-centro {
@@ -443,17 +462,12 @@ hr {
 @keyframes idesRodando{
   from {
     transform: translateY(0);
-    opacity: 0;
-    z-index: -1;
   }
   50% {
-    z-index: -1;
     opacity: 1;
   }
   to {
-    z-index: -1;
     transform: translateY(-1100px) rotate(960deg);
-    opacity: 0;
   }
 }
 /* PAGINA 2 */
