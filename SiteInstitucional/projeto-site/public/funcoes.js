@@ -56,7 +56,7 @@ function verificar_autenticacao() {
         }
 
         locateEmpresa()
-    
+
         typeof b_usuario0 === 'undefined' ? null : (b_usuario0.innerHTML = nome_usuario);
         typeof b_usuario1 === 'undefined' ? null : (b_usuario1.innerHTML += ` ${nome_usuario}`);
         typeof b_usuario2 === 'undefined' ? null : (b_usuario2.innerHTML = nome_usuario);

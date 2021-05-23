@@ -149,10 +149,10 @@ function TestaCPF(strCPF) {
 }
 
 //FUNÇÃO CADASTRO
-function cadastrar() {
+function cadastrar(fk_id_empresa) {
   aguardar();
   var formulario = new URLSearchParams(new FormData(form_cadastro));
-  fetch("/usuarios/cadastrar", {
+  fetch(`/usuarios/cadastrar/${fk_id_empresa}`, {
     method: "POST",
     body: formulario,
   }).then(function (response) {

@@ -11,7 +11,7 @@ var leiturasRouter = require('./routes/leituras');
 var rotasRouter = require('./routes/rotas');
 var empresaRouter = require('./routes/empresas');
 var cadastroIdeRouter = require('./routes/ides');
-var maquinasRouter = require('./routes/maquinas')
+var maquinasRouter = require('./routes/maquinas');
 
 
 var app = express();

@@ -6,6 +6,7 @@ var Empresa = require('../models').Empresa;
 
 let sessoes = [];
 
+
 /* Recuperar usuário por login e senha */
 router.post('/autenticar', function (req, res, next) {
 	console.log('Recuperando usuário por login e senha');
@@ -38,8 +39,10 @@ router.post('/autenticar', function (req, res, next) {
 });
 
 /* Cadastrar usuário */
-router.post('/cadastrar', function (req, res, next) {
+router.post('/cadastrar/:fk_id_empresa', function (req, res, next) {
 	console.log('Criando um usuário');
+
+	var fk_id_empresa = req.params.fk_id_empresa
 
 	var cpf = req.body.cpf.split("").filter(n => (Number(n) || n == 0)).join("");
 
@@ -50,7 +53,8 @@ router.post('/cadastrar', function (req, res, next) {
 		us_senha: req.body.senha_cad,
 		us_cargo: req.body.cargo,
 		us_is_adm: req.body.adm = req.body.adm == undefined ? 0 : 1,
-		fk_id_empresa: sessionStorage.fk_id_empresa_meu_app
+		us_equipe: req.body.time,
+		fk_id_empresa: fk_id_empresa
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
 		res.send(resultado);

@@ -12,12 +12,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script defer src="../../js/dash.js"></script>
     <script defer src="../../funcoes.js"></script>
+    <script src="../../js/js.js"></script>
     <title>KCODE</title>
 </head>
 
 
 
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
 <main class="page">
     <div class="menu">
         <div class="container">
@@ -48,18 +49,18 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="darkMode()">
                             <span class="icon">
-                                <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                                <i class="fa fa-cog" aria-hidden="true">
                                 </i>
                             </span>
                             <span class="title">Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" onclick="logoff()">
                             <span class="icon">
-                                <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
                             </span>
                             <span class="title">Sign Out</span>
                         </a>
@@ -91,18 +92,16 @@
                         <div class="text-cadastro-novo-usuario">
                             <h2>CADASTRAR NOVOS USUARIOS</h2>
                         </div>
-                        <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                        <form id="form_cadastro" method="post" onsubmit="return cadastrar(sessionStorage.fk_id_empresa_meuapp)">
                             <div class="container-input">
 
                                 <div class="inputs1">
-
-
                                     <label class="label-input">Login</label>
                                     <input id="login_cad" name="login_cad" required="required" type="text"
                                         placeholder="Digite o login" />
 
                                     <label class="label-input">Senha</label>
-                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
+                                    <input minlength="8" id="senha_cad" name="senha_cad" required="required" type="password"
                                         placeholder="Digite a senha" />
                                     <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
                                         id="olho" class="olho">
@@ -135,23 +134,16 @@
                                         <p></p>
 
                                     </label>
-
                                 </div>
-
-
-
-
                             </div>
                             <div class="toButton">
                                 <input type="submit" id="btn_login" value="Cadastrar" class="btn-login" />
                             </div>
-
                         </form>
-
                     </div>
-
                 </div>
                 <div class="container-aguarde">
+                    <div id="div_erro" style="display: none;"></div>
                     <div id="img_aguarde" style="visibility: hidden;" class="lds-ring">
                         <div></div>
                         <div></div>
@@ -164,8 +156,6 @@
     </section>
     </div>
 </main>
-<script src="../../js/js.js">
-</script>
 </body>
 
 </html>
@@ -178,41 +168,3 @@
         document.getElementById('senha_cad').type = 'password';
     });
 </script>
-
-
-<!-- 
-      <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-
-                                <input id="login_cad" name="login_cad" required="required" type="text"
-                                    placeholder="Login" />
-
-
-                                <label for="senha_cad" id="senha_cad-label">
-                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
-                                        placeholder="Senha" />
-                               <label>Senha</label> 
-                                    
-                                </label>
-
-                                <input id="nome_cad" name="nome_cad" required="required" type="text"
-                                    placeholder="Nome" />
-                                    <label>Nome</label> 
-                                <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
-
-                                <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
-                                    placeholder="CPF" onkeydown="javascript: fMasc(this, mCPF)" />
-                                <br>
-
-                                <label for="adm" id="adm-label">
-                                    <p>Administrador</p>
-                                    <input type="checkbox" name="adm">
-                                </label>
-
-                                <br>
-
-                                <div class="btn-cadastro">
-                                    <input type="submit" id="btn_login" value="Cadastrar" />
-                                </div>
-                                <div id="img_aguarde" style="visibility: hidden;" class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                            </form>
- -->
