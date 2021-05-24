@@ -744,3 +744,17 @@
 
 22/05/2021 19:56:47 iniciando conexão com o banco 
 
+23/05/2021 14:09:08 INICIANDO APLICAÇÃO KEEP CODE 
+
+23/05/2021 14:09:08 finalizando aplicação 
+
+23/05/2021 14:09:17 iniciando conexão com o banco 
+
+23/05/2021 14:09:21 login do gestor efetuado com sucesso 
+
+23/05/2021 14:09:26 iniciando conexão com o banco 
+
+23/05/2021 14:09:26 iniciando conexão com o banco 
+
+23/05/2021 14:09:29 iniciando conexão com o banco 
+

@@ -25,7 +25,7 @@ public class ProcessIdeDAO {
             Float cpu = allIdeDates.getValoresCpuIDE().get(i);
             Integer fk = allIdeDates.getFk_id_maquina();
 
-            System.out.println(String.format("\n Sendo o resto: \n"
+            System.out.println(String.format("\n Sabendo o resto: \n"
                     + "nome da IDE: %s"
                     + "Ram: %s"
                     + "CPU: %s"
