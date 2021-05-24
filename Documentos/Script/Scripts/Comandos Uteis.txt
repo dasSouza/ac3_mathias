@@ -1,0 +1,8 @@
+
+for
+if "java-common" -eq 1
+then 
+
+
+
+sudo apt list –upgradeable
