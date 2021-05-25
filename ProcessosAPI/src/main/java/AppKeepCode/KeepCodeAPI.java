@@ -1,7 +1,5 @@
 package AppKeepCode;
 
-import DAO.CompanyDAO;
-import DAO.UsuariosDAO;
 import ProcessoMaq.GetAllProcess;
 import ProcessosIDE.ProcessIDE;
 

@@ -2,7 +2,6 @@ package DAO;
 
 import ConectionBDA.Conection;
 import ProcessosIDE.ProcessDatas;
-import ProcessosIDE.ProcessIDE;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 

@@ -778,6 +778,21 @@ a {
 
 /* TUTORIAL */
 
+.well {
+    height: 100vh;
+  }
+  
+  .popover {
+    .mm_actions {
+      .btn.pull-right {
+        margin-right: 5px;
+        &:first-child {
+          margin-right: 0;
+        }
+      
+    
+  
+
 .bgimg {
     color: white;
     font-family: "Courier New", Courier, monospace;
@@ -1033,7 +1048,7 @@ hr {
 
 .footer-ajuda {
     width: 100vw;
-    height: 23%;
+    height: 13%;
     display: flex;
     justify-content: flex-end;
 }

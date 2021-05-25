@@ -2,12 +2,8 @@ package DAO;
 
 import ConectionBDA.Conection;
 import ProcessoMaq.MaquinaDatas;
-import SlackConnection.Slack;
-import org.json.JSONObject;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class ProcessMaqDAO {
 
