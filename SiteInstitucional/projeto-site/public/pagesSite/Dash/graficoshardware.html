@@ -76,8 +76,9 @@
     <header>
       <div class="box-recepction">
         <div class="recection-welcome">
-          <h1>Veja aqui seu consumo de hardware em relação a IDE! </h1>
-         
+          <h1>Bem vindo, <b id="b_usuario"></b> </h1>
+          <br>
+          <p>Veja aqui seu consumo de hardware em relação a IDE</p>
         </div>
         <div class="logo-recepction">
           <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
@@ -87,73 +88,63 @@
     </header>
 
     <section class="section-graficos">
-      <div class="container-info">
-
-        <div class="info-img">
-         
-            <img src="../../img/netbeans64.png" alt="" id="imgLogoIDE"  class="ide-graficohardware">
-  
-            <p id="nomeIDE">Netbeans</p>
-          
-          
-        </div>
-
-        <div class="legenda-2">
-
-        <div class="box-ram">
-         <div class="uso-ram"></div> 
-         <p>Uso</p> 
-        </div>
-
-        <div class="box-ram">
-          <div class="uso-livre"></div> 
-          <p>Livre</p> 
-         </div>
-
-        </div>
-        
-        </div>
       <div class="container-graficos">
 
         <div class="graficos">
           <div class="box-graficos">
 
-            <div id="graficoDisco" style="width: 60%; height: 60%;" class="label-center" data-precision="0.1" data-preset="circle"> </div>
-            
+            <div id="graficoDisco" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1" data-preset="circle"> </div>
+            <br>
             <div class="label-grafico">DISCO</div>
 
           </div>
           <div class="box-graficos">
-            <div id="graficoRam" style="width: 60%; height: 60%;" class="label-center" data-precision="0.1"
+            <div id="graficoRam" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1"
               data-preset="circle"> </div>
-            
+            <br>
             <div class="label-grafico">RAM</div>
           </div>
         </div>
         <div class="graficos">
           <div class="box-graficos">
-            <div id="graficoCPU" style="width: 60%; height: 60%;" class="label-center" data-precision="0.1"
+            <div id="graficoCPU" style="width: 70%; height: 70%;" class="label-center" data-precision="0.1"
               data-preset="circle"> </div>
-            
+            <br>
             <div class="label-grafico">CPU</div>
           </div>
           <div class="box-graficos">
-            <img src="../../img/relogio.svg" alt="relôgio" style="width: 60%; height: 60%;"">
-            
+            <img src="../../img/relogio.svg" alt="relôgio" style="width: 70%; height: 70%;"">
+            <br>
             <div id="grafico_tempo_us" class="label-grafico"></div>
           </div>
         </div>
         
           
         </div>
-       
+        <div class="container-idehardware">
+          <img src="../../img/net.png" alt="" id="imgLogoIDE"  class="ide-graficohardware">
+
+        </div>
 
       </div>
 
     </section>
     <div class="footer-ajuda">
 
-     
+      <div class="box-legenda">
+        <div class="uso-hardware"></div>
+          <p>Tempo</p>
+        </div>
+
+      <div class="box-legenda">
+        <div class="livre-ram"></div>
+          <p>Livre</p>
+        </div>
+
+        <div class="box-legenda">
+          <div class="uso-ram"></div>
+            <p>Uso</p>
+          </div>
 
       <div class="ajuda">
 
@@ -210,8 +201,7 @@
           // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           // console.log(`Dados recebidos: ${resposta}`);
           var resultado = [];
-          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
-            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
+
           function percorrer(obj) {
             for (var propriedade in obj) {
               if (obj.hasOwnProperty(propriedade)) {
@@ -225,40 +215,6 @@
           }
 
           imgLogoIDE.src = `../../img/${IDE}.png`
-          switch (IDE) {
-                      case "Xcode":
-                        nomeIDE.innerHTML = nomesTratadosIDE[0]
-                        break;
-                      case "pycharm64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[1]
-                        break;
-                      case "Code":
-                        nomeIDE.innerHTML = nomesTratadosIDE[2]
-                        break;
-                      case "netbeans64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[3]
-                        break;
-                      case "idea64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[4]
-                        break;
-                      case "studio64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[5]
-                        break;
-                      case "phpstorm64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[6]
-                        break;
-                      case "webstorm64":
-                        nomeIDE.innerHTML = nomesTratadosIDE[7]
-                        break;
-                      case "eclipse":
-                        nomeIDE.innerHTML = nomesTratadosIDE[8]
-                        break;
-                      case "devenv":
-                        nomeIDE.innerHTML = nomesTratadosIDE[9]
-                        break;
-                      default:
-                        break;
-                    }
 
           percorrer(resposta);
           // console.log(JSON.stringify(resultado));
@@ -405,7 +361,7 @@
   .ldBar-label {
     color: #514E4D;
     font-family: 'Bebas Neue';
-    font-size: 2.1em;
+    font-size: 2.5em;
     font-weight: 900;
   }
 </style>

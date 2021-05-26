@@ -19,7 +19,7 @@
   <title>KCODE</title>
 </head>
 
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -74,9 +74,9 @@
     <!-- menu end-->
     <header>
       <div class="box-recepction">
-        <div class="recection-welcome-b">
-          <h1>Bem vindo, <b id="b_usuario0">a</b> </h1>
-         
+        <div class="recection-welcome">
+          <h1>Bem vindo, <b id="b_usuario">a</b> </h1>
+          <br>
           <p>Escolha a IDE que gostaria de consultar:</p>
         </div>
         <div class="logo-recepction">
@@ -86,38 +86,6 @@
       </div>
     </header>
     <div class="ides-container">
-      <div class="container-info">
-
-        <div class="info-time">
-          <div class="container-titulo">
-            <h1>Máquina</h1>
-          </div>
-          
-  
-          <div class="container-label">
-            <p id="ram"> Total Ram: </p>
-            <p id="disco"> Total Disco:</p>
-            <p id="cpu"> Total CPU:</p>
-          </div>
-          
-          
-        </div>
-
-        <div class="legenda-3">
-
-        <div class="box-ram">
-         <div class="uso-ram"></div> 
-         <p>Uso de Ram</p> 
-        </div>
-
-        <div class="box-ram">
-          <div class="uso-livre"></div> 
-          <p>Livre</p> 
-         </div>
-
-        </div>
-        
-        </div>
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
@@ -142,38 +110,6 @@
     </div>
 
     <div class="ides-container-part2">
-      <div class="container-info">
-
-        <div class="info-time">
-          <div class="container-titulo">
-            <h1>Máquina</h1>
-          </div>
-          
-  
-          <div class="container-label">
-            <p id="ram"> Total Ram: </p>
-            <p id="disco"> Total Disco:</p>
-            <p id="cpu"> Total CPU:</p>
-          </div>
-          
-          
-        </div>
-
-        <div class="legenda-3">
-
-        <div class="box-ram">
-         <div class="uso-ram"></div> 
-         <p>Uso de Ram</p> 
-        </div>
-
-        <div class="box-ram">
-          <div class="uso-livre"></div> 
-          <p>Livre</p> 
-         </div>
-
-        </div>
-        
-        </div>
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
@@ -199,7 +135,20 @@
 
     <div class="footer-ajuda">
 
-     
+      <div class="box-legenda">
+        <div class="legenda"></div>
+        <p>*Ram</p>
+      </div>
+
+      <div class="box-legenda">
+        <div class="livre-ram"></div>
+        <p>Livre</p>
+      </div>
+
+      <div class="box-legenda">
+        <div class="uso-ram"></div>
+        <p>uso</p>
+      </div>
 
       <div class="ajuda">
 
@@ -222,6 +171,8 @@
   let contadorCriarElemento = 0
   let contadorGrafico = 0
   let contador = 0
+
+  window.onload = verificar_autenticacao()
 
   function aguardar() {
     let loading = document.createElement('img')

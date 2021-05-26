@@ -3,10 +3,7 @@ package DAO;
 import ConectionBDA.Conection;
 import ConectionBDA.Conexao;
 import ProcessosIDE.ProcessDatas;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-
-import java.util.List;
 
 public class ProcessIdeDAO {
     Conection conection = new Conection();
@@ -46,7 +43,7 @@ public class ProcessIdeDAO {
             Double ram = allIdeDates.getValoresRamIDE().get(i);
             Float cpu = allIdeDates.getValoresCpuIDE().get(i);
 
-            String insertProcessValues = "INSERT INTO tb_processos_ide (us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_nome_processo, us_ide_ram, us_ide_cpu, us_ide_disco, fk_id_maquina) VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, 2)";
+            String insertProcessValues = "INSERT INTO tb_processos_ide (us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_nome_processo, us_ide_ram, us_ide_cpu, us_ide_disco, fk_id_maquina) VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, 1)";
             template.update(insertProcessValues, nomeIDE,ram, cpu, disco);
             template2.update(insertProcessValues, nomeIDE,ram, cpu, disco);
             System.out.println("inserindo no banco: " + "nome da IDE: " + nomeIDE + "\nRam: " + ram + "\nCPU:" + cpu + "\nDisco: " + disco);
