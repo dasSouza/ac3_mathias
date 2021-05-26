@@ -1,6 +1,7 @@
 package DAO;
 
 import ConectionBDA.Conection;
+import ConectionBDA.ConectionMySql;
 import ProcessoMaq.MaquinaDatas;
 import SlackConnection.Slack;
 import org.json.JSONObject;
@@ -11,8 +12,10 @@ import java.time.LocalTime;
 
 
 public class ProcessMaqDAO {
-    Conection conection = new Conection();
+     Conection conection = new Conection();
+    ConectionMySql conection2 = new ConectionMySql();
     JdbcTemplate template = new JdbcTemplate(conection.getDataSource());
+    JdbcTemplate template2 = new JdbcTemplate(conection2.getDatasource());
 
     public void maquinaProcess(MaquinaDatas maquinaDatas) {
         String insertProcessValues = "INSERT INTO tb_us_maquina(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total, fk_id_funcionario) VALUES (?, ?, ?, ?, 69449167052)";

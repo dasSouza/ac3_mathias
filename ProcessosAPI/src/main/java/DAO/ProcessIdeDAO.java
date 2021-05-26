@@ -1,12 +1,15 @@
 package DAO;
 
 import ConectionBDA.Conection;
+import ConectionBDA.ConectionMySql;
 import ProcessosIDE.ProcessDatas;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ProcessIdeDAO {
     Conection conection = new Conection();
+    ConectionMySql conection2 = new ConectionMySql();
     JdbcTemplate template = new JdbcTemplate(conection.getDataSource());
+    JdbcTemplate template2 = new JdbcTemplate(conection2.getDatasource());
 
 
     public void insertIdeProcess(ProcessDatas allIdeDates) {
@@ -20,5 +23,29 @@ public class ProcessIdeDAO {
             template.update(insertProcessValues, nomeIDE,ram, cpu, disco);
             System.out.println("inserindo no banco: " + "nome da IDE: " + nomeIDE + "\nRam: " + ram + "\nCPU:" + cpu + "\nDisco: " + disco);
         }
+    }
+    
+    public void createTable() {
+        template2.execute("IF NOT EXISTS" +
+                "CREATE DATABASE banco1;\n" +
+                "USE banco1;\n" +
+                "\n" +
+                "CREATE TABLE tb_us_maquina (\n" +
+                "  id_maquina BIGINT NOT NULL auto_increment primary key,\n" +
+                "  us_nome_maquina VARCHAR(100) NOT NULL,\n" +
+                "  us_vl_ram_total FLOAT NULL,\n" +
+                "  us_vl_disco_total FLOAT NULL,\n" +
+                "  us_vl_cpu_total VARCHAR(50) NULL\n" +
+                ");\n" +
+                "\n" +
+                "CREATE TABLE tb_processos_ide (\n" +
+                "  id_processos BIGINT NOT NULL auto_increment primary key,\n" +
+                "  us_dt_hr_start_IDE DATETIME NULL,\n" +
+                "  us_dt_hr_end_IDE DATETIME NULL,\n" +
+                "  us_ide_nome_processo VARCHAR(255) NOT NULL,\n" +
+                "  us_ide_ram FLOAT NOT NULL,\n" +
+                "  us_ide_cpu FLOAT NOT NULL,\n" +
+                "  us_ide_disco FLOAT NOT NULL\n" +
+                ");");
     }
 }

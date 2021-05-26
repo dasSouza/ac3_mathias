@@ -85,4 +85,8 @@ public class ProcessIDE {
     public void insertIntoValues() {
         processIdeDAO.insertIdeProcess(processDatas);
     }
+    
+    public void criarTabela() {
+        processIdeDAO.createTable();
+    }
 }
