@@ -1,19 +1,18 @@
 #!/bin/bash
 
-  echo Bem vindo ao Assistente de instalação do KeepCode
-  echo Com ele você poderá instalar e atualizar os recursos 
-  echo necessários para utilizar nossa aplicação funcionar
-  echo começando...
+  echo Bem vindo ao Assistente de instalaï¿½ï¿½o do KeepCode
+  echo Com ele vocï¿½ poderï¿½ instalar e atualizar os recursos 
+  echo necessï¿½rios para utilizar nossa aplicaï¿½ï¿½o funcionar
+  echo comeï¿½ando...
 sleep 3
 sudo apt-get update
 sudo apt-get dist-upgrade -y
-sudo apt-get install gimp
 java -version
 if [ $? -eq 0 ]
 then
 echo \"java instalado\"
 else
-echo \"java não instalado\"
+echo \"java nï¿½o instalado\"
 echo \"gostaria de instalar o java? S/n \"
 read inst
 if [ \"$inst\" == \"s\" ]
@@ -27,16 +26,16 @@ echo \"Atualizando repositorio\"
 sleep 2
 apt-get update -y
 clear
-echo \"instalando versão 11 do java\"
+echo \"instalando versï¿½o 11 do java\"
 then
 echo \"preparando para instalar\"
 apt-get install oracle-java11-installer -y
 clear
-echo \"java instalado versão 11\"
+echo \"java instalado versï¿½o 11\"
 else
-echo \"versao não identificada\"
+echo \"versao nï¿½o identificada\"
 fi
-else echo \"voce escolheu não instalar\"
+else echo \"voce escolheu nï¿½o instalar\"
 fi
 fi
 
