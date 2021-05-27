@@ -1,0 +1,25 @@
+sudo apt update
+sudo apt install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+systemctl -t service
+docker --version
+
+sudo docker ps
+sudo docker images
+sudo docker run -d -p 3306:3306 --name  -e 
+sudo docker ps
+sudo docker ps -a
+sudo docker stats ConteinerBD
+sudo docker exec -it bfb9d1725221 bash
+mysql -u root -p
+SHOW DATABASES;
+exit exit
+sudo docker stop (ID do Container)
+sudo docker start (ID do Container)
+sudo docker ps -a
+
+sudo apt-get remove --auto-remove docker.io removendo o docker
+sudo docker exec -it banco1 bash
+ sudo docker run -d -p 3306:3306 --name apikeep2 teste-api-0.1
+docker rm $(docker ps -qa)

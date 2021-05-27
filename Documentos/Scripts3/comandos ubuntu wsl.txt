@@ -1,0 +1,6 @@
+service service_name start
+service service_name stop
+service service_name restart
+service service_name status
+chkconfig service_name on
+dpkg --list
