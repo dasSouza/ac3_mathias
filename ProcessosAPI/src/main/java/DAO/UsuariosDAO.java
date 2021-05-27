@@ -1,34 +1,34 @@
 package DAO;
 
 import ConectionBDA.Conection;
-import ConectionBDA.Conexao;
 import Usuario.UsuarioDatas;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
+import java.util.Scanner;
 
-public class UsuariosDAO  {
+public class UsuariosDAO {
     Conection conection = new Conection();
-    Conexao conection2 = new Conexao();
     JdbcTemplate template = new JdbcTemplate(conection.getDataSource());
-    JdbcTemplate template2 = new JdbcTemplate(conection2.getDatasource());
-    public UsuarioDatas usuario = new UsuarioDatas();
+    UsuarioDatas usuarioDatas = new UsuarioDatas();
 
-    public void usuarioLogin(String login, String senha) {
-        System.out.println("\nBuscando dados de usuario:\n");
-        List<UsuarioDatas> usersLogin = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?", new BeanPropertyRowMapper(UsuarioDatas.class),login,senha);
-        for (UsuarioDatas usuarios : usersLogin) {
-            usuarios.setUs_nome_funcionario(usuarios.getUs_nome_funcionario());
-            usuario.setUs_login(usuarios.getUs_login());
-            usuario.setUs_cargo(usuarios.getUs_cargo());
-            usuario.setUs_equipe(usuarios.getUs_equipe());
-            usuario.setFk_id_empresa(usuarios.getFk_id_empresa());
-            usuario.setUs_senha(usuarios.getUs_senha());
-            usuario.setUs_cargo(usuarios.getUs_cargo());
-            usuario.setUs_is_adm(usuarios.getUs_is_adm());
-            System.out.println(usuarios.toString());
+    Scanner texto = new Scanner(System.in);
+    String textos = texto.next();
+
+
+    public void usuarioLogin() {
+        List<UsuarioDatas> usersLogin = template.query("SELECT us_login,us_senha FROM tb_us_dados where id_cpf = '49633264752'", new BeanPropertyRowMapper(UsuarioDatas.class));
+        for (UsuarioDatas usuario : usersLogin) {
+            usuarioDatas.setUs_login(usuario.toString());
+            System.out.println(usuarioDatas.getUs_login());
         }
     }
 
+//    public void usuarioSenha() {
+//        List<UsuarioDatas> usersPassword = template.query("SELECT us_senha FROM tb_us_dados;", new BeanPropertyRowMapper(UsuarioDatas.class));
+//        for (UsuarioDatas usuario : usersPassword) {
+//            System.out.println(usuario.toString());
+//        }
+//    }
 }

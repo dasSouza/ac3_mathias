@@ -85,9 +85,4 @@ public class ProcessIDE {
     public void insertIntoValues() {
         processIdeDAO.insertIdeProcess(processDatas);
     }
-
-    public void getRamValues () {
-        processIdeDAO.getRamIde(processDatas);
-
-    }
 }

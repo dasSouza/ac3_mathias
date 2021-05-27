@@ -40,11 +40,10 @@ public class MaquinaDatas {
 
     @Override
     public String toString() {
-        return String.format("\nInformações da maquina\n" +
-                        "\nNome da maquina: %s " +
-                "\nRAM Total: %d " +
-                "\nProcessador: %s " +
-                "\nDisco Total: %d\n",
+        return String.format("nome %s " +
+                "ram = %d " +
+                "cpu = %s " +
+                "disco = %d",
                 getUs_name_pc(),
                 getUs_ram_total(),
                 getUs_cpu_nome(),
