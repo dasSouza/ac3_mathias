@@ -65,19 +65,25 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jpFundo" min="-2" pref="1443" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jpFundo" min="-2" pref="1443" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jpFundo" pref="768" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="742" max="32767" attributes="0"/>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jpFundo" pref="730" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -105,49 +111,41 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jblLogo" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="btnMaquina6" linkSize="5" min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="btnMaquina7" linkSize="5" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <Component id="btnMaquina1" linkSize="5" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="461" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Component id="btnMaquina8" min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="btnMaquina5" linkSize="5" min="-2" pref="190" max="-2" attributes="0"/>
+                                      <Component id="btnMaquina9" min="-2" pref="192" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jblLogo" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="387" max="-2" attributes="0"/>
                                           <Component id="jblBemVindo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jblNomeGestor" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="btnMaquina6" linkSize="5" min="-2" pref="192" max="-2" attributes="0"/>
-                                                      <Component id="btnMaquina7" linkSize="5" min="-2" pref="190" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
-                                                  <Component id="btnMaquina1" min="-2" pref="101" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="461" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btnMaquina8" min="-2" pref="192" max="-2" attributes="0"/>
-                                              <Component id="btnMaquina5" linkSize="5" min="-2" pref="190" max="-2" attributes="0"/>
-                                              <Component id="btnMaquina9" min="-2" pref="192" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel1" min="-2" pref="207" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
-                                          <Component id="jblMaquinaa" min="-2" pref="73" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblGestorEquipe" min="-2" pref="194" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
                               </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="466" max="-2" attributes="0"/>
+                                  <Component id="jblMaquinaa" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblGestorEquipe" min="-2" pref="194" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="373" max="32767" attributes="0"/>
+                          <EmptySpace pref="358" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -161,37 +159,23 @@
                               <Component id="jblBemVindo" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jblNomeGestor" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jblMaquinaa" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
-                                      <Component id="lblGestorEquipe" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jblMaquinaa" alignment="3" min="-2" pref="69" max="-2" attributes="0"/>
+                              <Component id="lblGestorEquipe" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="140" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnMaquina8" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnMaquina9" min="-2" pref="55" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          <Component id="btnMaquina1" linkSize="6" min="-2" pref="84" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnMaquina1" linkSize="6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnMaquina9" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                   <Component id="btnMaquina6" linkSize="6" min="-2" pref="55" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               </Group>
@@ -249,9 +233,6 @@
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\solucao-part1_3_1.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="VMNOTE - 144"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -421,14 +402,6 @@
                     <Property name="text" type="java.lang.String" value="NOME DA EQUIPE"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[280, 160]"/>
-                    </Property>
-                  </Properties>
-                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -502,6 +475,27 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jblNomeDev" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jblEquipe1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jblEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jblEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
+                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -509,55 +503,37 @@
                                   <Component id="jblLogo1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnEclipse" min="-2" pref="95" max="-2" attributes="0"/>
-                                      <Component id="btnXcode" min="-2" pref="94" max="-2" attributes="0"/>
+                                      <Component id="btnXcode" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
+                                      <Component id="btnEclipse" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnPhpStorm" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="btnIntellij" min="-2" pref="103" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnPyCharm" min="-2" pref="84" max="-2" attributes="0"/>
-                                      <Component id="btnWebStorm" min="-2" pref="89" max="-2" attributes="0"/>
+                                      <Component id="btnPhpStorm" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
+                                      <Component id="btnIntellij" min="-2" pref="148" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace pref="88" max="32767" attributes="0"/>
-                                          <Component id="btnVisualStudio" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                                          <Component id="btnAndorid" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="btnPyCharm" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnAndorid" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="btnWebStorm" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Component id="btnVisualStudio" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnVsCode" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Component id="btnNetBeans" min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnNetBeans" linkSize="7" min="-2" pref="148" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jblNomeDev" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jblEquipe1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jblEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jblEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="557" max="-2" attributes="0"/>
+                          <EmptySpace pref="306" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -566,42 +542,60 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jblLogo1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="jblNomeDev" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          <Component id="jblEquipe1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jblEquipe" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jblEmpresa" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="83" max="32767" attributes="0"/>
-                          <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnPyCharm" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="btnAndorid" linkSize="8" alignment="1" min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="btnIntellij" linkSize="8" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnVsCode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEclipse" linkSize="8" alignment="3" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+                                  <Component id="jblEscolha" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jblNomeDev" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="jblEquipe1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jblEquipe" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jblEmpresa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnWebStorm" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="btnXcode" linkSize="8" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="btnPhpStorm" linkSize="8" alignment="1" min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="btnNetBeans" linkSize="8" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="btnVisualStudio" linkSize="8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnPyCharm" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEclipse" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnAndorid" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnVsCode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnIntellij" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="60" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnWebStorm" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnXcode" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnPhpStorm" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnVisualStudio" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNetBeans" linkSize="8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="213" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel3">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="SansSerif" size="28" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="66" red="66" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Bem Vindo,"/>
+                  </Properties>
+                </Component>
                 <Component class="javax.swing.JLabel" name="jblEscolha">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -647,9 +641,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\eclipse.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Eclipse"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
@@ -675,7 +667,7 @@
                 <Component class="javax.swing.JButton" name="btnPyCharm">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -683,11 +675,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\pycharm_1_2.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="PyCharm"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -709,7 +701,7 @@
                 <Component class="javax.swing.JButton" name="btnPhpStorm">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -717,11 +709,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\phpstorm_1_2.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="PhpStorm"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -743,7 +735,7 @@
                 <Component class="javax.swing.JButton" name="btnXcode">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -751,8 +743,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
+                    <Property name="text" type="java.lang.String" value="Xcode"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -774,7 +769,7 @@
                 <Component class="javax.swing.JButton" name="btnIntellij">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -782,11 +777,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\images\intellj_1.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="Intelij"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder bevelType="1"/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -799,7 +794,7 @@
                 <Component class="javax.swing.JButton" name="btnWebStorm">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -807,11 +802,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\webstorm_1_1.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="WebStorm"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -841,9 +836,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\code.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="VsCode"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                         <BevelBorder/>
@@ -869,7 +862,7 @@
                 <Component class="javax.swing.JButton" name="btnNetBeans">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -877,11 +870,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\netbeans_1.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="NetBeans"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -903,7 +896,7 @@
                 <Component class="javax.swing.JButton" name="btnVisualStudio">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -911,11 +904,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\visualstudio_1_2.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="VisualST"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -937,7 +930,7 @@
                 <Component class="javax.swing.JButton" name="btnAndorid">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="d9" green="e4" red="ce" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="SansSerif" size="14" style="1"/>
@@ -945,11 +938,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="0" red="0" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\mathias.de.carvalho\Desktop\Git\KeepCode-Grupo-08\Tela-Login-Swing\tela-login\src\main\resoures\androidstudio_1.png"/>
-                    </Property>
+                    <Property name="text" type="java.lang.String" value="AndroidST"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="null"/>
+                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1096,7 +1089,7 @@
                                   <EmptySpace pref="489" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="467" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lblRamDev" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>

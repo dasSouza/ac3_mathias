@@ -2,89 +2,213 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="../../css/dash.css">
-    <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
-    <script defer src="../../js/dash.js"></script>
-    <script defer src="../../funcoes.js"></script>
-    <title>KCODE</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../../css/dash.css">
+  <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+  <script defer src="../../js/dash.js"></script>
+  <script defer src="../../funcoes.js"></script>
+  <title>KCODE</title>
 </head>
 
-<body onload="verificar_autenticacao()">
-    <main class="page">
-        <div class="menu">
-            <div class="container">
-              <div class="navigation">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <span class="icon">
-                        <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
-                      </span>
-                      <span class="title">Home</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a onclick="admOuNao()">
-                      <span class="icon">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                      </span>
-                      <span class="title">Profile</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tutorial.html">
-                      <span class="icon">
-                        <i class="fa fa-question-circle" aria-hidden="true"></i>
-                      </span>
-                      <span class="title">Tutorial</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="icon">
-                        <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
-                        </i>
-                      </span>
-                      <span class="title">Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <span class="icon">
-                        <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
-                      </span>
-                      <span class="title">Sign Out</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="toggle"></div>
-            </div>
-          </div>
-        <!-- menu end-->
-        <header>
-            <div class="box-recepction">
-                <div class="logo-recepction">
-                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
-                </div>
-            </div>
-        </header>
-        <div class="bgimg">
-            <div class="middle">
-              <h1>EM BREVE</h1>
-              <hr>
-              <p id="demo" style="font-size:30px"></p>
-            </div>
-            <div class="bottomleft">
-              <p>Aguarde-nos</p>
-            </div>
-          </div>
-    </main>
+<!-- <body onload="verificar_autenticacao()"> -->
+  <main class="page">
+    <div class="menu">
+      <div class="container">
+        <div class="navigation">
+          <ul>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+                </span>
+                <span class="title">Home</span>
+              </a>
+            </li>
+            <li>
+              <a onclick="admOuNao()">
+                <span class="icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </span>
+                <span class="title">Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="tutorial.html">
+                <span class="icon">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </span>
+                <span class="title">Tutorial</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                  </i>
+                </span>
+                <span class="title">Settings</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                </span>
+                <span class="title">Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="toggle"></div>
+      </div>
+    </div>
+    <!-- menu end-->
+    <header>
+      <div class="box-recepction">
+        <div class="logo-recepction">
+          <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+        </div>
+      </div>
+    </header>
+
+    .container
+    .row
+    .col-sm-2
+    .well
+    .col-sm-10
+    .well
+    h1#tour-step2 Lorem ipsum.
+    <div id="tour-step1" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+      </div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
+
+    .container
+    .row
+    .col-sm-2
+    .well
+    .col-sm-10
+    .well
+    h1#tour-step2 Lorem ipsum.
+    <div id="tour-step1" class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+      </div>
+      <div class="panel-body">
+        Panel content
+      </div>
+    </div>
+
+    #tour-step1-info.hidden
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, earum!
+
+    #tour-step2-info.hidden
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam excepturi, porro ipsa magnam, consequuntur quia.
+
+
+
+    #modal.modal.fade
+    .modal-dialog
+    .modal-content
+    .modal-header
+    button.close type="button" data-dismiss="modal"
+    span aria-hidden="true" &times;
+    span class="sr-only" Close
+    h4.modal-title Modal title
+    .modal-body
+    p Something awesome has changed in this site. Start tour to get a guided introduction.
+    .modal-footer
+    button.btn.btn-default data-dismiss="modal" No Thanks
+    button#start.btn.btn-primary autofocus="autofocus" data-dismiss="modal" Start tour
+  </main>
 </body>
 
 </html>
+<script>
+var GuidedTour = function (steps, options) {
+  $(document)
+    .on('click', '[data-toggle=popover]', function () {
+      var $context = $($(this).data('target')).popover('show');
+      var scrollTop = $context.data('bs.popover').$tip.offset().top - $(window).height() / 2;
+    $('html, body').clearQueue().animate({scrollTop: Math.max(scrollTop, 0)}, 'fast');
+      return false;
+    })
+    .on('click', '[data-dismiss="popover"]', function () {
+      $(this).closest('.popover').data('bs.popover').hide();
+      return false;
+    });
+
+  return {
+    start: function () {
+      var toursteps = [];
+      var defaults = {
+        html: true,
+        placement: 'auto top',
+        container: 'body',
+        trigger: 'manual'
+      };
+      var opts = $.extend(defaults, options);
+      $(steps).each(function (i, step) {
+        if (step.target) {
+          var $target = $(step.target);
+          if (!$target.length) {
+            console.warn('Target not found', $target);
+            return;
+          }
+          if (step.content instanceof $) step.content = step.content.html();
+          var content = step.content;
+          step.content = function () {
+            var out = content;
+            out += '<div class="mm_actions clearfix">';
+            if (i + 1 < steps.length) {
+              out += '<button type="button" class="btn btn-primary pull-right" autofocus data-dismiss="popover" data-toggle="popover" data-target="'+steps[i + 1].target+'">Next</button>';
+            }
+            out += '<button type="button" class="btn btn-default pull-right" data-dismiss="popover">Close</button>';
+            out += '</div>';
+            return out;
+          }
+          toursteps.push($target.popover($.extend(opts, step)));
+        }
+      });
+      
+      if (toursteps[0]) toursteps[0].popover('show');
+    }
+  }
+};
+
+$('#modal').modal();
+  
+
+$('#modal #start').click(function () {
+  var tour = GuidedTour([
+    {
+      target: '#tour-step1',
+      title: 'my title',
+      placement: 'bottom',
+      content: $('#tour-step1-info'),
+    },
+    {
+      target: '#tour-step2',
+      title: 'my title 2',
+      placement: 'left',
+      content: $('#tour-step2-info')
+    },
+    {
+      target: '.container',
+      placement: 'bottom',
+      title: 'my title',
+      content: 'Moep'
+    },
+  ]);
+
+  tour.start();
+});
+</script>

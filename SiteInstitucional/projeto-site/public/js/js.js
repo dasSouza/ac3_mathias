@@ -2,12 +2,12 @@
 
 const ulIDES = document.querySelector("ul.IDES");
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   const imagems = document.createElement("img");
 
   const random = (min, max) => Math.random() * (max - min) + min;
 
-  const size = Math.floor(random(10, 120));
+  const size = Math.floor(random(60, 120));
 
   const randomTrunc = Math.floor(random(1, 2));
 
@@ -17,39 +17,38 @@ for (let i = 0; i < 20; i++) {
   const duration = random(24, 12);
 
   arrayImage = [
-    "img/netbeans.png",
-    "img/androidstudio.png",
+    "img/netbeans64.png",
+    "img/studio64.png",
     "img/eclipse.png",
-    "img/intellij.png",
-    "img/phpstorm.png",
+    "img/idea64.png",
+    "img/phpstorm64.png",
     "img/xcode.png",
-    "img/sublimetext.png",
-    "img/pycharm.png",
-    "img/sublimetext.png",
-    "img/vsstudiocode.png",
+    "img/sublime.png",
+    "img/pycharm64.png",
+    "img/Code.png",
+    "img/devenv.png",
+    "img/webstorm64.png"
   ];
 
   for (let value of arrayImage) {
-    var randomImages = Math.floor(random(0, 10));
+    var randomImages = Math.floor(random(0, 11));
   }
-  console.log(randomImages);
   let imagem = arrayImage[randomImages];
 
   imagems.src = `${imagem}`;
-  imagems.style.width = `${size}px`;
 
-  imagems.style.height = `${size}px`;
+  imagems.style.width = `140px`;
+  imagems.style.height = `80px`;
+
   imagems.style.bottom = `-${size}px`;
-  imagems.style.borderRadius = `50%`;
 
   imagems.style.left = `${position}%`;
 
   imagems.style.animationDelay = `${delay}s`;
 
   imagems.style.animationDuration = `${duration}s`;
-  imagems.style.animationTimingFunction = `cubic-bezier(${
-    (Math.random(), Math.random(), Math.random(), Math.random())
-  })`;
+  imagems.style.animationTimingFunction = `cubic-bezier(${(Math.random(), Math.random(), Math.random(), Math.random())
+    })`;
 
   ulIDES.appendChild(imagems);
 }
@@ -167,8 +166,9 @@ function cadastrar() {
     if (TestaCPF(strCPF) == false) {
       Swal.fire({
         icon: "error",
+        iconColor: '#c73535',
         title: "Por favor informe um CPF válido.",
-        background: "#CEE4D9",
+        background: "#D6ECE1",
         confirmButtonColor: "#A3C6C1",
       });
     } else if (cpfValido.test(regraValida) == true) {
@@ -177,8 +177,9 @@ function cadastrar() {
       if (response.ok) {
         Swal.fire({
           icon: "success",
+          iconColor: '#50d150',
           title: "funcionário cadastrado com sucesso!",
-          background: "#CEE4D9",
+          background: "#D6ECE1",
         });
       } else {
         console.log("Erro de cadastro!");
@@ -187,8 +188,9 @@ function cadastrar() {
           div_erro.innerHTML = resposta;
           Swal.fire({
             icon: "error",
+            iconColor: '#c73535',
             title: "Falha ao cadastrar funcionário!",
-            background: "#CEE4D9",
+            background: "#D6ECE1",
             confirmButtonColor: "#A3C6C1",
           });
           console.log(resposta);
@@ -233,31 +235,140 @@ function mCPF(cpf) {
   return cpf;
 }
 
+// SALVAR IDES
 function Salvar() {
-  var formulario = new URLSearchParams(new FormData(form_cadastro_ides));
-  fetch("/ides/cadastrarIDE", {
-    method: "POST",
-    body: formulario,
-  }).then(function (response) {
-    console.log("batata");
-    if (response.ok) {
+  Swal.fire({
+    title: 'Você tem certeza?',
+    text: "Caso clique em confirmar, alterará as IDE's visualizadas na página inicial.",
+    icon: 'warning',
+    iconColor: '#c73535',
+    showCancelButton: true,
+    confirmButtonColor: ' #88A9A7',
+    cancelButtonColor: '#B73447',
+    confirmButtonText: 'Sim, aceito!',
+    cancelButtonText: 'Cancelar',
+    background: "#D6ECE1"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // CONFIRMOU
+
+      validacaoIdeSelecionadas()
+    } else {
+      // CANCELOU
       Swal.fire({
-        icon: "success",
-        title: "funcionário cadastrado com sucesso!",
-        background: "#CEE4D9",
+        title: 'Cancelado!',
+        text: 'Você ainda pode escolher outras IDEs!',
+        icon: 'success',
+        iconColor: '#50d150',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#A3C6C1',
+        background: "#D6ECE1"
+      })
+    }
+  })
+}
+
+function validacaoIdeSelecionadas() {
+  validarDiferenca();
+
+  if (apagarIDE.length == 0 && diferencaValue.length == 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Você não alterou nada !😢',
+      confirmButtonText: 'OK',
+      confirmButtonColor: ' #88A9A7',
+      background: "#D6ECE1"
+    })
+  }
+
+  if (apagarIDE.length != 0) {
+    for (let index = 0; index < apagarIDE.length; index++) {
+      const element = apagarIDE[index];
+      removeIDE(element);
+    }
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+  }
+
+  if (diferencaValue.length != 0) {
+    console.log("diferença: " + diferencaValue);
+    let arrUnique = [...new Set(diferencaValue)];
+
+    for (let index = 0; index < arrUnique.length; index++) {
+      const element = arrUnique[index];
+      addIDE(element);
+    }
+
+    var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+  }
+
+  diferencaValue = [];
+  valuesIDE = [];
+  apagarIDE = [];
+  recuperaIDE = [];
+
+  if (Toast) {
+    Toast.fire({
+      icon: 'success',
+      iconColor: '#50d150',
+      background: "#D6ECE1",
+      title: 'Alteração realizada com sucesso! 😍'
+    })
+    document.getElementById('salvarbtn').disabled = true;
+    document.getElementById('salvarbtn').style.visibility = 'hidden';
+    setTimeout(function () { window.location.href = "dashboard.html" }, 3100);
+  }
+}
+
+function addIDE(ideValor) {
+  var idFuncionario = sessionStorage.id_usuario_meuapp;
+  console.log("Entrei no addIDE");
+  fetch(`/ides/cadastrarIDE/${ideValor}/${idFuncionario}`, {
+    method: "POST",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        console.log("adicionou IDE");
       });
     } else {
-      console.log("Erro de cadastro!");
-      response.text().then(function (resposta) {
-        Swal.fire({
-          icon: "error",
-          title: "Falha ao cadastrar funcionário!",
-          background: "#CEE4D9",
-          confirmButtonColor: "#A3C6C1",
-        });
-        console.log(resposta);
-      });
+      console.log("Erro ao cadastrar IDE");
     }
   });
-  return false;
+}
+
+function removeIDE(ideValor) {
+  var idFuncionario = sessionStorage.id_usuario_meuapp;
+  console.log("Entrei no removeIDE");
+  fetch(`/ides/descadastrarIDE/${ideValor}/${idFuncionario}`, {
+    method: "POST",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        console.log("apagou IDE");
+      });
+    } else {
+      console.log("Erro ao descadastrar IDE");
+    }
+  });
 }

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
+  <script defer src="../../js/js.js"></script>
   <script defer src="../../funcoes.js"></script>
   <title>KCODE</title>
   <!-- links api -->
@@ -75,9 +76,8 @@
     <header>
       <div class="box-recepction">
         <div class="recection-welcome">
-          <h1>Bem vindo, <b id="b_usuario"></b> </h1>
-          <br>
-          <p>Veja aqui os gráficos:</p>
+          <h1>Aqui você pode ver o desempenho da máquina!</b> </h1>
+          <!-- <p>Aqui você pode ver o desempenho da máquina</p> -->
         </div>
         <div class="logo-recepction">
           <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
@@ -86,67 +86,162 @@
       </div>
     </header>
     <div class="ides-container">
-      <div class="container-ides">
-        <div class="separa-graficos">
-          <img src="../../img/eclipse.png" alt="" id="img-grafic">
-          <div id="grafico_1" class="graficos-1"> 
-          </div>
-          <div class="container-relogio">
-            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
-            <div class="label-hora">21H00M</div>
-          </div>
-        </div>
+      <div class="container-info">
 
-        <div class="separa-graficos">
-          <img src="../../img/intellj.png" alt="" id="img-grafic">
-          <div id="grafico_2" class="graficos-1">
-          </div>
-          <div class="container-relogio">
-            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
-            <div class="label-hora">01H22M</div>
-          </div>
-        </div>
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Usuário</h1>
+            <div class="edit">
+              <div class="tooltip">
+                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <span class="tooltiptext">Editar dados</span>
+              </div>
 
-        <div class="separa-graficos">
-          <img src="../../img/visualstudio.png" alt="" id="img-grafic">
-          <div id="grafico_3" class="graficos-1"> 
+            </div>
           </div>
-          <div class="container-relogio">
-            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
-            <div class="label-hora">46H62M</div>
-          </div>
-        </div>
 
-        <div class="separa-graficos">
-          <img src="../../img/netbeans.png" alt="" id="img-grafic">
-          <div id="grafico_4" class="graficos-1">  
+
+          <div class="container-label">
+            <p id="nome"> Nome: </p>
+            <p id="gestor"> Cargo:</p>
+            <p id="qtd_membros"> Time:</p>
           </div>
-          <div class="container-relogio">
-            <img src="../../img/relogio.svg" alt="" style="height: 40px;" class="relogio-grafico">
-            <div class="label-hora">28H07M</div>
+
+
+        </div>
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Máquina</h1>
           </div>
+
+          <div class="container-label">
+            <p id="nome"> Nome: </p>
+            <p id="nome"> Total ram: </p>
+            <p id="gestor"> Total disco:</p>
+            <p id="qtd_membros"> Total CPU:</p>
+          </div>
+
         </div>
       </div>
-      <div class="info">as</div>
+      <div class="container-ides">
+        <div class="titulo-hardware">
+          <p>Média semanal</p>
+        </div>
+        <div class="container-labell">
+          <div class="label-info">
+            <p>Tempo ultilizado</p>
+
+
+          </div>
+
+          <div class="label-info">
+            <p>IDE's ultilizadas</p>
+          </div>
+        </div>
+        <div class="container-grafic">
+          <div class="grafic">
+            <div class="box-grafic">
+              <div class="teste-grafico">
+
+              </div>
+            </div>
+
+
+          </div>
+          <div class="grafic">
+            <div class="grafic-container">
+              <div class="separa-graficos">
+                <img src="../../img/idea64.png" alt="" id="img-grafic">
+                <div id="grafico_1" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>21H00M</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="separa-graficos">
+                <img src="../../img/devenv.png" alt="" id="img-grafic">
+                <div id="grafico_2" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>03H00M</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="separa-graficos">
+                <img src="../../img/studio64.png" alt="" id="img-grafic">
+                <div id="grafico_3" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>03H00M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="separa-graficos">
+                <img src="../../img/eclipse.png" alt="" id="img-grafic">
+                <div id="grafico_3" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>03H00M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="separa-graficos">
+                <img src="../../img/code.png" alt="" id="img-grafic">
+                <div id="grafico_2" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>03H00M</p>
+                  </div>
+                </div>
+              </div>
+              <div class="separa-graficos">
+                <img src="../../img/phpstorm64.png" alt="" id="img-grafic">
+                <div id="grafico_2" class="graficos-1">
+                </div>
+                <div class="container-relogio">
+                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                  <div class="label-hora">
+                    <p>03H00M</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="legenda">
+
+              <div class="box-legenda">
+                <div class="uso-ram"></div>
+                <p>Uso de ram</p>
+              </div>
+
+              <div class="box-legenda">
+                <div class="uso-tempo"></div>
+                <p>Tempo de uso</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-   
+
     <div class="footer-ajuda">
 
-      <div class="box-legenda">
-        <div class="legenda"></div>
-          <p>*Ram</p>
-        </div>
 
-      <div class="box-legenda">
-        <div class="uso-hardware"></div>
-          <p>Tempo</p>
-        </div>
-
-
-        <div class="box-legenda">
-          <div class="uso-ram"></div>
-            <p>Uso</p>
-          </div>
 
       <div class="ajuda">
 
@@ -167,8 +262,12 @@
 <script>
 
   // window.onload = verificar_autenticacao();
-  window.onload = obterDadosGraficoPrimeiraVez(1);
-  window.onload = carregarGrafico();
+  // window.onload = obterDadosGraficoPrimeiraVez(1);
+  // window.onload = carregarGrafico();
+ 
+ 
+
+  
 
   function carregarGrafico() {
     setInterval(
@@ -204,8 +303,8 @@
           var ram = resultado[2]
 
           console.log("ram " + ram)
-          if(ram <= 4) {
-            
+          if (ram <= 4) {
+
           }
           grafico_1.style.width = `13.7%`
           grafico_1.innerHTML = `13.7%`
@@ -226,5 +325,9 @@
       });
 
   }
-
+  grafico_1.style.width = `13.7%`
+  grafico_1.innerHTML = `13.7%`
+  grafico_3.style.width = `50.7%`
+  grafico_3.innerHTML = `50.7%`
+  
 </script>

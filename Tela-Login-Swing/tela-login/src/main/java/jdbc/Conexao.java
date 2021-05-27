@@ -1,11 +1,6 @@
 package jdbc;
 
-import br.com.banctec.tela.login.TelaLogin;
-import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import log.GerandoLog;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import tabelas.TbUsDados;
@@ -19,17 +14,6 @@ public class Conexao {
     private BasicDataSource banco;
 
     public Conexao() {
-        
-        GerandoLog gravandoLog = new GerandoLog();
-        
-        try {
-            gravandoLog.gravarLog("iniciando conexão com o banco");
-
-        } catch (IOException ex) {
-
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
         this.banco = new BasicDataSource();
         banco.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         banco.setUrl("jdbc:sqlserver://grupo-8.database.windows.net;databaseName=kcode;");
