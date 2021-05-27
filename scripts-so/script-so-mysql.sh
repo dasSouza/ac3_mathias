@@ -2,6 +2,8 @@ echo "(tpu setaf 10)[Bot assistant]:$(tput setaf 7 ) Vamos iniciar stopando o se
 sudo docker stop mysql
 sleep 2
 echo "(tpu setaf 10)[Bot assistant]:$(tput setaf 7 ) Agora iniciaremos um container com o mysql dentro."
+cd Desktop
+cd KeepCode
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo docker pull keepcode1/mysql-banco-create:banco
