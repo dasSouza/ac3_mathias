@@ -1,11 +1,10 @@
 package AppKeepCode;
 
-import DAO.CompanyDAO;
-import DAO.UsuariosDAO;
 import ProcessoMaq.GetAllProcess;
 import ProcessosIDE.ProcessIDE;
 
 public class KeepCodeAPI {
+
     public static void main(String[] args) {
         GetAllProcess getAllDatesProcess = new GetAllProcess();
         ProcessIDE processosIDE = new ProcessIDE();
@@ -14,19 +13,18 @@ public class KeepCodeAPI {
         getAllDatesProcess.getDiscoTotal();
         getAllDatesProcess.getCpuNome();
         getAllDatesProcess.memoriaTotal();
-
-        getAllDatesProcess.insertDatesMaquina();
+//        getAllDatesProcess.insertDatesMaquina();;
 
         processosIDE.putAllNameIde();
         processosIDE.getIdeName();
         processosIDE.getIdeCpu();
         processosIDE.getIdeRam();
-        processosIDE. getIdeDisco();
+        processosIDE.getIdeDisco();
+        processosIDE.getRamValues();
 
-//        processosIDE.showAll();
-
-        processosIDE.insertIntoValues();
+        processosIDE.showAll();
+//
+//        processosIDE.insertIntoValues();
 
     }
 }
-
