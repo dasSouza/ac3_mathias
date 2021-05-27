@@ -83,27 +83,27 @@ CREATE TABLE `tb_log_hardware`(
 
 -- select * from tb_log_hardware
 
-INSERT INTO teste.tb_empresa
+INSERT INTO tb_empresa
 (kc_nome_comp, kc_cep_comp, kc_cnpj_comp, kc_telefone_comp, kc_email_comp)
 VALUES('valemobi', '0255505', '10535290000121', '1185476358', 'valemobi@vm.com.br');
 
-INSERT INTO teste.tb_ide_maquina
+INSERT INTO tb_ide_maquina
 (us_nome_ide, fk_id_maquina)
 VALUES('idea64', 1);
 
-INSERT INTO teste.tb_log_hardware
+INSERT INTO tb_log_hardware
 (us_dt_hr_log, us_log_hardware, us_total_ram, us_total_cpu, us_total_disco, fk_id_maq)
 VALUES(NOW(3), 'google chrome', 8.32, 48.20, 62.10, 1);
 
-INSERT INTO teste.tb_processos_ide
+INSERT INTO tb_processos_ide
 (us_dt_hr_processo, us_ide_nome_processo, us_extensao_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, fk_id_ide)
 VALUES(NOW(3), 'idea64', '.java', 6.00, 22.17, 6.00, 1);
 
-INSERT INTO teste.tb_us_dados
+INSERT INTO tb_us_dados
 (id_cpf, us_nome_funcionario, us_cargo, us_login, us_senha, us_is_adm, fk_id_empresa)
-VALUES(49633264750, 'Samuel Lopes Almeida', 'estágiario', 'samuca', 'Teste123', 0, 1);
+VALUES(49633264750, 'Samuel Lopes Almeida', 'estágiario', 'samuca', 'Teste23', 0, 1);
 
-INSERT INTO teste.tb_us_maquina
+INSERT INTO tb_us_maquina
 (us_nome_maquina, us_vl_ram_total, us_vl_disco_total, us_vl_cpu_total, fk_id_funcionario)
 VALUES('vm007', 16.00, 10.00, 'i5-9400f', 49633264750);
 
