@@ -1,0 +1,14 @@
+DAO\ProcessIdeDAO.class
+ConectionBDA\Conection.class
+AppKeepCode\KeepCodeAPI.class
+Usuario\UsuarioDatas.class
+ProcessoMaq\GetAllProcess.class
+SlackConnection\TestSlackConnection.class
+DAO\UsuariosDAO.class
+Empresa\CompanyData.class
+ProcessoMaq\MaquinaDatas.class
+SlackConnection\Slack.class
+DAO\ProcessMaqDAO.class
+ProcessosIDE\ProcessDatas.class
+ProcessosIDE\ProcessIDE.class
+DAO\CompanyDAO.class
