@@ -6,6 +6,5 @@ cd Desktop
 cd KeepCode
 sudo docker pull keepcode1/mysql-banco-create:banco
 sudo docker build -t keepcode1/mysql-banco-create:banco .
-sudo docker cp banco.sql /docker-entrypoint-initdb.d/
-sudo docker run -d -t -p 3306:3306 --name=mysql4 banco
-sudo docker exec -it mysql4 bash
+sudo docker run -it -d -t  -p 3306:3306 --name=mysql1 banco
+sudo docker exec -it mysql1 bash
