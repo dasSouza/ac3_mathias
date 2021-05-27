@@ -5,10 +5,12 @@ Usuario\UsuarioDatas.class
 ProcessoMaq\GetAllProcess.class
 SlackConnection\TestSlackConnection.class
 DAO\UsuariosDAO.class
+ConectionBDA\ConectionMySql.class
 Empresa\CompanyData.class
 ProcessoMaq\MaquinaDatas.class
 SlackConnection\Slack.class
 DAO\ProcessMaqDAO.class
+AppKeepCode\KeepCodeAPI$1.class
 ProcessosIDE\ProcessDatas.class
 ProcessosIDE\ProcessIDE.class
 DAO\CompanyDAO.class
