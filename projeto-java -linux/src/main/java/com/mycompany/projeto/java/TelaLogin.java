@@ -1363,7 +1363,7 @@ public class TelaLogin extends javax.swing.JFrame {
         SystemTray systemTray = SystemTray.getSystemTray();
 
         //Toolkit.getDefaultToolkit().getImage("src/resources/busylogo.jpg");
-        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Users\\mathias.de.carvalho\\Desktop\\Git\\KeepCode-Grupo-08\\SiteInstitucional\\projeto-site\\public\\img\\logo-login.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\projeto-java\\src\\main\\java\\com\\resource\\logo-login.png");
 
         //popupmenu
         PopupMenu trayPopupMenu = new PopupMenu();
