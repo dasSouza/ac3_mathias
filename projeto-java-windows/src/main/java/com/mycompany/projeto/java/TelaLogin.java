@@ -40,6 +40,7 @@ import AppKeepCode.KeepCodeAPI;
 import Usuario.UsuarioDatas;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 import javax.swing.Icon;
 
 /**
@@ -79,11 +80,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jblNomeGestor = new javax.swing.JLabel();
         btnMaquina1 = new javax.swing.JButton();
         jblLogo = new javax.swing.JLabel();
-        btnMaquina5 = new javax.swing.JButton();
         btnMaquina6 = new javax.swing.JButton();
-        btnMaquina7 = new javax.swing.JButton();
-        btnMaquina8 = new javax.swing.JButton();
-        btnMaquina9 = new javax.swing.JButton();
+        btnMaquina2 = new javax.swing.JButton();
+        btnMaquina3 = new javax.swing.JButton();
+        btnMaquina5 = new javax.swing.JButton();
+        btnMaquina4 = new javax.swing.JButton();
         lblGestorEquipe = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         DashDev = new javax.swing.JFrame();
@@ -161,13 +162,16 @@ public class TelaLogin extends javax.swing.JFrame {
         jblNomeGestor.setForeground(new java.awt.Color(102, 102, 102));
         jblNomeGestor.setText("Nome");
 
-        btnMaquina1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina1.setBackground(new java.awt.Color(206, 228, 217));
         btnMaquina1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina1.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina1.setText("VMNOTE - 144");
+        btnMaquina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina1.setText("VMNOTE - 141");
         btnMaquina1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnMaquina1.setBorderPainted(false);
         btnMaquina1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMaquina1.setMaximumSize(new java.awt.Dimension(105, 88));
+        btnMaquina1.setPreferredSize(new java.awt.Dimension(105, 88));
         btnMaquina1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMaquina1ActionPerformed(evt);
@@ -179,23 +183,11 @@ public class TelaLogin extends javax.swing.JFrame {
         jblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jblLogo.setText("KEEPCODE");
 
-        btnMaquina5.setBackground(new java.awt.Color(255, 255, 255));
-        btnMaquina5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnMaquina5.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina5.setText("VMNOTE - 146");
-        btnMaquina5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnMaquina5.setBorderPainted(false);
-        btnMaquina5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMaquina5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMaquina5ActionPerformed(evt);
-            }
-        });
-
         btnMaquina6.setBackground(new java.awt.Color(255, 255, 255));
         btnMaquina6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnMaquina6.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina6.setText("VMNOTE - 142");
+        btnMaquina6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina6.setText("VMNOTE - 146");
         btnMaquina6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         btnMaquina6.setBorderPainted(false);
         btnMaquina6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -205,42 +197,59 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        btnMaquina7.setBackground(new java.awt.Color(255, 255, 255));
-        btnMaquina7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnMaquina7.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina7.setText("VMNOTE - 143");
-        btnMaquina7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnMaquina7.setBorderPainted(false);
-        btnMaquina7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMaquina7.addActionListener(new java.awt.event.ActionListener() {
+        btnMaquina2.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina2.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina2.setText("VMNOTE - 142");
+        btnMaquina2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina2.setBorderPainted(false);
+        btnMaquina2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMaquina2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMaquina7ActionPerformed(evt);
+                btnMaquina2ActionPerformed(evt);
             }
         });
 
-        btnMaquina8.setBackground(new java.awt.Color(255, 255, 255));
-        btnMaquina8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnMaquina8.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina8.setText("VMNOTE - 145");
-        btnMaquina8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnMaquina8.setBorderPainted(false);
-        btnMaquina8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMaquina8.addActionListener(new java.awt.event.ActionListener() {
+        btnMaquina3.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina3.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina3.setText("VMNOTE - 143");
+        btnMaquina3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina3.setBorderPainted(false);
+        btnMaquina3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMaquina3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMaquina8ActionPerformed(evt);
+                btnMaquina3ActionPerformed(evt);
             }
         });
 
-        btnMaquina9.setBackground(new java.awt.Color(255, 255, 255));
-        btnMaquina9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnMaquina9.setForeground(new java.awt.Color(0, 0, 0));
-        btnMaquina9.setText("VMNOTE - 141");
-        btnMaquina9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        btnMaquina9.setBorderPainted(false);
-        btnMaquina9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMaquina9.addActionListener(new java.awt.event.ActionListener() {
+        btnMaquina5.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina5.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina5.setText("VMNOTE - 145");
+        btnMaquina5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina5.setBorderPainted(false);
+        btnMaquina5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMaquina5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMaquina9ActionPerformed(evt);
+                btnMaquina5ActionPerformed(evt);
+            }
+        });
+
+        btnMaquina4.setBackground(new java.awt.Color(255, 255, 255));
+        btnMaquina4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnMaquina4.setForeground(new java.awt.Color(0, 0, 0));
+        btnMaquina4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/solucao-part1_3_1.png"))); // NOI18N
+        btnMaquina4.setText("VMNOTE - 144");
+        btnMaquina4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        btnMaquina4.setBorderPainted(false);
+        btnMaquina4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMaquina4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaquina4ActionPerformed(evt);
             }
         });
 
@@ -258,7 +267,6 @@ public class TelaLogin extends javax.swing.JFrame {
             .addGroup(jpFundoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jblLogo)
                     .addGroup(jpFundoLayout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,30 +275,27 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jblNomeGestor))
                             .addGroup(jpFundoLayout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnMaquina1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnMaquina2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnMaquina3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(443, 443, 443)
                                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpFundoLayout.createSequentialGroup()
-                                        .addGap(141, 141, 141)
-                                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jpFundoLayout.createSequentialGroup()
-                                        .addGap(201, 201, 201)
-                                        .addComponent(btnMaquina1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(461, 461, 461)
-                                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnMaquina4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jpFundoLayout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(175, 175, 175)
                                 .addComponent(jblMaquinaa, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblGestorEquipe, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(373, Short.MAX_VALUE))
+                                .addComponent(lblGestorEquipe, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jblLogo))
+                .addContainerGap(357, Short.MAX_VALUE))
         );
 
-        jpFundoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnMaquina5, btnMaquina6, btnMaquina7});
+        jpFundoLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnMaquina1, btnMaquina2, btnMaquina3, btnMaquina4, btnMaquina5, btnMaquina6});
 
         jpFundoLayout.setVerticalGroup(
             jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,29 +315,22 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addGroup(jpFundoLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
-                        .addComponent(btnMaquina8, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
-                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jpFundoLayout.createSequentialGroup()
-                                .addComponent(btnMaquina9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(85, 85, 85))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpFundoLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(btnMaquina1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(btnMaquina6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)))
+                .addGap(12, 12, 12)
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMaquina5)
-                    .addComponent(btnMaquina7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(139, 139, 139))
+                    .addComponent(btnMaquina1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMaquina4))
+                .addGap(73, 73, 73)
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMaquina2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMaquina5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84)
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMaquina6)
+                    .addComponent(btnMaquina3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jpFundoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnMaquina1, btnMaquina5, btnMaquina6, btnMaquina7});
+        jpFundoLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnMaquina1, btnMaquina2, btnMaquina3, btnMaquina4, btnMaquina5, btnMaquina6});
 
         TelaDashGestor.setLayer(jpFundo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -349,7 +347,7 @@ public class TelaLogin extends javax.swing.JFrame {
             TelaDashGestorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TelaDashGestorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+                .addComponent(jpFundo, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1235,26 +1233,26 @@ public class TelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnMaquina1ActionPerformed
 
-    private void btnMaquina5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina5ActionPerformed
-        chamarTelaFuncionario("note6");
-    }//GEN-LAST:event_btnMaquina5ActionPerformed
-
     private void btnMaquina6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina6ActionPerformed
-        chamarTelaFuncionario("note2");
+        chamarTelaFuncionario("note6");
     }//GEN-LAST:event_btnMaquina6ActionPerformed
 
-    private void btnMaquina7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina7ActionPerformed
+    private void btnMaquina2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina2ActionPerformed
+        chamarTelaFuncionario("note2");
+    }//GEN-LAST:event_btnMaquina2ActionPerformed
+
+    private void btnMaquina3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina3ActionPerformed
         chamarTelaFuncionario("note3");
-    }//GEN-LAST:event_btnMaquina7ActionPerformed
+    }//GEN-LAST:event_btnMaquina3ActionPerformed
 
-    private void btnMaquina8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina8ActionPerformed
+    private void btnMaquina5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina5ActionPerformed
         chamarTelaFuncionario("note5");
-    }//GEN-LAST:event_btnMaquina8ActionPerformed
+    }//GEN-LAST:event_btnMaquina5ActionPerformed
 
-    private void btnMaquina9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina9ActionPerformed
+    private void btnMaquina4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMaquina4ActionPerformed
         chamarTelaFuncionario("note4");
 
-    }//GEN-LAST:event_btnMaquina9ActionPerformed
+    }//GEN-LAST:event_btnMaquina4ActionPerformed
 
     private void btnAndoridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndoridActionPerformed
 
@@ -1315,7 +1313,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         } catch (IOException ex) {
 
-            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaLogin.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
 
         Conexao con = new Conexao();
@@ -1363,7 +1362,7 @@ public class TelaLogin extends javax.swing.JFrame {
         SystemTray systemTray = SystemTray.getSystemTray();
 
         //Toolkit.getDefaultToolkit().getImage("src/resources/busylogo.jpg");
-        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\projeto-java\\src\\main\\java\\com\\resource\\logo-login.png");
+        Image image = Toolkit.getDefaultToolkit().getImage("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\projeto-java-windows\\src\\main\\resources\\logo-login.png");
 
         //popupmenu
         PopupMenu trayPopupMenu = new PopupMenu();
@@ -1393,7 +1392,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
                 } catch (IOException ex) {
 
-                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaLogin.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1422,7 +1422,8 @@ public class TelaLogin extends javax.swing.JFrame {
                     gravandoLog.gravarLog("finalizando aplicação");
 
                 } catch (IOException ex) {
-                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaLogin.class
+                            .getName()).log(Level.SEVERE, null, ex);
 
                 }
 
@@ -1471,11 +1472,11 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnIntellij;
     private javax.swing.JButton btnMaquina1;
+    private javax.swing.JButton btnMaquina2;
+    private javax.swing.JButton btnMaquina3;
+    private javax.swing.JButton btnMaquina4;
     private javax.swing.JButton btnMaquina5;
     private javax.swing.JButton btnMaquina6;
-    private javax.swing.JButton btnMaquina7;
-    private javax.swing.JButton btnMaquina8;
-    private javax.swing.JButton btnMaquina9;
     private javax.swing.JButton btnNetBeans;
     private javax.swing.JButton btnPhpStorm;
     private javax.swing.JButton btnPyCharm;
