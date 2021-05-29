@@ -270,13 +270,13 @@
         response.json().then(function (resposta) {
           console.log("Entrou na RAM")
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          console.log(`Dados recebidos: ${resposta}`);
           let resultado = [];
+          let resultado2 = [];
           let resultadoRam = [];
           let resultadoIDE = [];
-          let resultadoLimpo = []
+          let resultadoLimpo = [];
           let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
-            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
+            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"];
 
           resultadoIDE.length <= 6 ? next.style.visibility = "hidden" : next.style.visibility = "visible"
 
@@ -445,12 +445,14 @@
           if (contador == 0) {
             if (resposta == 0) {
               let aviso = document.createElement('div')
+              aviso.style = `font-family: 'Inter', sans-serif;`
               aviso.style.position = "absolute";
-              aviso.style.fontSize = "8vh";
+              aviso.style.fontSize = "7.4vh";
               aviso.style.textAlign = "center"
-              aviso.innerHTML = "Você não tem nenhuma IDE selecionada <br> Vá até Profile e selecione a IDE que deseja monitorar"
+              aviso.style.color = "#514e4d"
+              aviso.innerHTML = "Você não tem nenhuma IDE selecionada! <br> Vá até Perfil e selecione a IDE que deseja monitorar."
               aviso.id = "aviso"
-              document.querySelector('.ides-container').appendChild(aviso);
+              document.querySelector('.separation-ides').appendChild(aviso);
               contador++
             } else {
               chamarGraficos()

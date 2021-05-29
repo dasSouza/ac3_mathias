@@ -45,14 +45,24 @@ router.get('/processos/ram/:id_usuario', function (req, res, next) {
 	var CPF = req.params.id_usuario;
 
 	console.log("Encontrei a RAM 1")
-	const instrucaoSql = `SELECT
-						us_ide_ram, 
-						us_ide_nome_processo 
-						FROM tb_processos_ide AS processo
-						JOIN tb_us_maquina AS maq
-						ON maq.id_maquina = processo.fk_id_maquina 
-						AND fk_id_funcionario = ${CPF}
-						ORDER BY us_dt_hr_start_IDE`;
+	const instrucaoSql = `SELECT 
+							us_ide_nome_processo, 
+							us_ide_ram from tb_processos_ide 
+							where us_ide_nome_processo 
+							IN (SELECT us_nome_ide FROM tb_ide_maquina
+								INNER JOIN tb_us_ass_maquina as ide
+								ON tb_ide_maquina_id_ide = id_ide
+								AND tb_us_maquina_id_maquina = (
+									SELECT id_maquina 
+									FROM tb_us_maquina 
+									WHERE fk_id_funcionario = ${CPF})
+								)
+							AND fk_id_maquina = (
+								SELECT id_maquina 
+								FROM tb_us_maquina 
+								WHERE fk_id_funcionario = ${CPF}); `
+							
+						
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
