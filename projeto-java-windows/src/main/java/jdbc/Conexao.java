@@ -23,7 +23,7 @@ public class Conexao {
         GerandoLog gravandoLog = new GerandoLog();
         
         try {
-            gravandoLog.gravarLog("iniciando conexão com o banco");
+            gravandoLog.gravarLog("conectando com o banco");
 
         } catch (IOException ex) {
 

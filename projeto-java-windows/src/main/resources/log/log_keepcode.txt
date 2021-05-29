@@ -1,0 +1,124 @@
+29/05/2021 17:33:51 INICIANDO APLICAÇÃO KEEP CODE 
+
+29/05/2021 17:33:51 finalizando aplicação 
+
+29/05/2021 17:33:58 iniciando conexão com o banco 
+
+29/05/2021 17:34:02 login do gestor efetuado com sucesso 
+
+29/05/2021 17:34:08 iniciando conexão com o banco 
+
+29/05/2021 17:34:08 iniciando conexão com o banco 
+
+29/05/2021 17:34:11 iniciando conexão com o banco 
+
+29/05/2021 17:42:52 iniciando aplicação keep code 
+
+29/05/2021 17:42:52 finalizando aplicação 
+
+29/05/2021 17:43:26 conectando com o banco 
+
+29/05/2021 17:43:31 login do dev efetuado com sucesso 
+
+29/05/2021 17:43:37 conectando com o banco 
+
+29/05/2021 17:43:37 conectando com o banco 
+
+29/05/2021 17:43:40 conectando com o banco 
+
+29/05/2021 17:44:05 iniciando aplicação keep code 
+
+29/05/2021 17:44:05 finalizando aplicação 
+
+29/05/2021 17:44:12 conectando com o banco 
+
+29/05/2021 17:44:16 login do gestor efetuado com sucesso 
+
+29/05/2021 17:44:22 conectando com o banco 
+
+29/05/2021 17:44:22 conectando com o banco 
+
+29/05/2021 17:50:16 iniciando aplicação keep code 
+
+29/05/2021 17:50:16 finalizando aplicação 
+
+29/05/2021 17:54:16 iniciando aplicação keep code 
+
+29/05/2021 17:54:17 finalizando aplicação 
+
+29/05/2021 17:56:05 iniciando aplicação keep code 
+
+29/05/2021 17:56:05 finalizando aplicação 
+
+29/05/2021 17:57:18 iniciando aplicação keep code 
+
+29/05/2021 17:57:18 finalizando aplicação 
+
+29/05/2021 17:59:22 iniciando aplicação keep code 
+
+29/05/2021 17:59:23 finalizando aplicação 
+
+29/05/2021 18:04:27 iniciando aplicação keep code 
+
+29/05/2021 18:04:27 finalizando aplicação 
+
+29/05/2021 18:05:14 iniciando aplicação keep code 
+
+29/05/2021 18:05:14 finalizando aplicação 
+
+29/05/2021 18:11:15 iniciando aplicação keep code 
+
+29/05/2021 18:11:15 finalizando aplicação 
+
+29/05/2021 18:11:32 conectando com o banco 
+
+29/05/2021 18:11:37 login do gestor efetuado com sucesso 
+
+29/05/2021 18:11:43 conectando com o banco 
+
+29/05/2021 18:11:43 conectando com o banco 
+
+29/05/2021 18:28:07 iniciando aplicação keep code 
+
+29/05/2021 18:28:07 finalizando aplicação 
+
+29/05/2021 18:28:33 conectando com o banco 
+
+29/05/2021 18:28:38 login do gestor efetuado com sucesso 
+
+29/05/2021 18:28:43 gestor chamando dev 
+
+29/05/2021 18:28:43 conectando com o banco 
+
+29/05/2021 18:28:43 conectando com o banco 
+
+29/05/2021 18:28:43 conectando com o banco 
+
+29/05/2021 18:28:47 conectando com o banco 
+
+29/05/2021 18:31:06 iniciando aplicação keep code 
+
+29/05/2021 18:31:06 finalizando aplicação 
+
+29/05/2021 18:31:16 conectando com o banco 
+
+29/05/2021 18:31:21 login do dev efetuado com sucesso 
+
+29/05/2021 18:33:53 iniciando aplicação keep code 
+
+29/05/2021 18:33:53 finalizando aplicação 
+
+29/05/2021 18:34:05 conectando com o banco 
+
+29/05/2021 18:34:09 login do dev efetuado com sucesso 
+
+29/05/2021 18:34:13 dev chamando detalhe da ide 
+
+29/05/2021 18:34:13 conectando com o banco 
+
+29/05/2021 18:34:14 conectando com o banco 
+
+29/05/2021 18:34:14 conectando com o banco 
+
+29/05/2021 18:34:17 conectando com o banco 
+
