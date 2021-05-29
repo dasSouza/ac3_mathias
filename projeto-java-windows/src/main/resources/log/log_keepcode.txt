@@ -122,3 +122,123 @@
 
 29/05/2021 18:34:17 conectando com o banco 
 
+29/05/2021 19:55:06 iniciando aplicação keep code 
+
+29/05/2021 19:55:06 finalizando aplicação 
+
+29/05/2021 19:55:24 conectando com o banco 
+
+29/05/2021 19:55:28 login do gestor efetuado com sucesso 
+
+29/05/2021 19:55:32 gestor chamando dev 
+
+29/05/2021 19:55:32 conectando com o banco 
+
+29/05/2021 19:55:41 gestor chamando dev 
+
+29/05/2021 19:55:41 conectando com o banco 
+
+29/05/2021 19:55:43 gestor chamando dev 
+
+29/05/2021 19:55:43 conectando com o banco 
+
+29/05/2021 19:55:45 gestor chamando dev 
+
+29/05/2021 19:55:45 conectando com o banco 
+
+29/05/2021 19:55:47 gestor chamando dev 
+
+29/05/2021 19:55:47 conectando com o banco 
+
+29/05/2021 19:55:49 gestor chamando dev 
+
+29/05/2021 19:55:49 conectando com o banco 
+
+29/05/2021 19:55:51 gestor chamando dev 
+
+29/05/2021 19:55:51 conectando com o banco 
+
+29/05/2021 19:55:53 gestor chamando dev 
+
+29/05/2021 19:55:53 conectando com o banco 
+
+29/05/2021 19:55:55 gestor chamando dev 
+
+29/05/2021 19:55:55 conectando com o banco 
+
+29/05/2021 19:55:57 gestor chamando dev 
+
+29/05/2021 19:55:57 conectando com o banco 
+
+29/05/2021 19:55:59 gestor chamando dev 
+
+29/05/2021 19:55:59 conectando com o banco 
+
+29/05/2021 19:56:02 gestor chamando dev 
+
+29/05/2021 19:56:02 conectando com o banco 
+
+29/05/2021 19:56:05 gestor chamando dev 
+
+29/05/2021 19:56:05 conectando com o banco 
+
+29/05/2021 19:56:07 gestor chamando dev 
+
+29/05/2021 19:56:07 conectando com o banco 
+
+29/05/2021 19:56:09 gestor chamando dev 
+
+29/05/2021 19:56:09 conectando com o banco 
+
+29/05/2021 19:56:11 gestor chamando dev 
+
+29/05/2021 19:56:11 conectando com o banco 
+
+29/05/2021 19:56:13 gestor chamando dev 
+
+29/05/2021 19:56:13 conectando com o banco 
+
+29/05/2021 19:56:17 gestor chamando dev 
+
+29/05/2021 19:56:17 conectando com o banco 
+
+29/05/2021 19:56:19 gestor chamando dev 
+
+29/05/2021 19:56:19 conectando com o banco 
+
+29/05/2021 19:56:21 gestor chamando dev 
+
+29/05/2021 19:56:21 conectando com o banco 
+
+29/05/2021 19:56:23 gestor chamando dev 
+
+29/05/2021 19:56:24 conectando com o banco 
+
+29/05/2021 19:56:26 gestor chamando dev 
+
+29/05/2021 19:56:26 conectando com o banco 
+
+29/05/2021 19:56:29 gestor chamando dev 
+
+29/05/2021 19:56:29 conectando com o banco 
+
+29/05/2021 19:56:31 gestor chamando dev 
+
+29/05/2021 19:56:31 conectando com o banco 
+
+29/05/2021 19:56:33 gestor chamando dev 
+
+29/05/2021 19:56:33 conectando com o banco 
+
+29/05/2021 19:59:11 iniciando aplicação keep code 
+
+29/05/2021 19:59:12 finalizando aplicação 
+
+29/05/2021 19:59:25 conectando com o banco 
+
+29/05/2021 19:59:29 login do gestor efetuado com sucesso 
+
+29/05/2021 19:59:30 gestor chamando dev 
+
+29/05/2021 19:59:30 conectando com o banco 
+
