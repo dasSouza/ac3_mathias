@@ -16,8 +16,6 @@
     <title>KCODE</title>
 </head>
 
-
-
 <body onload="verificar_autenticacao()">
 <main class="page">
     <div class="menu">
@@ -101,13 +99,13 @@
                                         placeholder="Digite o login" />
 
                                     <label class="label-input">Senha</label>
-                                    <input minlength="8" id="senha_cad" name="senha_cad" required="required" type="password"
+                                    <input minlength="8" maxlength="30" id="senha_cad" name="senha_cad" required="required" type="password"
                                         placeholder="Digite a senha" />
                                     <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
                                         id="olho" class="olho">
 
                                     <label class="label-input">Nome</label>
-                                    <input id="nome_cad" name="nome_cad" required="required" type="text"
+                                    <input id="nome_cad" name="nome_cad" maxlength="255" required="required" type="text"
                                         placeholder="Digite o nome" />
 
                                     <label class="label-adm" for="adm" id="adm-label">

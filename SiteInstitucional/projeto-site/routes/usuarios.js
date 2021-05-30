@@ -5,8 +5,6 @@ var Usuario = require('../models').Usuario;
 var Empresa = require('../models').Empresa;
 
 let sessoes = [];
-
-
 /* Recuperar usuário por login e senha */
 router.post('/autenticar', function (req, res, next) {
 	console.log('Recuperando usuário por login e senha');
@@ -138,10 +136,76 @@ router.post('/equipe/integrantes/:idEmpresa/:equipe', function (req, res, next) 
 		model: Usuario
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-		console.log(resultado)
+		console.log(resultado);
 		res.json(resultado);
 	}).catch(erro => {
 		console.log("DEU ERRO!")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
+// Trás todos os dados de um integrante da equipe
+router.get('/modalIntegrantes/:idEmpresa/:equipe/:nomeIntegrante', function (req, res, next) {
+	console.log('Recuperando quantidade de integrantes na equipe');
+
+    var idEmpresa = req.params.idEmpresa;
+	var equipe = req.params.equipe;
+	var nomeIntegrante = req.params.nomeIntegrante
+	let instrucaoSql = `SELECT 
+						us_login,
+						us_cargo,
+						us_nome_funcionario,
+						id_cpf,
+						us_equipe,
+						us_is_adm
+						FROM tb_us_dados 
+						WHERE us_equipe = '${equipe}'
+						AND fk_id_empresa = ${idEmpresa}
+						AND us_nome_funcionario = '${nomeIntegrante}'`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log("Dados do integrante: ", resultado);
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO ao recuperar os dados do integrante")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
+// Editar dados do usuário
+router.post('/editarUsuario', function (req, res, next) {
+	console.log('Recuperando usuário por login e senha');
+
+	var cpf = req.body.cpf.split("").filter(n => (Number(n) || n == 0)).join("");
+	var cargo = req.body.cargo;
+	var nome = req.body.nome_cad;
+	var equipe = req.body.time;
+	var adm = req.body.adm = req.body.adm == undefined ? 0 : 1;
+
+	let instrucaoSql = `UPDATE tb_us_dados 
+						SET us_nome_funcionario = '${nome}',
+						us_cargo = '${cargo}', 
+						us_equipe = '${equipe}',
+						us_is_adm = '${adm}'
+						WHERE id_cpf = ${cpf}`;
+						
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log("Dados do alterados: ", resultado);
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO ao alterar os dados do integrante")
 		console.error(erro);
 		res.status(500).send(erro.message);
 	});
