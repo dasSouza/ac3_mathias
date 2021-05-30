@@ -242,3 +242,139 @@
 
 29/05/2021 19:59:30 conectando com o banco 
 
+30/05/2021 15:03:51 iniciando aplicação keep code 
+
+30/05/2021 15:03:52 finalizando aplicação 
+
+30/05/2021 15:04:03 conectando com o banco 
+
+30/05/2021 15:04:08 login do gestor efetuado com sucesso 
+
+30/05/2021 15:06:08 iniciando aplicação keep code 
+
+30/05/2021 15:06:08 finalizando aplicação 
+
+30/05/2021 15:06:17 conectando com o banco 
+
+30/05/2021 15:06:22 login do gestor efetuado com sucesso 
+
+30/05/2021 15:07:48 iniciando aplicação keep code 
+
+30/05/2021 15:07:48 finalizando aplicação 
+
+30/05/2021 15:07:58 conectando com o banco 
+
+30/05/2021 15:08:03 login do gestor efetuado com sucesso 
+
+30/05/2021 15:51:02 iniciando aplicação keep code 
+
+30/05/2021 15:51:02 finalizando aplicação 
+
+30/05/2021 15:51:12 conectando com o banco 
+
+30/05/2021 16:28:25 iniciando aplicação keep code 
+
+30/05/2021 16:28:25 finalizando aplicação 
+
+30/05/2021 16:28:36 conectando com o banco 
+
+30/05/2021 16:31:06 iniciando aplicação keep code 
+
+30/05/2021 16:31:06 finalizando aplicação 
+
+30/05/2021 16:31:56 conectando com o banco 
+
+30/05/2021 16:33:27 iniciando aplicação keep code 
+
+30/05/2021 16:33:28 finalizando aplicação 
+
+30/05/2021 16:33:37 conectando com o banco 
+
+30/05/2021 16:34:24 iniciando aplicação keep code 
+
+30/05/2021 16:34:24 finalizando aplicação 
+
+30/05/2021 16:34:32 conectando com o banco 
+
+30/05/2021 16:57:31 iniciando aplicação keep code 
+
+30/05/2021 16:57:32 finalizando aplicação 
+
+30/05/2021 16:58:02 iniciando aplicação keep code 
+
+30/05/2021 16:58:02 finalizando aplicação 
+
+30/05/2021 16:59:23 iniciando aplicação keep code 
+
+30/05/2021 16:59:23 finalizando aplicação 
+
+30/05/2021 16:59:34 conectando com o banco 
+
+30/05/2021 16:59:39 login do gestor efetuado com sucesso 
+
+30/05/2021 17:01:38 finalizando aplicação 
+
+30/05/2021 17:01:40 finalizando aplicação 
+
+30/05/2021 17:24:04 iniciando aplicação keep code 
+
+30/05/2021 17:24:04 finalizando aplicação 
+
+30/05/2021 17:27:55 finalizando aplicação 
+
+30/05/2021 17:28:18 iniciando aplicação keep code 
+
+30/05/2021 17:28:19 finalizando aplicação 
+
+30/05/2021 17:30:17 iniciando aplicação keep code 
+
+30/05/2021 17:30:17 finalizando aplicação 
+
+30/05/2021 17:33:43 finalizando aplicação 
+
+30/05/2021 17:33:45 finalizando aplicação 
+
+30/05/2021 19:19:54 iniciando aplicação keep code 
+
+30/05/2021 19:19:55 finalizando aplicação 
+
+30/05/2021 19:26:01 finalizando aplicação 
+
+30/05/2021 19:26:20 iniciando aplicação keep code 
+
+30/05/2021 19:26:20 finalizando aplicação 
+
+30/05/2021 19:26:35 finalizando aplicação 
+
+30/05/2021 19:27:36 iniciando aplicação keep code 
+
+30/05/2021 19:27:36 finalizando aplicação 
+
+30/05/2021 19:27:45 finalizando aplicação 
+
+30/05/2021 19:29:28 iniciando aplicação keep code 
+
+30/05/2021 19:29:28 finalizando aplicação 
+
+30/05/2021 19:29:49 finalizando aplicação 
+
+30/05/2021 19:30:42 iniciando aplicação keep code 
+
+30/05/2021 19:30:42 finalizando aplicação 
+
+30/05/2021 19:31:26 finalizando aplicação 
+
+30/05/2021 19:31:58 iniciando aplicação keep code 
+
+30/05/2021 19:31:58 finalizando aplicação 
+
+30/05/2021 19:32:14 conectando com o banco 
+
+30/05/2021 19:32:45 finalizando aplicação 
+
+30/05/2021 20:00:40 iniciando aplicação keep code 
+
+30/05/2021 20:00:41 finalizando aplicação 
+
+30/05/2021 20:00:51 conectando com o banco 
+
