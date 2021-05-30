@@ -71,48 +71,50 @@
         </div>
         <div class="toggle"></div>
       </div>
+      <div class="toggle"></div>
     </div>
-    <!-- menu end-->
-    <header>
-      <div class="box-recepction">
-        <div class="recection-welcome">
-          <h1>Aqui você pode ver o desempenho da máquina!</b> </h1>
-          <!-- <p>Aqui você pode ver o desempenho da máquina</p> -->
-        </div>
-        <div class="logo-recepction">
-          <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
-
-        </div>
+  </div>
+  <!-- menu end-->
+  <header>
+    <div class="box-recepction">
+      <div class="recection-welcome">
+        <h1>Aqui você pode ver o desempenho da máquina!</b> </h1>
+        <!-- <p>Aqui você pode ver o desempenho da máquina</p> -->
       </div>
-    </header>
-    <div class="ides-container">
-      <div class="container-info">
+      <div class="logo-recepction">
+        <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
 
-        <div class="info-time">
-          <div class="container-titulo">
-            <h1>Usuário</h1>
-            <div class="edit">
-              <div class="tooltip">
-                <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                <span class="tooltiptext">Editar dados</span>
-              </div>
+      </div>
+    </div>
+  </header>
+  <div class="ides-container">
+    <div class="container-info">
 
+      <div class="info-time">
+        <div class="container-titulo">
+          <h1>Usuário</h1>
+          <div class="edit">
+
+            <div class="tooltip">
+              <a href="#">
+                <i onclick="openModal('dv-modal1')" class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              <span class="tooltiptext">Editar dados</span>
             </div>
-          </div>
-
 
           <div class="container-label">
             <p id="nome_integrante"> Nome: </p>
             <p id="cargo_integrante"> Cargo: </p>
             <p id="nome_equipe"> Time: </p>
           </div>
-
-
         </div>
-        <div class="info-time">
-          <div class="container-titulo">
-            <h1>Máquina</h1>
-          </div>
+
+
+        <div class="container-label">
+          <p id="nome"> Nome: </p>
+          <p id="gestor"> Cargo:</p>
+          <p id="qtd_membros"> Time:</p>
+        </div>
 
           <div class="container-label">
             <p id="nomePc"> Nome: </p>
@@ -121,136 +123,241 @@
             <p id="cpu"> Total CPU: </p>
           </div>
 
-        </div>
       </div>
-      <div class="container-ides">
-        <div class="titulo-hardware">
-          <p>Média semanal</p>
+      <div class="info-time">
+        <div class="container-titulo">
+          <h1>Máquina</h1>
         </div>
-        <div class="container-labell">
-          <div class="label-info">
-            <p>Tempo ultilizado</p>
 
-
-          </div>
-
-          <div class="label-info">
-            <p>IDE's ultilizadas</p>
-          </div>
-        </div>
-        <div class="container-grafic">
-          <div class="grafic">
-            <div class="box-grafic">
-              <div class="teste-grafico">
-
-              </div>
-            </div>
-
-
-          </div>
-          <div class="grafic">
-            <div class="grafic-container">
-              <div class="separa-graficos">
-                <img src="../../img/idea64.png" alt="" id="img-grafic">
-                <div id="grafico_1" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>21H00M</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="separa-graficos">
-                <img src="../../img/devenv.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="separa-graficos">
-                <img src="../../img/studio64.png" alt="" id="img-grafic">
-                <div id="grafico_3" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/eclipse.png" alt="" id="img-grafic">
-                <div id="grafico_3" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/code.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/phpstorm64.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="legenda">
-
-              <div class="box-legenda">
-                <div class="uso-ram"></div>
-                <p>Uso de ram</p>
-              </div>
-
-              <div class="box-legenda">
-                <div class="uso-tempo"></div>
-                <p>Tempo de uso</p>
-              </div>
-
-            </div>
-          </div>
+        <div class="container-label">
+          <p id="nome"> Nome: </p>
+          <p id="nome"> Total ram: </p>
+          <p id="gestor"> Total disco:</p>
+          <p id="qtd_membros"> Total CPU:</p>
         </div>
 
       </div>
     </div>
+    <div class="container-ides">
+      <div class="titulo-hardware">
+        <p>Média semanal</p>
+      </div>
+      <div class="container-labell">
+        <div class="label-info">
+          <p>Tempo ultilizado</p>
 
-    <div class="footer-ajuda">
-      <div class="ajuda">
-        <input type="submit" value="Ajuda" />
-        </button>
+
+        </div>
+
+        <div class="label-info">
+          <p>IDE's ultilizadas</p>
+        </div>
+      </div>
+      <div class="container-grafic">
+        <div class="grafic">
+          <div class="box-grafic">
+            <div class="teste-grafico">
+
+            </div>
+          </div>
+
+
+        </div>
+        <div class="grafic">
+          <div class="grafic-container">
+            <div class="separa-graficos">
+              <img src="../../img/idea64.png" alt="" id="img-grafic">
+              <div id="grafico_1" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>21H00M</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="separa-graficos">
+              <img src="../../img/devenv.png" alt="" id="img-grafic">
+              <div id="grafico_2" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>03H00M</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="separa-graficos">
+              <img src="../../img/studio64.png" alt="" id="img-grafic">
+              <div id="grafico_3" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>03H00M</p>
+                </div>
+              </div>
+            </div>
+            <div class="separa-graficos">
+              <img src="../../img/eclipse.png" alt="" id="img-grafic">
+              <div id="grafico_3" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>03H00M</p>
+                </div>
+              </div>
+            </div>
+            <div class="separa-graficos">
+              <img src="../../img/code.png" alt="" id="img-grafic">
+              <div id="grafico_2" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>03H00M</p>
+                </div>
+              </div>
+            </div>
+            <div class="separa-graficos">
+              <img src="../../img/phpstorm64.png" alt="" id="img-grafic">
+              <div id="grafico_2" class="graficos-1">
+              </div>
+              <div class="container-relogio">
+                <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
+                <div class="label-hora">
+                  <p>03H00M</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="legenda">
+
+            <div class="box-legenda">
+              <div class="uso-ram"></div>
+              <p>Uso de ram</p>
+            </div>
+
+            <div class="box-legenda">
+              <div class="uso-tempo"></div>
+              <p>Tempo de uso</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-ajuda">
+
+
+
+    <div class="ajuda">
+
+      <input type="submit" value="Ajuda" />
+
+
+
+
+      </button>
+
+    </div>
+  </div>
+
+
+  <div id="dv-modal1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Editar os dados do usuário</h1>
+      </div>
+      <div class="modal-body">
+
+        <form id="form_editar" method="post" onsubmit="return cadastrar()">
+          <div class="container-modal">
+
+            <div class="inputs-modal">
+
+
+              <label class="label-modal">Login</label>
+              <input id="login_cad" name="login_cad" required="required" type="text" placeholder="Digite o login" />
+
+
+              <label class="label-modal">Nome</label>
+              <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Digite o nome" />
+
+              <label class="label-adm" for="adm" id="adm-label-modal">
+                <p>Administrador</p>
+                <input type="checkbox" name="adm">
+              </label>
+
+            </div>
+            <div class="inputs-modal">
+
+              <label class="label-modal">Cargo</label>
+              <input id="cargo" name="cargo" required="required" type="text" placeholder="Digite o cargo" />
+
+              <label class="label-modal">CPF</label>
+              <input maxlength="14" id="Cpf" name="cpf" required="required" type="text" placeholder="Digite o CPF"
+                onkeydown="javascript: fMasc(this, mCPF)" />
+
+              <label class="label-modal">Time</label>
+              <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
+
+              
+
+            </div>
+
+          </div>
+          <div class="toButton">
+            <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
       </div>
     </div>
-  </main>
+  </div>
+
+
+</main>
 </body>
 
 </html>
 
 <script>
+
+  // window.onload = verificar_autenticacao();
+  // window.onload = obterDadosGraficoPrimeiraVez(1);
+  // window.onload = carregarGrafico();
+
+
+  function openModal(mn) {
+    let modal = document.getElementById(mn);
+    if (typeof modal == "undefined" || modal === null) return;
+
+    modal.style.display = "Block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal(mn) {
+    let modal = document.getElementById(mn);
+
+    if (typeof modal == "undefined" || modal === null) return;
+
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+
 
   function carregarGrafico() {
     setInterval(
