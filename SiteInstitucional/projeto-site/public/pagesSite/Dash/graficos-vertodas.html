@@ -21,55 +21,53 @@
 </head>
 
 <body onload="verificar_autenticacao()">
-  <main class="page">
-    <div class="menu">
-      <div class="container">
-        <div class="navigation">
-          <ul>
-            <li>
-              <a href="dashgestor.html">
-                <span class="icon">
-                  <i class="fa fa-home" aria-hidden="true"></i>
-                </span>
-                <span class="title">Home</span>
-              </a>
-            </li>
-            <li>
-              <a href="cadastroAdm.html">
-                <span class="icon">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                </span>
-                <span class="title">Profile</span>
-              </a>
-            </li>
-            <li>
-              <a href="tutorial.html">
-                <span class="icon">
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
-                </span>
-                <span class="title">Tutorial</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" onclick="darkMode()">
-                <span class="icon">
-                  <i class="fa fa-cog" aria-hidden="true">
-                  </i>
-                </span>
-                <span class="title">Settings</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" onclick="logoff()">
-                <span class="icon">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </span>
-                <span class="title">Sign Out</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="toggle"></div>
+<main class="page">
+  <div class="menu">
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="dashgestor.html">
+              <span class="icon">
+                <i class="fa fa-home" aria-hidden="true" style="color: cadetblue;"></i>
+              </span>
+              <span class="title">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="cadastroAdm.html">
+              <span class="icon">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+              <span class="title">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="tutorial.html">
+              <span class="icon">
+                <i class="fa fa-question-circle" aria-hidden="true"></i>
+              </span>
+              <span class="title">Tutorial</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                </i>
+              </span>
+              <span class="title">Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+              </span>
+              <span class="title">Sign Out</span>
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="toggle"></div>
     </div>
@@ -102,26 +100,14 @@
               <span class="tooltiptext">Editar dados</span>
             </div>
 
-          <div class="container-label">
-            <p id="nome_integrante"> Nome: </p>
-            <p id="cargo_integrante"> Cargo: </p>
-            <p id="nome_equipe"> Time: </p>
           </div>
         </div>
-
 
         <div class="container-label">
-          <p id="nome"> Nome: </p>
-          <p id="gestor"> Cargo:</p>
-          <p id="qtd_membros"> Time:</p>
+          <p id="nome_integrante"> Nome: </p>
+          <p id="cargo_integrante"> Cargo: </p>
+          <p id="nome_equipe"> Time: </p>
         </div>
-
-          <div class="container-label">
-            <p id="nomePc"> Nome: </p>
-            <p id="total_ram"> Total ram: </p>
-            <p id="total_disco"> Total disco: </p>
-            <p id="cpu"> Total CPU: </p>
-          </div>
 
       </div>
       <div class="info-time">
@@ -130,10 +116,10 @@
         </div>
 
         <div class="container-label">
-          <p id="nome"> Nome: </p>
-          <p id="nome"> Total ram: </p>
-          <p id="gestor"> Total disco:</p>
-          <p id="qtd_membros"> Total CPU:</p>
+          <p id="nomePc"> Nome: </p>
+          <p id="total_ram"> Total ram: </p>
+          <p id="total_disco"> Total disco: </p>
+          <p id="cpu">CPU: </p>
         </div>
 
       </div>
@@ -145,8 +131,6 @@
       <div class="container-labell">
         <div class="label-info">
           <p>Tempo ultilizado</p>
-
-
         </div>
 
         <div class="label-info">
@@ -160,7 +144,6 @@
 
             </div>
           </div>
-
 
         </div>
         <div class="grafic">
@@ -255,21 +238,11 @@
   </div>
 
   <div class="footer-ajuda">
-
-
-
     <div class="ajuda">
-
       <input type="submit" value="Ajuda" />
-
-
-
-
       </button>
-
     </div>
   </div>
-
 
   <div id="dv-modal1" class="modal">
     <div class="modal-content">
@@ -291,10 +264,8 @@
               <label class="label-modal">Nome</label>
               <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Digite o nome" />
 
-              <label class="label-adm" for="adm" id="adm-label-modal">
-                <p>Administrador</p>
-                <input type="checkbox" name="adm">
-              </label>
+              <label class="label-modal">Time</label>
+              <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
 
             </div>
             <div class="inputs-modal">
@@ -306,10 +277,14 @@
               <input maxlength="14" id="Cpf" name="cpf" required="required" type="text" placeholder="Digite o CPF"
                 onkeydown="javascript: fMasc(this, mCPF)" />
 
-              <label class="label-modal">Time</label>
-              <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
+              <label class="label-adm" for="adm" id="adm-label-modal">
+                <p>Administrador</p>
+                <input type="checkbox" name="adm">
+              </label>
 
-              
+
+
+
 
             </div>
 
@@ -326,13 +301,10 @@
       </div>
     </div>
   </div>
-
-
 </main>
 </body>
 
 </html>
-
 <script>
 
   // window.onload = verificar_autenticacao();
