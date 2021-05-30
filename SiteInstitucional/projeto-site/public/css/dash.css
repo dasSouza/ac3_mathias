@@ -478,13 +478,13 @@ a {
 }
 
 .text-cadastro-novo-usuario {
-    font-size: 23px;
+    font-size: 20px;
     width: 100%;
     height: 7%;
     color: #B73447;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+   
 }
 
 .inputs-cadastro-novo-usuario {
@@ -510,7 +510,7 @@ a {
 .container-input {
 
     width: 100%;
-    height: 85%;
+    height: 100%;
    
     display: flex;
     flex-direction: row;
@@ -541,25 +541,26 @@ a {
     margin-left: 10px;
     width: 2.5%;
     height: 4.4%;
-    top: 20.7rem;
+    top: 18.7rem;
     left: 36rem;
 }
 
 #form_cadastro {
     width: 100%;
-    height: 100%;
+    height: 88%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
 }
+   
+
 
 .label-input {
     width: 87%;
-    height: 10%;
+    height: 7%;
     color: #514E4D;
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 2vh;
 }
 
@@ -588,16 +589,19 @@ a {
 #adm-label input[type=checkbox] {
     position: absolute;
     margin-left: 10px;
-    width: 2.5%;
-    height: 4.4%;
+    width: 2.0%;
+    height: 4.0%;
     border-radius: 3px;
-    top: 29.1rem;
-    left: 25rem;
+    top: 23rem;
+    left: 52rem;
+
 
 }
 
 #adm-label p {
     color: #4D4D4E;
+    font-size: 15px;
+    margin-top: 4vh;
 }
 
 #adm-label>span {
@@ -653,7 +657,7 @@ a {
     font-family: 'Inter', sans-serif;
     color: #514E4D;
     width: 90%;
-    height: 30%;
+    height: 23%;
     border-radius: 5px;
     border: none;
     padding-left: 1vh;
@@ -806,6 +810,47 @@ hr {
 
 /* Começo da tela de gráficos */
 
+.lds-ring-modal {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    
+    position: absolute;
+    margin-left: 10px;
+    top: 27.5rem;
+    left: 39.8rem;
+}
+  
+  .lds-ring-modal div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring-modal div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring-modal div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring-modal div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 
 
@@ -895,7 +940,7 @@ hr {
     height: 3.9%;
     border-radius: 3px;
     top: 23.3rem;
-    left: 33rem;
+    left: 50rem;
 }
 
 

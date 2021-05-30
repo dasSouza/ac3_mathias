@@ -641,6 +641,7 @@ hr {
   width: 100vw;
   height: 100vh;
   display: none;
+  z-index: 3;
 }
 
 .modal-content {

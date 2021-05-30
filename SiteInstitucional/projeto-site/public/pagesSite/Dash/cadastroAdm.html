@@ -111,10 +111,9 @@
                                     <input id="nome_cad" name="nome_cad" required="required" type="text"
                                         placeholder="Digite o nome" />
 
-                                    <label class="label-adm" for="adm" id="adm-label">
-                                        <p>Administrador</p>
-                                        <input type="checkbox" name="adm">
-                                    </label>
+                                    <label class="label-input">Time</label>
+                                    <input id="time" name="time" required="required" type="text"
+                                        placeholder="Digite o time" />
 
                                 </div>
                                 <div class="inputs1">
@@ -127,14 +126,19 @@
                                     <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
                                         placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
 
-                                    <label class="label-input">Time</label>
-                                    <input id="time" name="time" required="required" type="text"
-                                        placeholder="Digite o time" />
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p>Administrador</p>
+                                            <input type="checkbox" name="adm">
+                                        </label>
 
-                                    <label class="label-adm" for="adm" id="adm-label">
-                                        <p></p>
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p></p>
+                                            <input type="checkbox" name="adm">
+                                        </label>
 
-                                    </label>
+                                        
+                                        
+                                    
 
                                 </div>
 
@@ -163,7 +167,7 @@
         </div>
     </section>
     </div>
-    
+
 </main>
 <script src="../../js/js.js">
 </script>
@@ -179,5 +183,3 @@
         document.getElementById('senha_cad').type = 'password';
     });
 </script>
-
-
