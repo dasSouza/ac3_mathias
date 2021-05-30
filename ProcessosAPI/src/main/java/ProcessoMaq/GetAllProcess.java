@@ -54,6 +54,14 @@ public class GetAllProcess {
 //        System.out.println("Atribuindo nome da maquina: " + maquina.getUs_name_pc()); // perguntar pro prof sobre
     }
 
+    public void getPcOn() {
+        System.out.println(processador.getFrequencia());
+        System.out.println(processador.getUso());;
+        System.out.println(processador.getIdentificador());;
+        System.out.println(processador.getMicroarquitetura());;
+        System.out.println(processador.toString());;
+    }
+
     public void insertDatesMaquina() {
         maqDAO.maquinaProcess(maquina);
         System.out.println("Inserindo dados de Maquina " + maquina.toString());
