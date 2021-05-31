@@ -56,6 +56,7 @@ function verificar_autenticacao() {
         if (typeof obterDadosMaquina === 'function') {
             carregarDadosIntegrante(fk_id_empresa, equipe_integrante, nome_integrante_app)
             obterDadosMaquina(nome_integrante_app)
+            obterDadosGraficoRamGestor(nome_integrante_app, equipe_integrante,cargo_integrante_app)
         }
 
         locateEmpresa()

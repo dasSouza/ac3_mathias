@@ -122,7 +122,7 @@
           <div class="container-label">
             <p> Nome: <span id="nomePc"></span> </p>
             <p> Total ram: <span id="total_ram"></span> </p>
-            <p> Total disco: <span  id="total_disco"></span> </p>
+            <p> Total disco: <span id="total_disco"></span> </p>
             <p> CPU: <span id="cpu"></span> </p>
           </div>
 
@@ -152,8 +152,8 @@
           </div>
           <div class="grafic">
             <div class="grafic-container">
-              <div class="separa-graficos">
-                <img src="../../img/idea64.png" alt="" id="img-grafic">
+              <!-- <div class="separa-graficos">
+                <img src="" alt="" id="img-grafic">
                 <div id="grafico_1" class="graficos-1">
                 </div>
                 <div class="container-relogio">
@@ -162,65 +162,7 @@
                     <p>21H00M</p>
                   </div>
                 </div>
-              </div>
-
-              <div class="separa-graficos">
-                <img src="../../img/devenv.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="separa-graficos">
-                <img src="../../img/studio64.png" alt="" id="img-grafic">
-                <div id="grafico_3" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/eclipse.png" alt="" id="img-grafic">
-                <div id="grafico_3" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/code.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-              <div class="separa-graficos">
-                <img src="../../img/phpstorm64.png" alt="" id="img-grafic">
-                <div id="grafico_2" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>03H00M</p>
-                  </div>
-                </div>
-              </div>
-
+              </div> -->
             </div>
             <div class="legenda">
 
@@ -304,12 +246,10 @@
 
 </html>
 <script>
-
-  // window.onload = verificar_autenticacao();
-  // window.onload = obterDadosGraficoPrimeiraVez(1);
-  // window.onload = carregarGrafico();
-
   let recuperaDadosIntegrante = [];
+  let contador = 0;
+  let contadorCriarElemento = 0;
+  let contadorGrafico = 0;
 
   function openModal(mn) {
     let modal = document.getElementById(mn);
@@ -327,8 +267,6 @@
     modal.style.display = "none";
     document.body.style.overflow = "auto";
   }
-
-
 
   function carregarGrafico() {
     setInterval(
@@ -390,13 +328,19 @@
       });
   }
 
-  function obterDadosGraficoPrimeiraVez(idprocessos) {
+  function obterDadosGraficoRamGestor(nome, equipe, cargo) {
 
-    fetch(`/leituras/ultimas/${idprocessos}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/leituras/processos/ram/${nome}/${equipe}/${cargo}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-
-          var resultado = [];
+          console.log("Entrou na RAM do gestor")
+          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          let resultado = [];
+          let resultadoRam = [];
+          let resultadoIDE = [];
+          let resultadoLimpo = []
+          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
+            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
 
           function percorrer(obj) {
             for (var propriedade in obj) {
@@ -411,23 +355,124 @@
           }
 
           percorrer(resposta);
-          console.log(JSON.stringify(resultado));
+          resultado = resultado.reverse();
 
-          var ram = resultado[2]
+          var unico = resultado.filter(function (elem, index, self) {
+            if (index === self.indexOf(elem)) {
 
-          console.log("ram " + ram)
-          if (ram <= 4) {
+            } else {
+              resultadoLimpo.push(index);
+            }
 
+            return index === self.indexOf(elem)
+          });
+
+          for (let index = 0, index2 = 0; index < resultado.length; index++) {
+            if (index == resultadoLimpo[index2]) {
+              let index4 = resultadoLimpo.length
+              index4--
+
+              for (let index3 = 0, index5 = 0; index3 < resultadoLimpo.length; index3++) {
+
+                const element = resultadoLimpo[index3]
+
+                if (index == element) {
+                  resultado.splice(resultadoLimpo[index4], 2)
+                  index2 = resultadoLimpo[index4]
+                  index4--
+                  index = resultadoLimpo[++index5]
+                }
+              }
+            }
           }
-          grafico_1.style.width = `13.7%`
-          grafico_1.innerHTML = `13.7%`
-          grafico_2.style.width = `23.3%`
-          grafico_2.innerHTML = `23.3%`
-          grafico_3.style.width = `16%`
-          grafico_3.innerHTML = `16%`
-          grafico_4.style.width = `${ram.toFixed(1)}%`
-          grafico_4.innerHTML = `${ram.toFixed(1)}%`
-          resposta.reverse();
+
+          if (!resultado.length % 2 == 0) {
+            resultado.splice(0, 1)
+          }
+
+          for (let index = 0; index < resultado.length; index++) {
+            const element = resultado[index]
+
+            if (typeof element === "string") {
+              resultadoIDE.push(element)
+            } else if (typeof element === 'number') {
+              resultadoRam.push(element)
+            } else {
+              console.error("Nenhum dado encontrado.")
+            }
+          }
+
+          function chamarGraficos() {
+            if (contadorCriarElemento == 0) {
+              if (resultadoIDE.length && resultadoRam.length != 0) {
+                console.log("FOI")
+                
+                for (let index = 0; index < resultadoIDE.length; index++) {
+                  graficoContainer = document.querySelector('.grafic-container')
+                  separa = document.createElement('div');
+                  separa.id = `separa-graficos`;
+
+                  let ramIDE = resultadoRam[index]
+                  let nomeIDE = resultadoIDE[index]
+                  
+                  let img1 = document.createElement('img')
+                  img1.src = `../../img/${nomeIDE}.png`
+
+                  let graficosTamanho = document.createElement('div');
+                  graficosTamanho.id = `${nomeIDE}`;
+
+                  if (img1.classList) img1.classList.add("img-grafic");
+                  else img1.className += " img-grafic";
+
+                  if (graficosTamanho.classList) graficosTamanho.classList.add("graficos-1");
+                  else graficosTamanho.className += " graficos-1";
+
+                  
+                  graficoContainer.appendChild(separa);
+                  if (separa.classList) separa.classList.add("separa-graficos");
+                  else separa.className += " separa-graficos";
+
+                  separa.appendChild(img1);
+                  separa.appendChild(graficosTamanho);
+                }
+              } else {
+                console.error("Erro ao criar elementos")
+              }
+              contadorCriarElemento++
+            }
+
+            if (resultadoIDE.length && resultadoRam.length != 0) {
+
+              for (let index = 0; index < resultadoIDE.length; index++) {
+                let nomeIDE = resultadoIDE[index]
+                let ramIDE = resultadoRam[index]
+                
+                criarGrafico(nomeIDE, ramIDE);
+              }
+            } else {
+              console.error("Erro ao criar gráfico")
+            }
+
+            /*fim do chamar grafico*/
+          }
+
+          function criarGrafico(id, valor) {
+            grafic = document.querySelector(`#${id}`)
+            grafic.style.width = `${valor.toFixed(0)}%`;
+            grafic.innerHTML = `${valor.toFixed(1)}%`;
+          }
+
+          if (contador == 0) {
+              chamarGraficos()
+            }
+
+
+
+
+          console.log("resultado limpo", resultadoLimpo)
+          console.log("resultado ide", resultadoIDE);
+          console.log("resultado ram", resultadoRam)
+          console.log(resultado)
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -438,9 +483,5 @@
       });
 
   }
-  // grafico_1.style.width = `13.7%`
-  // grafico_1.innerHTML = `13.7%`
-  // grafico_3.style.width = `50.7%`
-  // grafico_3.innerHTML = `50.7%`
 
 </script>

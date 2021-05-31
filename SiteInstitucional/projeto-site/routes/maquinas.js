@@ -11,11 +11,11 @@ router.get('/dadosHardware/:cpf', function (req, res, next) {
 
 	// SELECT PARA SABER EMPRESA
 	let instrucaoSql = `SELECT 
-    us_vl_ram_total,
-    us_vl_disco_total,
-    us_vl_cpu_total
-	FROM tb_us_maquina  
-	WHERE fk_id_funcionario = ${CPF}`;
+							us_vl_ram_total,
+							us_vl_disco_total,
+							s_vl_cpu_total
+						FROM tb_us_maquina  
+						WHERE fk_id_funcionario = ${CPF}`;
 
 	console.log(instrucaoSql);
 
@@ -50,7 +50,8 @@ router.get('/dadosHardware/integrante/:nomeIntegrante', function (req, res, next
 						WHERE fk_id_funcionario = (
 							SELECT id_cpf 
 							FROM tb_us_dados 
-							WHERE us_nome_funcionario = '${nomeIntegrante}');`;
+							WHERE us_nome_funcionario = '${nomeIntegrante}'
+						);`;
 
 	console.log(instrucaoSql);
 
