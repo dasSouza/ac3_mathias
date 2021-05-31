@@ -13,7 +13,7 @@ router.get('/dadosHardware/:cpf', function (req, res, next) {
 	let instrucaoSql = `SELECT 
 							us_vl_ram_total,
 							us_vl_disco_total,
-							s_vl_cpu_total
+							us_vl_cpu_total
 						FROM tb_us_maquina  
 						WHERE fk_id_funcionario = ${CPF}`;
 

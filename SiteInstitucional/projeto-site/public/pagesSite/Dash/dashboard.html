@@ -446,12 +446,15 @@
           if (contador == 0) {
             if (resposta == 0) {
               let aviso = document.createElement('div')
+              aviso.style = `font-family: 'Inter', sans-serif;`
               aviso.style.position = "absolute";
               aviso.style.fontSize = "8vh";
               aviso.style.textAlign = "center"
-              aviso.innerHTML = "Você não tem nenhuma IDE selecionada <br> Vá até Profile e selecione a IDE que deseja monitorar"
+              aviso.style.color = "#514E4D";
+              aviso.style.fontSize = "6vh"
+              aviso.innerHTML = "Você não tem nenhuma IDE selecionada! <br> Vá até Perfil e selecione a IDE que deseja monitorar."
               aviso.id = "aviso"
-              document.querySelector('.ides-container').appendChild(aviso);
+              document.querySelector('.separation-ides').appendChild(aviso);
               contador++
             } else {
               chamarGraficos()
