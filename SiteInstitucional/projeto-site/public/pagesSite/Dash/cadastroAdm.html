@@ -17,144 +17,146 @@
 </head>
 
 <body onload="verificar_autenticacao()">
-<main class="page">
-    <div class="menu">
-        <div class="container">
-            <div class="navigation">
-                <ul>
-                    <li>
-                        <a href="dashgestor.html">
-                            <span class="icon">
-                                <i class="fa fa-home" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="icon">
-                                <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
-                            </span>
-                            <span class="title">Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="tutorial.html">
-                            <span class="icon">
-                                <i class="fa fa-question-circle" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Tutorial</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="darkMode()">
-                            <span class="icon">
-                                <i class="fa fa-cog" aria-hidden="true">
-                                </i>
-                            </span>
-                            <span class="title">Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" onclick="logoff()">
-                            <span class="icon">
-                                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            </span>
-                            <span class="title">Sign Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="toggle"></div>
-        </div>
-    </div>
-    <!-- menu end-->
-    <header>
-        <div class="box-recepction">
-            <div class="recection-welcome">
-                <h1>aqui você pode cadastrar novos usuários!</h1>
-
-            </div>
-            <div class="logo-recepction">
-                <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+    <main class="page">
+        <div class="menu">
+            <div class="container">
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="dashgestor.html">
+                                <span class="icon">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </span>
+                                <span class="title">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="icon">
+                                    <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
+                                </span>
+                                <span class="title">Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tutorial.html">
+                                <span class="icon">
+                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="title">Tutorial</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="darkMode()">
+                                <span class="icon">
+                                    <i class="fa fa-cog" aria-hidden="true">
+                                    </i>
+                                </span>
+                                <span class="title">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="logoff()">
+                                <span class="icon">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </span>
+                                <span class="title">Sign Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="toggle"></div>
             </div>
         </div>
-    </header>
+        <!-- menu end-->
+        <header>
+            <div class="box-recepction">
+                <div class="recection-welcome">
+                    <h1>aqui você pode cadastrar novos usuários!</h1>
 
-    <section class="container-itens">
-        <div class="cadastro-novos-usuarios">
-            <div class="container-cadastro-novos-usuarios">
-                <div class="inputs-cadastro-novo-usuario">
-                    <div class="box-inputs">
+                </div>
+                <div class="logo-recepction">
+                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+                </div>
+            </div>
+        </header>
 
-                        <div class="text-cadastro-novo-usuario">
-                            <h2>CADASTRAR NOVOS USUARIOS</h2>
+        <section class="container-itens">
+            <div class="cadastro-novos-usuarios">
+                <div class="container-cadastro-novos-usuarios">
+                    <div class="inputs-cadastro-novo-usuario">
+                        <div class="box-inputs">
+
+                            <div class="text-cadastro-novo-usuario">
+                                <h2>CADASTRAR NOVOS USUARIOS</h2>
+                            </div>
+                            <form id="form_cadastro" method="post"
+                                onsubmit="return cadastrar(sessionStorage.fk_id_empresa_meuapp)">
+                                <div class="container-input">
+
+                                    <div class="inputs1">
+                                        <label class="label-input">Login</label>
+                                        <input id="login_cad" name="login_cad" required="required" type="text"
+                                            placeholder="Digite o login" />
+
+                                        <label class="label-input">Senha</label>
+                                        <input minlength="8" maxlength="30" id="senha_cad" name="senha_cad"
+                                            required="required" type="password" placeholder="Digite a senha" />
+                                        <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+                                            id="olho" class="olho">
+
+                                        <label class="label-input">Nome</label>
+                                        <input id="nome_cad" name="nome_cad" maxlength="255" required="required"
+                                            type="text" placeholder="Digite o nome" />
+
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p>Administrador</p>
+                                            <input type="checkbox" name="adm">
+                                        </label>
+
+                                    </div>
+                                    <div class="inputs1">
+
+                                        <label class="label-input">Cargo</label>
+                                        <input id="cargo" name="cargo" required="required" type="text"
+                                            placeholder="Digite o cargo" />
+
+                                        <label class="label-input">CPF</label>
+                                        <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
+                                            placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
+
+                                        <label class="label-input">Time</label>
+                                        <input id="time" name="time" required="required" type="text"
+                                            placeholder="Digite o time" />
+
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p></p>
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="toButton">
+                                    <input type="submit" id="btn_login" value="Cadastrar" class="btn-login" />
+                                </div>
+                            </form>
                         </div>
-                        <form id="form_cadastro" method="post" onsubmit="return cadastrar(sessionStorage.fk_id_empresa_meuapp)">
-                            <div class="container-input">
-
-                                <div class="inputs1">
-                                    <label class="label-input">Login</label>
-                                    <input id="login_cad" name="login_cad" required="required" type="text"
-                                        placeholder="Digite o login" />
-
-                                    <label class="label-input">Senha</label>
-                                    <input minlength="8" maxlength="30" id="senha_cad" name="senha_cad" required="required" type="password"
-                                        placeholder="Digite a senha" />
-                                    <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
-                                        id="olho" class="olho">
-
-                                    <label class="label-input">Nome</label>
-                                    <input id="nome_cad" name="nome_cad" maxlength="255" required="required" type="text"
-                                        placeholder="Digite o nome" />
-
-                                    <label class="label-adm" for="adm" id="adm-label">
-                                        <p>Administrador</p>
-                                        <input type="checkbox" name="adm">
-                                    </label>
-
-                                </div>
-                                <div class="inputs1">
-
-                                    <label class="label-input">Cargo</label>
-                                    <input id="cargo" name="cargo" required="required" type="text"
-                                        placeholder="Digite o cargo" />
-
-                                    <label class="label-input">CPF</label>
-                                    <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
-                                        placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
-
-                                    <label class="label-input">Time</label>
-                                    <input id="time" name="time" required="required" type="text"
-                                        placeholder="Digite o time" />
-
-                                    <label class="label-adm" for="adm" id="adm-label">
-                                        <p></p>
-
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="toButton">
-                                <input type="submit" id="btn_login" value="Cadastrar" class="btn-login" />
-                            </div>
-                        </form>
                     </div>
-                </div>
-                <div class="container-aguarde">
-                    <div id="div_erro" style="display: none;"></div>
-                    <div id="img_aguarde" style="visibility: hidden;" class="lds-ring">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div class="container-aguarde">
+                        <div id="div_erro" style="display: none;"></div>
+                        <div id="img_aguarde" style="visibility: hidden;" class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
         </div>
-    </section>
-    </div>
-    
-</main>
+        <script id="ze-snippet"
+            src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+    </main>
 </body>
 
 </html>

@@ -184,8 +184,7 @@
 
     <div class="footer-ajuda">
       <div class="ajuda">
-        <input type="submit" value="Ajuda" />
-        </button>
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
       </div>
     </div>
 
@@ -339,8 +338,6 @@
           let resultadoRam = [];
           let resultadoIDE = [];
           let resultadoLimpo = []
-          let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
-            "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
 
           function percorrer(obj) {
             for (var propriedade in obj) {
@@ -406,34 +403,59 @@
             if (contadorCriarElemento == 0) {
               if (resultadoIDE.length && resultadoRam.length != 0) {
                 console.log("FOI")
-                
+
                 for (let index = 0; index < resultadoIDE.length; index++) {
                   graficoContainer = document.querySelector('.grafic-container')
                   separa = document.createElement('div');
                   separa.id = `separa-graficos`;
-
-                  let ramIDE = resultadoRam[index]
-                  let nomeIDE = resultadoIDE[index]
-                  
-                  let img1 = document.createElement('img')
-                  img1.src = `../../img/${nomeIDE}.png`
-
-                  let graficosTamanho = document.createElement('div');
-                  graficosTamanho.id = `${nomeIDE}`;
-
-                  if (img1.classList) img1.classList.add("img-grafic");
-                  else img1.className += " img-grafic";
-
-                  if (graficosTamanho.classList) graficosTamanho.classList.add("graficos-1");
-                  else graficosTamanho.className += " graficos-1";
-
-                  
-                  graficoContainer.appendChild(separa);
                   if (separa.classList) separa.classList.add("separa-graficos");
                   else separa.className += " separa-graficos";
 
+                  let ramIDE = resultadoRam[index]
+                  let nomeIDE = resultadoIDE[index]
+
+                  // div Imagem
+                  let img1 = document.createElement('img')
+                  img1.src = `../../img/${nomeIDE}.png`
+                  if (img1.classList) img1.classList.add("img-grafic");
+                  else img1.className += " img-grafic";
+
+                  // div gráfico
+                  let graficosTamanho = document.createElement('div');
+                  graficosTamanho.id = `${nomeIDE}`;
+                  if (graficosTamanho.classList) graficosTamanho.classList.add("graficos-1");
+                  else graficosTamanho.className += " graficos-1";
+
+                  // div do relogio
+                  let containerRelogio = document.createElement('div');
+                  if (containerRelogio.classList) containerRelogio.classList.add("container-relogio");
+                  else containerRelogio.className += " container-relogio";
+
+                  // div Imagem
+                  let img2 = document.createElement('img')
+                  img2.src = `../../img/relogio.svg`
+                  img2.style = "height: 24px;"
+                  if (img2.classList) img2.classList.add("relogio-grafico");
+                  else img2.className += " relogio-grafico";
+
+                  // div label hora
+                  let labelHora = document.createElement('div');
+                  if (labelHora.classList) labelHora.classList.add("label-hora");
+                  else labelHora.className += " label-hora";
+
+                  // div p
+                  let divP = document.createElement('p');
+                  divP.id = `${nomeIDE}${index}`
+                  divP.innerHTML = "00H00M"
+
+                  graficoContainer.appendChild(separa);
                   separa.appendChild(img1);
                   separa.appendChild(graficosTamanho);
+                  separa.appendChild(containerRelogio);
+                  containerRelogio.appendChild(img2);
+                  containerRelogio.appendChild(labelHora);
+                  labelHora.appendChild(divP);
+
                 }
               } else {
                 console.error("Erro ao criar elementos")
@@ -446,7 +468,7 @@
               for (let index = 0; index < resultadoIDE.length; index++) {
                 let nomeIDE = resultadoIDE[index]
                 let ramIDE = resultadoRam[index]
-                
+
                 criarGrafico(nomeIDE, ramIDE);
               }
             } else {
@@ -459,12 +481,12 @@
           function criarGrafico(id, valor) {
             grafic = document.querySelector(`#${id}`)
             grafic.style.width = `${valor.toFixed(0)}%`;
-            grafic.innerHTML = `${valor.toFixed(1)}%`;
+            grafic.innerHTML = `${valor.toFixed(0)}%`;
           }
 
           if (contador == 0) {
-              chamarGraficos()
-            }
+            chamarGraficos()
+          }
 
 
 
