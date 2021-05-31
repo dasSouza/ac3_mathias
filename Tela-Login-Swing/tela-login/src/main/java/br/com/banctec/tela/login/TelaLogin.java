@@ -37,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public Long cpfDev = 15000000000L;
     public Long cpfGestor = 15000000000L;
-
+    
     BigInteger bigCpfDev = BigInteger.valueOf(cpfDev);
     BigInteger BigCpfGestor = BigInteger.valueOf(cpfDev);
 

@@ -10,22 +10,23 @@ public class KeepCodeAPI {
         GetAllProcess getAllDatesProcess = new GetAllProcess();
         ProcessIDE processosIDE = new ProcessIDE();
 
-        getAllDatesProcess.getNamePc();
+//        getAllDatesProcess.getNamePc();
         getAllDatesProcess.getDiscoTotal();
-        getAllDatesProcess.getCpuNome();
-        getAllDatesProcess.memoriaTotal();
+//        getAllDatesProcess.getCpuNome();
+//        getAllDatesProcess.memoriaTotal();
+//
+//        getAllDatesProcess.insertDatesMaquina();
 
-        getAllDatesProcess.insertDatesMaquina();
-
-        processosIDE.putAllNameIde();
-        processosIDE.getIdeName();
-        processosIDE.getIdeCpu();
-        processosIDE.getIdeRam();
-        processosIDE. getIdeDisco();
+//        processosIDE.putAllNameIde();
+//        processosIDE.getIdeName();
+//        processosIDE.getIdeCpu();
+//        processosIDE.getIdeRam();
+//        processosIDE.getIdeDisco();
+//        processosIDE.getRamValues();
 
 //        processosIDE.showAll();
-
-        processosIDE.insertIntoValues();
+//
+//        processosIDE.insertIntoValues();
 
     }
 }

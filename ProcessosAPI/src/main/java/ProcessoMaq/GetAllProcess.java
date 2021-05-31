@@ -3,11 +3,13 @@ package ProcessoMaq;
 import DAO.ProcessMaqDAO;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
+import com.github.britooo.looca.api.group.discos.Volume;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 
 import java.io.File;
 import java.net.InetAddress;
+import java.util.List;
 
 public class GetAllProcess {
     MaquinaDatas maquina = new MaquinaDatas();
@@ -16,6 +18,8 @@ public class GetAllProcess {
     DiscosGroup discosGroup = new DiscosGroup();
     Memoria memoria = new Memoria();
     ProcessMaqDAO maqDAO = new ProcessMaqDAO();
+    List<Volume> discos = discosGroup.getVolumes();
+
 
 
 
@@ -36,6 +40,14 @@ public class GetAllProcess {
     public void getDiscoTotal() {
         maquina.setUs_disco_total(discosGroup.getTamanhoTotal());
         System.out.println("Atribuindo dados de disco: " + discosGroup.getTamanhoTotal()/1024/1024/1024);
+        for (Volume disco : discos) {
+            Long discoTotal = disco.getTotal() /1024/1024/1024;
+            Long discoDisponivel = disco.getDisponivel() /1024/1024/1024;
+
+            Long tamanho = (discoTotal - discoDisponivel);
+
+            System.out.println("Soborou do disco: " + tamanho);
+        }
     }
 
     public void getCpuNome() {

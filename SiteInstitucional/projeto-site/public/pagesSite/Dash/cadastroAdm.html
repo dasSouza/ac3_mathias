@@ -12,12 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script defer src="../../js/dash.js"></script>
     <script defer src="../../funcoes.js"></script>
+    <script src="../../js/js.js"></script>
     <title>KCODE</title>
 </head>
 
-
-
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
     <main class="page">
         <div class="menu">
             <div class="container">
@@ -48,18 +47,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" onclick="darkMode()">
                                 <span class="icon">
-                                    <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                                    <i class="fa fa-cog" aria-hidden="true">
                                     </i>
                                 </span>
                                 <span class="title">Settings</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" onclick="logoff()">
                                 <span class="icon">
-                                    <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 </span>
                                 <span class="title">Sign Out</span>
                             </a>
@@ -72,83 +71,92 @@
         <!-- menu end-->
         <header>
             <div class="box-recepction">
+                <div class="recection-welcome">
+                    <h1>aqui você pode cadastrar novos usuários!</h1>
+
+                </div>
                 <div class="logo-recepction">
                     <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
                 </div>
             </div>
         </header>
-        <section class="container-itens">
-            <div class="informacoes-cliente">
-                <div class="img-cliente">
-                    <img src="../../img/imagemperfil.png" alt="" id="img-dragaozin">
-                </div>
-                <div class="box-dados-do-cliente">
-                    <div class="dados-do-cliente">
-                        <p id="b_usuario">Luis Fernando</p>
-                        <p id="cargo">Developer</p>
-                        <p id="id_adm">Administrador</p>
-                        <p id="empresa">ValeMobis</p>
-                    </div>
-                    <div class="edit">
-                        <div class="tooltip">
-                            <a href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                            <span class="tooltiptext">Editar dados</span>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
+        <section class="container-itens">
             <div class="cadastro-novos-usuarios">
                 <div class="container-cadastro-novos-usuarios">
-                    <div class="text-cadastro-novo-usuario">
-                        <h2>CADASTRAR NOVOS USUARIOS</h2>
-                    </div>
                     <div class="inputs-cadastro-novo-usuario">
                         <div class="box-inputs">
-                            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
 
-                                <input id="login_cad" name="login_cad" required="required" type="text"
-                                    placeholder="Login" />
+                            <div class="text-cadastro-novo-usuario">
+                                <h2>CADASTRAR NOVOS USUARIOS</h2>
+                            </div>
+                            <form id="form_cadastro" method="post"
+                                onsubmit="return cadastrar(sessionStorage.fk_id_empresa_meuapp)">
+                                <div class="container-input">
 
+                                    <div class="inputs1">
+                                        <label class="label-input">Login</label>
+                                        <input id="login_cad" name="login_cad" required="required" type="text"
+                                            placeholder="Digite o login" />
 
-                                <label for="senha_cad" id="senha_cad-label">
-                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
-                                        placeholder="Senha" />
-                                    <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
-                                        id="olho" class="olho">
-                                </label>
+                                        <label class="label-input">Senha</label>
+                                        <input minlength="8" maxlength="30" id="senha_cad" name="senha_cad"
+                                            required="required" type="password" placeholder="Digite a senha" />
+                                        <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+                                            id="olho" class="olho">
 
-                                <input id="nome_cad" name="nome_cad" required="required" type="text"
-                                    placeholder="Nome" />
+                                        <label class="label-input">Nome</label>
+                                        <input id="nome_cad" name="nome_cad" maxlength="255" required="required"
+                                            type="text" placeholder="Digite o nome" />
 
-                                <input id="cargo" name="cargo" required="required" type="text" placeholder="Cargo" />
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p>Administrador</p>
+                                            <input type="checkbox" name="adm">
+                                        </label>
 
-                                <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
-                                    placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF )" />
-                                <br>
+                                    </div>
+                                    <div class="inputs1">
 
-                                <label for="adm" id="adm-label">
-                                    <p>Administrador</p>
-                                    <input type="checkbox" name="adm">
-                                </label>
+                                        <label class="label-input">Cargo</label>
+                                        <input id="cargo" name="cargo" required="required" type="text"
+                                            placeholder="Digite o cargo" />
 
-                                <br>
+                                        <label class="label-input">CPF</label>
+                                        <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
+                                            placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
 
-                                <div class="btn-cadastro">
-                                    <input type="submit" id="btn_login" value="Cadastrar" />
+                                        <label class="label-input">Time</label>
+                                        <input id="time" name="time" required="required" type="text"
+                                            placeholder="Digite o time" />
+
+                                        <label class="label-adm" for="adm" id="adm-label">
+                                            <p></p>
+
+                                        </label>
+                                    </div>
                                 </div>
-                                <div id="img_aguarde" style="visibility: hidden;" class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                                <div class="toButton">
+                                    <input type="submit" id="btn_login" value="Cadastrar" class="btn-login" />
+                                </div>
                             </form>
                         </div>
                     </div>
+                    <div class="container-aguarde">
+                        <div id="div_erro" style="display: none;"></div>
+                        <div id="img_aguarde" style="visibility: hidden;" class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
         </div>
+        <script id="ze-snippet"
+            src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
     </main>
-    <script src="../../js/js.js">
-    </script>
 </body>
 
 </html>

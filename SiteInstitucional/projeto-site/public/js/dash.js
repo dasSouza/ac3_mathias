@@ -12,6 +12,7 @@ document.querySelector('.toggle').onclick = function () {
 
 function darkMode() {
   var element = document.querySelector('.page');
+  
   element.classList.toggle("dark-mode");
 }
 

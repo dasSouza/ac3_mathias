@@ -20,7 +20,7 @@
 </head>
 
 
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
   <main class="page">
     <div class="menu">
       <div class="container">
@@ -51,18 +51,18 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#" onclick="darkMode()">
                 <span class="icon">
-                  <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                  <i class="fa fa-cog" aria-hidden="true">
                   </i>
                 </span>
                 <span class="title">Settings</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="" onclick="logoff()">
                 <span class="icon">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i ></i>
                 </span>
                 <span class="title">Sign Out</span>
               </a>
@@ -75,57 +75,53 @@
     <!-- menu end-->
     <header>
       <div class="box-recepction">
-        <div class="recection-welcome">
-          <h1>Bem vindo, <b id="b_usuario"></b> </h1>
-          <br>
+        <div class="recection-welcome-b">
+          <h1>Bem vindo, <b id="b_usuario0"></b> </h1>
           <p>Escolha a máquina que gostaria de consultar:</p>
         </div>
         <div class="logo-recepction">
           <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
-
         </div>
       </div>
     </header>
     <div class="ides-container">
+      <div class="container-info">
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Time</h1>
+          </div>
+          <div class="container-label">
+            <p id="nome_equipe"> Nome: </p>
+            <p id="b_usuario1"> Gestor: </p>
+            <p id="qtd_membros_equipe"> Membros: </p>
+          </div>
+        </div>
+        <div class="info-time">
+          <div class="container-titulo">
+            <h1>Máquina</h1>
+          </div>
+          <div class="container-label">
+            <p id="total"> Total: </p>
+            <p id="gestor"> Ativas: </p>
+            <p id="qtd_membros"> Inativas: </p>
+          </div>
+        </div>
+      </div>
       <div class="separation-ides">
         <div class="box-ides">
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="computador1" class="logo-ide">
-            </a>
-            <b id="computador1">VMNOTE-141</b>
+          <div class="idesLogo" id="criaImg" value="0">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="netbeans" class="logo-ide">
-            </a>
-            <b id="computador">VMOTE-171</b>
+          <div class="idesLogo" id="criaImg" value="1">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-420</b>
+          <div class="idesLogo" id="criaImg" value="2">
           </div>
         </div>
         <div class="box-ides">
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-123</b>
+          <div class="idesLogo" id="criaImg" value="3">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-777</b>
+          <div class="idesLogo" id="criaImg" value="4">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-456</b>
+          <div class="idesLogo" id="criaImg" value="5">
           </div>
         </div>
       </div>
@@ -133,45 +129,22 @@
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </div>
     </div>
-
     <div class="ides-container-part2">
       <div class="separation-ides">
         <div class="box-ides">
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="netbeans" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-634</b>
+          <div class="idesLogo" id="criaImg" value="6">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="netbeans" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-190</b>
+          <div class="idesLogo" id="criaImg" value="7">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-762</b>
+          <div class="idesLogo" id="criaImg" value="8">
           </div>
         </div>
         <div class="box-ides">
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-369</b>
+          <div class="idesLogo" id="criaImg" value="9">
           </div>
-          <div class="idesLogo">
-            <a href="graficos-vertodas.html">
-              <img src="../../img/computador.png" alt="" id="android" class="logo-ide">
-            </a>
-            <b id="computador">VMNOTE-557</b>
+          <div class="idesLogo" id="criaImg" value="10">
           </div>
-          <div class="idesLogo">
-            <!-- <img src="../img/sublimetext.png" alt="" id="android" class="logo-ide"> -->
-            <!-- <b id="computador">a</b> -->
+          <div class="idesLogo" id="criaImg" value="11">
           </div>
         </div>
       </div>
@@ -179,21 +152,89 @@
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </div>
     </div>
-
     <div class="footer-ajuda">
-
-
       <div class="ajuda">
-
-        <input type="submit" value="Ajuda" />
-
-
-
-        </button>
-
+        <script id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
       </div>
     </div>
   </main>
 </body>
 
 </html>
+
+<script>
+
+function locateEquipeQtd(fk_id_empresa, equipe_usuario) {
+    fetch(`/usuarios/equipe/${fk_id_empresa}/${equipe_usuario}`, { cache: 'no-store' })
+        .then(resposta => {
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+                    qtd_membros_equipe.innerHTML += json.somaEq
+                    total.innerHTML += json.somaEq -1
+                });
+
+            } else {
+                console.log('Erro ao encontrar quantidade de integrantes na equipe');
+            }
+        });
+}
+
+  function obteterQtdMquinhas(fk_id_empresa, equipe_usuario) {
+    fetch(`/usuarios/equipe/integrantes/${fk_id_empresa}/${equipe_usuario}`, {method: "POST" })
+      .then(resposta => {
+        if (resposta.ok) {
+
+          let nomeFuncionario = [];
+          let cargoFuncionario = [];
+
+          resposta.json().then(json => {
+            for (let u = 0; u < json.length; u++) {
+                nomeFuncionario.push(json[u].us_nome_funcionario);
+                cargoFuncionario.push(json[u].us_cargo);
+            }
+
+            for (let index = 0; index < nomeFuncionario.length; index++) {
+
+              var caixa = document.querySelectorAll('#criaImg');
+              var first = caixa[index];
+
+              if (first.getAttribute('value') == index) {
+
+                let imgPc = document.createElement('img')
+                imgPc.src = `../../img/laptop-screen (1).png`
+                imgPc.addEventListener('click', function () {
+                  sessionStorage.nome_integrante_meuapp = nomeFuncionario[index]
+                  sessionStorage.cargo_integrante_meuapp = cargoFuncionario[index]
+                  window.location.href = 'graficos-vertodas.html'
+                })
+
+                first.appendChild(imgPc);
+                if (imgPc.classList) imgPc.classList.add("logo-ide");
+                else imgPc.className += "logo-ide";
+
+                let bIde = document.createElement('b')
+                bIde.innerHTML = `${nomeFuncionario[index]}`
+                first.appendChild(bIde);
+
+                let div1 = document.createElement('div')
+                first.appendChild(div1);
+
+                if (div1.classList) div1.classList.add("label-center")
+                else div1.className += " label-center";
+
+              }
+
+            }
+
+          });
+
+        } else {
+          console.log('Erro ao encontrar quantidade de integrantes na equipe');
+        }
+      });
+  }
+
+
+</script>
