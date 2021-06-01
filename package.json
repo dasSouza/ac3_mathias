@@ -4,6 +4,6 @@
     "private": true,
     "scripts": {
         "start": "node ./SiteInstitucional/projeto-site/bin/www",
-        "postinstall": "cd projeto-site && npm install"
+        "postinstall": "cd SiteInstitucional && cd projeto-site && npm install"
     }
 }
