@@ -2094,13 +2094,13 @@ hr {
 
 }
 
-#adm-label-modal-perfill p {
+#adm-label-modal-perfil p {
     color: #4D4D4E;
     font-size: 15px;
     margin-top: 4vh;
 }
 
-#adm-label-modal-perfill>span {
+#adm-label-modal-perfil>span {
     color: #CEE4D9;
     padding: 0.5rem 0.25rem;
     border-radius: 100%;
@@ -2120,11 +2120,11 @@ hr {
     cursor: pointer;
 }
 
-#adm-label-modal-perfill>input:checked {
+#adm-label-modal-perfil>input:checked {
     background-color: #c73535;
 }
 
-#adm-label-modal-perfill>input:checked+span::before {
+#adm-label-modal-perfil>input:checked+span::before {
     content: '\2713';
     display: block;
     text-align: center;

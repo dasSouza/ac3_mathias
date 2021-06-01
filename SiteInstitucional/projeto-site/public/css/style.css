@@ -388,20 +388,39 @@ footer span {
   flex-direction: row;
   align-items: center;
   position: relative;
+  justify-content: flex-end;
 }
 
-.partgit {
+
+.box-git {
+
+  height: 100%;
+  width: 30%;
+  
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+
+.arrow-right {
   position: absolute;
-  background-image: url(../img/git.png);
-  right: 0;
-  bottom: 0;
-  width: 60px;
-  height: 60px;
-  border-width: 60px;
+  
+  left: 22rem;
+  top: 1.5rem;
+  width: 0; 
+  height: 0; 
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(4deg); /* Safari */
+    transform: rotate(45deg); /* Standard syntax */
+  border-left: 60px solid black;
 }
 
-.partgit img {
-  width:100%
+#img-git {
+  width: 100%;
+
 }
 
 .box-img {
