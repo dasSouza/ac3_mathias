@@ -59,6 +59,11 @@ function verificar_autenticacao() {
             obterDadosGraficoRamGestor(nome_integrante_app, equipe_integrante,cargo_integrante_app)
         }
 
+        if (typeof carregarDadosGestor === 'function') {
+            carregarDadosGestor(id_usuario)
+        }
+        
+
         locateEmpresa()
 
         typeof b_usuario0 === 'undefined' ? null : (b_usuario0.innerHTML = nome_usuario);

@@ -221,6 +221,23 @@ function dadosIguais() {
   return booleano;
 }
 
+function dadosIguaisGestor() {
+  console.log("to no dados")
+  let booleano = true;
+
+  if (document.getElementById("login").value == recuperaDadosGestor[0]
+    && document.getElementById("senha").value == recuperaDadosGestor[1]
+    && document.getElementById("nome").value == recuperaDadosGestor[2]
+    && document.getElementById("timeGestor").value == recuperaDadosGestor[3]
+    && document.getElementById("cargoGestor").value == recuperaDadosGestor[4]
+    && document.getElementById("CpfGestor").value == mCPF(recuperaDadosGestor[5])
+    && document.getElementById("admGestor").checked) {
+    booleano = false;
+  }
+
+  return booleano;
+}
+
 function editarUsuario() {
   aguardar();
   var formulario = new URLSearchParams(new FormData(form_editar));
@@ -261,6 +278,108 @@ function editarUsuario() {
         console.log("Erro ao editar dado do usuário.");
 
         response.text().then(function (resposta) {
+          Swal.fire({
+            icon: "error",
+            iconColor: '#c73535',
+            title: "Falha ao editar os dados do funcionário! Por favor tente novamente.",
+            background: "#D6ECE1",
+            confirmButtonColor: "#A3C6C1",
+          });
+          console.log(resposta);
+        });
+      }
+    }
+    finalizar_aguardar();
+  });
+  return false;
+}
+
+function editarGestor() {
+
+  if (!admGestor.checked) {
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: "Caso clique em confirmar, você será redirecionado para a tela de login e alterará o seu nível de acesso, podendo ser alterado novamente somente por outro gestor.",
+      icon: 'warning',
+      iconColor: '#c73535',
+      showCancelButton: true,
+      confirmButtonColor: ' #88A9A7',
+      cancelButtonColor: '#B73447',
+      confirmButtonText: 'Sim, aceito!',
+      cancelButtonText: 'Cancelar',
+      background: "#D6ECE1"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // CONFIRMOU
+        editarDadosGestor()
+        
+      } else {
+        // CANCELOU
+        Swal.fire({
+          title: 'Cancelado!',
+          text: 'Você ainda pode editar os seus dados.',
+          icon: 'success',
+          iconColor: '#50d150',
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#A3C6C1',
+          background: "#D6ECE1"
+        })
+      }
+    })
+  } else {
+    editarDadosGestor()
+  }
+
+  return false;
+
+}
+
+function editarDadosGestor() {
+  aguardar();
+  var formulario = new URLSearchParams(new FormData(form_editar_gestor));
+  fetch("/usuarios/editarGestor", {
+    method: "POST",
+    body: formulario,
+  }).then((resposta) => {
+
+    if (!dadosIguaisGestor()) {
+      Swal.fire({
+        icon: "error",
+        iconColor: '#c73535',
+        title: "Você precisa alterar algum valor para que essa alteração seja válida.",
+        background: "#D6ECE1",
+        confirmButtonColor: "#A3C6C1",
+      });
+      console.log(resposta);
+    } else {
+      if (resposta.ok) {
+        resposta.json().then((json) => {
+          closeModal('dv-modal1');
+          Swal.fire({
+            icon: "success",
+            iconColor: '#50d150',
+            title: "Dados do funcionário editados com sucesso!",
+            background: "#D6ECE1",
+          });
+
+          if (!admGestor.checked) {
+              fetch(`/usuarios/sair/${sessionStorage.login_usuario_meuapp}`, { cache: 'no-store' });
+              sessionStorage.clear();
+              window.location.href = '../Institucional/login.html';
+          }
+
+          sessionStorage.login_usuario_meuapp = document.getElementById("login").value
+          sessionStorage.nome_usuario_meuapp = document.getElementById("nome").value
+          sessionStorage.administrador_usuario_meuapp = admGestor.checked ? 1 : 0;
+          sessionStorage.cargo_usuario_meuapp = document.getElementById("cargoGestor").value
+          sessionStorage.equipe_usuario_meuapp = document.getElementById("timeGestor").value
+
+          carregarDadosGestor(id_usuario)
+        });
+      } else {
+        console.log("Erro ao editar dado do usuário.");
+
+        resposta.text().then(function (resposta) {
           Swal.fire({
             icon: "error",
             iconColor: '#c73535',
@@ -325,7 +444,6 @@ function Salvar() {
   }).then((result) => {
     if (result.isConfirmed) {
       // CONFIRMOU
-
       validacaoIdeSelecionadas()
     } else {
       // CANCELOU
@@ -368,7 +486,6 @@ function validacaoIdeSelecionadas() {
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        // toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     })
@@ -391,7 +508,6 @@ function validacaoIdeSelecionadas() {
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        // toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     })
