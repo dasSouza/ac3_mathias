@@ -11,13 +11,14 @@
     <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script defer src="../../js/dash.js"></script>
+    <script defer src="../../js/js.js"></script>
     <script defer src="../../funcoes.js"></script>
     <title>KCODE</title>
 </head>
 
 
 
-<!-- <body onload="verificar_autenticacao()"> -->
+<body onload="verificar_autenticacao()">
     <main class="page">
         <div class="menu">
             <div class="container">
@@ -88,28 +89,22 @@
 
                     <div class="perfil-img">
                         <img src="../../img/imagemperfil.png" alt="" id="imgPerfil">
-
                     </div>
-
 
                     <div class="text-dados">
-                        <p>Login:</p>
+                        <p id="login_cad">Login: </p>
                         <br>
-                        <p>Senha:</p>
+                        <p id="senha_cad">Senha: </p>
                         <br>
-                        <p>Nome:</p>
+                        <p id="nome_cad">Nome:</p>
                         <br>
-                        <p>Time:</p>
+                        <p id="time">Time:</p>
                         <br>
-                        <p>Cargo:</p>
+                        <p id="cargo">Cargo:</p>
                         <br>
-                        <p>CPF:</p>
-                        <br>
-                        <p>Administrador:</p>
-
-
-
+                        <p id="Cpf">CPF:</p>
                     </div>
+
                     <div class="edit-perfil">
 
                         <div class="tooltip">
@@ -129,13 +124,6 @@
 
 
             <div class="ajuda">
-
-                <input type="submit" value="Ajuda" />
-
-
-
-                </button>
-
             </div>
 
             <div id="dv-modal1" class="modal">
@@ -145,49 +133,43 @@
                     </div>
                     <div class="modal-body">
 
-                        <form id="form_editar" method="post" onsubmit="return cadastrar()">
+                        <form id="form_editar_gestor" method="post" onsubmit="return editarGestor()">
                             <div class="container-modal">
 
                                 <div class="inputs-modal">
 
 
                                     <label class="label-modal">Login</label>
-                                    <input id="login_cad" name="login_cad" required="required" type="text"
+                                    <input id="login" name="login_cad" required="required" type="text"
                                         placeholder="Digite o login" />
                                     <label class="label-input">Senha</label>
-                                    <input id="senha_cad" name="senha_cad" required="required" type="password"
+                                    <input id="senha" name="senha_cad" required="required" type="password"
                                         placeholder="Digite a senha" />
                                     <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
                                         id="olho" class="olho-perfil">
 
                                     <label class="label-modal">Nome</label>
-                                    <input id="nome_cad" name="nome_cad" required="required" type="text"
+                                    <input id="nome" name="nome_cad" required="required" type="text"
                                         placeholder="Digite o nome" />
 
                                     <label class="label-modal">Time</label>
-                                    <input id="time" name="time" required="required" type="text"
+                                    <input id="timeGestor" name="time" required="required" type="text"
                                         placeholder="Digite o time" />
-
                                 </div>
                                 <div class="inputs-modal">
 
                                     <label class="label-modal">Cargo</label>
-                                    <input id="cargo" name="cargo" required="required" type="text"
+                                    <input id="cargoGestor" name="cargo" required="required" type="text"
                                         placeholder="Digite o cargo" />
 
                                     <label class="label-modal">CPF</label>
-                                    <input maxlength="14" id="Cpf" name="cpf" required="required" type="text"
+                                    <input maxlength="14" id="CpfGestor" name="cpf" required="required" type="text" readonly="true"
                                         placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
 
                                     <label class="label-adm" for="adm" id="adm-label-modal-perfil">
                                         <p>Administrador</p>
-                                        <input type="checkbox" name="adm">
+                                        <input type="checkbox" id="admGestor" name="adm">
                                     </label>
-
-
-
-
-
                                 </div>
 
                             </div>
@@ -212,12 +194,49 @@
                     </div>
                 </div>
             </div>
+            <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
     </main>
 </body>
-<script>// window.onload = verificar_autenticacao();
-    // window.onload = obterDadosGraficoPrimeiraVez(1);
-    // window.onload = carregarGrafico();
+<script>
 
+function carregarDadosGestor(id_usuario) {
+    fetch(`/usuarios/modalGestor/${id_usuario}`, { cache: 'no-store' })
+      .then(resposta => {
+        if (resposta.ok) {
+          recuperaDadosGestor = []
+
+          resposta.json().then(json => {
+            recuperaDadosGestor.push(json[0].us_login);
+            recuperaDadosGestor.push(json[0].us_senha);
+            recuperaDadosGestor.push(json[0].us_nome_funcionario);
+            recuperaDadosGestor.push(json[0].us_equipe);
+            recuperaDadosGestor.push(json[0].us_cargo);
+            recuperaDadosGestor.push(json[0].id_cpf);
+            recuperaDadosGestor.push(json[0].us_is_adm);
+
+            document.getElementById("login").value = recuperaDadosGestor[0];
+            document.getElementById("senha").value = recuperaDadosGestor[1];
+            document.getElementById("nome").value = recuperaDadosGestor[2];
+            document.getElementById("timeGestor").value = recuperaDadosGestor[3];
+            document.getElementById("cargoGestor").value = recuperaDadosGestor[4];
+            document.getElementById("CpfGestor").value = mCPF(recuperaDadosGestor[5]);
+            recuperaDadosGestor[6] != 0 ? admGestor.checked = true : admGestor.checked = false;
+
+            document.getElementById("login_cad").innerHTML = `Login: ${recuperaDadosGestor[0]}`;
+            document.getElementById("senha_cad").innerHTML = "Senha: ************";
+            document.getElementById("nome_cad").innerHTML = `Nome: ${recuperaDadosGestor[2]}`;
+            document.getElementById("time").innerHTML = `Time: ${recuperaDadosGestor[3]}`;
+            document.getElementById("cargo").innerHTML = `Cargo: ${recuperaDadosGestor[4]}`;
+            document.getElementById("Cpf").innerHTML = `CPF: ${mCPF(recuperaDadosGestor[5])}`;
+            
+          });
+
+        } else {
+          console.log('Erro ao recuperar os dados de Integrantes');
+        }
+      });
+  }
 
     function openModal(mn) {
         let modal = document.getElementById(mn);

@@ -29,7 +29,6 @@ router.post('/recuperarIDEs/:CPF', function (req, res, next) {
 		console.log(`Encontrados: ${result.length}`);
 		console.log(result);
 		for (let u = 0; u < result.length; u++) {
-			console.log("resultado: ", result[u].dataValues.tb_ide_maquina_id_ide)
 			idesRecuperadas.push(result[u].dataValues.tb_ide_maquina_id_ide);
 		}
 		console.log('Ides: ', idesRecuperadas);

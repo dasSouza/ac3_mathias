@@ -52,7 +52,7 @@
             desenvolvimento do usuário (GUI), facilitando o desenvolvimento de
             aplicações.
           </p>
-          <button class="btn">Saiba mais</button>
+            <button id="noticia1" class="btn" onclick="linkNoticia(noticia1)">Saiba mais</button>
         </div>
         <img src="../../img/computer.png" alt="" />
       </div>
@@ -63,7 +63,7 @@
             O Eclipse é uma ferramenta IDE que compreende vários tipos de linguagem e que aceita a instalação de plugins
             para emular o desenvolvimento da plataforma
           </p>
-          <button class="btn">Saiba mais</button>
+          <button id="noticia2" class="btn" onclick="linkNoticia(noticia2)">Saiba mais</button>
         </div>
         <img src="../../img/pen-drive.png" alt="" />
       </div>
@@ -75,7 +75,7 @@
             O NetBeans IDE é um ambiente de desenvolvimento integrado gratuito e de código aberto para desenvolvedores
             de software nas linguagens Java, JavaScript, HTML5, PHP, C/C++, S.
           </p>
-          <button class="btn">Saiba mais</button>
+          <button id="noticia3" class="btn" onclick="linkNoticia(noticia3)">Saiba mais</button>
         </div>
         <img src="../../img/carta.png" alt="" />
       </div>
@@ -113,3 +113,25 @@
 </body>
 
 </html>
+
+<script>
+
+  function linkNoticia(id) {
+
+    switch (id) {
+      case noticia3:
+      window.open('https://www.pwiki.org/wiki/Netbeans', '_blank');
+        break;
+      case noticia2:
+      window.open('https://www.devmedia.com.br/conhecendo-o-eclipse-uma-apresentacao-detalhada-da-ide/25589', '_blank');
+        break;
+      case noticia1:
+      window.open('https://www.treinaweb.com.br/blog/o-que-e-uma-ide-ambiente-de-desenvolvimento-integrado#:~:text=Sem dúvidas%2C a escolha de,testar e corrigir suas aplicações.', '_blank');
+        break;
+      default:
+        break;
+    }
+
+  }
+
+</script>
