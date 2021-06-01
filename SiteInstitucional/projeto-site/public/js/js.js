@@ -187,7 +187,7 @@ function cadastrar(fk_id_empresa) {
         console.log("Erro de cadastro!");
 
         response.text().then(function (resposta) {
-          div_erro.innerHTML = resposta;
+          // div_erro.innerHTML = resposta;
           Swal.fire({
             icon: "error",
             iconColor: '#c73535',
@@ -274,21 +274,20 @@ function editarUsuario() {
     }
     finalizar_aguardar();
   });
-
   return false;
 }
 
 function aguardar() {
   btn_login.disabled = true;
-  btn_login.style.display = "none";
-  // img_aguarde.style.visibility = "visible";
+  btn_login.style.visibility = "hidden";
+  img_aguarde.style.visibility = "visible";
 }
 
 function finalizar_aguardar() {
   console.log("Entrei no finalizar")
   btn_login.disabled = false;
-  btn_login.style.display = "block";
-  // img_aguarde.style.visibility = "hidden";
+  btn_login.style.visibility = "visible";
+  img_aguarde.style.visibility = "hidden";
 }
 
 // MASCARA CPF

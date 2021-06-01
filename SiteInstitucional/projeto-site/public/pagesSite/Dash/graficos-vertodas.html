@@ -39,11 +39,11 @@
               </a>
             </li>
             <li>
-              <a href="cadastroAdm.html">
+              <a href="preperfil.html">
                 <span class="icon">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
-                <span class="title">Profile</span>
+                <span class="title">Perfil</span>
               </a>
             </li>
             <li>
@@ -207,8 +207,8 @@
                 <label class="label-modal">Nome</label>
                 <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Digite o nome" />
 
-                <label class="label-modal">Time</label>
-                <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
+              <label class="label-modal">Time</label>
+              <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
 
               </div>
               <div class="inputs-modal">
@@ -220,27 +220,35 @@
                 <input maxlength="14" id="Cpf" name="cpf" required="required" type="text" readonly="true"
                   placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
 
-                <label class="label-adm" for="adm" id="adm-label-modal">
-                  <p>Administrador</p>
-                  <input type="checkbox" id="adm" name="adm">
-                </label>
-
-              </div>
-
+              <label class="label-adm" for="adm" id="adm-label-modal">
+                <p>Administrador</p>
+                <input type="checkbox" name="adm">
+              </label>
             </div>
-            <div class="toButton">
-              <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
-            </div>
-
-          </form>
-
+          </div>
+          <div class="toButton">
+            <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
+          </div>
+        </form>
+        <div class="container-aguarde">
+          <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
-        </div>
+
+      </div>
+     
+      <div class="modal-footer">
+        <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
       </div>
     </div>
-  </main>
+  </div>
+  
+
+</main>
 </body>
 
 </html>
