@@ -405,7 +405,6 @@ footer span {
 
 .arrow-right {
   position: absolute;
-  
   left: 22rem;
   top: 1.5rem;
   width: 0; 
@@ -413,14 +412,23 @@ footer span {
   border-top: 60px solid transparent;
   border-bottom: 60px solid transparent;
   -ms-transform: rotate(-90deg); /* IE 9 */
-    -webkit-transform: rotate(4deg); /* Safari */
-    transform: rotate(45deg); /* Standard syntax */
+  -webkit-transform: rotate(4deg); /* Safari */
+  transform: rotate(45deg); /* Standard syntax */
   border-left: 60px solid black;
+
 }
 
-#img-git {
-  width: 100%;
+#img-git a {
+  position: absolute;
 
+}
+
+
+
+
+.box-img-git {
+  width: 15vmin;
+  background-color: red;
 }
 
 .box-img {
