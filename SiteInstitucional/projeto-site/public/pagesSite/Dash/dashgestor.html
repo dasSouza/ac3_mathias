@@ -62,7 +62,7 @@
             <li>
               <a href="" onclick="logoff()">
                 <span class="icon">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i ></i>
+                  <i class="fa fa-sign-out" aria-hidden="true"></i></i>
                 </span>
                 <span class="title">Sign Out</span>
               </a>
@@ -110,18 +110,24 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="1">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="2">
+            
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="3">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="4">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="5">
+            
           </div>
         </div>
       </div>
@@ -133,18 +139,24 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="7">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="8">
+            
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="9">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="10">
+            
           </div>
           <div class="idesLogo" id="criaImg" value="11">
+            
           </div>
         </div>
       </div>
@@ -165,24 +177,24 @@
 
 <script>
 
-function locateEquipeQtd(fk_id_empresa, equipe_usuario) {
+  function locateEquipeQtd(fk_id_empresa, equipe_usuario) {
     fetch(`/usuarios/equipe/${fk_id_empresa}/${equipe_usuario}`, { cache: 'no-store' })
-        .then(resposta => {
-            if (resposta.ok) {
+      .then(resposta => {
+        if (resposta.ok) {
 
-                resposta.json().then(json => {
-                    qtd_membros_equipe.innerHTML += json.somaEq
-                    total.innerHTML += json.somaEq -1
-                });
+          resposta.json().then(json => {
+            qtd_membros_equipe.innerHTML += json.somaEq
+            total.innerHTML += json.somaEq - 1
+          });
 
-            } else {
-                console.log('Erro ao encontrar quantidade de integrantes na equipe');
-            }
-        });
-}
+        } else {
+          console.log('Erro ao encontrar quantidade de integrantes na equipe');
+        }
+      });
+  }
 
   function obteterQtdMquinhas(fk_id_empresa, equipe_usuario) {
-    fetch(`/usuarios/equipe/integrantes/${fk_id_empresa}/${equipe_usuario}`, {method: "POST" })
+    fetch(`/usuarios/equipe/integrantes/${fk_id_empresa}/${equipe_usuario}`, { method: "POST" })
       .then(resposta => {
         if (resposta.ok) {
 
@@ -191,8 +203,8 @@ function locateEquipeQtd(fk_id_empresa, equipe_usuario) {
 
           resposta.json().then(json => {
             for (let u = 0; u < json.length; u++) {
-                nomeFuncionario.push(json[u].us_nome_funcionario);
-                cargoFuncionario.push(json[u].us_cargo);
+              nomeFuncionario.push(json[u].us_nome_funcionario);
+              cargoFuncionario.push(json[u].us_cargo);
             }
 
             for (let index = 0; index < nomeFuncionario.length; index++) {

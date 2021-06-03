@@ -124,7 +124,8 @@ router.post('/equipe/integrantes/:idEmpresa/:equipe', function (req, res, next) 
 
 	let instrucaoSql = `SELECT 
 						us_nome_funcionario,
-						us_cargo
+						us_cargo,
+						
 						FROM tb_us_dados 
 						WHERE us_equipe = '${equipe}'
 							and fk_id_empresa = ${idEmpresa}

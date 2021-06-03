@@ -114,19 +114,25 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
+
           </div>
           <div class="idesLogo" id="criaImg" value="1">
+
           </div>
           <div class="idesLogo" id="criaImg" value="2">
+
           </div>
         </div>
 
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="3">
+
           </div>
           <div class="idesLogo" id="criaImg" value="4">
+
           </div>
           <div class="idesLogo" id="criaImg" value="5">
+
           </div>
         </div>
       </div>
@@ -166,16 +172,21 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
+
           </div>
           <div class="idesLogo" id="criaImg" value="7">
+
           </div>
           <div class="idesLogo" id="criaImg" value="8">
+
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="9">
+
           </div>
           <div class="idesLogo" id="criaImg" value="10">
+
           </div>
           <div class="idesLogo">
           </div>
@@ -351,6 +362,15 @@
                   var first = logoIDE[index];
 
                   if (first.getAttribute('value') == index) {
+
+                    if (ramIDE > 7) {
+                      let alerta = document.createElement('div')
+                      alerta.innerHTML = "1"
+                      first.appendChild(alerta);
+                      if (alerta.classList) alerta.classList.add("alert");
+                      else alerta.className += " alert";
+                    }
+
                     let img1 = document.createElement('img')
                     img1.src = `../../img/${nomeIDE}.png`
                     img1.id = nomeIDE
@@ -445,16 +465,25 @@
 
           if (contador == 0) {
             if (resposta == 0) {
+              let divGrafico = document.querySelector('.separation-ides')
+              let img1 = document.createElement('img')
+              img1.src = "../../img/warning.png"
+              img1.style.position = "absolute"
+              img1.style.height = "25%"
+              img1.style.marginTop = "-20%"
+              img1.style.textAlign = "center"
+              divGrafico.appendChild(img1);
+
               let aviso = document.createElement('div')
               aviso.style = `font-family: 'Inter', sans-serif;`
               aviso.style.position = "absolute";
-              aviso.style.fontSize = "8vh";
               aviso.style.textAlign = "center"
               aviso.style.color = "#514E4D";
-              aviso.style.fontSize = "6vh"
+              aviso.style.fontSize = "3vh"
               aviso.innerHTML = "Você não tem nenhuma IDE selecionada! <br> Vá até Perfil e selecione a IDE que deseja monitorar."
               aviso.id = "aviso"
-              document.querySelector('.separation-ides').appendChild(aviso);
+
+              divGrafico.appendChild(aviso);
               contador++
             } else {
               chamarGraficos()

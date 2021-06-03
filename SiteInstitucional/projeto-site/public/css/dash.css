@@ -1459,6 +1459,8 @@ hr {
 
 
 .alert {
+    color: #CEE4D9;
+    font-size: 20px;
     position: absolute;
     right: 0;
     top: 0;
@@ -1470,15 +1472,6 @@ hr {
     display: flex;
     align-items:center;
     justify-content: center;
-
-
-}
-
-.alert p {
-
-    color: #CEE4D9;
-    font-size: 20px;
-
 }
 
 .container-relogio {
