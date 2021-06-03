@@ -173,7 +173,8 @@
 
     <div class="footer-ajuda">
       <div class="ajuda">
-        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+        <script id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
       </div>
     </div>
 
@@ -196,8 +197,8 @@
                 <label class="label-modal">Nome</label>
                 <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Digite o nome" />
 
-              <label class="label-modal">Time</label>
-              <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
+                <label class="label-modal">Time</label>
+                <input id="time" name="time" required="required" type="text" placeholder="Digite o time" />
 
               </div>
               <div class="inputs-modal">
@@ -209,35 +210,34 @@
                 <input maxlength="14" id="Cpf" name="cpf" required="required" type="text" readonly="true"
                   placeholder="Digite o CPF" onkeydown="javascript: fMasc(this, mCPF)" />
 
-              <label class="label-adm" for="adm" id="adm-label-modal">
-                <p>Administrador</p>
-                <input type="checkbox" name="adm">
-              </label>
+                <label class="label-adm" for="adm" id="adm-label-modal">
+                  <p>Administrador</p>
+                  <input type="checkbox" name="adm">
+                </label>
+              </div>
+            </div>
+            <div class="toButton">
+              <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
+            </div>
+          </form>
+          <div class="container-aguarde">
+            <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
           </div>
-          <div class="toButton">
-            <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
-          </div>
-        </form>
-        <div class="container-aguarde">
-          <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+
         </div>
 
-      </div>
-     
-      <div class="modal-footer">
-        <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
+        <div class="modal-footer">
+          <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
+        </div>
       </div>
     </div>
-  </div>
-  
 
-</main>
+  </main>
 </body>
 
 </html>
@@ -481,9 +481,38 @@
             grafic.innerHTML = `${valor.toFixed(0)}%`;
           }
 
-          if (contador == 0) {
-            chamarGraficos()
-          }
+            if (contador == 0) {
+              if (resposta == 0) {
+
+                let divGrafico = document.querySelector('.grafic-container')
+                divGrafico.style.alignItems = 'center'
+                divGrafico.style.justifyContent = 'center'
+
+                let img1 = document.createElement('img')
+                img1.src = "../../img/warning.png"
+                img1.style.width = "25%"
+                img1.style.textAlign = "center"
+                img1.style.marginRight = "2vw"
+                document.querySelector('.grafic-container').appendChild(img1);
+
+                let aviso = document.createElement('div')
+                aviso.style = `font-family: 'Inter', sans-serif;`
+                aviso.style.display = "flex"
+                aviso.style.textAlign = "center" 
+                aviso.style.color = "#514E4D";
+                aviso.style.fontSize = "2vh"
+                aviso.style.alignItems = "flex-end"
+                aviso.style.height = "40%"
+                aviso.style.width = "85%"
+                aviso.style.marginRight = "2vw"
+                aviso.innerHTML = "Este usuário não tem nenhuma IDE selecionada! <br> Peça para ele selecionar uma IDE, para que possamos monitorar."
+                aviso.id = "aviso"
+                divGrafico.appendChild(aviso);
+                contador++
+              } else {
+                chamarGraficos()
+              }
+            }
 
 
 
