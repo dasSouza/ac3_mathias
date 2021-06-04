@@ -66,7 +66,7 @@ public class ProcessIDE {
                         Float cpu_total = us_cpu / 1024 / 1024 / 1024;
                         Float cpu_disponivel = disp_cpu / 1024 / 1024 / 1024;
 
-                        json.put("text", "------ Alerta sua IDE está consumindo 80% da sua CPU ------"
+                        json.put("text", "------ Alerta sua IDE " + processo.getNome() + " esta consumindo 80% da sua CPU ------"
                                 + "\n Total da sua CPU: " + cpu_total
                                 + "\n Uso Disco: " + (cpu_total - cpu_disponivel)
                                 + "\n Data: " + LocalDate.now()
@@ -122,7 +122,7 @@ public class ProcessIDE {
                         Double ram_total = processDatas.getUs_ide_ram() / 1024 / 1024 / 1024;
                         Double ram_disponivel = processDatas.getUs_ide_ram() / 1024 / 1024 / 1024;
 
-                        json.put("text", "------ Alerta amarelo uso utilizando mais que 90% de ram ------"
+                        json.put("text", "------ Alerta" + processo.getNome() + "amarelo uso utilizando mais que 90% de ram ------"
                                 + "\n Total de ram: " + ram_total + "gb"
                                 + "\n Uso ram: " + (ram_total - ram_disponivel) + "gb"
                                 + "\n Data: " + LocalDate.now()
@@ -177,7 +177,7 @@ public class ProcessIDE {
                         long disk_total = us_disk / 1024 / 1024 / 1024;
                         long disk_disponivel = disp_disk / 1024 / 1024 / 1024;
 
-                        json.put("text", "------ Alerta sua IDE esta com o consumo de: ------"
+                        json.put("text", "------ Alerta vermelho sua IDE " + processo.getNome() + "esta consumo de disco em 90%: ------"
                                 + "\n Total do seu disco: " + disk_total + "gb"
                                 + "\n Uso Disco: " + (disk_total - disk_disponivel) + "gb"
                                 + "\n Data: " + LocalDate.now()
