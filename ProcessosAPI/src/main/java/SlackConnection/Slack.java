@@ -9,7 +9,7 @@ import org.json.JSONObject;
 
 
 public class Slack {
-    private String url= "https://hooks.slack.com/services/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";
+    private final String url= "https://hooks.slack.com/services/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";
 
     public void sendMessage(JSONObject message) throws Exception {
 
@@ -36,7 +36,7 @@ public class Slack {
 
         String inputLine;
 
-        StringBuffer response = new StringBuffer();
+        StringBuilder response = new StringBuilder();
 
         while ((inputLine = reader.readLine()) != null) {
             response.append(inputLine);
