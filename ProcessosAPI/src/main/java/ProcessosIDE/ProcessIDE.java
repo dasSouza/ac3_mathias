@@ -5,7 +5,9 @@ import SlackConnection.Slack;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 
 import java.util.ArrayList;
@@ -19,6 +21,13 @@ public class ProcessIDE {
 
     List<Processo> processoList = looca.getGrupoDeProcessos().getProcessos();
     List<String> nomesIde = new ArrayList<>();
+    
+    LocalDateTime agora = LocalDateTime.now();
+    DateTimeFormatter formatterData = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+    String dataFormatada = formatterData.format(agora);
+                        
+    DateTimeFormatter formatterHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+    String horaFormatada = formatterHora.format(agora);
 
 
     public void putAllNameIde(){
@@ -54,23 +63,23 @@ public class ProcessIDE {
                     processDatas.setUs_ide_cpu(processo.getUsoCpu().floatValue());
                     processDatas.valoresCpuIDE.add(processDatas.getUs_ide_cpu());
                     
-                    Float us_cpu = processDatas.getUs_ide_cpu() / 1024 / 1024 / 1024;
-                    Float disp_cpu = processDatas.getUs_ide_cpu() / 1024 / 1024 / 1024;
+                    Float us_cpu = processDatas.getUs_ide_cpu();
+                    Float disp_cpu = processDatas.getUs_ide_cpu();
                     Float us_total_cpu = us_cpu - disp_cpu;
                     Float porc_us_cpu = (us_cpu / 100) * us_total_cpu;
 
                     //Parte do SLACK
-                    if (porc_us_cpu >= 0) {
+                    if (porc_us_cpu >= 2) {
                         Slack slack = new Slack();
                         JSONObject json = new JSONObject();
-                        Float cpu_total = us_cpu / 1024 / 1024 / 1024;
-                        Float cpu_disponivel = disp_cpu / 1024 / 1024 / 1024;
+                        Float cpu_total = us_cpu;
+                        Float cpu_disponivel = disp_cpu;
 
                         json.put("text", "------ Alerta sua IDE " + processo.getNome() + " esta consumindo 80% da sua CPU ------"
-                                + "\n Total da sua CPU: " + cpu_total
+                                + "\n Total da sua CPU: " + cpu_total.floatValue()
                                 + "\n Uso Disco: " + (cpu_total - cpu_disponivel)
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                                + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada);
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
@@ -82,14 +91,15 @@ public class ProcessIDE {
                     if (porc_us_cpu >= 0) {
                         Slack slack = new Slack();
                         JSONObject json = new JSONObject();
-                        Float cpu_total = us_cpu / 1024 / 1024 / 1024;
-                        Float cpu_disponivel = disp_cpu / 1024 / 1024 / 1024;
+                        Float cpu_total = us_cpu;
+                        Float cpu_disponivel = disp_cpu;
+                        
 
                         json.put("text", "------ Alerta amarelo uso de cpu maior que 60% ------"
                                 + "\n Total da sua CPU: " + cpu_total
                                 + "\n Uso CPU: " + (cpu_total - cpu_disponivel)
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                                + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada );
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
@@ -125,8 +135,8 @@ public class ProcessIDE {
                         json.put("text", "------ Alerta" + processo.getNome() + "amarelo uso utilizando mais que 90% de ram ------"
                                 + "\n Total de ram: " + ram_total + "gb"
                                 + "\n Uso ram: " + (ram_total - ram_disponivel) + "gb"
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                                + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada );
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
@@ -143,8 +153,8 @@ public class ProcessIDE {
                         json.put("text", "------ Alerta amarelo uso de ram maior que 85% ------"
                                 + "\n Total do seu disco: " + ram_total + "gb"
                                 + "\n Uso Disco: " + (ram_total - ram_disponivel) + "gb"
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                               + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada );
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
@@ -171,17 +181,17 @@ public class ProcessIDE {
                     Long porc_us_disk = (us_disk / 100) * us_total_disk;
 
                     //Parte do SLACK
-                    if (porc_us_disk >= 0) {
+                    if (porc_us_disk >= 2) {
                         Slack slack = new Slack();
                         JSONObject json = new JSONObject();
                         long disk_total = us_disk / 1024 / 1024 / 1024;
                         long disk_disponivel = disp_disk / 1024 / 1024 / 1024;
 
-                        json.put("text", "------ Alerta vermelho sua IDE " + processo.getNome() + "esta consumo de disco em 90%: ------"
+                        json.put("text", "------ Alerta vermelho sua IDE " + processo.getNome() + " esta consumo de disco em 90%: ------"
                                 + "\n Total do seu disco: " + disk_total + "gb"
                                 + "\n Uso Disco: " + (disk_total - disk_disponivel) + "gb"
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                                + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada );
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
@@ -199,8 +209,8 @@ public class ProcessIDE {
                         json.put("text", "------Alerta amarelo uso disco maior que 85%------"
                                 + "\n Total do seu disco: " + disk_total + "gb"
                                 + "\n Uso Disco: " + (disk_total - disk_disponivel) + "gb"
-                                + "\n Data: " + LocalDate.now()
-                                + "\n Hora: " + LocalTime.now());
+                                + "\n Data: " + dataFormatada
+                                + "\n Hora: " + horaFormatada );
                         try {
                             slack.sendMessage(json);
                         } catch (Exception e) {
