@@ -312,7 +312,7 @@ function editarGestor() {
       if (result.isConfirmed) {
         // CONFIRMOU
         editarDadosGestor()
-        
+
       } else {
         // CANCELOU
         Swal.fire({
@@ -363,9 +363,9 @@ function editarDadosGestor() {
           });
 
           if (!admGestor.checked) {
-              fetch(`/usuarios/sair/${sessionStorage.login_usuario_meuapp}`, { cache: 'no-store' });
-              sessionStorage.clear();
-              window.location.href = '../Institucional/login.html';
+            fetch(`/usuarios/sair/${sessionStorage.login_usuario_meuapp}`, { cache: 'no-store' });
+            sessionStorage.clear();
+            window.location.href = '../Institucional/login.html';
           }
 
           sessionStorage.login_usuario_meuapp = document.getElementById("login").value

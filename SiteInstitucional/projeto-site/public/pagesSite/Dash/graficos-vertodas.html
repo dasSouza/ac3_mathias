@@ -340,7 +340,6 @@
       if (response.ok) {
         response.json().then(function (resposta) {
           console.log("Entrou na RAM do gestor")
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
@@ -409,7 +408,6 @@
           function chamarGraficos() {
             if (contadorCriarElemento == 0) {
               if (resultadoIDE.length && resultadoRam.length != 0) {
-                console.log("FOI")
 
                 for (let index = 0; index < resultadoIDE.length; index++) {
                   graficoContainer = document.querySelector('.grafic-container')
@@ -491,16 +489,39 @@
             grafic.innerHTML = `${valor.toFixed(0)}%`;
           }
 
-          if (contador == 0) {
-            chamarGraficos()
-          }
+            if (contador == 0) {
+              if (resposta == 0) {
 
+                let divGrafico = document.querySelector('.grafic-container')
+                divGrafico.style.alignItems = 'center'
+                divGrafico.style.justifyContent = 'center'
 
+                let img1 = document.createElement('img')
+                img1.src = "../../img/warning.png"
+                img1.style.width = "25%"
+                img1.style.textAlign = "center"
+                img1.style.marginRight = "2vw"
+                document.querySelector('.grafic-container').appendChild(img1);
 
-          console.log("resultado limpo", resultadoLimpo)
-          console.log("resultado ide", resultadoIDE);
-          console.log("resultado ram", resultadoRam)
-          console.log(resultado)
+                let aviso = document.createElement('div')
+                aviso.style = `font-family: 'Inter', sans-serif;`
+                aviso.style.display = "flex"
+                aviso.style.textAlign = "center" 
+                aviso.style.color = "#514E4D";
+                aviso.style.fontSize = "2vh"
+                aviso.style.alignItems = "flex-end"
+                aviso.style.height = "40%"
+                aviso.style.width = "85%"
+                aviso.style.marginRight = "2vw"
+                aviso.innerHTML = "Este usuário não tem nenhuma IDE selecionada! <br> Peça para ele selecionar uma IDE, para que possamos monitorar."
+                aviso.id = "aviso"
+                divGrafico.appendChild(aviso);
+                contador++
+              } else {
+                chamarGraficos()
+              }
+            }
+
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
