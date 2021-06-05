@@ -12,6 +12,8 @@
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../funcoes.js"></script>
   <!-- links api -->
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -42,7 +44,7 @@
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
@@ -472,6 +474,60 @@
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
 
+
+
+  }
+  function funciona() {
+    let divImg = document.querySelector('#criaImg')
+    let alerta = document.createElement('div')
+    alerta.innerHTML = "1"
+    divImg.appendChild(alerta);
+    if (alerta.classList) alerta.classList.add("alert");
+    else alerta.className += " alert";
+
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.info-time'),
+        intro: 'Aqui você pode consultar os dados da sua máquina',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('#criaImg'),
+        intro: 'Esses são os ambientes de desenvolvimento escolhidos por você e seu consumo de ram logo abaixo',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.alert'),
+        intro: 'Esse alerta é mostrado se existe algum tipo de problema na máquina do usuário'
+      },
+
+      {
+        element: document.querySelector('.ajuda'),
+        intro: 'Esse é o nosso botão de suporte, com ele pode contatar nossa equipe sempre que precisar de ajuda 🐲',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).onbeforeexit(function () {
+      return apaga();
+    }).start();
+  }
+
+  function apaga() {
+    var node = document.querySelector('.alert')
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
   }
 
 </script>
