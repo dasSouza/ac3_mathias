@@ -2727,3 +2727,423 @@
 05/06/2021 11:50:18 
  Inserindo dados de maquina 
 
+05/06/2021 12:04:13 iniciando aplicação keep code 
+
+05/06/2021 12:04:22 conectando com o banco 
+
+05/06/2021 12:04:27 recuperando ide's seleciondas 
+
+05/06/2021 12:04:27 login do dev efetuado com sucesso 
+
+05/06/2021 12:04:32 
+ Chamando todos os processos 
+
+05/06/2021 12:04:33 conectando com o banco 
+
+05/06/2021 12:04:33 conectando com o banco 
+
+05/06/2021 12:04:36 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:36 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:38 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:38 
+ Chamando todos os processos 
+
+05/06/2021 12:04:38 conectando com o banco 
+
+05/06/2021 12:04:39 conectando com o banco 
+
+05/06/2021 12:04:41 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:41 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:44 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:44 
+ Chamando todos os processos 
+
+05/06/2021 12:04:44 conectando com o banco 
+
+05/06/2021 12:04:44 conectando com o banco 
+
+05/06/2021 12:04:46 finalizando aplicação 
+
+05/06/2021 12:04:46 
+ Inserindo dados de maquina 
+
+05/06/2021 12:04:46 
+ Inserindo dados de maquina 
+
+05/06/2021 13:26:09 iniciando aplicação keep code 
+
+05/06/2021 13:26:23 conectando com o banco 
+
+05/06/2021 13:26:28 recuperando ide's selecionadas 
+
+05/06/2021 13:26:28 login do dev efetuado com sucesso 
+
+05/06/2021 13:27:29 finalizando aplicação 
+
+05/06/2021 13:28:02 iniciando aplicação keep code 
+
+05/06/2021 13:28:15 conectando com o banco 
+
+05/06/2021 13:28:21 recuperando ide's selecionadas 
+
+05/06/2021 13:28:21 login do dev efetuado com sucesso 
+
+05/06/2021 13:36:31 iniciando aplicação keep code 
+
+05/06/2021 13:36:41 conectando com o banco 
+
+05/06/2021 13:36:46 recuperando ide's selecionadas 
+
+05/06/2021 13:36:46 login do dev efetuado com sucesso 
+
+05/06/2021 13:36:50 
+ Chamando todos os processos 
+
+05/06/2021 13:36:51 conectando com o banco 
+
+05/06/2021 13:36:51 conectando com o banco 
+
+05/06/2021 13:36:54 
+ Inserindo dados de maquina 
+
+05/06/2021 13:36:54 
+ Inserindo dados de maquina 
+
+05/06/2021 13:36:57 
+ Inserindo dados de maquina 
+
+05/06/2021 13:36:57 
+ Chamando todos os processos 
+
+05/06/2021 13:36:57 conectando com o banco 
+
+05/06/2021 13:36:57 conectando com o banco 
+
+05/06/2021 13:37:00 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:00 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:02 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:02 
+ Chamando todos os processos 
+
+05/06/2021 13:37:02 conectando com o banco 
+
+05/06/2021 13:37:02 conectando com o banco 
+
+05/06/2021 13:37:05 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:05 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:08 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:08 
+ Chamando todos os processos 
+
+05/06/2021 13:37:08 conectando com o banco 
+
+05/06/2021 13:37:08 conectando com o banco 
+
+05/06/2021 13:37:10 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:10 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:13 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:13 
+ Chamando todos os processos 
+
+05/06/2021 13:37:13 conectando com o banco 
+
+05/06/2021 13:37:13 conectando com o banco 
+
+05/06/2021 13:37:16 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:16 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:19 
+ Inserindo dados de maquina 
+
+05/06/2021 13:37:19 
+ Chamando todos os processos 
+
+05/06/2021 13:37:19 conectando com o banco 
+
+05/06/2021 13:37:19 conectando com o banco 
+
+05/06/2021 13:52:00 iniciando aplicação keep code 
+
+05/06/2021 13:52:14 conectando com o banco 
+
+05/06/2021 13:52:19 recuperando ide's selecionadas 
+
+05/06/2021 14:25:12 iniciando aplicação keep code 
+
+05/06/2021 14:25:23 conectando com o banco 
+
+05/06/2021 14:25:27 recuperando ide's selecionadas 
+
+05/06/2021 14:29:12 iniciando aplicação keep code 
+
+05/06/2021 14:29:21 conectando com o banco 
+
+05/06/2021 14:29:25 recuperando ide's selecionadas 
+
+05/06/2021 14:38:39 iniciando aplicação keep code 
+
+05/06/2021 14:38:49 conectando com o banco 
+
+05/06/2021 14:47:07 iniciando aplicação keep code 
+
+05/06/2021 14:47:19 conectando com o banco 
+
+05/06/2021 14:49:46 iniciando aplicação keep code 
+
+05/06/2021 14:49:55 conectando com o banco 
+
+05/06/2021 14:55:11 iniciando aplicação keep code 
+
+05/06/2021 14:55:21 conectando com o banco 
+
+05/06/2021 14:55:26 recuperando ide's selecionadas 
+
+05/06/2021 14:59:11 iniciando aplicação keep code 
+
+05/06/2021 14:59:21 conectando com o banco 
+
+05/06/2021 14:59:26 recuperando ide's selecionadas 
+
+05/06/2021 14:59:26 login do dev efetuado com sucesso 
+
+05/06/2021 15:10:12 iniciando aplicação keep code 
+
+05/06/2021 15:10:22 conectando com o banco 
+
+05/06/2021 15:10:27 recuperando ide's selecionadas 
+
+05/06/2021 15:10:27 login do dev efetuado com sucesso 
+
+05/06/2021 15:11:31 iniciando aplicação keep code 
+
+05/06/2021 15:11:41 conectando com o banco 
+
+05/06/2021 15:11:46 recuperando ide's selecionadas 
+
+05/06/2021 15:11:46 login do dev efetuado com sucesso 
+
+05/06/2021 15:18:22 iniciando aplicação keep code 
+
+05/06/2021 15:18:34 conectando com o banco 
+
+05/06/2021 15:18:39 recuperando ide's selecionadas 
+
+05/06/2021 15:18:39 login do dev efetuado com sucesso 
+
+05/06/2021 15:22:37 iniciando aplicação keep code 
+
+05/06/2021 15:22:46 conectando com o banco 
+
+05/06/2021 15:22:50 recuperando ide's selecionadas 
+
+05/06/2021 15:22:50 login do dev efetuado com sucesso 
+
+05/06/2021 15:24:06 iniciando aplicação keep code 
+
+05/06/2021 15:24:16 conectando com o banco 
+
+05/06/2021 15:24:20 recuperando ide's selecionadas 
+
+05/06/2021 15:24:20 login do dev efetuado com sucesso 
+
+05/06/2021 15:25:00 dev chamando detalhe da ide 
+
+05/06/2021 15:25:00 conectando com o banco 
+
+05/06/2021 15:34:03 iniciando aplicação keep code 
+
+05/06/2021 15:34:12 conectando com o banco 
+
+05/06/2021 15:34:17 recuperando ide's selecionadas 
+
+05/06/2021 15:34:17 login do dev efetuado com sucesso 
+
+05/06/2021 15:56:34 iniciando aplicação keep code 
+
+05/06/2021 15:56:43 conectando com o banco 
+
+05/06/2021 15:56:50 recuperando ide's selecionadas 
+
+05/06/2021 15:56:50 login do dev efetuado com sucesso 
+
+05/06/2021 15:57:58 iniciando aplicação keep code 
+
+05/06/2021 15:58:08 conectando com o banco 
+
+05/06/2021 15:58:12 recuperando ide's selecionadas 
+
+05/06/2021 15:58:12 login do dev efetuado com sucesso 
+
+05/06/2021 16:03:17 iniciando aplicação keep code 
+
+05/06/2021 16:03:26 conectando com o banco 
+
+05/06/2021 16:03:31 recuperando ide's selecionadas 
+
+05/06/2021 16:03:31 login do dev efetuado com sucesso 
+
+05/06/2021 16:14:18 iniciando aplicação keep code 
+
+05/06/2021 16:14:27 conectando com o banco 
+
+05/06/2021 16:14:31 recuperando ide's selecionadas 
+
+05/06/2021 16:14:31 login do dev efetuado com sucesso 
+
+05/06/2021 16:27:04 iniciando aplicação keep code 
+
+05/06/2021 16:27:13 conectando com o banco 
+
+05/06/2021 16:27:17 recuperando ide's selecionadas 
+
+05/06/2021 16:27:17 login do dev efetuado com sucesso 
+
+05/06/2021 16:34:27 iniciando aplicação keep code 
+
+05/06/2021 16:34:44 conectando com o banco 
+
+05/06/2021 16:34:49 recuperando ide's selecionadas 
+
+05/06/2021 16:34:49 login do dev efetuado com sucesso 
+
+05/06/2021 16:38:25 iniciando aplicação keep code 
+
+05/06/2021 16:38:39 conectando com o banco 
+
+05/06/2021 16:38:53 conectando com o banco 
+
+05/06/2021 16:39:07 conectando com o banco 
+
+05/06/2021 16:39:09 recuperando ide's selecionadas 
+
+05/06/2021 16:39:09 login do dev efetuado com sucesso 
+
+05/06/2021 16:42:54 iniciando aplicação keep code 
+
+05/06/2021 16:43:04 conectando com o banco 
+
+05/06/2021 16:43:09 recuperando ide's selecionadas 
+
+05/06/2021 16:43:09 login do dev efetuado com sucesso 
+
+05/06/2021 16:44:40 iniciando aplicação keep code 
+
+05/06/2021 16:44:49 conectando com o banco 
+
+05/06/2021 16:44:54 recuperando ide's selecionadas 
+
+05/06/2021 16:44:54 login do dev efetuado com sucesso 
+
+05/06/2021 16:52:45 iniciando aplicação keep code 
+
+05/06/2021 16:52:53 conectando com o banco 
+
+05/06/2021 16:53:05 conectando com o banco 
+
+05/06/2021 16:55:11 iniciando aplicação keep code 
+
+05/06/2021 16:55:20 conectando com o banco 
+
+05/06/2021 16:55:25 login do gestor efetuado com sucesso 
+
+05/06/2021 16:56:19 iniciando aplicação keep code 
+
+05/06/2021 16:56:26 conectando com o banco 
+
+05/06/2021 16:56:30 login do gestor efetuado com sucesso 
+
+05/06/2021 17:05:14 iniciando aplicação keep code 
+
+05/06/2021 17:05:22 conectando com o banco 
+
+05/06/2021 17:05:26 recuperando ide's selecionadas 
+
+05/06/2021 17:05:26 login do dev efetuado com sucesso 
+
+05/06/2021 17:08:03 iniciando aplicação keep code 
+
+05/06/2021 17:08:11 conectando com o banco 
+
+05/06/2021 17:08:24 conectando com o banco 
+
+05/06/2021 17:08:27 recuperando ide's selecionadas 
+
+05/06/2021 17:08:27 login do dev efetuado com sucesso 
+
+05/06/2021 17:13:21 iniciando aplicação keep code 
+
+05/06/2021 17:13:29 conectando com o banco 
+
+05/06/2021 17:13:33 recuperando ide's selecionadas 
+
+05/06/2021 17:13:33 login do dev efetuado com sucesso 
+
+05/06/2021 17:24:13 iniciando aplicação keep code 
+
+05/06/2021 17:24:22 conectando com o banco 
+
+05/06/2021 17:24:37 conectando com o banco 
+
+05/06/2021 17:24:40 login do gestor efetuado com sucesso 
+
+05/06/2021 17:25:58 iniciando aplicação keep code 
+
+05/06/2021 17:26:10 conectando com o banco 
+
+05/06/2021 17:26:14 login do gestor efetuado com sucesso 
+
+05/06/2021 17:27:20 iniciando aplicação keep code 
+
+05/06/2021 17:27:33 conectando com o banco 
+
+05/06/2021 17:27:38 recuperando ide's selecionadas 
+
+05/06/2021 17:27:38 login do dev efetuado com sucesso 
+
+05/06/2021 17:34:52 iniciando aplicação keep code 
+
+05/06/2021 17:35:02 conectando com o banco 
+
+05/06/2021 17:35:08 recuperando ide's selecionadas 
+
+05/06/2021 17:35:08 login do dev efetuado com sucesso 
+
+05/06/2021 17:37:27 iniciando aplicação keep code 
+
+05/06/2021 17:37:37 conectando com o banco 
+
+05/06/2021 17:37:42 login do gestor efetuado com sucesso 
+

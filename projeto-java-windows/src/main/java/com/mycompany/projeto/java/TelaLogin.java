@@ -10,24 +10,20 @@ import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import ProcessoMaq.IdeMaq;
-import ProcessoMaq.MaquinaDatas;
 import ProcessoMaq.ProcessDatas;
-import ProcessoMaq.UsuarioDatas;
+import Usuario.UsuarioDatas;
+import Usuario.UsuarioDatas;
 import org.springframework.jdbc.core.JdbcTemplate;
 import jdbc.Conexao;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import log.GerandoLog;
-import AppKeepCode.KeepCodeAPI;
 import java.awt.Color;
 
 /**
@@ -39,7 +35,6 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-
     public TelaLogin() {
         initComponents();
         setIcon();
@@ -84,7 +79,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jblEscolha = new javax.swing.JLabel();
         jblNomeDev = new javax.swing.JLabel();
         jblLogo1 = new javax.swing.JLabel();
-        jblEmpresa = new javax.swing.JLabel();
         jblEquipe = new javax.swing.JLabel();
         jblCargo = new javax.swing.JLabel();
         jblEquipe1 = new javax.swing.JLabel();
@@ -505,13 +499,9 @@ public class TelaLogin extends javax.swing.JFrame {
         jblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jblLogo1.setText("KEEPCODE");
 
-        jblEmpresa.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        jblEmpresa.setForeground(new java.awt.Color(102, 102, 102));
-        jblEmpresa.setText("empresa");
-
         jblEquipe.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jblEquipe.setForeground(new java.awt.Color(102, 102, 102));
-        jblEquipe.setText("equipe");
+        jblEquipe.setText("us_equipe");
 
         jblCargo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jblCargo.setForeground(new java.awt.Color(102, 102, 102));
@@ -685,7 +675,6 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jblEquipe1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jblCargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jblEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jblEquipe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jblNomeDev, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(141, 141, 141)
@@ -738,16 +727,14 @@ public class TelaLogin extends javax.swing.JFrame {
                                         .addGap(7, 7, 7)
                                         .addComponent(jblEquipe)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jblEmpresa))
+                                        .addComponent(jblCargo)
+                                        .addGap(44, 44, 44))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelaDashDevLayout.createSequentialGroup()
                                         .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnAndroidSt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnPhpStorm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(btnNetbeans, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(26, 26, 26)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jblCargo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                        .addGap(70, 70, 70))))
                             .addGroup(TelaDashDevLayout.createSequentialGroup()
                                 .addGap(128, 128, 128)
                                 .addGroup(TelaDashDevLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1214,9 +1201,9 @@ public class TelaLogin extends javax.swing.JFrame {
                 new BeanPropertyRowMapper<>(UsuarioDatas.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
+
         String pegandoEmail = txtEmail.getText();
         String pegandoSenha = txtSenha.getText();
-
 
         GerandoLog gerarLog = new GerandoLog();
 
@@ -1248,6 +1235,27 @@ public class TelaLogin extends javax.swing.JFrame {
                             this.setVisible(false);
                             this.dispose();
                             // AQUI TEM QUE IR O SELECT PARA PEGAR TODOS OS QUE O GESTOR COMANDA
+
+                            List<UsuarioDatas> todosGeridos = template.query("SELECT \n"
+                                    + "                        us_nome_funcionario,\n"
+                                    + "                        us_cargo\n"
+                                    + "                        FROM tb_us_dados \n"
+                                    + "                        WHERE us_equipe = ? \n"
+                                    + "                            and fk_id_empresa = ?\n"
+                                    + "                            and us_is_adm = 0;",
+                                    new BeanPropertyRowMapper<>(UsuarioDatas.class), tbUsDados.getUs_equipe(), tbUsDados.getFk_id_empresa());
+
+                            
+                            System.out.println("RESULTADO DO SELECT DO GESTOR: " + todosGeridos);
+                            
+                            
+                             
+                                for (UsuarioDatas todosGerido : todosGeridos) {
+                                
+                           
+                                }    
+                                
+                            
                             DashGestor.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
@@ -1275,8 +1283,9 @@ public class TelaLogin extends javax.swing.JFrame {
                             this.dispose();
                             DashDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
                             DashDev.setVisible(true);
-                            jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
                             jblCargo.setText(tbUsDados.getUs_cargo());
+                            jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
+                            jblEquipe.setText(tbUsDados.getUs_equipe());
 
                             userObj.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
                             userObj.setFk_id_empresa(tbUsDados.getFk_id_empresa());
@@ -1285,88 +1294,90 @@ public class TelaLogin extends javax.swing.JFrame {
                             userObj.setUs_login(tbUsDados.getUs_login());
                             userObj.setUs_senha(tbUsDados.getUs_senha());
 
-                            int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
-                            int interval = 1000;  // intervalo no qual a tarefa será executada.
-                            Timer timer = new Timer();
-                            timer.scheduleAtFixedRate(new TimerTask() {
-                                public void run() {
-                                    KeepCodeAPI api = new KeepCodeAPI(userObj);
-
-                                    try {
-                                        api.chamandoProcessos(userObj);
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
-                                }
-                            }, delay, interval);
-
-//                            List<IdeMaq> sabendoIde = template.query("SELECT us_ide_ram, us_ide_nome_processo \n"
-//                                            + "                        FROM tb_processos_ide where us_ide_nome_processo IN (\n"
-//                                            + "                            SELECT us_nome_ide FROM tb_ide_maquina\n"
-//                                            + "                        INNER JOIN tb_us_ass_maquina as ide\n"
-//                                            + "                        ON tb_ide_maquina_id_ide = id_ide\n"
-//                                            + "                        AND tb_us_maquina_id_maquina = (\n"
-//                                            + "                                SELECT id_maquina \n"
-//                                            + "                                FROM tb_us_maquina \n"
-//                                            + "                                WHERE fk_id_funcionario = ? ))\n"
-//                                            + "                        AND fk_id_maquina = (\n"
-//                                            + "                            SELECT id_maquina \n"
-//                                            + "                            FROM tb_us_maquina \n"
-//                                            + "                            WHERE fk_id_funcionario = ? )",
-//                                    new BeanPropertyRowMapper<>(IdeMaq.class), tbUsDados.getId_cpf(), tbUsDados.getId_cpf());
+                           
+                            List<IdeMaq> sabendoIde = template.query("SELECT us_nome_ide, id_ide from tb_ide_maquina where us_nome_ide IN (SELECT us_nome_ide FROM tb_ide_maquina\n"
+                                    + "INNER JOIN tb_us_ass_maquina as ide\n"
+                                    + "ON tb_ide_maquina_id_ide = id_ide\n"
+                                    + "AND tb_us_maquina_id_maquina = (SELECT id_maquina from tb_us_maquina where fk_id_funcionario = ?))",
+                                    new BeanPropertyRowMapper<>(IdeMaq.class), tbUsDados.getId_cpf());
 
                             try {
-                                gerarLog.gravarLog("recuperando ide's seleciondas");
+                                gerarLog.gravarLog("recuperando ide's selecionadas");
 
                             } catch (IOException ex) {
 
                                 Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
-                            List<String> nomesIde = new ArrayList<>();
 
-                            nomesIde.add("1");// x code
-                            nomesIde.add("2");// pycharm
-                            nomesIde.add("3"); // vs code 
-                            nomesIde.add("4");// netbBeans
-                            nomesIde.add("5");// intejji
-                            nomesIde.add("6");// android
-                            nomesIde.add("7");// php
-                            nomesIde.add("8");// webStrom
-                            nomesIde.add("9");// eclipse
-                            nomesIde.add("10");// visualStudio
+                            btnXcode.setVisible(false);
+                            btnPyCharm.setVisible(false);
+                            btnVsCode.setVisible(false);
+                            btnNetbeans.setVisible(false);
+                            btnIntelij.setVisible(false);
+                            btnAndroidSt.setVisible(false);
+                            btnPhpStorm.setVisible(false);
+                            btnWebStorm.setVisible(false);
+                            btnEclipse.setVisible(false);
+                            btnVisualSt.setVisible(false);
+                            
+//                            DashDev.remove(btnEclipse);
 
-//                            for (IdeMaq next : sabendoIde) {
-//                                if (next.getId_ide().equals("1")) {
-//                                    btnXcode.setVisible(true);
-//                                } else if (next.getId_ide().equals("2")) {
-//                                    btnPyCharm.setVisible(true);
+                            for (Iterator<IdeMaq> it = sabendoIde.iterator(); it.hasNext();) {
+                                IdeMaq next = it.next();
+
+                                switch (next.getId_ide()) {
+                                    case 1:
+                                        btnXcode.setVisible(true);
+                                        break;
+                                    case 2:
+                                        btnPyCharm.setVisible(true);
+                                        break;
+                                    case 3:
+                                        btnVsCode.setVisible(true);
+                                        break;
+                                    case 4:
+                                        btnNetbeans.setVisible(true);
+                                        break;
+                                    case 5:
+                                        btnIntelij.setVisible(true);
+                                        break;
+                                    case 6:
+                                        btnAndroidSt.setVisible(true);
+                                        break;
+                                    case 7:
+                                        btnPhpStorm.setVisible(true);
+                                        break;
+                                    case 8:
+                                        btnWebStorm.setVisible(true);
+                                        break;
+                                    case 9:
+                                        btnEclipse.setVisible(true);
+                                        //DashDev.add(btnEclipse);
+                                        break;
+                                    case 10:
+                                        btnVisualSt.setVisible(true);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                            
+                            int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
+                            int interval = 1000;  // intervalo no qual a tarefa será executada.
+                            Timer timer = new Timer();
+
+//                            timer.scheduleAtFixedRate(new TimerTask() {
+//                                public void run() {
+//                                    KeepCodeAPI api = new KeepCodeAPI(userObj);
 //
-//                                } else if (next.getId_ide().equals("3")) {
-//                                    btnVsCode.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("4")) {
-//                                    btnNetbeans.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("5")) {
-//                                    btn.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("6")) {
-//                                    btnAndroidSt.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("7")) {
-//                                    btnPhpStorm.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("8")) {
-//                                    btnWebStorm.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("9")) {
-//                                    btnEclipse.setVisible(true);
-//
-//                                } else if (next.getId_ide().equals("10")) {
-//                                    btnVisualSt.setVisible(true);
+//                                    try {
+//                                        api.chamandoProcessos(userObj);
+//                                    } catch (IOException ex) {
+//                                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+//                                    }
 //                                }
-//                            }
+//                            }, delay, interval);
 
                             try {
                                 gerarLog.gravarLog("login do dev efetuado com sucesso");
@@ -1394,7 +1405,6 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
             }
         }
-
 
 
     }//GEN-LAST:event_btnEntrarActionPerformed
@@ -1502,7 +1512,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MaqActionPerformed
 
     private void jButton1MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1MaqActionPerformed
-        chamarTelaFuncionario("note1");
+        chamarTelaFuncionario(jButton1.getText());
 
     }//GEN-LAST:event_jButton1MaqActionPerformed
 
@@ -1580,8 +1590,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         } catch (IOException ex) {
 
-            Logger.getLogger(TelaLogin.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Conexao con = new Conexao();
@@ -1592,8 +1601,7 @@ public class TelaLogin extends javax.swing.JFrame {
         this.dispose();
 
 //        List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
-//                new BeanPropertyRowMapper<>(ProcessDatas.class
-//                ), this.cpfDev);
+//                new BeanPropertyRowMapper<>(ProcessDatas.class), UsuarioDatas.get);
 //
 //        System.out.println(ideDev);
 //
@@ -1612,7 +1620,6 @@ public class TelaLogin extends javax.swing.JFrame {
 //            lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
 //
 //        }
-
         DetalheDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
         DetalheDev.setVisible(true);
 
@@ -1778,7 +1785,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblBemVindo;
     private javax.swing.JLabel jblCargo;
-    private javax.swing.JLabel jblEmpresa;
     private javax.swing.JLabel jblEquipe;
     private javax.swing.JLabel jblEquipe1;
     private javax.swing.JLabel jblEscolha;

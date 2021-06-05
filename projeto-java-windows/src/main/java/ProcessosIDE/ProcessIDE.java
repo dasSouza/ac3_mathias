@@ -3,7 +3,7 @@ package ProcessosIDE;
 import AppKeepCode.KeepCodeAPI;
 import ProcessoMaq.MaquinaDatas;
 import ProcessoMaq.ProcessDatas;
-import ProcessoMaq.UsuarioDatas;
+import Usuario.UsuarioDatas;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.mycompany.projeto.java.TelaLogin;

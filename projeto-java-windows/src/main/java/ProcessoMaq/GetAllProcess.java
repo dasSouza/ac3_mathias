@@ -1,5 +1,6 @@
 package ProcessoMaq;
 
+import Usuario.UsuarioDatas;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;

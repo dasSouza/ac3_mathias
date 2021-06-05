@@ -3,7 +3,7 @@ package AppKeepCode;
 //import DAO.UsuariosDAO;
 import ProcessoMaq.GetAllProcess;
 import ProcessosIDE.ProcessIDE;
-import ProcessoMaq.UsuarioDatas;
+import Usuario.UsuarioDatas;
 import java.io.IOException;
 import log.GerandoLog;
 
