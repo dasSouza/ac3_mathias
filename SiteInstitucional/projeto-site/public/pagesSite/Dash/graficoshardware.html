@@ -194,6 +194,7 @@
     fetch(`/leituras/processos/ide/${IDE}/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
+          console.log(JSON.stringify(resposta));
           var resultado = [];
           let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
             "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
@@ -209,6 +210,8 @@
               }
             }
           }
+
+          console.log('resultado ', resultado)
 
           imgLogoIDE.src = `../../img/${IDE}.png`
           switch (IDE) {
