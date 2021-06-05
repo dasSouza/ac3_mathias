@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../css/dash.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../funcoes.js"></script>
@@ -102,32 +105,32 @@
           </div>
           <div class="container-label">
             <p id="total"> Total: </p>
-            <p id="gestor"> Ativas: </p>
-            <p id="qtd_membros"> Inativas: </p>
+            <p id="maq_ativas"> Ativas: </p>
+            <p id="maq_inativas"> Inativas: </p>
           </div>
         </div>
       </div>
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="1">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="2">
-            
+
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="3">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="4">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="5">
-            
+
           </div>
         </div>
       </div>
@@ -139,24 +142,24 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="7">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="8">
-            
+
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="9">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="10">
-            
+
           </div>
           <div class="idesLogo" id="criaImg" value="11">
-            
+
           </div>
         </div>
       </div>
@@ -198,13 +201,17 @@
       .then(resposta => {
         if (resposta.ok) {
 
+          let contadorAtivas = 0
+          let contadorInativas = 0
           let nomeFuncionario = [];
           let cargoFuncionario = [];
+          let dataHoraFuncionario = [];
 
           resposta.json().then(json => {
             for (let u = 0; u < json.length; u++) {
               nomeFuncionario.push(json[u].us_nome_funcionario);
               cargoFuncionario.push(json[u].us_cargo);
+              dataHoraFuncionario.push(json[u].us_dt_hr_log);
             }
 
             for (let index = 0; index < nomeFuncionario.length; index++) {
@@ -214,13 +221,27 @@
 
               if (first.getAttribute('value') == index) {
 
+                var antes = moment(dataHoraFuncionario[index]);
+                var depois = moment();
+
+                var minutos = depois.diff(antes, 'minutes');
+
+                console.log('diferença em minutos: ', minutos)
+
                 let imgPc = document.createElement('img')
                 imgPc.src = `../../img/laptop-screen (1).png`
-                imgPc.addEventListener('click', function () {
-                  sessionStorage.nome_integrante_meuapp = nomeFuncionario[index]
-                  sessionStorage.cargo_integrante_meuapp = cargoFuncionario[index]
-                  window.location.href = 'graficos-vertodas.html'
-                })
+                if (minutos > 10) {
+                  contadorInativas ++
+                  imgPc.style.opacity = '0.5'
+                } else {
+                  contadorAtivas ++
+                  imgPc.style.opacity = '1'
+                  imgPc.addEventListener('click', function () {
+                    sessionStorage.nome_integrante_meuapp = nomeFuncionario[index]
+                    sessionStorage.cargo_integrante_meuapp = cargoFuncionario[index]
+                    window.location.href = 'graficos-vertodas.html'
+                  })
+                }
 
                 first.appendChild(imgPc);
                 if (imgPc.classList) imgPc.classList.add("logo-ide");
@@ -239,6 +260,9 @@
               }
 
             }
+
+            maq_ativas.innerHTML += contadorAtivas
+            maq_inativas.innerHTML += contadorInativas
 
           });
 

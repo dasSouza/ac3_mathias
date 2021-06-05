@@ -77,10 +77,10 @@ public class ProcessIDE {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
-                System.out.println(processDatas.valoresCpuIDE);
-                System.out.println(processDatas.valoresDiscoIDE);
-                System.out.println(processDatas.valoresNomeIDE);
-                System.out.println(processDatas.valoresRamIDE);
+                System.out.println("CPU " + processDatas.valoresCpuIDE);
+                System.out.println("DISCO " +processDatas.valoresDiscoIDE);
+                System.out.println("NOME " +processDatas.valoresNomeIDE);
+                System.out.println("RAM " +processDatas.valoresRamIDE);
             }
         }, delay, interval);
     }

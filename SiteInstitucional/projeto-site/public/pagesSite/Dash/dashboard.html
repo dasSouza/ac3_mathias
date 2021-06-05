@@ -242,7 +242,7 @@
       setInterval(
         function myFunction() {
           obterDadosGraficoRam(id_usuario)
-        }, 5000)
+        }, 60000)
     }
   };
 
@@ -279,9 +279,7 @@
       if (response.ok) {
         finalizar_aguardar()
         response.json().then(function (resposta) {
-          console.log("Entrou na RAM")
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          console.log(`Dados recebidos: ${resposta}`);
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
@@ -305,6 +303,7 @@
 
           percorrer(resposta);
           resultado = resultado.reverse();
+          console.log("resultado invertido ", resultado);
 
           var unico = resultado.filter(function (elem, index, self) {
             if (index === self.indexOf(elem)) {
@@ -315,6 +314,8 @@
 
             return index === self.indexOf(elem)
           });
+
+          console.log("resultado limpo", resultadoLimpo)
 
           for (let index = 0, index2 = 0; index < resultado.length; index++) {
             if (index == resultadoLimpo[index2]) {
@@ -358,12 +359,15 @@
 
                   let ramIDE = resultadoRam[index]
                   let nomeIDE = resultadoIDE[index]
+                  console.log('resultado RAM ', ramIDE)
+                  console.log('Resultado IDe ', nomeIDE)
+
                   var logoIDE = document.querySelectorAll('#criaImg');
                   var first = logoIDE[index];
 
                   if (first.getAttribute('value') == index) {
 
-                    if (ramIDE > 7) {
+                    if (ramIDE > 5) {
                       let alerta = document.createElement('div')
                       alerta.innerHTML = "1"
                       first.appendChild(alerta);

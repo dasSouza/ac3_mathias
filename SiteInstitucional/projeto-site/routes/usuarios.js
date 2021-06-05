@@ -27,7 +27,7 @@ router.post('/autenticar', function (req, res, next) {
 		} else if (resultado.length == 0) {
 			res.status(403).send('Login e/ou senha inválido(s)');
 		} else {
-			res.status(403).send('Mais de um usuário com o mesmo login e senha!');	
+			res.status(403).send('Mais de um usuário com o mesmo login e senha!');
 		}
 
 	}).catch(erro => {
@@ -90,7 +90,7 @@ router.get('/sessao/:login', function (req, res, next) {
 router.get('/equipe/:idEmpresa/:equipe', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 
 	let instrucaoSql = `SELECT 
@@ -119,37 +119,50 @@ router.get('/equipe/:idEmpresa/:equipe', function (req, res, next) {
 router.post('/equipe/integrantes/:idEmpresa/:equipe', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 
 	let instrucaoSql = `SELECT 
-						us_nome_funcionario,
-						us_cargo
-						FROM tb_us_dados 
-						WHERE us_equipe = '${equipe}'
-							and fk_id_empresa = ${idEmpresa}
-							and us_is_adm = 0;`;
+						us_dt_hr_log, 
+						usuario.us_cargo, 
+						usuario.us_nome_funcionario
+						FROM tb_log_hardware
+						JOIN tb_us_dados AS usuario
+						JOIN tb_us_maquina AS maq
+						ON usuario.id_cpf = maq.fk_id_funcionario
+						ON maq.id_maquina = fk_id_maq
+							AND usuario.us_equipe = '${equipe}'
+							AND usuario.us_is_adm = 0
+							AND usuario.fk_id_empresa = ${idEmpresa};`
+		
+	// `SELECT
+	// 					us_nome_funcionario,
+	// 					us_cargo
+	// 					FROM tb_us_dados
+	// 					WHERE us_equipe = '${equipe}'
+	// 						and fk_id_empresa = ${idEmpresa}
+	// 						and us_is_adm = 0;`
 
-	console.log(instrucaoSql);
+console.log(instrucaoSql);
 
-	sequelize.query(instrucaoSql, {
-		model: Usuario
-	}).then(resultado => {
-		console.log(`Encontrados: ${resultado.length}`);
-		console.log(resultado);
-		res.json(resultado);
-	}).catch(erro => {
-		console.log("DEU ERRO!")
-		console.error(erro);
-		res.status(500).send(erro.message);
-	});
+sequelize.query(instrucaoSql, {
+	model: Usuario
+}).then(resultado => {
+	console.log(`Encontrados: ${resultado.length}`);
+	console.log(resultado);
+	res.json(resultado);
+}).catch(erro => {
+	console.log("DEU ERRO!")
+	console.error(erro);
+	res.status(500).send(erro.message);
+});
 });
 
 // Trás todos os dados de um integrante da equipe
 router.get('/modalIntegrantes/:idEmpresa/:equipe/:nomeIntegrante', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 	var nomeIntegrante = req.params.nomeIntegrante
 	let instrucaoSql = `SELECT 
@@ -183,7 +196,7 @@ router.get('/modalIntegrantes/:idEmpresa/:equipe/:nomeIntegrante', function (req
 router.get('/modalGestor/:idUsuario', function (req, res, next) {
 	console.log('Recuperando dados do gestor');
 
-    var idUsuario = req.params.idUsuario;
+	var idUsuario = req.params.idUsuario;
 	let instrucaoSql = `SELECT 
 						us_login,
 						us_senha,
@@ -226,7 +239,7 @@ router.post('/editarUsuario', function (req, res, next) {
 						us_equipe = '${equipe}',
 						us_is_adm = '${adm}'
 						WHERE id_cpf = ${cpf}`;
-						
+
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
@@ -263,7 +276,7 @@ router.post('/editarGestor', function (req, res, next) {
 						us_equipe = '${equipe}',
 						us_is_adm = '${adm}'
 						WHERE id_cpf = ${cpf}`;
-						
+
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {

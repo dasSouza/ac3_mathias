@@ -293,9 +293,9 @@
           valorTempo = 32;
           // Tratativa dos alertas
           if (contadorAlerta == 0) {
-            if (valorRam < 7) {
-              if (valorCPU > 20) {
-                if (valorDisco > 0) {
+            if (valorRam > 2) {
+              if (valorCPU > 85) {
+                if (valorDisco > 90) {
                   Swal.fire({
                     icon: "warning",
                     iconColor: '#c73535',
@@ -321,9 +321,9 @@
                   confirmButtonColor: "#A3C6C1",
                 });
               }
-            } else if (valorCPU < 0) {
-              if (valorDisco < 0) {
-                if (valorRam < 10) {
+            } else if (valorCPU > 85) {
+              if (valorDisco > 90) {
+                if (valorRam > 2) {
                   Swal.fire({
                     icon: "warning",
                     iconColor: '#c73535',
@@ -349,9 +349,9 @@
                   confirmButtonColor: "#A3C6C1",
                 });
               }
-            } else if (valorDisco > 0) {
-              if (valorCPU > 0) {
-                if (valorRam > 10) {
+            } else if (valorDisco > 90) {
+              if (valorCPU > 85) {
+                if (valorRam > 2) {
                   Swal.fire({
                     icon: "warning",
                     iconColor: '#c73535',
