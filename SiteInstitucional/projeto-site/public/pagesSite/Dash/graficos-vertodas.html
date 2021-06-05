@@ -330,7 +330,6 @@
       if (response.ok) {
         response.json().then(function (resposta) {
           console.log("Entrou na RAM do gestor")
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
@@ -399,7 +398,6 @@
           function chamarGraficos() {
             if (contadorCriarElemento == 0) {
               if (resultadoIDE.length && resultadoRam.length != 0) {
-                console.log("FOI")
 
                 for (let index = 0; index < resultadoIDE.length; index++) {
                   graficoContainer = document.querySelector('.grafic-container')
@@ -514,12 +512,6 @@
               }
             }
 
-
-
-          console.log("resultado limpo", resultadoLimpo)
-          console.log("resultado ide", resultadoIDE);
-          console.log("resultado ram", resultadoRam)
-          console.log(resultado)
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
