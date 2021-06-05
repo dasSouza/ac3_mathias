@@ -284,7 +284,7 @@ a {
 .btn {
     float: left;
     width: 2vh;
-    height: 55vh;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -454,12 +454,12 @@ a {
 }
 
 .edit {
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width: 18%;
     height: 78%;
-    padding-left: 2vh;
 }
 
 .edit .fa {
@@ -778,32 +778,24 @@ a {
 
 /* TUTORIAL */
 
-.bgimg {
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 25px;
-}
+.customTooltip * {
+    color: #555;
+    font-size: 15px;
+   
+  }
+  
+  .customTooltip .introjs-tooltip-title {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #B73447;
+  
+  }
 
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-}
-
-.middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-hr {
-    margin: auto;
-    width: 40%;
-}
+  .customTooltip .introjs-tooltip-nextLabel {
+color: red;
 
 
+  }
 /* Começo da tela de gráficos */
 
 .lds-ring-modal {
@@ -889,6 +881,16 @@ hr {
 }
 
 #form_editar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+#form_editar_gestor {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1168,6 +1170,7 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 1vh;
 }
 
 .info-img {
@@ -1195,9 +1198,37 @@ hr {
     width: 25%;
 }
 
+.text-time{
+
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-time p {
+
+    color: #555;
+    font-size: 27px;
+
+}
+
+.container-relogio-1 {
+
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}
+
 .box-graficos {
     width: 99%;
-    height: 48%;
+    height: 42%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1387,11 +1418,13 @@ hr {
 }
 
 .ajuda {
-    width: 20%;
-    height: 100%;
+ 
+    width: 5%;
+    height: 83%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1vw;
 }
 
 .ajuda input {
@@ -1873,21 +1906,7 @@ hr {
 
    /* dash gestor */
 
-   .edit {
-
-    width: 10%;
    
-    padding-left: 2vh;
-}
-
-.edit .fa {
-    font-size: 3vh;
-    color: #638481;
-}
-
-.edit .fa:hover {
-    color: rgba(0, 0, 0, 0.575);
-}
 
 
 .container-info {
@@ -2005,10 +2024,12 @@ hr {
    }
 
    .edit-perfil {
-
-    width: 10%;
+ 
+    width: 7%;
+    height: 7%;
     margin-top: 4vh;
     padding-left: 2vh;
+    margin-right: 1vw;
 }
 
 .edit-perfil .fa {

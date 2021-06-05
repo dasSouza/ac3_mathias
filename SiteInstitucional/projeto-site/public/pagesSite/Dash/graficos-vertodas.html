@@ -10,9 +10,14 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="stylesheet" href="../../css/dash.css">
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <script src="sweetalert2.min.js"></script>
   <script src="sweetalert2.all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/themes/introjs-classic.css">
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../js/js.js"></script>
   <script defer src="../../funcoes.js"></script>
@@ -47,12 +52,12 @@
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
-                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
                 <span class="title">Tutorial</span>
-              </a>
+            </a>
             </li>
             <li>
               <a href="#">
@@ -92,7 +97,7 @@
     <div class="ides-container">
       <div class="container-info">
 
-        <div class="info-time">
+        <div id="usuario-tutorial" class="info-time">
           <div class="container-titulo">
             <h1>Usuário</h1>
             <div class="edit">
@@ -114,7 +119,7 @@
           </div>
 
         </div>
-        <div class="info-time">
+        <div id="maq-tutorial" class="info-time">
           <div class="container-titulo">
             <h1>Máquina</h1>
           </div>
@@ -127,50 +132,54 @@
           </div>
 
         </div>
+
       </div>
+      <!-- </div> -->
       <div class="container-ides">
         <div class="titulo-hardware">
-          <p>Média semanal</p>
+          <p>Gráficos sobre o usuário</p>
         </div>
         <div class="container-labell">
           <div class="label-info">
-            <p>Tempo ultilizado</p>
+            <p>Tempo de ultilização da máquina</p>
+
           </div>
 
-          <div class="label-info">
-            <p>IDE's ultilizadas</p>
-          </div>
-        </div>
-        <div class="container-grafic">
-          <div class="grafic">
-            <div class="box-grafic">
-              <div class="teste-grafico">
 
-              </div>
+            <div class="label-info">
+              <p>IDE's ultilizadas</p>
             </div>
-
           </div>
-          <div class="grafic">
-            <div class="grafic-container">
+          <div class="container-grafic">
+            <div class="grafic">
+              <div class="box-grafic">
+                <div class="teste-grafico">
+
+                </div>
+              </div>
+
             </div>
-            <div class="legenda">
-
-              <div class="box-legenda">
-                <div class="uso-ram"></div>
-                <p>Uso de ram</p>
+            <div class="grafic">
+              <div class="grafic-container">
               </div>
+              <div class="legenda">
 
-              <div class="box-legenda">
-                <div class="uso-tempo"></div>
-                <p>Tempo de uso</p>
+                <div class="box-legenda">
+                  <div class="uso-ram"></div>
+                  <p>Uso de ram</p>
+                </div>
+
+                <div class="box-legenda">
+                  <div class="uso-tempo"></div>
+                  <p>Tempo de uso</p>
+                </div>
+
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
     <div class="footer-ajuda">
       <div class="ajuda">
         <script id="ze-snippet"
@@ -236,6 +245,7 @@
         </div>
       </div>
     </div>
+
 
   </main>
 </body>
@@ -523,4 +533,47 @@
 
   }
 
+  function funciona() {
+        introJs().setOptions({
+            showBullets: false,
+            showProgress: true,
+            steps: [{
+                title: 'Bem vindo ao nosso tutorial',
+                intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+                tooltipClass: 'customTooltip'
+            },
+            {
+                element: document.querySelector('#usuario-tutorial'),
+                intro: 'Aqui você pode consultar os dados do usuário desse máquina!',
+                tooltipClass: 'customTooltip'
+            },
+
+            {
+                element: document.querySelector('.edit'),
+                intro: 'Ao clicar no lapís você pode editar as informações pessoais do funcionário',
+                tooltipClass: 'customTooltip'
+            },
+            {
+                element: document.querySelector('#maq-tutorial'),
+                intro: 'Aqui você pode consultar as informações da máquina do usuário',
+                tooltipClass: 'customTooltip'
+            },
+            {
+                element: document.querySelector('.teste-grafico'),
+                intro: 'Aqui você pode consultar os gráfico de tempo de uso da máquina',
+                tooltipClass: 'customTooltip'
+            },
+
+            {
+                element: document.querySelector('.grafic-container'),
+                intro: 'Aqui você pode consultar os gráfico de ram e tempo de uso em relação ao ambiente de desenvolvimento',
+                tooltipClass: 'customTooltip'
+            }
+            
+
+            ]
+        }).start();
+    }
+
+    
 </script>

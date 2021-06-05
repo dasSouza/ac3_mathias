@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../../css/dash.css">
     <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
     <script defer src="../../js/dash.js"></script>
     <script defer src="../../funcoes.js"></script>
     <script src="../../js/js.js"></script>
@@ -41,7 +43,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="tutorial.html">
+                            <a onclick="funciona()">
                                 <span class="icon">
                                     <i class="fa fa-question-circle" aria-hidden="true"></i>
                                 </span>
@@ -95,7 +97,7 @@
                             <form id="form_cadastro" method="post" onsubmit="return cadastrar(sessionStorage.fk_id_empresa_meuapp)">
                                 <div class="container-input">
 
-                                    <div class="inputs1">
+                                    <div id="inputs1" class="inputs1">
 
 
                                         <label class="label-input">Login</label>
@@ -117,7 +119,7 @@
                                             placeholder="Digite o time" />
 
                                     </div>
-                                    <div class="inputs1">
+                                    <div id="inputs2" class="inputs1">
 
                                         <label class="label-input">Cargo</label>
                                         <input id="cargo" name="cargo" required="required" type="text"
@@ -183,4 +185,32 @@
     document.getElementById('olho').addEventListener('mouseup', function () {
         document.getElementById('senha_cad').type = 'password';
     });
+
+
+    function funciona() {
+        introJs().setOptions({
+            showBullets: false,
+            showProgress: true,
+            steps: [{
+                title: 'Bem vindo ao nosso tutorial',
+                intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+                tooltipClass: 'customTooltip',
+            },
+            {
+                element: document.querySelector('#login_cad'),
+                position: 'left',
+                intro: 'Ao preencher os campos com os dados do novo funcionário, você poderá cadastra-ló em sua empresa',
+                tooltipClass: 'customTooltip'
+            },
+
+            {
+                element: document.querySelector('#btn_login'),
+                intro: 'Ao clicar no botão cadastrar, confirma o registro do funcionário em sua empresa',
+                tooltipClass: 'customTooltip'
+            }
+            
+
+            ]
+        }).start();
+    }
 </script>
