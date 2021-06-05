@@ -9,7 +9,10 @@ import com.github.britooo.looca.api.group.processador.Processador;
 import Usuario.UsuarioDatas;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
+import java.util.logging.Logger;
+import log.GerandoLog;
 
 public class GetAllProcess {
 
@@ -24,8 +27,6 @@ public class GetAllProcess {
      *
      * @param usuario
      */
-
-
     public void memoriaTotal() {
         maquina.setUs_ram_total(memoria.getTotal());
     }
@@ -51,18 +52,28 @@ public class GetAllProcess {
     public void getNamePc() {
         try {
             maquina.setUs_name_pc(InetAddress.getLocalHost().getHostName());
-            System.out.println(" \nAtribuindo nome da maquina: " + InetAddress.getLocalHost().getHostName());
+            System.out.println(" \n Atribuindo nome da maquina: " + InetAddress.getLocalHost().getHostName());
         } catch (Exception e) {
-            System.out.println("Exception caught =" + e.getMessage());
+            System.out.println("Exception caught = " + e.getMessage());
         }
 //        maquina.setUs_name_pc(System.getProperty("user.name"));
 //        System.out.println("Atribuindo nome da maquina: " + maquina.getUs_name_pc()); // perguntar pro prof sobre
     }
 
-    public void insertDatesMaquina(Usuario.UsuarioDatas usuario) {
+    public void insertDatesMaquina(Usuario.UsuarioDatas usuario) throws IOException {
 //        usuario.maquinaProcess(maquina);
         maqDAO.maquinaProcess(maquina);
+        
         System.out.println("Inserindo dados de Maquina " + maquina.toString());
+        GerandoLog gerarLog = new GerandoLog();
+
+        try {
+        gerarLog.gravarLog("\n inserindo dados de maquina");
+            
+        } catch (IOException e) {
+         gerarLog.gravarLog(String.format("%s", e));
+            
+        }
     }
 
 }

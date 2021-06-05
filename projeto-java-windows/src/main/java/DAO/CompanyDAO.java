@@ -1,18 +1,7 @@
 package DAO;;
 
-import ConectionBDA.Conection;
-import jdbc.Conexao;
-import Empresa.CompanyData;
-import org.springframework.jdbc.core.JdbcTemplate;
-import ConectionBDA.Conection;
-import jdbc.Conexao;
-import Empresa.CompanyData;
-import org.springframework.jdbc.core.JdbcTemplate;
-import ConectionBDA.Conection;
-import jdbc.Conexao;
-import Empresa.CompanyData;
-import org.springframework.jdbc.core.JdbcTemplate;
-import ConectionBDA.Conection;
+import log.GerandoLog;
+import java.io.IOException;
 import jdbc.Conexao;
 import Empresa.CompanyData;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class CompanyDAO {
 
-    public void insertIntoCompany() {
+    public void insertIntoCompany() throws IOException {
 //        Conection conection = new Conection();
         Conexao con = new Conexao();
         CompanyData companyData = new CompanyData();
@@ -31,6 +20,16 @@ public class CompanyDAO {
 
         template.update(insertEmpresaValues,companyData.getKc_nome_comp(), companyData.getKc_cep_comp(), companyData.getKc_cnpj_comp(),
                 companyData.getKc_telefone_comp(),companyData.getKc_email_comp());
+        
+        GerandoLog gerarLog = new GerandoLog();
+
+        try {
+        gerarLog.gravarLog("\n inserindo dados na empresa");
+            
+        } catch (IOException e) {
+        gerarLog.gravarLog("\n erro ao tentar inserir dados na empresa");
+            
+        }
 
     }
 

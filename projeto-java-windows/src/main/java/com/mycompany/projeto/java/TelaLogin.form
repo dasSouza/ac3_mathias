@@ -701,35 +701,35 @@
                                       <Component id="jblLogo1" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jblEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jblCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jblEquipe1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jblEquipe" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jblNomeDev" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jblEquipe1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jblCargo" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jblEmpresa" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jblEquipe" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jblNomeDev" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="btnVsCode" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="btnVsCode" alignment="0" pref="117" max="32767" attributes="0"/>
                                                       <Component id="btnAndroidSt" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="btnIntelij" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="btnVisualSt" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="btnVisualSt" alignment="0" pref="117" max="32767" attributes="0"/>
                                                       <Component id="btnPhpStorm" alignment="0" max="32767" attributes="0"/>
                                                       <Component id="btnEclipse" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="btnNetbeans" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="btnNetbeans" alignment="0" pref="117" max="32767" attributes="0"/>
                                                       <Component id="btnPyCharm" max="32767" attributes="0"/>
                                                       <Component id="btnWebStorm" max="32767" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                                                  <Component id="btnXcode" max="32767" attributes="0"/>
+                                                  <Component id="btnXcode" pref="117" max="32767" attributes="0"/>
                                               </Group>
                                               <Component id="jblEscolha" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -762,10 +762,10 @@
                                               <Component id="btnVisualSt" linkSize="10" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jblNomeDev" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jblNomeDev" min="-2" pref="27" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Component id="jblEquipe1" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                                   <Component id="jblEquipe" min="-2" max="-2" attributes="0"/>
@@ -782,6 +782,8 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
@@ -789,11 +791,9 @@
                                               <Component id="btnXcode" linkSize="10" max="32767" attributes="0"/>
                                               <Component id="btnPyCharm" linkSize="10" max="32767" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jblCargo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnWebStorm" linkSize="10" max="32767" attributes="0"/>
                                       <Component id="btnIntelij" linkSize="10" max="32767" attributes="0"/>
@@ -897,7 +897,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/devenv (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -919,7 +918,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/code (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -943,7 +941,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/netbeans64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -965,7 +962,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/pycharm64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -987,7 +983,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/phpstorm64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1009,7 +1004,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/studio64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1031,7 +1025,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/xcode (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1053,7 +1046,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/eclipse (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1075,7 +1067,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/webstorm64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1109,7 +1100,6 @@
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/idea64 (3).png"/>
                     </Property>
-                    <Property name="actionCommand" type="java.lang.String" value=""/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Hand Cursor"/>
@@ -1221,55 +1211,66 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jblLogo2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
+                          <Component id="lblNomeIdeDtelhes" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblIde" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="432" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Component id="jblLogo2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="355" max="-2" attributes="0"/>
-                                  <Component id="lblNomeIdeDtelhes" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblIde" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="imgDisco" alignment="0" min="-2" pref="241" max="-2" attributes="0"/>
+                                      <Component id="imgCpu" min="-2" pref="245" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                              <Component id="imgDisco" min="-2" pref="241" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="lblgrafico" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="lblDiscoDev" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="imgCpu" min="-2" pref="245" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="lblCpuDev" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="333" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblgrafico" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblTempoUsoDev" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel5" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
-                                          <Component id="imgTempo" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lblRamDev" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblDiscoDev" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="302" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel5" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
+                                      <Component id="imgTempo" alignment="1" min="-2" pref="235" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="9" pref="304" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="lblRamDev" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblTempoUsoDev" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1403,7 +1404,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Uso do Disco"/>
+                    <Property name="text" type="java.lang.String" value="Uso do Disco:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
@@ -1414,7 +1415,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Uso da RAM"/>
+                    <Property name="text" type="java.lang.String" value="Uso da RAM:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
@@ -1425,7 +1426,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tempo de Uso"/>
+                    <Property name="text" type="java.lang.String" value="Tempo de Uso:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel9">
@@ -1436,7 +1437,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="66" green="66" red="66" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Uso da CPU"/>
+                    <Property name="text" type="java.lang.String" value="Uso da CPU:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="imgDisco">
@@ -1546,19 +1547,18 @@
           <Dimension value="[417, 435]"/>
         </Property>
         <Property name="name" type="java.lang.String" value="" noResource="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[417, 435]"/>
-        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="background" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="background" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardLogin" alignment="0" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
-              <Component id="cardLogin" alignment="0" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

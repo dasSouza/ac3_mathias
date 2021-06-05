@@ -3,7 +3,7 @@ package Usuario;
 public class UsuarioDatas {
 
     private String us_nome_funcionario;
-    private Long id_cpf = 2578386005L;
+    private Long id_cpf ;
     private String us_cargo;
     private String us_login;
     private String equipe;
@@ -14,6 +14,7 @@ public class UsuarioDatas {
     public UsuarioDatas() {
         this.us_nome_funcionario = "";
         this.us_cargo = "";
+        this.id_cpf = 2578386005L;
         this.us_login = "";
         this.equipe = "";
         this.us_senha = "";

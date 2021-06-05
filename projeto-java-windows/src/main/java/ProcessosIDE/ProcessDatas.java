@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import ProcessoMaq.MaquinaDatas;
+import com.mycompany.projeto.java.TelaLogin;
 import java.util.Iterator;
 import jdbc.Conexao;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -129,23 +130,20 @@ public class ProcessDatas {
 //    public void setValoresFkMaq(List<BigInteger> valoresFkMaq) {
 //        this.valoresFkMaq = valoresFkMaq;
 //    }
-    public Integer getFk_id_maquina() {
-        return fk_id_maquina;
-    }
+    
 
-    public void getFk_id_maquina(Usuario.UsuarioDatas usuario) {
-        Conexao con = new Conexao();
-        JdbcTemplate template = new JdbcTemplate(con.getBanco());
+    public void getFk_id_maquina() {
+        
 
-        List<MaquinaDatas> pegandoFkMaq = template.query("SELECT id_maquina FROM tb_us_maquina WHERE fk_id_funcionario = ?",
-                new BeanPropertyRowMapper<>(MaquinaDatas.class), usuario.getId_cpf());
+//        MaquinaDatas pegandoFk = pegandoFkMaq.get(1);
+        
+//        for (Iterator<MaquinaDatas> iterator = pegandoFkMaq.iterator(); iterator.hasNext();) {
+//            MaquinaDatas proximo = iterator.next();
+//            proximo.setId_maquina(proximo.getId_maquina());
+//
+//            System.out.println("fk do vadio " + proximo.getId_maquina());
+//        }
 
-        for (Iterator<MaquinaDatas> iterator = pegandoFkMaq.iterator(); iterator.hasNext();) {
-            MaquinaDatas proximo = iterator.next();
-            proximo.setId_maquina(proximo.getId_maquina());
-
-            System.out.println("fk do vadio " + proximo.getId_maquina());
-        }
 //        return pegandoFkMaq;
     }
 

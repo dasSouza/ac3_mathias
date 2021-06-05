@@ -5,6 +5,7 @@ import ProcessoMaq.MaquinaDatas;
 import Usuario.UsuarioDatas;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -82,31 +83,22 @@ public class ProcessIDE {
         }
     }
 
-    public void getFkIdMaquina(Usuario.UsuarioDatas usuario) {
-        Conexao con = new Conexao();
-        JdbcTemplate template = new JdbcTemplate(con.getBanco());
-
-        List<MaquinaDatas> pegandoFkMaq = template.query("SELECT id_maquina FROM tb_us_maquina WHERE fk_id_funcionario = ?",
-                new BeanPropertyRowMapper<>(MaquinaDatas.class), usuario.getId_cpf());
-
-        for (Iterator<MaquinaDatas> iterator = pegandoFkMaq.iterator(); iterator.hasNext();) {
-            MaquinaDatas proximo = iterator.next();
-            proximo.setId_maquina(proximo.getId_maquina());
-
-            System.out.println("fk do vadio " + proximo.getId_maquina());
-        }
-//        return pegandoFkMaq;
-    }
+    
 
     public void showAll() {
         System.out.println(processDatas.valoresCpuIDE);
         System.out.println(processDatas.valoresDiscoIDE);
         System.out.println(processDatas.valoresNomeIDE);
         System.out.println(processDatas.valoresRamIDE);
-        System.out.println(processDatas.getFk_id_maquina());
+//        System.out.println(processDatas.getFk_id_maquina());
     }
 
-    public void insertIntoValues() {
+    public void insertIntoValues() throws IOException {
         processIdeDAO.insertIdeProcess(processDatas);
+    }
+    
+     public void zovo(UsuarioDatas usuario) {
+        processIdeDAO.getFkIdMaquina(usuario);
+    
     }
 }

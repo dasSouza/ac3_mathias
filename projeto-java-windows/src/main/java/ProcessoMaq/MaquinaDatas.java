@@ -80,4 +80,6 @@ public class MaquinaDatas {
                 getUs_cpu_nome(),
                 getUs_disco_total());
     }
+
+ 
 }
