@@ -18,9 +18,9 @@ public class Conexao {
     private BasicDataSource banco;
 
     public Conexao() {
-        
+
         GerandoLog gravandoLog = new GerandoLog();
-        
+
         try {
             gravandoLog.gravarLog("conectando com o banco");
 
@@ -28,7 +28,7 @@ public class Conexao {
 
             Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         this.banco = new BasicDataSource();
         banco.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         banco.setUrl("jdbc:sqlserver://grupo-8.database.windows.net;databaseName=kcode;");
@@ -39,9 +39,5 @@ public class Conexao {
     public BasicDataSource getBanco() {
         return banco;
     }
-
-
-
-    
 
 }

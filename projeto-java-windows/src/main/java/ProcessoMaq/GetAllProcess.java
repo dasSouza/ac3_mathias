@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class GetAllProcess {
+
     MaquinaDatas maquina = new MaquinaDatas();
     Looca looca = new Looca();
     Processador processador = looca.getProcessador();
@@ -24,16 +25,25 @@ public class GetAllProcess {
 
     public void dadosGeraisDoComputador() {
         try {
-            /** Atribuindo dados de tamanho de disco do computador (o dado é somado se vc tiver mais de um!!)*/
+            /**
+             * Atribuindo dados de tamanho de disco do computador (o dado é
+             * somado se vc tiver mais de um!!)
+             */
             maquina.setUs_disco_total(discosGroup.getTamanhoTotal());
 
-            /** Atribuindo dados do nome do processador (precisa melhorar isso)*/
+            /**
+             * Atribuindo dados do nome do processador (precisa melhorar isso)
+             */
             maquina.setUs_cpu_nome(processador.getNome());
 
-            /** Atribuindo valores ao total de memória RAM do ser abençoado de deos*/
+            /**
+             * Atribuindo valores ao total de memória RAM do ser abençoado de deos
+             */
             maquina.setUs_ram_total(memoria.getTotal());
 
-            /** Buscando dados do nome do computador do individuo*/
+            /**
+             * Buscando dados do nome do computador do individuo
+             */
             maquina.setUs_name_pc(InetAddress.getLocalHost().getHostName());
 
         } catch (Exception e) {
@@ -42,16 +52,25 @@ public class GetAllProcess {
     }
 
     public void usoMemoriaAtual() {
-        /** Busca dados de memória RAM sendo utilizada no momento do computador do individuo (não é usado para mandar dados para o banco)*/
+        /**
+         * Busca dados de memória RAM sendo utilizada no momento do computador
+         * do individuo (não é usado para mandar dados para o banco)
+         */
         memoria.getEmUso();
     }
+
     public void memoriaDisponivel() {
-        /** Busca dados de memória RAM total disponivel do computador do individuo (não é usado para mandar dados para o banco)*/
+        /**
+         * Busca dados de memória RAM total disponivel do computador do
+         * individuo (não é usado para mandar dados para o banco)
+         */
         memoria.getTotal();
     }
 
     public void inserirDadosMaquina(UsuarioDatas usuario) throws IOException {
-        /**Inserindo dados de maquina a partir do método abaixo*/
+        /**
+         * Inserindo dados de maquina a partir do método abaixo
+         */
         maquinaProcess(maquina, usuario);
         GerandoLog gerarLog = new GerandoLog();
         try {
@@ -62,12 +81,15 @@ public class GetAllProcess {
     }
 
     public void buscandoMaquina(UsuarioDatas user) {
-        selectDaMaquina(maquina,user);
+        selectDaMaquina(maquina, user);
     }
 
     public void maquinaProcess(MaquinaDatas maquinaDatas, UsuarioDatas usuarioDatas) throws IOException {
         Integer cont = 0;
-        /** Os dados do computador não serão inseridos novamente caso já haja um com o mesmo cpf no banco */
+        /**
+         * Os dados do computador não serão inseridos novamente caso já haja um
+         * com o mesmo cpf no banco
+         */
 
         GerandoLog gerarLog = new GerandoLog();
 
@@ -99,7 +121,10 @@ public class GetAllProcess {
                 new BeanPropertyRowMapper<>(MaquinaDatas.class), usuario.getId_cpf());
 
         for (MaquinaDatas maquinaDatas : pegandoFkMaq) {
-            /** Separa de onde busca os dados, alguns estão aqui e outros estão no maquinaDatas já (tem outro método parecido, favor não apagar)*/
+            /**
+             * Separa de onde busca os dados, alguns estão aqui e outros estão
+             * no maquinaDatas já (tem outro método parecido, favor não apagar)
+             */
             maquinaDatas.setUs_ram_total(maquina.getUs_ram_total());
             maquinaDatas.setUs_disco_total(maquina.getUs_disco_total());
             maquinaDatas.setUs_cpu_nome(maquina.getUs_cpu_nome());

@@ -130,20 +130,15 @@ public class ProcessDatas {
 //    public void setValoresFkMaq(List<BigInteger> valoresFkMaq) {
 //        this.valoresFkMaq = valoresFkMaq;
 //    }
-    
-
     public void getFk_id_maquina() {
-        
 
 //        MaquinaDatas pegandoFk = pegandoFkMaq.get(1);
-        
 //        for (Iterator<MaquinaDatas> iterator = pegandoFkMaq.iterator(); iterator.hasNext();) {
 //            MaquinaDatas proximo = iterator.next();
 //            proximo.setId_maquina(proximo.getId_maquina());
 //
 //            System.out.println("fk do vadio " + proximo.getId_maquina());
 //        }
-
 //        return pegandoFkMaq;
     }
 

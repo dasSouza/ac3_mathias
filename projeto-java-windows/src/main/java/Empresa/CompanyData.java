@@ -1,6 +1,7 @@
 package Empresa;
 
 public class CompanyData {
+
     private Integer id_comp;
     private String kc_nome_comp;
     private Integer kc_cep_comp;

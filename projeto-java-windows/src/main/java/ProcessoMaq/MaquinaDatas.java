@@ -9,7 +9,6 @@ public class MaquinaDatas {
     private Long us_vl_disco_total;
     private Long fk_id_funcionario;
 
-
     public String getUs_name_pc() {
         return us_nome_maquina;
     }
@@ -58,16 +57,15 @@ public class MaquinaDatas {
         this.fk_id_funcionario = fk_id_funcionario;
     }
 
-
     @Override
     public String toString() {
-        return "MaquinaDatas{" +
-                "id_maquina=" + id_maquina +
-                ", us_vl_ram_total=" + us_vl_ram_total +
-                ", us_vl_cpu_total='" + us_vl_cpu_total + '\'' +
-                ", us_nome_maquina='" + us_nome_maquina + '\'' +
-                ", us_vl_disco_total=" + us_vl_disco_total +
-                ", fk_id_funcionario=" + fk_id_funcionario +
-                '}';
+        return "MaquinaDatas{"
+                + "id_maquina=" + id_maquina
+                + ", us_vl_ram_total=" + us_vl_ram_total
+                + ", us_vl_cpu_total='" + us_vl_cpu_total + '\''
+                + ", us_nome_maquina='" + us_nome_maquina + '\''
+                + ", us_vl_disco_total=" + us_vl_disco_total
+                + ", fk_id_funcionario=" + fk_id_funcionario
+                + '}';
     }
 }

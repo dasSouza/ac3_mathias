@@ -79,17 +79,16 @@ public class TbProcessosIde {
         this.fk_id_maquina = fk_id_maquina;
     }
 
-   
     @Override
     public String toString() {
-        return " TbProcessosIde{ \n" 
-                + "id_processos : " + id_processos 
-                + "\n us_dt_hr_start_IDE : " + us_dt_hr_start_IDE 
+        return " TbProcessosIde{ \n"
+                + "id_processos : " + id_processos
+                + "\n us_dt_hr_start_IDE : " + us_dt_hr_start_IDE
                 + "\n us_dt_hr_end_IDE : " + us_dt_hr_end_IDE
                 + "\n us_ide_nome_processo : " + us_ide_nome_processo
-                + "\n us_ide_ram : " + us_ide_ram 
-                + "\n us_ide_cpu : " + us_ide_cpu 
-                + "\n us_ide_disco : " + us_ide_disco 
+                + "\n us_ide_ram : " + us_ide_ram
+                + "\n us_ide_cpu : " + us_ide_cpu
+                + "\n us_ide_disco : " + us_ide_disco
                 + "\n fk_id_maquina : " + fk_id_maquina + '}';
     }
 

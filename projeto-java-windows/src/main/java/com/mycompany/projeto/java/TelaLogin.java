@@ -1,5 +1,6 @@
 package com.mycompany.projeto.java;
 
+import AppKeepCode.KeepCodeAPI;
 import java.awt.AWTException;
 import java.awt.Toolkit;
 import java.awt.Image;
@@ -25,6 +26,7 @@ import javax.swing.JDesktopPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import log.GerandoLog;
 import java.awt.Color;
+import java.util.TimerTask;
 
 /**
  *
@@ -39,6 +41,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         setIcon();
     }
+    long cpfDev = 0L;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -472,9 +475,7 @@ public class TelaLogin extends javax.swing.JFrame {
         DashGestor.getAccessibleContext().setAccessibleParent(DashGestor);
 
         DashDev.setLocation(new java.awt.Point(0, 0));
-        DashDev.setMaximumSize(new java.awt.Dimension(1368, 720));
         DashDev.setMinimumSize(new java.awt.Dimension(1368, 720));
-        DashDev.setPreferredSize(new java.awt.Dimension(1368, 720));
         DashDev.setSize(new java.awt.Dimension(0, 0));
 
         DashDevTela.setMaximumSize(new java.awt.Dimension(1368, 720));
@@ -779,9 +780,7 @@ public class TelaLogin extends javax.swing.JFrame {
             .addComponent(DashDevTela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        DetalheDev.setMaximumSize(new java.awt.Dimension(1368, 720));
         DetalheDev.setMinimumSize(new java.awt.Dimension(1368, 720));
-        DetalheDev.setPreferredSize(new java.awt.Dimension(1368, 720));
 
         DashDetalhesDev.setMaximumSize(new java.awt.Dimension(1368, 720));
         DashDetalhesDev.setMinimumSize(new java.awt.Dimension(1368, 720));
@@ -1245,17 +1244,12 @@ public class TelaLogin extends javax.swing.JFrame {
                                     + "                            and us_is_adm = 0;",
                                     new BeanPropertyRowMapper<>(UsuarioDatas.class), tbUsDados.getUs_equipe(), tbUsDados.getFk_id_empresa());
 
-                            
                             System.out.println("RESULTADO DO SELECT DO GESTOR: " + todosGeridos);
-                            
-                            
-                             
-                                for (UsuarioDatas todosGerido : todosGeridos) {
-                                
-                           
-                                }    
-                                
-                            
+
+                            for (UsuarioDatas todosGerido : todosGeridos) {
+
+                            }
+
                             DashGestor.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
@@ -1290,11 +1284,11 @@ public class TelaLogin extends javax.swing.JFrame {
                             userObj.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
                             userObj.setFk_id_empresa(tbUsDados.getFk_id_empresa());
                             userObj.setId_cpf(tbUsDados.getId_cpf());
+                            cpfDev = tbUsDados.getId_cpf();
                             userObj.setUs_cargo(tbUsDados.getUs_cargo());
                             userObj.setUs_login(tbUsDados.getUs_login());
                             userObj.setUs_senha(tbUsDados.getUs_senha());
 
-                           
                             List<IdeMaq> sabendoIde = template.query("SELECT us_nome_ide, id_ide from tb_ide_maquina where us_nome_ide IN (SELECT us_nome_ide FROM tb_ide_maquina\n"
                                     + "INNER JOIN tb_us_ass_maquina as ide\n"
                                     + "ON tb_ide_maquina_id_ide = id_ide\n"
@@ -1309,75 +1303,73 @@ public class TelaLogin extends javax.swing.JFrame {
                                 Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
+                            btnXcode.setEnabled(false);
+                            btnPyCharm.setEnabled(false);
+                            btnVsCode.setEnabled(false);
+                            btnNetbeans.setEnabled(false);
+                            btnIntelij.setEnabled(false);
+                            btnAndroidSt.setEnabled(false);
+                            btnPhpStorm.setEnabled(false);
+                            btnWebStorm.setEnabled(false);
+                            btnEclipse.setEnabled(false);
+                            btnVisualSt.setEnabled(false);
 
-                            btnXcode.setVisible(false);
-                            btnPyCharm.setVisible(false);
-                            btnVsCode.setVisible(false);
-                            btnNetbeans.setVisible(false);
-                            btnIntelij.setVisible(false);
-                            btnAndroidSt.setVisible(false);
-                            btnPhpStorm.setVisible(false);
-                            btnWebStorm.setVisible(false);
-                            btnEclipse.setVisible(false);
-                            btnVisualSt.setVisible(false);
-                            
 //                            DashDev.remove(btnEclipse);
-
                             for (Iterator<IdeMaq> it = sabendoIde.iterator(); it.hasNext();) {
                                 IdeMaq next = it.next();
 
                                 switch (next.getId_ide()) {
                                     case 1:
-                                        btnXcode.setVisible(true);
+                                        btnXcode.setEnabled(true);
                                         break;
                                     case 2:
-                                        btnPyCharm.setVisible(true);
+                                        btnPyCharm.setEnabled(true);
                                         break;
                                     case 3:
-                                        btnVsCode.setVisible(true);
+                                        btnVsCode.setEnabled(true);
                                         break;
                                     case 4:
-                                        btnNetbeans.setVisible(true);
+                                        btnNetbeans.setEnabled(true);
                                         break;
                                     case 5:
-                                        btnIntelij.setVisible(true);
+                                        btnIntelij.setEnabled(true);
                                         break;
                                     case 6:
-                                        btnAndroidSt.setVisible(true);
+                                        btnAndroidSt.setEnabled(true);
                                         break;
                                     case 7:
-                                        btnPhpStorm.setVisible(true);
+                                        btnPhpStorm.setEnabled(true);
                                         break;
                                     case 8:
-                                        btnWebStorm.setVisible(true);
+                                        btnWebStorm.setEnabled(true);
                                         break;
                                     case 9:
-                                        btnEclipse.setVisible(true);
+                                        btnEclipse.setEnabled(true);
                                         //DashDev.add(btnEclipse);
                                         break;
                                     case 10:
-                                        btnVisualSt.setVisible(true);
+                                        btnVisualSt.setEnabled(true);
                                         break;
                                     default:
                                         break;
                                 }
                             }
-                            
+
                             int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
                             int interval = 1000;  // intervalo no qual a tarefa será executada.
                             Timer timer = new Timer();
 
-//                            timer.scheduleAtFixedRate(new TimerTask() {
-//                                public void run() {
-//                                    KeepCodeAPI api = new KeepCodeAPI(userObj);
-//
-//                                    try {
-//                                        api.chamandoProcessos(userObj);
-//                                    } catch (IOException ex) {
-//                                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-//                                    }
-//                                }
-//                            }, delay, interval);
+                            timer.scheduleAtFixedRate(new TimerTask() {
+                                public void run() {
+                                    KeepCodeAPI api = new KeepCodeAPI(userObj);
+
+                                    try {
+                                        api.chamandoProcessos(userObj);
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }, delay, interval);
 
                             try {
                                 gerarLog.gravarLog("login do dev efetuado com sucesso");
@@ -1406,7 +1398,6 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
 
-
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void chamarTelaFuncionario(String nome) {
@@ -1426,8 +1417,7 @@ public class TelaLogin extends javax.swing.JFrame {
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
         List<UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
-                new BeanPropertyRowMapper<>(UsuarioDatas.class
-                ), btnMaquina1.getText());
+                new BeanPropertyRowMapper<>(UsuarioDatas.class), nome);
 
         System.out.println(pegandoUser);
 
@@ -1438,7 +1428,7 @@ public class TelaLogin extends javax.swing.JFrame {
         for (UsuarioDatas usuarioDatas : pegandoUser) {
             usuarioDatas.getId_cpf();
             jblNomeDev.setText(usuarioDatas.getUs_nome_funcionario());
-//            jblEquipe.setText(usuarioDatas.getUs_equipe());
+            jblEquipe.setText(usuarioDatas.getUs_equipe());
             jblCargo.setText(usuarioDatas.getUs_cargo());
         }
 
@@ -1528,14 +1518,14 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImagenPerfilActionPerformed
 
-    private void btnNetbeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetbeansActionPerformed
-        chamarDetalhes("netbeans64", WIDTH);    }//GEN-LAST:event_btnNetbeansActionPerformed
-
     private void btnLogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoActionPerformed
 
     private void btnVsCodeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVsCodeMouseEntered
+
+        chamarDetalhes("netbeans64", WIDTH);
+
 
     }//GEN-LAST:event_btnVsCodeMouseEntered
 
@@ -1555,31 +1545,62 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnVsCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVsCodeActionPerformed
         chamarDetalhes("Code", WIDTH);
+
     }//GEN-LAST:event_btnVsCodeActionPerformed
 
     private void btnAndroidStActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndroidStActionPerformed
-        chamarDetalhes("studio64", WIDTH);    }//GEN-LAST:event_btnAndroidStActionPerformed
+
+        chamarDetalhes("studio64", WIDTH);
+
+    }//GEN-LAST:event_btnAndroidStActionPerformed
 
     private void btnIntelijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntelijActionPerformed
-        chamarDetalhes("idea64", WIDTH);    }//GEN-LAST:event_btnIntelijActionPerformed
+
+        chamarDetalhes("idea64", WIDTH);
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnIntelijActionPerformed
 
     private void btnVisualStActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualStActionPerformed
-        chamarDetalhes("Code", WIDTH);    }//GEN-LAST:event_btnVisualStActionPerformed
+        chamarDetalhes("Code", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVisualStActionPerformed
 
     private void btnPhpStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhpStormActionPerformed
-        chamarDetalhes("phpstorm64 ", WIDTH);    }//GEN-LAST:event_btnPhpStormActionPerformed
+        chamarDetalhes("phpstorm64 ", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPhpStormActionPerformed
 
     private void btnEclipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipseActionPerformed
-        chamarDetalhes("eclipse", WIDTH);    }//GEN-LAST:event_btnEclipseActionPerformed
+        chamarDetalhes("eclipse", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEclipseActionPerformed
 
     private void btnPyCharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPyCharmActionPerformed
-        chamarDetalhes("pycharm64", WIDTH);    }//GEN-LAST:event_btnPyCharmActionPerformed
+        chamarDetalhes("pycharm64", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPyCharmActionPerformed
+
+    private void btnNetbeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetbeansActionPerformed
+        chamarDetalhes("netbeans64", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNetbeansActionPerformed
 
     private void btnWebStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWebStormActionPerformed
-        chamarDetalhes("webstorm64 ", WIDTH);    }//GEN-LAST:event_btnWebStormActionPerformed
+        chamarDetalhes("webstorm64 ", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWebStormActionPerformed
 
     private void btnXcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXcodeActionPerformed
-        chamarDetalhes("Xcode", WIDTH);    }//GEN-LAST:event_btnXcodeActionPerformed
+        chamarDetalhes("Xcode", WIDTH);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnXcodeActionPerformed
 
     private void chamarDetalhes(String nome_ide, Integer id_ide) {
 
@@ -1596,34 +1617,67 @@ public class TelaLogin extends javax.swing.JFrame {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
+//        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
+//        int interval = 1000;  // intervalo no qual a tarefa será executada.
+//        Timer timer = new Timer();
+//
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+//                        new BeanPropertyRowMapper<>(ProcessDatas.class), cpfDev);
+//
+//                System.out.println(ideDev);
+//
+//                for (Iterator<ProcessDatas> iterator = ideDev.iterator();
+//                        iterator.hasNext();) {
+//
+//                    ProcessDatas tbProcessosIde = iterator.next();
+//
+//                    String disco = Long.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
+//                    String cpu = Float.toString(tbProcessosIde.getUs_ide_cpu());
+//                    String ram = Double.toString(tbProcessosIde.getUs_ide_ram());
+//
+//                    lblCpuDev.setText(cpu + "%");
+//                    lblDiscoDev.setText(disco + "%");
+//                    lblRamDev.setText(ram + "%");
+//                    lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
+//
+//                }
+//            }
+//        }, delay, interval);
+
+ List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+                new BeanPropertyRowMapper<>(ProcessDatas.class), cpfDev);
+
+        System.out.println(ideDev);
+
+        for (Iterator<ProcessDatas> iterator = ideDev.iterator();
+                iterator.hasNext();) {
+
+            ProcessDatas tbProcessosIde = iterator.next();
+
+            String disco = Long.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
+            String cpu = Float.toString(tbProcessosIde.getUs_ide_cpu());
+            String ram = Double.toString(tbProcessosIde.getUs_ide_ram());
+
+            lblCpuDev.setText(cpu + "%");
+            lblDiscoDev.setText(disco + "%");
+            lblRamDev.setText(ram + "%");
+            lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
+
+            DetalheDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
+            DetalheDev.setVisible(true);
+
+            DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
+
+
         System.out.println(nome_ide);
 
         this.dispose();
 
-//        List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
-//                new BeanPropertyRowMapper<>(ProcessDatas.class), UsuarioDatas.get);
-//
-//        System.out.println(ideDev);
-//
-//        for (Iterator<ProcessDatas> iterator = ideDev.iterator();
-//                iterator.hasNext();) {
-//
-//            ProcessDatas tbProcessosIde = iterator.next();
-//
-//            String disco = Long.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
-//            String cpu = Float.toString(tbProcessosIde.getUs_ide_cpu());
-//            String ram = Double.toString(tbProcessosIde.getUs_ide_ram());
-//
-//            lblCpuDev.setText(cpu + "%");
-//            lblDiscoDev.setText(disco + "%");
-//            lblRamDev.setText(ram + "%");
-//            lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
-//
-//        }
-        DetalheDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
-        DetalheDev.setVisible(true);
-
-        DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+//       
     }
 
     private void setIcon() {
@@ -1741,7 +1795,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JDesktopPane TelaDashGestor;
     private javax.swing.JDesktopPane TelaLogin;
     private javax.swing.JPanel background;
-    private javax.swing.JButton btnAndroidSt;
+    public javax.swing.JButton btnAndroidSt;
     private javax.swing.JButton btnEclipse;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnImagenPerfil;

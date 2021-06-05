@@ -5,6 +5,7 @@ package tabelas;
  * @author mathias.de.carvalho
  */
 public class TbUsDados {
+
     private Long id_cpf;
     private String us_nome_funcionario;
     private String us_cargo;
@@ -80,20 +81,15 @@ public class TbUsDados {
 
     @Override
     public String toString() {
-        return " TbUsDados{" 
-                + "\n id_cpf : " + id_cpf 
-                + "\n us_nome_funcionario : " + us_nome_funcionario 
-                + "\n us_cargo : " + us_cargo 
-                + "\n us_login :" + us_login 
-                + "\n us_senha : " + us_senha 
-                + "\n us_equipe : " + us_equipe 
-                + "\n us_is_adm : " + us_is_adm 
+        return " TbUsDados{"
+                + "\n id_cpf : " + id_cpf
+                + "\n us_nome_funcionario : " + us_nome_funcionario
+                + "\n us_cargo : " + us_cargo
+                + "\n us_login :" + us_login
+                + "\n us_senha : " + us_senha
+                + "\n us_equipe : " + us_equipe
+                + "\n us_is_adm : " + us_is_adm
                 + "\n fk_id_empresa : " + fk_id_empresa + '}';
     }
 
-    
-
-
-    
-    
 }

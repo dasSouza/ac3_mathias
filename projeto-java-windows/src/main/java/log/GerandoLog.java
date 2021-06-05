@@ -13,7 +13,7 @@ public class GerandoLog {
         Date dataHoraAtual = new Date();
         String data = new SimpleDateFormat("dd/MM/yyyy").format(dataHoraAtual);
         String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
-       FileWriter arq = new FileWriter("src\\main\\resources\\log\\log_keepcode.txt", true);
+        FileWriter arq = new FileWriter("src\\main\\resources\\log\\log_keepcode.txt", true);
 //       FileWriter arq = new FileWriter("C:\\Users\\DOM\\Documents\\Bandtec Grupo 8 KeepCode\\KeepCode-Grupo-08\\log.txt", true);
         PrintWriter gravarArq = new PrintWriter(arq);
 

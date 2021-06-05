@@ -108,7 +108,6 @@ public class ProcessDatas extends MaquinaDatas {
         this.valoresDiscoIDE = valoresDiscoIDE;
     }
 
-
     public void setFk_id_maquina(Integer fk_id_maquina) {
         this.fk_id_maquina = fk_id_maquina;
     }

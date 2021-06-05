@@ -71,7 +71,10 @@ public class ProcessIDE {
     }
 
     public void mostrarTodosDadosRecebidos() {
-        /** Método perto do inútil, apenas para mostrar os dados que foram capturados no processo acima */
+        /**
+         * Método perto do inútil, apenas para mostrar os dados que foram
+         * capturados no processo acima
+         */
         int delay = 1000;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 6000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();
@@ -88,13 +91,15 @@ public class ProcessIDE {
     public void inserirDadosDeIde() throws IOException {
         inserirProcessosIDE(processDatas);
     }
-    
-    public void getFkIdMaquina(UsuarioDatas usuario) {
-        /** Buscando a maquina do usuário para poder inserir dados */
 
-        List<MaquinaDatas> pegandoFkMaq = template.query("SELECT * " +
-                        "FROM tb_us_maquina " +
-                        "WHERE fk_id_funcionario = ?",
+    public void getFkIdMaquina(UsuarioDatas usuario) {
+        /**
+         * Buscando a maquina do usuário para poder inserir dados
+         */
+
+        List<MaquinaDatas> pegandoFkMaq = template.query("SELECT * "
+                + "FROM tb_us_maquina "
+                + "WHERE fk_id_funcionario = ?",
                 new BeanPropertyRowMapper<>(MaquinaDatas.class), usuario.getId_cpf());
 
         for (MaquinaDatas maquinaDatas : pegandoFkMaq) {
@@ -106,7 +111,9 @@ public class ProcessIDE {
     }
 
     public void inserirProcessosIDE(ProcessDatas allIdeDates) throws IOException {
-        /** Insere processos a partir de um ARRAY de processos de IDE*/
+        /**
+         * Insere processos a partir de um ARRAY de processos de IDE
+         */
 
         GerandoLog gerarLog = new GerandoLog();
 
@@ -116,14 +123,14 @@ public class ProcessIDE {
             Float cpu = allIdeDates.getValoresCpuIDE().get(i);
             Long disco = allIdeDates.getValoresDiscoIDE().get(i);
 
-            String insertProcessValues = "INSERT INTO tb_processos_ide (" +
-                    "us_dt_hr_start_IDE, " +
-                    "us_dt_hr_end_IDE, " +
-                    "us_ide_nome_processo," +
-                    " us_ide_ram, " +
-                    "us_ide_cpu, " +
-                    "us_ide_disco, fk_id_maquina) " +
-                    "VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, ?)";
+            String insertProcessValues = "INSERT INTO tb_processos_ide ("
+                    + "us_dt_hr_start_IDE, "
+                    + "us_dt_hr_end_IDE, "
+                    + "us_ide_nome_processo,"
+                    + " us_ide_ram, "
+                    + "us_ide_cpu, "
+                    + "us_ide_disco, fk_id_maquina) "
+                    + "VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, ?)";
             template.update(insertProcessValues, nomeIDE, ram, cpu, disco, processDatas.getId_maquina());
         }
         try {

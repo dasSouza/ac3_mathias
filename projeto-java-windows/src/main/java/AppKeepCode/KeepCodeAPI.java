@@ -11,7 +11,6 @@ public class KeepCodeAPI {
 
     public KeepCodeAPI(UsuarioDatas user) {
 
-
     }
 
     public void chamandoProcessos(UsuarioDatas usuario) throws IOException {
