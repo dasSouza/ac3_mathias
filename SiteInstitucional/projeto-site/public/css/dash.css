@@ -1919,7 +1919,6 @@ color: red;
 }
 
 .info-time {
-    
     height: 45%;
     width: 58%;
     display: flex;
@@ -1944,12 +1943,13 @@ color: red;
 }
 
 .container-label {
-    width: 100%;
+    width: 87%;
     height: 60%;
     margin-left: 6%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 1vh;
    
 }
 
