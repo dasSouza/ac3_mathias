@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 import log.GerandoLog;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import tabelas.TbUsDados;
 
 /**
  *

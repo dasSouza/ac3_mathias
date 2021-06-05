@@ -10,7 +10,11 @@ import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.math.BigInteger;
+
+import ProcessoMaq.IdeMaq;
+import ProcessoMaq.MaquinaDatas;
+import ProcessoMaq.ProcessDatas;
+import ProcessoMaq.UsuarioDatas;
 import org.springframework.jdbc.core.JdbcTemplate;
 import jdbc.Conexao;
 import java.util.List;
@@ -22,9 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import tabelas.TbProcessosIde;
 import log.GerandoLog;
-import tabelas.TbUsMaquinaIdMaquina;
 import AppKeepCode.KeepCodeAPI;
 import java.awt.Color;
 
@@ -37,11 +39,6 @@ public class TelaLogin extends javax.swing.JFrame {
     /**
      * Creates new form TelaLogin
      */
-    public static Long cpfDev = 15000000000L;
-    public static Long cpfGestor = 15000000000L;
-
-    BigInteger bigCpfDev = BigInteger.valueOf(cpfDev);
-    BigInteger BigCpfGestor = BigInteger.valueOf(cpfGestor);
 
     public TelaLogin() {
         initComponents();
@@ -1213,8 +1210,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<Usuario.UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
-                new BeanPropertyRowMapper<>(Usuario.UsuarioDatas.class), txtEmail.getText(), txtSenha.getText());
+        List<UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ? AND us_senha = ?",
+                new BeanPropertyRowMapper<>(UsuarioDatas.class), txtEmail.getText(), txtSenha.getText());
 
         System.out.println(pegandoUser);
         String pegandoEmail = txtEmail.getText();
@@ -1223,7 +1220,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         GerandoLog gerarLog = new GerandoLog();
 
-        Usuario.UsuarioDatas userObj = new Usuario.UsuarioDatas();
+        UsuarioDatas userObj = new UsuarioDatas();
 
         if (pegandoUser.isEmpty()) {
 
@@ -1241,9 +1238,7 @@ public class TelaLogin extends javax.swing.JFrame {
         } else {
             if (pegandoUser.size() == 1) {
 
-                for (Iterator<Usuario.UsuarioDatas> it = pegandoUser.iterator(); it.hasNext();) {
-
-                    Usuario.UsuarioDatas tbUsDados = it.next();
+                for (UsuarioDatas tbUsDados : pegandoUser) {
 
                     if (tbUsDados.getUs_login().equals(pegandoEmail) && tbUsDados.getUs_senha().equals(pegandoSenha)) {
 
@@ -1252,20 +1247,19 @@ public class TelaLogin extends javax.swing.JFrame {
                             // gestor entra aqui
                             this.setVisible(false);
                             this.dispose();
-                            this.cpfGestor = tbUsDados.getId_cpf();
                             // AQUI TEM QUE IR O SELECT PARA PEGAR TODOS OS QUE O GESTOR COMANDA
                             DashGestor.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
                             DashGestor.setVisible(true);
                             jblNomeGestor.setText(tbUsDados.getUs_nome_funcionario());
                             DashGestor.setDefaultCloseOperation(HIDE_ON_CLOSE);
 
-                            userObj.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
-                            userObj.setFk_id_empresa(tbUsDados.getFk_id_empresa());
-                            userObj.setId_cpf(tbUsDados.getId_cpf());
-                            userObj.setUs_cargo(tbUsDados.getUs_cargo());
-                            userObj.setUs_login(tbUsDados.getUs_login());
-                            userObj.setUs_senha(tbUsDados.getUs_senha());
-                            userObj.setUs_is_adm(true);
+                            tbUsDados.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
+                            tbUsDados.setFk_id_empresa(tbUsDados.getFk_id_empresa());
+                            tbUsDados.setId_cpf(tbUsDados.getId_cpf());
+                            tbUsDados.setUs_cargo(tbUsDados.getUs_cargo());
+                            tbUsDados.setUs_login(tbUsDados.getUs_login());
+                            tbUsDados.setUs_senha(tbUsDados.getUs_senha());
+                            tbUsDados.setUs_is_adm(true);
 
                             try {
                                 gerarLog.gravarLog("login do gestor efetuado com sucesso");
@@ -1276,20 +1270,14 @@ public class TelaLogin extends javax.swing.JFrame {
                             }
 
                         } else {
-
                             // dev entra aqui
                             this.setVisible(false);
                             this.dispose();
-                            this.cpfDev = tbUsDados.getId_cpf();
-
                             DashDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
-
                             DashDev.setVisible(true);
-
                             jblNomeDev.setText(tbUsDados.getUs_nome_funcionario());
-
                             jblCargo.setText(tbUsDados.getUs_cargo());
-                            
+
                             userObj.setUs_nome_funcionario(tbUsDados.getUs_nome_funcionario());
                             userObj.setFk_id_empresa(tbUsDados.getFk_id_empresa());
                             userObj.setId_cpf(tbUsDados.getId_cpf());
@@ -1297,20 +1285,35 @@ public class TelaLogin extends javax.swing.JFrame {
                             userObj.setUs_login(tbUsDados.getUs_login());
                             userObj.setUs_senha(tbUsDados.getUs_senha());
 
-                            List<TbUsMaquinaIdMaquina> sabendoIde = template.query("SELECT us_ide_ram, us_ide_nome_processo \n"
-                                    + "                        FROM tb_processos_ide where us_ide_nome_processo IN (\n"
-                                    + "                            SELECT us_nome_ide FROM tb_ide_maquina\n"
-                                    + "                        INNER JOIN tb_us_ass_maquina as ide\n"
-                                    + "                        ON tb_ide_maquina_id_ide = id_ide\n"
-                                    + "                        AND tb_us_maquina_id_maquina = (\n"
-                                    + "                                SELECT id_maquina \n"
-                                    + "                                FROM tb_us_maquina \n"
-                                    + "                                WHERE fk_id_funcionario = ? ))\n"
-                                    + "                        AND fk_id_maquina = (\n"
-                                    + "                            SELECT id_maquina \n"
-                                    + "                            FROM tb_us_maquina \n"
-                                    + "                            WHERE fk_id_funcionario = ? )",
-                                    new BeanPropertyRowMapper<>(TbUsMaquinaIdMaquina.class), this.bigCpfDev, this.bigCpfDev);
+                            int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
+                            int interval = 1000;  // intervalo no qual a tarefa será executada.
+                            Timer timer = new Timer();
+                            timer.scheduleAtFixedRate(new TimerTask() {
+                                public void run() {
+                                    KeepCodeAPI api = new KeepCodeAPI(userObj);
+
+                                    try {
+                                        api.chamandoProcessos(userObj);
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                }
+                            }, delay, interval);
+
+//                            List<IdeMaq> sabendoIde = template.query("SELECT us_ide_ram, us_ide_nome_processo \n"
+//                                            + "                        FROM tb_processos_ide where us_ide_nome_processo IN (\n"
+//                                            + "                            SELECT us_nome_ide FROM tb_ide_maquina\n"
+//                                            + "                        INNER JOIN tb_us_ass_maquina as ide\n"
+//                                            + "                        ON tb_ide_maquina_id_ide = id_ide\n"
+//                                            + "                        AND tb_us_maquina_id_maquina = (\n"
+//                                            + "                                SELECT id_maquina \n"
+//                                            + "                                FROM tb_us_maquina \n"
+//                                            + "                                WHERE fk_id_funcionario = ? ))\n"
+//                                            + "                        AND fk_id_maquina = (\n"
+//                                            + "                            SELECT id_maquina \n"
+//                                            + "                            FROM tb_us_maquina \n"
+//                                            + "                            WHERE fk_id_funcionario = ? )",
+//                                    new BeanPropertyRowMapper<>(IdeMaq.class), tbUsDados.getId_cpf(), tbUsDados.getId_cpf());
 
                             try {
                                 gerarLog.gravarLog("recuperando ide's seleciondas");
@@ -1333,40 +1336,37 @@ public class TelaLogin extends javax.swing.JFrame {
                             nomesIde.add("9");// eclipse
                             nomesIde.add("10");// visualStudio
 
-                            for (Iterator<TbUsMaquinaIdMaquina> iterator = sabendoIde.iterator(); iterator.hasNext();) {
-                                TbUsMaquinaIdMaquina next = iterator.next();
-
-                                if (next.getTb_us_maquina_id_maquina().equals("1")) {
-                                    btnXcode.setVisible(true);
-                                } else if (next.getTb_us_maquina_id_maquina().equals("2")) {
-                                    btnPyCharm.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("3")) {
-                                    btnVsCode.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("4")) {
-                                    btnNetbeans.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("5")) {
+//                            for (IdeMaq next : sabendoIde) {
+//                                if (next.getId_ide().equals("1")) {
+//                                    btnXcode.setVisible(true);
+//                                } else if (next.getId_ide().equals("2")) {
+//                                    btnPyCharm.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("3")) {
+//                                    btnVsCode.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("4")) {
+//                                    btnNetbeans.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("5")) {
 //                                    btn.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("6")) {
-                                    btnAndroidSt.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("7")) {
-                                    btnPhpStorm.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("8")) {
-                                    btnWebStorm.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("9")) {
-                                    btnEclipse.setVisible(true);
-
-                                } else if (next.getTb_us_maquina_id_maquina().equals("10")) {
-                                    btnVisualSt.setVisible(true);
-
-                                }
-                            }
+//
+//                                } else if (next.getId_ide().equals("6")) {
+//                                    btnAndroidSt.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("7")) {
+//                                    btnPhpStorm.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("8")) {
+//                                    btnWebStorm.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("9")) {
+//                                    btnEclipse.setVisible(true);
+//
+//                                } else if (next.getId_ide().equals("10")) {
+//                                    btnVisualSt.setVisible(true);
+//                                }
+//                            }
 
                             try {
                                 gerarLog.gravarLog("login do dev efetuado com sucesso");
@@ -1395,20 +1395,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         }
 
-        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
-        int interval = 1000;  // intervalo no qual a tarefa será executada.
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                KeepCodeAPI api = new KeepCodeAPI(userObj);
 
-                try {
-                    api.chamandoProcessos(userObj);
-                } catch (IOException ex) {
-                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }, delay, interval);
 
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -1428,8 +1415,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<Usuario.UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
-                new BeanPropertyRowMapper<>(Usuario.UsuarioDatas.class
+        List<UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
+                new BeanPropertyRowMapper<>(UsuarioDatas.class
                 ), btnMaquina1.getText());
 
         System.out.println(pegandoUser);
@@ -1438,10 +1425,8 @@ public class TelaLogin extends javax.swing.JFrame {
         DashDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
         DashDev.setVisible(true);
 
-        for (Iterator<Usuario.UsuarioDatas> iterator = pegandoUser.iterator();
-                iterator.hasNext();) {
-            Usuario.UsuarioDatas usuarioDatas = iterator.next();
-            this.cpfDev = usuarioDatas.getId_cpf();
+        for (UsuarioDatas usuarioDatas : pegandoUser) {
+            usuarioDatas.getId_cpf();
             jblNomeDev.setText(usuarioDatas.getUs_nome_funcionario());
 //            jblEquipe.setText(usuarioDatas.getUs_equipe());
             jblCargo.setText(usuarioDatas.getUs_cargo());
@@ -1606,27 +1591,27 @@ public class TelaLogin extends javax.swing.JFrame {
 
         this.dispose();
 
-        List<TbProcessosIde> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
-                new BeanPropertyRowMapper<>(TbProcessosIde.class
-                ), this.cpfDev);
-
-        System.out.println(ideDev);
-
-        for (Iterator<TbProcessosIde> iterator = ideDev.iterator();
-                iterator.hasNext();) {
-
-            TbProcessosIde tbProcessosIde = iterator.next();
-
-            String disco = Integer.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
-            String cpu = Integer.toString(tbProcessosIde.getUs_ide_cpu());
-            String ram = Integer.toString(tbProcessosIde.getUs_ide_ram());
-
-            lblCpuDev.setText(cpu + "%");
-            lblDiscoDev.setText(disco + "%");
-            lblRamDev.setText(ram + "%");
-            lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
-
-        }
+//        List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+//                new BeanPropertyRowMapper<>(ProcessDatas.class
+//                ), this.cpfDev);
+//
+//        System.out.println(ideDev);
+//
+//        for (Iterator<ProcessDatas> iterator = ideDev.iterator();
+//                iterator.hasNext();) {
+//
+//            ProcessDatas tbProcessosIde = iterator.next();
+//
+//            String disco = Long.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
+//            String cpu = Float.toString(tbProcessosIde.getUs_ide_cpu());
+//            String ram = Double.toString(tbProcessosIde.getUs_ide_ram());
+//
+//            lblCpuDev.setText(cpu + "%");
+//            lblDiscoDev.setText(disco + "%");
+//            lblRamDev.setText(ram + "%");
+//            lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
+//
+//        }
 
         DetalheDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
         DetalheDev.setVisible(true);
