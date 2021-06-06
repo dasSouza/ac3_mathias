@@ -12,8 +12,8 @@ public class ProcessDatas extends MaquinaDatas {
     public List<Long> valoresDiscoIDE = new ArrayList<>();
 
     private Date us_dt_hr_processo;
-    private Date us_dt_start;
-    private Date us_dt_end;
+    private Date us_dt_hr_start_IDE;
+    private Date us_dt_hr_end_IDE;
     private String us_ide_nome_processo;
     private Float us_ide_cpu;
     private Long us_ide_disco;
@@ -28,21 +28,23 @@ public class ProcessDatas extends MaquinaDatas {
         this.us_dt_hr_processo = us_dt_hr_processo;
     }
 
-    public Date getUs_dt_start() {
-        return us_dt_start;
+    public Date getUs_dt_hr_start_IDE() {
+        return us_dt_hr_start_IDE;
     }
 
-    public void setUs_dt_start(Date us_dt_start) {
-        this.us_dt_start = us_dt_start;
+    public void setUs_dt_hr_start_IDE(Date us_dt_hr_start_IDE) {
+        this.us_dt_hr_start_IDE = us_dt_hr_start_IDE;
     }
 
-    public Date getUs_dt_end() {
-        return us_dt_end;
+    public Date getUs_dt_hr_end_IDE() {
+        return us_dt_hr_end_IDE;
     }
 
-    public void setUs_dt_end(Date us_dt_end) {
-        this.us_dt_end = us_dt_end;
+    public void setUs_dt_hr_end_IDE(Date us_dt_hr_end_IDE) {
+        this.us_dt_hr_end_IDE = us_dt_hr_end_IDE;
     }
+
+  
 
     public String getUs_ide_nome_processo() {
         return us_ide_nome_processo;

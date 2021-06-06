@@ -13,8 +13,10 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -132,6 +134,11 @@ public class ProcessIDE {
                     + "us_ide_disco, fk_id_maquina) "
                     + "VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, ?)";
             template.update(insertProcessValues, nomeIDE, ram, cpu, disco, processDatas.getId_maquina());
+
+            String attDatas = "UPDATE tb_log_hardware SET us_dt_hr_log= GETDATE() WHERE fk_id_maq= ?";
+            
+            template.update(attDatas, processDatas.getId_maquina());
+            
         }
         try {
             gerarLog.gravarLog("\n Inserindo dados de maquina");
@@ -139,5 +146,18 @@ public class ProcessIDE {
         } catch (IOException e) {
             gerarLog.gravarLog(String.format("%s", e));
         }
+    }
+    
+    public void finalizandoApp(){
+//            String insertProcessValues = "INSERT INTO tb_processos_ide ("
+//                    + "us_dt_hr_start_IDE, "
+//                    + "us_dt_hr_end_IDE, "
+//                    + "us_ide_nome_processo,"
+//                    + " us_ide_ram, "
+//                    + "us_ide_cpu, "
+//                    + "us_ide_disco, fk_id_maquina) "
+//                    + "VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, ?)";
+//            template.update(insertProcessValues, nomeIDE, ram, cpu, disco, processDatas.getId_maquina());
+    
     }
 }

@@ -14,6 +14,7 @@ import java.io.IOException;
 import ProcessoMaq.IdeMaq;
 import ProcessoMaq.ProcessDatas;
 import Usuario.UsuarioDatas;
+import org.joda.time.LocalDate;
 import Usuario.UsuarioDatas;
 import org.springframework.jdbc.core.JdbcTemplate;
 import jdbc.Conexao;
@@ -26,7 +27,12 @@ import javax.swing.JDesktopPane;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import log.GerandoLog;
 import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+//import java.time.LocalDate;
+import java.util.Date;
 import java.util.TimerTask;
+import org.joda.time.LocalDateTime;
 
 /**
  *
@@ -71,7 +77,7 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina4 = new javax.swing.JLabel();
         btnMaquina5 = new javax.swing.JLabel();
         btnMaquina6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnLogo2 = new javax.swing.JButton();
         btnMaquina7 = new javax.swing.JLabel();
         jButton7Maq = new javax.swing.JButton();
         jButton8Maq = new javax.swing.JButton();
@@ -146,7 +152,7 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaDashGestor.setPreferredSize(new java.awt.Dimension(1368, 720));
 
         jpFundo.setBackground(new java.awt.Color(206, 228, 217));
-        jpFundo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jpFundo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jpFundo.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         jpFundo.setMaximumSize(new java.awt.Dimension(1368, 720));
         jpFundo.setMinimumSize(new java.awt.Dimension(1368, 720));
@@ -173,6 +179,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton1Maq.setText("jButton1");
         jButton1Maq.setBorderPainted(false);
         jButton1Maq.setContentAreaFilled(false);
+        jButton1Maq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1Maq.setMaximumSize(new java.awt.Dimension(275, 170));
         jButton1Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton1Maq.setPreferredSize(new java.awt.Dimension(150, 120));
@@ -191,7 +198,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton2Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton2Maq.setName(""); // NOI18N
         jButton2Maq.setPreferredSize(new java.awt.Dimension(275, 170));
-        jButton2Maq.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/note.png"))); // NOI18N
         jButton2Maq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2MaqActionPerformed(evt);
@@ -232,6 +238,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton5Maq.setText("jButton5");
         jButton5Maq.setBorderPainted(false);
         jButton5Maq.setContentAreaFilled(false);
+        jButton5Maq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5Maq.setMaximumSize(new java.awt.Dimension(275, 170));
         jButton5Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton5Maq.setName(""); // NOI18N
@@ -246,6 +253,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton6Maq.setText("jButton6");
         jButton6Maq.setBorderPainted(false);
         jButton6Maq.setContentAreaFilled(false);
+        jButton6Maq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6Maq.setMaximumSize(new java.awt.Dimension(275, 170));
         jButton6Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton6Maq.setName(""); // NOI18N
@@ -257,7 +265,7 @@ public class TelaLogin extends javax.swing.JFrame {
         });
 
         btnMaquina1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        btnMaquina1.setText("Maquina 1");
+        btnMaquina1.setText("maquina 1");
 
         btnMaquina2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnMaquina2.setText("Maquina 2");
@@ -274,15 +282,10 @@ public class TelaLogin extends javax.swing.JFrame {
         btnMaquina6.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnMaquina6.setText("maquina 6");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-login (2).png"))); // NOI18N
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        btnLogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo-login (2).png"))); // NOI18N
+        btnLogo2.setBorderPainted(false);
+        btnLogo2.setContentAreaFilled(false);
+        btnLogo2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnMaquina7.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnMaquina7.setText("maquina 7");
@@ -291,6 +294,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton7Maq.setText("jButton5");
         jButton7Maq.setBorderPainted(false);
         jButton7Maq.setContentAreaFilled(false);
+        jButton7Maq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7Maq.setMaximumSize(new java.awt.Dimension(275, 170));
         jButton7Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton7Maq.setName(""); // NOI18N
@@ -305,6 +309,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jButton8Maq.setText("jButton6");
         jButton8Maq.setBorderPainted(false);
         jButton8Maq.setContentAreaFilled(false);
+        jButton8Maq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8Maq.setMaximumSize(new java.awt.Dimension(275, 170));
         jButton8Maq.setMinimumSize(new java.awt.Dimension(275, 170));
         jButton8Maq.setName(""); // NOI18N
@@ -348,10 +353,10 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addComponent(btnMaquina6))))
                     .addGroup(jpFundoLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(btnMaquina1)
-                        .addGap(246, 246, 246)
+                        .addComponent(btnMaquina1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(237, 237, 237)
                         .addComponent(btnMaquina3)
-                        .addGap(259, 259, 259)
+                        .addGap(246, 246, 246)
                         .addComponent(btnMaquina5))
                     .addGroup(jpFundoLayout.createSequentialGroup()
                         .addComponent(jButton1Maq, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -359,7 +364,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(jButton3Maq, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(193, 193, 193)
                         .addComponent(jButton5Maq, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addGap(238, 238, 238)
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
                         .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,7 +389,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jblNomeGestor)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogo2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jpFundoLayout.setVerticalGroup(
@@ -399,8 +404,8 @@ public class TelaLogin extends javax.swing.JFrame {
                             .addComponent(jblNomeGestor))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                    .addComponent(btnLogo2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpFundoLayout.createSequentialGroup()
                         .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -416,7 +421,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(jButton7Maq, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnMaquina7)))
-                .addGap(107, 107, 107)
+                .addGap(97, 97, 97)
                 .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jpFundoLayout.createSequentialGroup()
@@ -1237,7 +1242,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
                             List<UsuarioDatas> todosGeridos = template.query("SELECT \n"
                                     + "                        us_nome_funcionario,\n"
-                                    + "                        us_cargo\n"
+                                    + "                        us_cargo,\n"
+                                    + "                         us_login,"
+                                    + "                         us_equipe"
                                     + "                        FROM tb_us_dados \n"
                                     + "                        WHERE us_equipe = ? \n"
                                     + "                            and fk_id_empresa = ?\n"
@@ -1246,7 +1253,197 @@ public class TelaLogin extends javax.swing.JFrame {
 
                             System.out.println("RESULTADO DO SELECT DO GESTOR: " + todosGeridos);
 
-                            for (UsuarioDatas todosGerido : todosGeridos) {
+                            btnMaquina1.setEnabled(false);
+                            jButton1Maq.setEnabled(false);
+
+                            jButton2Maq.setEnabled(false);
+                            btnMaquina2.setEnabled(false);
+
+                            jButton3Maq.setEnabled(false);
+                            btnMaquina3.setEnabled(false);
+
+                            jButton4Maq.setEnabled(false);
+                            btnMaquina4.setEnabled(false);
+
+                            jButton5Maq.setEnabled(false);
+                            btnMaquina5.setEnabled(false);
+
+                            jButton6Maq.setEnabled(false);
+                            btnMaquina6.setEnabled(false);
+
+                            jButton7Maq.setEnabled(false);
+                            btnMaquina7.setEnabled(false);
+
+                            jButton8Maq.setEnabled(false);
+                            btnMaquina8.setEnabled(false);
+
+                            for (int i = 0; i < todosGeridos.size(); i++) {
+//                                UsuarioDatas passandoLista = todosGeridos.get(i);
+
+                                switch (todosGeridos.size()) {
+                                    case 1:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        break;
+                                    case 2:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        break;
+                                    case 3:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        break;
+                                    case 4:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        jButton4Maq.setEnabled(true);
+                                        btnMaquina4.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        btnMaquina4.setText(todosGeridos.get(3).getUs_login());
+                                        break;
+                                    case 5:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        jButton4Maq.setEnabled(true);
+                                        btnMaquina4.setEnabled(true);
+
+                                        jButton5Maq.setEnabled(true);
+                                        btnMaquina5.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        btnMaquina4.setText(todosGeridos.get(3).getUs_login());
+                                        btnMaquina5.setText(todosGeridos.get(4).getUs_login());
+                                        break;
+                                    case 6:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        jButton4Maq.setEnabled(true);
+                                        btnMaquina4.setEnabled(true);
+
+                                        jButton5Maq.setEnabled(true);
+                                        btnMaquina5.setEnabled(true);
+
+                                        jButton6Maq.setEnabled(true);
+                                        btnMaquina6.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        btnMaquina4.setText(todosGeridos.get(3).getUs_login());
+                                        btnMaquina5.setText(todosGeridos.get(4).getUs_login());
+                                        btnMaquina6.setText(todosGeridos.get(5).getUs_login());
+                                        break;
+                                    case 7:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        jButton4Maq.setEnabled(true);
+                                        btnMaquina4.setEnabled(true);
+
+                                        jButton5Maq.setEnabled(true);
+                                        btnMaquina5.setEnabled(true);
+
+                                        jButton6Maq.setEnabled(true);
+                                        btnMaquina6.setEnabled(true);
+                                        
+                                        jButton7Maq.setEnabled(true);
+                                        btnMaquina7.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        btnMaquina4.setText(todosGeridos.get(3).getUs_login());
+                                        btnMaquina5.setText(todosGeridos.get(4).getUs_login());
+                                        btnMaquina6.setText(todosGeridos.get(5).getUs_login());
+                                        btnMaquina7.setText(todosGeridos.get(6).getUs_login());
+                                        break;
+                                    case 8:
+                                        btnMaquina1.setEnabled(true);
+                                        jButton1Maq.setEnabled(true);
+
+                                        jButton2Maq.setEnabled(true);
+                                        btnMaquina2.setEnabled(true);
+
+                                        jButton3Maq.setEnabled(true);
+                                        btnMaquina3.setEnabled(true);
+
+                                        jButton4Maq.setEnabled(true);
+                                        btnMaquina4.setEnabled(true);
+
+                                        jButton5Maq.setEnabled(true);
+                                        btnMaquina5.setEnabled(true);
+
+                                        jButton6Maq.setEnabled(true);
+                                        btnMaquina6.setEnabled(true);
+                                        
+                                        jButton7Maq.setEnabled(true);
+                                        btnMaquina7.setEnabled(true);
+                                        
+                                        jButton8Maq.setEnabled(true);
+                                        btnMaquina8.setEnabled(true);
+
+                                        btnMaquina1.setText(todosGeridos.get(0).getUs_login());
+                                        btnMaquina2.setText(todosGeridos.get(1).getUs_login());
+                                        btnMaquina3.setText(todosGeridos.get(2).getUs_login());
+                                        btnMaquina4.setText(todosGeridos.get(3).getUs_login());
+                                        btnMaquina5.setText(todosGeridos.get(4).getUs_login());
+                                        btnMaquina6.setText(todosGeridos.get(5).getUs_login());
+                                        btnMaquina7.setText(todosGeridos.get(6).getUs_login());
+                                        btnMaquina8.setText(todosGeridos.get(7).getUs_login());
+                                        break;
+
+                                    default:
+                                        break;
+                                }
 
                             }
 
@@ -1264,7 +1461,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             tbUsDados.setUs_is_adm(true);
 
                             try {
-                                gerarLog.gravarLog("login do gestor efetuado com sucesso");
+                                gerarLog.gravarLog("\n login do gestor efetuado com sucesso");
 
                             } catch (IOException ex) {
 
@@ -1314,9 +1511,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             btnEclipse.setEnabled(false);
                             btnVisualSt.setEnabled(false);
 
-//                            DashDev.remove(btnEclipse);
-                            for (Iterator<IdeMaq> it = sabendoIde.iterator(); it.hasNext();) {
-                                IdeMaq next = it.next();
+                            for (IdeMaq next : sabendoIde) {
 
                                 switch (next.getId_ide()) {
                                     case 1:
@@ -1351,6 +1546,7 @@ public class TelaLogin extends javax.swing.JFrame {
                                         btnVisualSt.setEnabled(true);
                                         break;
                                     default:
+                                        System.out.println("ainda nao tem ide selecioanda");
                                         break;
                                 }
                             }
@@ -1360,6 +1556,7 @@ public class TelaLogin extends javax.swing.JFrame {
                             Timer timer = new Timer();
 
                             timer.scheduleAtFixedRate(new TimerTask() {
+                                @Override
                                 public void run() {
                                     KeepCodeAPI api = new KeepCodeAPI(userObj);
 
@@ -1416,15 +1613,71 @@ public class TelaLogin extends javax.swing.JFrame {
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-        List<UsuarioDatas> pegandoUser = template.query("SELECT * FROM tb_us_dados WHERE us_login = ?",
+        List<UsuarioDatas> pegandoUser = template.query("SELECT us_nome_funcionario, id_cpf, us_cargo, us_login, us_equipe FROM tb_us_dados WHERE us_login = ?",
                 new BeanPropertyRowMapper<>(UsuarioDatas.class), nome);
+
 
         System.out.println(pegandoUser);
 
         this.dispose();
         DashDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
         DashDev.setVisible(true);
+        btnXcode.setEnabled(false);
+        btnPyCharm.setEnabled(false);
+        btnVsCode.setEnabled(false);
+        btnNetbeans.setEnabled(false);
+        btnIntelij.setEnabled(false);
+        btnAndroidSt.setEnabled(false);
+        btnPhpStorm.setEnabled(false);
+        btnWebStorm.setEnabled(false);
+        btnEclipse.setEnabled(false);
+        btnVisualSt.setEnabled(false);
 
+        List<IdeMaq> sabendoIde = template.query("SELECT us_nome_ide, id_ide from tb_ide_maquina where us_nome_ide IN (SELECT us_nome_ide FROM tb_ide_maquina\n"
+                + "INNER JOIN tb_us_ass_maquina as ide\n"
+                + "ON tb_ide_maquina_id_ide = id_ide\n"
+                + "AND tb_us_maquina_id_maquina = (SELECT id_maquina from tb_us_maquina where fk_id_funcionario = (SELECT  id_cpf FROM tb_us_dados WHERE us_login = ?)))",
+                new BeanPropertyRowMapper<>(IdeMaq.class), nome);
+
+        for (IdeMaq next : sabendoIde) {
+
+            switch (next.getId_ide()) {
+                case 1:
+                    btnXcode.setEnabled(true);
+                    break;
+                case 2:
+                    btnPyCharm.setEnabled(true);
+                    break;
+                case 3:
+                    btnVsCode.setEnabled(true);
+                    break;
+                case 4:
+                    btnNetbeans.setEnabled(true);
+                    break;
+                case 5:
+                    btnIntelij.setEnabled(true);
+                    break;
+                case 6:
+                    btnAndroidSt.setEnabled(true);
+                    break;
+                case 7:
+                    btnPhpStorm.setEnabled(true);
+                    break;
+                case 8:
+                    btnWebStorm.setEnabled(true);
+                    break;
+                case 9:
+                    btnEclipse.setEnabled(true);
+                    //DashDev.add(btnEclipse);
+                    break;
+                case 10:
+                    btnVisualSt.setEnabled(true);
+                    break;
+                default:
+                    System.out.println("ainda nao tem ide selecioanda");
+                    break;
+            }
+        }
         for (UsuarioDatas usuarioDatas : pegandoUser) {
             usuarioDatas.getId_cpf();
             jblNomeDev.setText(usuarioDatas.getUs_nome_funcionario());
@@ -1474,44 +1727,43 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtEmailFocusGained
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        chamarTelaFuncionario("note2");    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton6MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6MaqActionPerformed
-        chamarTelaFuncionario("note6");
+        chamarTelaFuncionario(btnMaquina6.getText());
+
     }//GEN-LAST:event_jButton6MaqActionPerformed
 
     private void jButton5MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5MaqActionPerformed
-        chamarTelaFuncionario("note5");
+        chamarTelaFuncionario(btnMaquina5.getText());
 
     }//GEN-LAST:event_jButton5MaqActionPerformed
 
     private void jButton4MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4MaqActionPerformed
-        chamarTelaFuncionario("note4");
+        chamarTelaFuncionario(btnMaquina4.getText());
 
     }//GEN-LAST:event_jButton4MaqActionPerformed
 
     private void jButton3MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3MaqActionPerformed
-        chamarTelaFuncionario("note3");
+        chamarTelaFuncionario(btnMaquina3.getText());
 
     }//GEN-LAST:event_jButton3MaqActionPerformed
 
     private void jButton2MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2MaqActionPerformed
-        chamarTelaFuncionario("note2");
+        chamarTelaFuncionario(btnMaquina2.getText());
 
     }//GEN-LAST:event_jButton2MaqActionPerformed
 
     private void jButton1MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1MaqActionPerformed
-        chamarTelaFuncionario(jButton1.getText());
+        chamarTelaFuncionario(btnMaquina1.getText());
 
     }//GEN-LAST:event_jButton1MaqActionPerformed
 
     private void jButton7MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7MaqActionPerformed
-        chamarTelaFuncionario("note7");
+        chamarTelaFuncionario(btnMaquina7.getText());
     }//GEN-LAST:event_jButton7MaqActionPerformed
 
     private void jButton8MaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8MaqActionPerformed
-        chamarTelaFuncionario("note8");
+        chamarTelaFuncionario(btnMaquina8.getText());
+
     }//GEN-LAST:event_jButton8MaqActionPerformed
 
     private void btnImagenPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagenPerfilActionPerformed
@@ -1524,8 +1776,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnVsCodeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVsCodeMouseEntered
 
-        chamarDetalhes("netbeans64", WIDTH);
-
+        try {
+            chamarDetalhes("netbeans64");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnVsCodeMouseEntered
 
@@ -1544,65 +1799,101 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarMouseExited
 
     private void btnVsCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVsCodeActionPerformed
-        chamarDetalhes("Code", WIDTH);
+        try {
+            chamarDetalhes("Code");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnVsCodeActionPerformed
 
     private void btnAndroidStActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAndroidStActionPerformed
 
-        chamarDetalhes("studio64", WIDTH);
+        try {
+            chamarDetalhes("studio64");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnAndroidStActionPerformed
 
     private void btnIntelijActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIntelijActionPerformed
 
-        chamarDetalhes("idea64", WIDTH);
-// TODO add your handling code here:
+        try {
+            chamarDetalhes("idea64");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnIntelijActionPerformed
 
     private void btnVisualStActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVisualStActionPerformed
-        chamarDetalhes("Code", WIDTH);
+        try {
+            chamarDetalhes("Code");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnVisualStActionPerformed
 
     private void btnPhpStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhpStormActionPerformed
-        chamarDetalhes("phpstorm64 ", WIDTH);
+        try {
+            chamarDetalhes("phpstorm64");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnPhpStormActionPerformed
 
     private void btnEclipseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEclipseActionPerformed
-        chamarDetalhes("eclipse", WIDTH);
+        try {
+            chamarDetalhes("eclipse");
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        // TODO add your handling code here:
     }//GEN-LAST:event_btnEclipseActionPerformed
 
     private void btnPyCharmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPyCharmActionPerformed
-        chamarDetalhes("pycharm64", WIDTH);
+        try {
+            chamarDetalhes("pycharm64");
 
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPyCharmActionPerformed
 
     private void btnNetbeansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNetbeansActionPerformed
-        chamarDetalhes("netbeans64", WIDTH);
+        try {
+            chamarDetalhes("netbeans64");
 
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnNetbeansActionPerformed
 
     private void btnWebStormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWebStormActionPerformed
-        chamarDetalhes("webstorm64 ", WIDTH);
+        try {
+            chamarDetalhes("webstorm64");
 
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnWebStormActionPerformed
 
     private void btnXcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXcodeActionPerformed
-        chamarDetalhes("Xcode", WIDTH);
+        try {
+            chamarDetalhes("Xcode");
 
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+        } catch (ParseException ex) {
+            Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnXcodeActionPerformed
 
-    private void chamarDetalhes(String nome_ide, Integer id_ide) {
+    private void chamarDetalhes(String nome_ide) throws ParseException {
 
         GerandoLog gravandoLog = new GerandoLog();
 
@@ -1617,37 +1908,7 @@ public class TelaLogin extends javax.swing.JFrame {
         Conexao con = new Conexao();
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
 
-//        int delay = 5000;   // tempo de espera antes da 1ª execução da tarefa.
-//        int interval = 1000;  // intervalo no qual a tarefa será executada.
-//        Timer timer = new Timer();
-//
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
-//                        new BeanPropertyRowMapper<>(ProcessDatas.class), cpfDev);
-//
-//                System.out.println(ideDev);
-//
-//                for (Iterator<ProcessDatas> iterator = ideDev.iterator();
-//                        iterator.hasNext();) {
-//
-//                    ProcessDatas tbProcessosIde = iterator.next();
-//
-//                    String disco = Long.toString(tbProcessosIde.getUs_ide_disco() / 1024 / 1024 / 1024);
-//                    String cpu = Float.toString(tbProcessosIde.getUs_ide_cpu());
-//                    String ram = Double.toString(tbProcessosIde.getUs_ide_ram());
-//
-//                    lblCpuDev.setText(cpu + "%");
-//                    lblDiscoDev.setText(disco + "%");
-//                    lblRamDev.setText(ram + "%");
-//                    lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
-//
-//                }
-//            }
-//        }, delay, interval);
-
- List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
+        List<ProcessDatas> ideDev = template.query("SELECT TOP 1 us_dt_hr_start_IDE, us_dt_hr_end_IDE, us_ide_ram, us_ide_cpu, us_ide_disco, us_ide_nome_processo FROM tb_processos_ide AS processo JOIN tb_us_maquina AS maq ON maq.id_maquina = processo.fk_id_maquina where us_ide_nome_processo = '" + nome_ide + "' AND fk_id_funcionario = ? ",
                 new BeanPropertyRowMapper<>(ProcessDatas.class), cpfDev);
 
         System.out.println(ideDev);
@@ -1666,12 +1927,23 @@ public class TelaLogin extends javax.swing.JFrame {
             lblRamDev.setText(ram + "%");
             lblIde.setText(tbProcessosIde.getUs_ide_nome_processo());
 
+            Date dataAtual = new Date();
+            String formatandoDataAtual = new SimpleDateFormat("HH:mm:ss").format(dataAtual);
+            Date dataFormatada = new SimpleDateFormat("HH:mm:ss").parse(formatandoDataAtual);
+
+            Date dataBanco = tbProcessosIde.getUs_dt_hr_start_IDE();
+            String dataBancoFormatada = new SimpleDateFormat("HH:mm:ss").format(dataBanco);
+            Date DataFormatadaBanco = new SimpleDateFormat("HH:mm:ss").parse(dataBancoFormatada);
+
+//            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+            Long resultFinal = (DataFormatadaBanco.getTime() - dataFormatada.getTime()) / 3600000;
+            lblTempoUsoDev.setText(resultFinal.toString());
+
             DetalheDev.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png"));
             DetalheDev.setVisible(true);
 
             DetalheDev.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
-
 
         System.out.println(nome_ide);
 
@@ -1693,7 +1965,6 @@ public class TelaLogin extends javax.swing.JFrame {
         //get the systemTray of the system
         SystemTray systemTray = SystemTray.getSystemTray();
 
-        //Toolkit.getDefaultToolkit().getImage("src/resources/busylogo.jpg");
         Image image = Toolkit.getDefaultToolkit().getImage("src\\main\\resources\\logo-login.png");
 
         //popupmenu
@@ -1707,15 +1978,13 @@ public class TelaLogin extends javax.swing.JFrame {
         action.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                JOptionPane.showMessageDialog(null, "teste de click");
 
                 try {
                     gravandoLog.gravarLog("iniciando aplicação keep code");
 
                 } catch (IOException ex) {
 
-                    Logger.getLogger(TelaLogin.class
-                            .getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 try {
@@ -1728,8 +1997,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     }
 
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-                    java.util.logging.Logger.getLogger(TelaLogin.class
-                            .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
                 }
                 //</editor-fold>
 
@@ -1740,14 +2008,13 @@ public class TelaLogin extends javax.swing.JFrame {
                     new TelaLogin().setVisible(true);
                 });
 
-//                try {
-//                    gravandoLog.gravarLog("finalizando aplicação");
-//
-//                } catch (IOException ex) {
-//                    Logger.getLogger(TelaLogin.class
-//                            .getName()).log(Level.SEVERE, null, ex);
-//
-//                }
+                try {
+                    gravandoLog.gravarLog("finalizando aplicação");
+
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
             }
         });
         trayPopupMenu.add(action);
@@ -1757,6 +2024,15 @@ public class TelaLogin extends javax.swing.JFrame {
         close.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                Conexao con = new Conexao();
+                JdbcTemplate template = new JdbcTemplate(con.getBanco());
+
+                String insertProcessValues = "INSERT INTO tb_processos_ide ("
+                        + "us_dt_hr_end_IDE ) "
+                        + "VALUES (GETDATE())";
+                template.update(insertProcessValues);
+
                 try {
                     gravandoLog.gravarLog("finalizando aplicação");
 
@@ -1801,6 +2077,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnImagenPerfil;
     private javax.swing.JButton btnIntelij;
     private javax.swing.JButton btnLogo;
+    private javax.swing.JButton btnLogo2;
     private javax.swing.JLabel btnMaquina1;
     private javax.swing.JLabel btnMaquina2;
     private javax.swing.JLabel btnMaquina3;
@@ -1822,7 +2099,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel imgTempo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1Maq;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2Maq;
     private javax.swing.JButton jButton3Maq;
     private javax.swing.JButton jButton4Maq;
