@@ -1536,7 +1536,6 @@ public class TelaLogin extends javax.swing.JFrame {
                                         break;
                                     case 9:
                                         btnEclipse.setEnabled(true);
-                                        //DashDev.add(btnEclipse);
                                         break;
                                     case 10:
                                         btnVisualSt.setEnabled(true);
