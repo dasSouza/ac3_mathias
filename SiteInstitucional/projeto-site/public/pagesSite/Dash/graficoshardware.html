@@ -18,6 +18,8 @@
   <script defer src="../../js/js.js"> </script>
 
   <!-- links api -->
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -48,7 +50,7 @@
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
@@ -96,9 +98,9 @@
 
         <div class="info-img">
 
-          <img src="../../img/netbeans64.png" alt="" id="imgLogoIDE" class="ide-graficohardware">
+          <img src="" alt="" id="imgLogoIDE" class="ide-graficohardware">
 
-          <p id="nomeIDE">Netbeans</p>
+          <p id="nomeIDE"></p>
 
 
         </div>
@@ -144,7 +146,13 @@
             <div class="label-grafico">CPU</div>
           </div>
           <div class="box-graficos">
-            <img src="../../img/relogio.svg" alt="relôgio" style="width: 60%; height: 60%;"">
+            <div class="text-time">
+              <p>Tempo de uso</p>
+            </div>
+            <div class="container-relogio-1">
+              <img src="../../img/relogio.svg" alt="relôgio" style="width: 70%; height: 70%;">
+            </div>
+            
             
             <div id="grafico_tempo_us" class="label-grafico">
           </div>
@@ -392,6 +400,38 @@
       });
 
   }
+
+  console.log("ram2 " + valorRam)
+  console.log("cpu2 " + valorCPU)
+  console.log("disco2 " + valorDisco)
+
+  function funciona() {
+        introJs().setOptions({
+            showBullets: false,
+            showProgress: true,
+            steps: [{
+                title: 'Bem vindo ao nosso tutorial',
+                intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+                tooltipClass: 'customTooltip'
+            },
+            {
+                element: document.querySelector('.info-img'),
+                intro: 'Aqui você pode ver o logo do ambiente de desenvolvimento escolhido',
+                tooltipClass: 'customTooltip'
+            },
+
+            {
+                element: document.querySelector('.box-graficos'),
+                position: 'left',
+                intro: 'Aqui você pode ver os gráficos de hardware e tempo de uso em relação ao ambiente de desenvolvimento',
+                tooltipClass: 'customTooltip'
+            }
+            
+
+            ]
+        }).start();
+    }
+
 
 </script>
 
