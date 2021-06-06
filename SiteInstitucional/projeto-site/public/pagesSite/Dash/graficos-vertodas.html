@@ -144,11 +144,37 @@
         </div>
         <div class="container-grafic">
           <div class="grafic">
-            <div class="box-grafic">
-              <div id="graficoTempo" value="60" style="width: 70%; height: 70%;" class="label-center"
-                data-precision="0.1" data-preset="circle">
+            <div class="container-total">
+              <div class="box-grafic">
+                <div class="container-hora-1">
+                  <p>04H 06M</p>
+                </div>
+                <div id="graficoTempo" value="60" style="width: 70%; height: 70%;" class="label-center"
+                  data-precision="0.1" data-preset="circle">
+                </div>
+
+                <div class="container-hora">
+                  <p>06H 35M</p>
+                </div>
+                <div class="container-uso">
+                  <div class="legenda-tempouso">
+                    <p>Ativo</p>
+
+                  </div>
+                </div>
+
+                <div class="container-uso-1">
+                  <div class="legenda-tempouso-1">
+                    <p>Inativo</p>
+
+                  </div>
+                </div>
+
+
               </div>
             </div>
+
+
           </div>
           <div class="grafic">
             <div class="grafic-container">
@@ -551,7 +577,7 @@
         tooltipClass: 'customTooltip'
       },
       {
-        element: document.querySelector('.teste-grafico'),
+        element: document.querySelector('#graficoTempo'),
         intro: 'Aqui você pode consultar os gráfico de tempo de uso da máquina',
         tooltipClass: 'customTooltip'
       },

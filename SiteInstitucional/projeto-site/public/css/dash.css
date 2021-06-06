@@ -1164,6 +1164,89 @@ color: red;
     align-items: center;
 }
 
+.container-hora {
+
+    height: 10%;
+    width: 16%;
+    margin-left: -3vw;
+    margin-top: 2vh;
+
+}
+
+.container-hora-1{
+    height: 10%;
+    width: 16%;
+    margin-right: -2vw;
+    margin-top: 18vh;
+}
+
+.container-hora-1 p{
+    color: #84aaa4;
+    font-size: 20px;
+}
+
+.container-hora p {
+    color: #B73447;
+    font-size: 20px;
+
+}
+
+.container-uso {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5%;
+    height: 4.4%;
+    top: 23.3rem;
+    left: 37rem;
+
+}
+
+.container-uso-1 {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5%;
+    height: 4.4%;
+    top: 25.3rem;
+    left: 37rem;
+
+}
+
+.legenda-tempouso {
+
+    width: 62%;
+    height: 69%;
+    background-color: #B73447;
+    border-radius: 3px;
+
+}
+
+.legenda-tempouso-1 {
+
+    width: 62%;
+    height: 69%;
+    background-color: #A3C6C1;
+    border-radius: 3px;
+
+}
+
+.legenda-tempouso p {
+
+    color: #514E4D;
+    margin-left: 2vw;
+    font-size: 16px;
+
+
+}
+
+
+.legenda-tempouso-1 p {
+
+    color: #514E4D;
+    margin-left: 2vw;
+    font-size: 16px;
+
+
+}
 .container-graficos {
     height: 100%;
     width: 66%;
@@ -1605,7 +1688,20 @@ color: red;
     width: 100%;
     display: flex;
     justify-content: center;
-   margin-top: 2vh;
+    margin-left: -1vw;
+    margin-top: 2vh;
+    flex-direction: row;
+   
+}
+
+.container-total {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
 }
 
 .separa-graficos {
