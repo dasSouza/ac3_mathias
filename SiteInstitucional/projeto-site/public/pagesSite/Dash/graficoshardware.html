@@ -9,7 +9,9 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+  <link rel="stylesheet" href="sweetalert2.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="sweetalert2.all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -152,12 +154,12 @@
             <div class="container-relogio-1">
               <img src="../../img/relogio.svg" alt="relôgio" style="width: 70%; height: 70%;">
             </div>
-            
-            
+
+
             <div id="grafico_tempo_us" class="label-grafico">
+            </div>
           </div>
         </div>
-      </div>
       </div>
       </div>
 
@@ -206,7 +208,7 @@
           var resultado = [];
           let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
             "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
-            
+
           function percorrer(obj) {
             for (var propriedade in obj) {
               if (obj.hasOwnProperty(propriedade)) {
@@ -258,6 +260,7 @@
           }
 
           percorrer(resposta);
+          console.log("resultado ", resultado)
 
           let inicioIDE = resultado[0]
           let fimIDE = resultado[1]
@@ -277,7 +280,7 @@
           } else {
             var diferenca = `${horas}H ${minutos}M`
           }
-          
+
           grafico_tempo_us.innerHTML = diferenca
 
           valorDisco = valorDisco / 1024 / 1024 / 1024
@@ -406,31 +409,31 @@
   console.log("disco2 " + valorDisco)
 
   function funciona() {
-        introJs().setOptions({
-            showBullets: false,
-            showProgress: true,
-            steps: [{
-                title: 'Bem vindo ao nosso tutorial',
-                intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
-                tooltipClass: 'customTooltip'
-            },
-            {
-                element: document.querySelector('.info-img'),
-                intro: 'Aqui você pode ver o logo do ambiente de desenvolvimento escolhido',
-                tooltipClass: 'customTooltip'
-            },
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.info-img'),
+        intro: 'Aqui você pode ver o logo do ambiente de desenvolvimento escolhido',
+        tooltipClass: 'customTooltip'
+      },
 
-            {
-                element: document.querySelector('.box-graficos'),
-                position: 'left',
-                intro: 'Aqui você pode ver os gráficos de hardware e tempo de uso em relação ao ambiente de desenvolvimento',
-                tooltipClass: 'customTooltip'
-            }
-            
+      {
+        element: document.querySelector('.box-graficos'),
+        position: 'left',
+        intro: 'Aqui você pode ver os gráficos de hardware e tempo de uso em relação ao ambiente de desenvolvimento',
+        tooltipClass: 'customTooltip'
+      }
 
-            ]
-        }).start();
-    }
+
+      ]
+    }).start();
+  }
 
 
 </script>

@@ -17,12 +17,6 @@
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../funcoes.js"></script>
   <title>KCODE</title>
-  <!-- links api -->
-  <link href="../../themes/introjs-nazanin.css" rel="stylesheet">
-  <link rel="stylesheet" href="loading-bar.css">
-  <link rel="stylesheet" href="loading-bar.min.css">
-  <script src="loading-bar.js"></script>
-  <script src="loading-bar.min.js"></script>
 </head>
 
 <body onload="verificar_autenticacao()">
@@ -232,18 +226,23 @@
 
                 let imgPc = document.createElement('img')
                 imgPc.src = `../../img/laptop-screen (1).png`
-                if (minutos > 10) {
-                  contadorInativas ++
-                  imgPc.style.opacity = '0.5'
-                } else {
-                  contadorAtivas ++
-                  imgPc.style.opacity = '1'
-                  imgPc.addEventListener('click', function () {
+                imgPc.addEventListener('click', function () {
                     sessionStorage.nome_integrante_meuapp = nomeFuncionario[index]
                     sessionStorage.cargo_integrante_meuapp = cargoFuncionario[index]
                     window.location.href = 'graficos-vertodas.html'
                   })
-                }
+                // if (minutos > 10) {
+                //   contadorInativas ++
+                //   imgPc.style.opacity = '0.5'
+                // } else {
+                //   contadorAtivas ++
+                //   imgPc.style.opacity = '1'
+                //   imgPc.addEventListener('click', function () {
+                //     sessionStorage.nome_integrante_meuapp = nomeFuncionario[index]
+                //     sessionStorage.cargo_integrante_meuapp = cargoFuncionario[index]
+                //     window.location.href = 'graficos-vertodas.html'
+                //   })
+                // }
 
                 first.appendChild(imgPc);
                 if (imgPc.classList) imgPc.classList.add("logo-ide");

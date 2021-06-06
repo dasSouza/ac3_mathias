@@ -207,7 +207,6 @@ function cadastrar(fk_id_empresa) {
 }
 
 function dadosIguais() {
-  console.log("ti no dados")
   let booleano = true;
 
   if (document.getElementById("login_cad").value == recuperaDadosIntegrante[0]
@@ -253,7 +252,6 @@ function editarUsuario() {
         background: "#D6ECE1",
         confirmButtonColor: "#A3C6C1",
       });
-      console.log(resposta);
     } else {
       if (resposta.ok) {
         resposta.json().then((json) => {
@@ -403,7 +401,6 @@ function aguardar() {
 }
 
 function finalizar_aguardar() {
-  console.log("Entrei no finalizar")
   btn_login.disabled = false;
   btn_login.style.visibility = "visible";
   img_aguarde.style.visibility = "hidden";

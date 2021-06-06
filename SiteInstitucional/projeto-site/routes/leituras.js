@@ -48,31 +48,33 @@ router.get('/processos/ram/:nome/:equipe/:cargo', function (req, res, next) {
 	var cargo = req.params.cargo;
 
 	console.log("Encontrei a RAM do Gestor")
-	const instrucaoSql = `SELECT us_ide_nome_processo, us_ide_ram 
-							FROM tb_processos_ide where us_ide_nome_processo 
-							IN (
-								SELECT us_nome_ide FROM tb_ide_maquina
-								INNER JOIN tb_us_ass_maquina as ide
-								ON tb_ide_maquina_id_ide = id_ide
-								AND tb_us_maquina_id_maquina = (
-									SELECT id_maquina from tb_us_maquina where fk_id_funcionario = (
-										SELECT id_cpf FROM tb_us_dados WHERE us_nome_funcionario = '${nome}' 
-										AND us_equipe = '${equipe}' 
-										AND us_cargo = '${cargo}'
-									)
-								)
-							)
-							AND fk_id_maquina = (
-								SELECT id_maquina from tb_us_maquina 
-								WHERE fk_id_funcionario = (
-									SELECT id_cpf 
-									FROM tb_us_dados 
-									WHERE us_nome_funcionario = '${nome}' 
+	const instrucaoSql = `SELECT 
+						us_ide_nome_processo, 
+						us_ide_ram
+						FROM tb_processos_ide where us_ide_nome_processo 
+						IN (
+							SELECT us_nome_ide FROM tb_ide_maquina
+							INNER JOIN tb_us_ass_maquina as ide
+							ON tb_ide_maquina_id_ide = id_ide
+							AND tb_us_maquina_id_maquina = (
+								SELECT id_maquina from tb_us_maquina where fk_id_funcionario = (
+									SELECT id_cpf FROM tb_us_dados WHERE us_nome_funcionario = '${nome}' 
 									AND us_equipe = '${equipe}' 
 									AND us_cargo = '${cargo}'
-									)
 								)
-								GROUP BY us_ide_nome_processo, us_ide_ram, id_processos;`;
+							)
+						)
+						AND fk_id_maquina = (
+							SELECT id_maquina from tb_us_maquina 
+							WHERE fk_id_funcionario = (
+								SELECT id_cpf 
+								FROM tb_us_dados 
+								WHERE us_nome_funcionario = '${nome}' 
+								AND us_equipe = '${equipe}' 
+								AND us_cargo = '${cargo}'
+								)
+							)
+							GROUP BY us_ide_nome_processo, us_ide_ram, id_processos;`;
 						
 	sequelize.query(instrucaoSql, {
 		model: Leitura,
