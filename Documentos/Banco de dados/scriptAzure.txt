@@ -38,12 +38,8 @@ CREATE TABLE  tb_us_maquina (
 
 
 CREATE TABLE  tb_log_hardware (
-  id_log BIGINT NOT NULL,
+  id_log BIGINT NOT NULL IDENTITY,
   us_dt_hr_log DATETIME NOT NULL,
-  us_log_hardware VARCHAR(255) NULL,
-  us_total_ram FLOAT NOT NULL,
-  us_total_cpu FLOAT NOT NULL,
-  us_total_disco FLOAT NOT NULL,
   fk_id_maq BIGINT NOT NULL,
   PRIMARY KEY (id_log),
   CONSTRAINT fk_maquina
@@ -63,8 +59,8 @@ CREATE TABLE  tb_processos_ide (
   us_dt_hr_start_IDE DATETIME NULL,
   us_dt_hr_end_IDE DATETIME NULL,
   us_ide_nome_processo VARCHAR(255) NOT NULL,
-  us_ide_ram FLOAT NOT NULL,
-  us_ide_cpu FLOAT NOT NULL,
+  us_ide_ram decimal(5,3) NOT NULL,
+  us_ide_cpu decimal(5,3) NOT NULL,
   us_ide_disco FLOAT NOT NULL,
   fk_id_maquina BIGINT NOT NULL,
   PRIMARY KEY (id_processos),
@@ -88,15 +84,27 @@ CREATE TABLE  tb_us_ass_maquina (
 insert into tb_empresa values ('valemobi', '02555050', '10535290000121'
 ,'1185476358','valemobi@vm.com.br')
 
-insert into tb_us_dados values (71907792058, 'Samuel Lopes', 'estágiario','samuel','Teste123', 'Paquetá','0', 1)
+insert into tb_us_dados values 
+(2578386005, 'Matheus Pinheiro', 'Estágiario','Matheus','Teste123', 'TradeMap Mobile', 0, 1),
+(69449167052, 'Isabella Pires', 'Negócios','isa','Teste123', 'Paquetá', 0, 1),
+(51823838006, 'Bruno Ricardo', 'Developer','Bruno','Teste123', 'Paquetá', 0, 1),
+(71907792058, 'Samuel Lopes', 'Estágiario','samuel','Teste123', 'Chita', 0, 2),
+(89449167052, 'Luis Fernando', 'CEO', 'luis', 'Teste123', 'Paquetá', 1, 1)
 
-insert into tb_us_maquina values ('vm007', 16.00, 10.00, 'i5-9400f', 71907792058)
+insert into tb_us_maquina values 
+('vm007', 16.00, 10.00, 'i5-9400f', 2578386005),
+('vm008', 16.00, 10.00, 'i9-8400f', 69449167052),
+('acc02', 16.00, 10.00, 'i5-9400f', 71907792058),
+('vm157', 8, 20, 'Intel(R) Core(TM) i7-8650U CPU @ 1.90GHz', 51823838006),
 
-insert into tb_log_hardware values (1,GETDATE(), 'google chrome', 8.32, 48.20, 62.10, 1)
+insert into tb_log_hardware values 
+(GETDATE(), 1),
+(GETDATE(), 2),
+(GETDATE(), 3),
+(GETDATE(), 4)
+
 
 insert into tb_ide_maquina values (1,'idea64', 1)
-
-insert into tb_processos_ide values (GETDATE(), GETDATE(), 'idea64', 6.00, 22.17, 6.00, 1)
 
 insert into tb_us_ass_maquina values (1,1)
 
