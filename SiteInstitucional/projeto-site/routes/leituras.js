@@ -97,7 +97,7 @@ router.get('/processos/ram/:id_usuario', function (req, res, next) {
 	var CPF = req.params.id_usuario;
 
 	console.log("Encontrei a RAM 1")
-	const instrucaoSql = `SELECT us_ide_ram, us_ide_nome_processo 
+	const instrucaoSql = `SELECT TOP 50 us_ide_ram, us_ide_nome_processo 
 						FROM tb_processos_ide where us_ide_nome_processo IN (
 							SELECT us_nome_ide FROM tb_ide_maquina
 						INNER JOIN tb_us_ass_maquina as ide
