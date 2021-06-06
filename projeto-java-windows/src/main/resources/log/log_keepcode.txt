@@ -1539,3 +1539,78 @@
 
 06/06/2021 13:27:48 conectando com o banco 
 
+06/06/2021 14:50:26 conectando com o banco 
+
+06/06/2021 14:50:36 conectando com o banco 
+
+06/06/2021 14:59:37 iniciando aplicação keep code 
+
+06/06/2021 14:59:37 finalizando aplicação 
+
+06/06/2021 14:59:45 conectando com o banco 
+
+06/06/2021 14:59:50 recuperando ide's selecionadas 
+
+06/06/2021 14:59:51 login do dev efetuado com sucesso 
+
+06/06/2021 14:59:51 dev chamando detalhe da ide 
+
+06/06/2021 14:59:51 conectando com o banco 
+
+06/06/2021 14:59:56 
+ Chamando todos os processos 
+
+06/06/2021 14:59:56 conectando com o banco 
+
+06/06/2021 14:59:56 conectando com o banco 
+
+06/06/2021 14:59:59 
+ Inserindo dados de maquina 
+
+06/06/2021 14:59:59 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:02 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:02 
+ Chamando todos os processos 
+
+06/06/2021 15:00:02 conectando com o banco 
+
+06/06/2021 15:00:02 conectando com o banco 
+
+06/06/2021 15:00:04 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:04 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:08 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:08 
+ Chamando todos os processos 
+
+06/06/2021 15:00:08 conectando com o banco 
+
+06/06/2021 15:00:08 conectando com o banco 
+
+06/06/2021 15:00:10 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:10 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:13 
+ Inserindo dados de maquina 
+
+06/06/2021 15:00:13 
+ Chamando todos os processos 
+
+06/06/2021 15:00:13 conectando com o banco 
+
+06/06/2021 15:00:13 conectando com o banco 
+
+06/06/2021 15:00:14 finalizando aplicação 
+

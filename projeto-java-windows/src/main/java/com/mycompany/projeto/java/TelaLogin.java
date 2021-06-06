@@ -1195,8 +1195,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
 
-//        this.dispose();
-//        DashDev.setVisible(true);
         Conexao con = new Conexao();
 
         JdbcTemplate template = new JdbcTemplate(con.getBanco());
@@ -1238,7 +1236,6 @@ public class TelaLogin extends javax.swing.JFrame {
                             // gestor entra aqui
                             this.setVisible(false);
                             this.dispose();
-                            // AQUI TEM QUE IR O SELECT PARA PEGAR TODOS OS QUE O GESTOR COMANDA
 
                             List<UsuarioDatas> todosGeridos = template.query("SELECT \n"
                                     + "                        us_nome_funcionario,\n"
@@ -1278,7 +1275,6 @@ public class TelaLogin extends javax.swing.JFrame {
                             btnMaquina8.setEnabled(false);
 
                             for (int i = 0; i < todosGeridos.size(); i++) {
-//                                UsuarioDatas passandoLista = todosGeridos.get(i);
 
                                 switch (todosGeridos.size()) {
                                     case 1:
@@ -2025,13 +2021,13 @@ public class TelaLogin extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Conexao con = new Conexao();
-                JdbcTemplate template = new JdbcTemplate(con.getBanco());
-
-                String insertProcessValues = "INSERT INTO tb_processos_ide ("
-                        + "us_dt_hr_end_IDE ) "
-                        + "VALUES (GETDATE())";
-                template.update(insertProcessValues);
+//                Conexao con = new Conexao();
+//                JdbcTemplate template = new JdbcTemplate(con.getBanco());
+//
+//                String insertProcessValues = "INSERT INTO tb_processos_ide ("
+//                        + "us_dt_hr_end_IDE ) "
+//                        + "VALUES (GETDATE())";
+//                template.update(insertProcessValues);
 
                 try {
                     gravandoLog.gravarLog("finalizando aplicação");

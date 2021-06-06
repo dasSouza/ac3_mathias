@@ -81,6 +81,7 @@ public class ProcessIDE {
         int interval = 6000;  // intervalo no qual a tarefa será executada.
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
             public void run() {
                 System.out.println(processDatas.valoresCpuIDE);
                 System.out.println(processDatas.valoresDiscoIDE);
@@ -148,16 +149,4 @@ public class ProcessIDE {
         }
     }
     
-    public void finalizandoApp(){
-//            String insertProcessValues = "INSERT INTO tb_processos_ide ("
-//                    + "us_dt_hr_start_IDE, "
-//                    + "us_dt_hr_end_IDE, "
-//                    + "us_ide_nome_processo,"
-//                    + " us_ide_ram, "
-//                    + "us_ide_cpu, "
-//                    + "us_ide_disco, fk_id_maquina) "
-//                    + "VALUES (GETDATE(), GETDATE(), ? , ? , ?, ?, ?)";
-//            template.update(insertProcessValues, nomeIDE, ram, cpu, disco, processDatas.getId_maquina());
-    
-    }
 }
