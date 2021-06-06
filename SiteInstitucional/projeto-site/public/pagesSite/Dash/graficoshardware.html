@@ -9,10 +9,19 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../funcoes.js"></script>
+  <script defer src="../../js/js.js"> </script>
 
   <!-- links api -->
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -39,11 +48,11 @@
                 <span class="icon">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
-                <span class="title">Profile</span>
+                <span class="title">Perfil</span>
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
@@ -91,9 +100,9 @@
 
         <div class="info-img">
 
-          <img src="../../img/netbeans64.png" alt="" id="imgLogoIDE" class="ide-graficohardware">
+          <img src="" alt="" id="imgLogoIDE" class="ide-graficohardware">
 
-          <p id="nomeIDE">Netbeans</p>
+          <p id="nomeIDE"></p>
 
 
         </div>
@@ -139,17 +148,19 @@
             <div class="label-grafico">CPU</div>
           </div>
           <div class="box-graficos">
-            <img src="../../img/relogio.svg" alt="relôgio" style="width: 60%; height: 60%;"">
-            
-            <div id=" grafico_tempo_us" class="label-grafico">
+            <div class="text-time">
+              <p>Tempo de uso</p>
+            </div>
+            <div class="container-relogio-1">
+              <img src="../../img/relogio.svg" alt="relôgio" style="width: 70%; height: 70%;">
+            </div>
+
+
+            <div id="grafico_tempo_us" class="label-grafico">
+            </div>
           </div>
         </div>
       </div>
-
-
-      </div>
-
-
       </div>
 
     </section>
@@ -166,9 +177,10 @@
 
 </html>
 
-
 <!-- script cria grafico -->
 <script>
+
+  moment().format();
 
   let valorTempo
   let valorDisco;
@@ -178,10 +190,7 @@
   let fimIDE;
 
   let contadorGrafico = 0
-
-  window.onload = verificar_autenticacao()
-  // window.onload = obterDadosGraficoIDE(1);
-  // window.onload = carregarGrafico();
+  let contadorAlerta = 0
 
   function carregarGrafico() {
     setInterval(
@@ -195,12 +204,11 @@
     fetch(`/leituras/processos/ide/${IDE}/${id_usuario}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
         response.json().then(function (resposta) {
-
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          // console.log(`Dados recebidos: ${resposta}`);
+          console.log(JSON.stringify(resposta));
           var resultado = [];
           let nomesTratadosIDE = ["Xcode", "PyCharm", "Visual studio code", "Netbeans", "Intellij", "Android studio",
             "PHPStorm", "WebStorm", "Eclipse", "Visual studio"]
+
           function percorrer(obj) {
             for (var propriedade in obj) {
               if (obj.hasOwnProperty(propriedade)) {
@@ -212,6 +220,8 @@
               }
             }
           }
+
+          console.log('resultado ', resultado)
 
           imgLogoIDE.src = `../../img/${IDE}.png`
           switch (IDE) {
@@ -250,7 +260,7 @@
           }
 
           percorrer(resposta);
-          // console.log(JSON.stringify(resultado));
+          console.log("resultado ", resultado)
 
           let inicioIDE = resultado[0]
           let fimIDE = resultado[1]
@@ -258,86 +268,22 @@
           valorCPU = resultado[3]
           valorDisco = resultado[4]
 
-          valorInicio = inicioIDE.split("T")
-          valorFim = fimIDE.split("T")
+          var antes = moment(inicioIDE);
+          var depois = moment(fimIDE);
 
-          var tempoInicio = valorInicio[0] + " " + valorInicio[1]
-          tempoInicio = tempoInicio.slice(0, -5)
+          var dias = depois.diff(antes, 'days');
+          var horas = depois.diff(antes, 'hours');
+          var minutos = depois.diff(antes, 'minutes');
 
-          var tempoFim = valorFim[0] + " " + valorFim[1]
-          tempoFim = tempoFim.slice(0, -5)
-
-          // console.log(tempoInicio)
-          // console.log(tempoFim)
-
-          var us_data_inicio = valorInicio[0];
-          us_data_inicio = us_data_inicio.split("-").join('');
-
-          var us_data_fim = valorFim[0];
-          us_data_fim = us_data_fim.split("-").join('');
-
-          var us_hr_inicio = valorInicio[1];
-          us_hr_inicio = us_hr_inicio.slice(0, -3);
-
-          var us_hr_fim = valorFim[1];
-          us_hr_fim = us_hr_fim.slice(0, -3);
-
-          var dias_uso = us_data_fim - us_data_inicio;
-          var hr_uso = us_hr_fim - us_hr_inicio;
-
-          function isHoraInicialMenorHoraFinal(horaInicial, horaFinal) {
-            horaIni = horaInicial; horaFim = horaFinal;
-
-            // Verifica as horas. Se forem diferentes, é só ver se a inicial 
-            // é menor que a final. 
-            hIni = parseInt(horaIni[0], 10);
-            hFim = parseInt(horaFim[0], 10);
-            if (hIni != hFim)
-              return hIni < hFim;
-
-            // Se as horas são iguais, verifica os minutos então. 
-            mIni = parseInt(horaIni[1], 10);
-            mFim = parseInt(horaFim[1], 10);
-            if (mIni != mFim)
-              return mIni < mFim;
+          if (dias > 0) {
+            var diferenca = `${dias} dias ${horas}H ${minutos}M`
+          } else {
+            var diferenca = `${horas}H ${minutos}M`
           }
 
-          //Função utilizada para calculo de uso em horas já com resultado do calculo de dias.
-          function diferencaHoras(horaFinal, horaInicial) {
-            if (!isHoraInicialMenorHoraFinal(horaInicial, horaFinal)) {
-              aux = horaFinal;
-              horaFinal = horaInicial;
-              horaInicial = aux;
-            }
-            hIni = horaInicial.split(":");
-            hFim = horaFinal.split(":");
-            horasTotal = parseInt(hFim[0], 10) - parseInt(hIni[0], 10);
-            minutosTotal = parseInt(hFim[1], 10) - parseInt(hIni[1], 10);
-            if (minutosTotal < 0) {
-              minutosTotal += 60; horasTotal -= 1;
-            }
-            horaFinal = dias_uso + "D " + (horasTotal) + "h" + ":" + (minutosTotal) + "m";
-            grafico_tempo_us.innerHTML = horaFinal
-            return horaFinal;
-          }
-
-          diferencaHoras(us_hr_inicio, us_hr_fim);
-
-          console.log(diferencaHoras(us_hr_inicio, us_hr_fim))
-          // console.log(dias_uso)
-          // console.log(us_data_inicio)
-          // console.log(us_data_fim)
-          // console.log(us_hr_inicio)
-          // console.log(us_hr_fim)
+          grafico_tempo_us.innerHTML = diferenca
 
           valorDisco = valorDisco / 1024 / 1024 / 1024
-
-          // console.log("inicio " + valorInicio)
-          console.log("fim " + valorFim)
-          console.log("ram " + valorRam)
-          console.log("cpu " + valorCPU)
-          console.log("disco " + valorDisco)
-          console.log("Resultado: " + resultado)
 
           // grafico disco
           var discoGrafico = new ldBar("#graficoDisco");
@@ -356,6 +302,95 @@
 
           // grafico tempo
           valorTempo = 32;
+          // Tratativa dos alertas
+          if (contadorAlerta == 0) {
+            if (valorRam > 2) {
+              if (valorCPU > 85) {
+                if (valorDisco > 90) {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de ram, disco e CPU de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de ram e CPU de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                }
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  iconColor: '#c73535',
+                  title: "O consumo de ram de sua máquina está acima do ideal!",
+                  background: "#D6ECE1",
+                  confirmButtonColor: "#A3C6C1",
+                });
+              }
+            } else if (valorCPU > 85) {
+              if (valorDisco > 90) {
+                if (valorRam > 2) {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de CPU, disco e ram de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de CPU e disco de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                }
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  iconColor: '#c73535',
+                  title: "O consumo de CPU de sua máquina está acima do ideal!",
+                  background: "#D6ECE1",
+                  confirmButtonColor: "#A3C6C1",
+                });
+              }
+            } else if (valorDisco > 90) {
+              if (valorCPU > 85) {
+                if (valorRam > 2) {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de disco, cpu e ram de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "warning",
+                    iconColor: '#c73535',
+                    title: "O consumo de disco e CPU de sua máquina está acima do ideal!",
+                    background: "#D6ECE1",
+                    confirmButtonColor: "#A3C6C1",
+                  });
+                }
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  iconColor: '#c73535',
+                  title: "O consumo de disco de sua máquina está acima do ideal!",
+                  background: "#D6ECE1",
+                  confirmButtonColor: "#A3C6C1",
+                });
+              }
+            }
+            contadorAlerta++
+          }
 
           resposta.reverse();
         });
@@ -372,6 +407,33 @@
   console.log("ram2 " + valorRam)
   console.log("cpu2 " + valorCPU)
   console.log("disco2 " + valorDisco)
+
+  function funciona() {
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.info-img'),
+        intro: 'Aqui você pode ver o logo do ambiente de desenvolvimento escolhido',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.box-graficos'),
+        position: 'left',
+        intro: 'Aqui você pode ver os gráficos de hardware e tempo de uso em relação ao ambiente de desenvolvimento',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).start();
+  }
 
 
 </script>

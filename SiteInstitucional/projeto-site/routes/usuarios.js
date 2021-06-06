@@ -27,7 +27,7 @@ router.post('/autenticar', function (req, res, next) {
 		} else if (resultado.length == 0) {
 			res.status(403).send('Login e/ou senha inválido(s)');
 		} else {
-			res.status(403).send('Mais de um usuário com o mesmo login e senha!');	
+			res.status(403).send('Mais de um usuário com o mesmo login e senha!');
 		}
 
 	}).catch(erro => {
@@ -90,7 +90,7 @@ router.get('/sessao/:login', function (req, res, next) {
 router.get('/equipe/:idEmpresa/:equipe', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 
 	let instrucaoSql = `SELECT 
@@ -119,37 +119,50 @@ router.get('/equipe/:idEmpresa/:equipe', function (req, res, next) {
 router.post('/equipe/integrantes/:idEmpresa/:equipe', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 
 	let instrucaoSql = `SELECT 
-						us_nome_funcionario,
-						us_cargo
-						FROM tb_us_dados 
-						WHERE us_equipe = '${equipe}'
-							and fk_id_empresa = ${idEmpresa}
-							and us_is_adm = 0;`;
+						us_dt_hr_log, 
+						usuario.us_cargo, 
+						usuario.us_nome_funcionario
+						FROM tb_log_hardware
+						JOIN tb_us_dados AS usuario
+						JOIN tb_us_maquina AS maq
+						ON usuario.id_cpf = maq.fk_id_funcionario
+						ON maq.id_maquina = fk_id_maq
+							AND usuario.us_equipe = '${equipe}'
+							AND usuario.us_is_adm = 0
+							AND usuario.fk_id_empresa = ${idEmpresa};`
+		
+	// `SELECT
+	// 					us_nome_funcionario,
+	// 					us_cargo
+	// 					FROM tb_us_dados
+	// 					WHERE us_equipe = '${equipe}'
+	// 						and fk_id_empresa = ${idEmpresa}
+	// 						and us_is_adm = 0;`
 
-	console.log(instrucaoSql);
+console.log(instrucaoSql);
 
-	sequelize.query(instrucaoSql, {
-		model: Usuario
-	}).then(resultado => {
-		console.log(`Encontrados: ${resultado.length}`);
-		console.log(resultado);
-		res.json(resultado);
-	}).catch(erro => {
-		console.log("DEU ERRO!")
-		console.error(erro);
-		res.status(500).send(erro.message);
-	});
+sequelize.query(instrucaoSql, {
+	model: Usuario
+}).then(resultado => {
+	console.log(`Encontrados: ${resultado.length}`);
+	console.log(resultado);
+	res.json(resultado);
+}).catch(erro => {
+	console.log("DEU ERRO!")
+	console.error(erro);
+	res.status(500).send(erro.message);
+});
 });
 
 // Trás todos os dados de um integrante da equipe
 router.get('/modalIntegrantes/:idEmpresa/:equipe/:nomeIntegrante', function (req, res, next) {
 	console.log('Recuperando quantidade de integrantes na equipe');
 
-    var idEmpresa = req.params.idEmpresa;
+	var idEmpresa = req.params.idEmpresa;
 	var equipe = req.params.equipe;
 	var nomeIntegrante = req.params.nomeIntegrante
 	let instrucaoSql = `SELECT 
@@ -179,15 +192,46 @@ router.get('/modalIntegrantes/:idEmpresa/:equipe/:nomeIntegrante', function (req
 	});
 });
 
+// Trás todos os dados do gestor da equipe
+router.get('/modalGestor/:idUsuario', function (req, res, next) {
+	console.log('Recuperando dados do gestor');
+
+	var idUsuario = req.params.idUsuario;
+	let instrucaoSql = `SELECT 
+						us_login,
+						us_senha,
+						us_nome_funcionario,
+						us_equipe,
+						us_cargo,
+						id_cpf,
+						us_is_adm
+						FROM tb_us_dados 
+						WHERE id_cpf = ${idUsuario}`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log("Dados do gestor: ", resultado);
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO ao recuperar os dados do gestor")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
 // Editar dados do usuário
 router.post('/editarUsuario', function (req, res, next) {
-	console.log('Recuperando usuário por login e senha');
+	console.log('editando dados do usuário');
 
 	var cpf = req.body.cpf.split("").filter(n => (Number(n) || n == 0)).join("");
 	var cargo = req.body.cargo;
 	var nome = req.body.nome_cad;
 	var equipe = req.body.time;
-	var adm = req.body.adm = req.body.adm == undefined ? 0 : 1;
+	var adm = req.body.adm == undefined ? 0 : 1;
 
 	let instrucaoSql = `UPDATE tb_us_dados 
 						SET us_nome_funcionario = '${nome}',
@@ -195,17 +239,54 @@ router.post('/editarUsuario', function (req, res, next) {
 						us_equipe = '${equipe}',
 						us_is_adm = '${adm}'
 						WHERE id_cpf = ${cpf}`;
-						
+
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
 		model: Usuario
 	}).then(resultado => {
 		console.log(`Encontrados: ${resultado.length}`);
-		console.log("Dados do alterados: ", resultado);
+		console.log("Dados do integrante alterados: ", resultado);
 		res.json(resultado);
 	}).catch(erro => {
 		console.log("DEU ERRO ao alterar os dados do integrante")
+		console.error(erro);
+		res.status(500).send(erro.message);
+	});
+});
+
+
+// Editar dados do geetor
+router.post('/editarGestor', function (req, res, next) {
+	console.log('editando dados do gestor');
+
+	var cpf = req.body.cpf.split("").filter(n => (Number(n) || n == 0)).join("");
+	var loginAdm = req.body.login_cad;
+	var senhaAdm = req.body.senha_cad;
+	var cargo = req.body.cargo;
+	var nome = req.body.nome_cad;
+	var equipe = req.body.time;
+	var adm = req.body.adm == undefined ? 0 : 1;
+
+	let instrucaoSql = `UPDATE tb_us_dados 
+						SET us_nome_funcionario = '${nome}',
+						us_login = '${loginAdm}',
+						us_senha = '${senhaAdm}',
+						us_cargo = '${cargo}', 
+						us_equipe = '${equipe}',
+						us_is_adm = '${adm}'
+						WHERE id_cpf = ${cpf}`;
+
+	console.log(instrucaoSql);
+
+	sequelize.query(instrucaoSql, {
+		model: Usuario
+	}).then(resultado => {
+		console.log(`Encontrados: ${resultado.length}`);
+		console.log("Dados do gestor alterados: ", resultado);
+		res.json(resultado);
+	}).catch(erro => {
+		console.log("DEU ERRO ao alterar os dados do gestor")
 		console.error(erro);
 		res.status(500).send(erro.message);
 	});

@@ -10,18 +10,19 @@
   <link rel="stylesheet" href="../../css/dash.css">
   <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
   <link rel="stylesheet" href="sweetalert2.min.css">
-  <script src="sweetalert2.min.js"></script>
   <script src="sweetalert2.all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../js/js.js"></script>
   <script defer src="../../funcoes.js"></script>
   <title>KCODE</title>
   <!-- links api -->
-  <link rel="stylesheet" href="loading-bar.css">
-  <link rel="stylesheet" href="loading-bar.min.css">
-  <script src="loading-bar.js"></script>
-  <script src="loading-bar.min.js"></script>
+  <link rel="stylesheet" href="../../css/loading-bar.css">
+  <link rel="stylesheet" href="../../css/loading-bar.min.css">
+  <script src="../../js/loading-bar.js"></script>
+  <script src="../../js/loading-bar.min.js"></script>
 </head>
 
 <body onload="verificar_autenticacao()">
@@ -39,15 +40,15 @@
               </a>
             </li>
             <li>
-              <a href="cadastroAdm.html">
+              <a href="preperfil.html">
                 <span class="icon">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
-                <span class="title">Profile</span>
+                <span class="title">Perfil</span>
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
@@ -92,7 +93,7 @@
     <div class="ides-container">
       <div class="container-info">
 
-        <div class="info-time">
+        <div id="usuario-tutorial" class="info-time">
           <div class="container-titulo">
             <h1>Usuário</h1>
             <div class="edit">
@@ -114,7 +115,7 @@
           </div>
 
         </div>
-        <div class="info-time">
+        <div id="maq-tutorial" class="info-time">
           <div class="container-titulo">
             <h1>Máquina</h1>
           </div>
@@ -127,64 +128,76 @@
           </div>
 
         </div>
+
       </div>
       <div class="container-ides">
         <div class="titulo-hardware">
-          <p>Média semanal</p>
+          <p>Gráficos sobre o usuário</p>
         </div>
         <div class="container-labell">
           <div class="label-info">
-            <p>Tempo ultilizado</p>
+            <p>Tempo de ultilização da máquina</p>
           </div>
-
           <div class="label-info">
             <p>IDE's ultilizadas</p>
           </div>
         </div>
         <div class="container-grafic">
           <div class="grafic">
-            <div class="box-grafic">
-              <div class="teste-grafico">
+            <div class="container-total">
+              <div class="box-grafic">
+                <div class="container-hora-1">
+                  <p>04H 06M</p>
+                </div>
+                <div id="graficoTempo" value="60" style="width: 70%; height: 70%;" class="label-center"
+                  data-precision="0.1" data-preset="circle">
+                </div>
+
+                <div class="container-hora">
+                  <p>06H 35M</p>
+                </div>
+                <div class="container-uso">
+                  <div class="legenda-tempouso">
+                    <p>Ativo</p>
+
+                  </div>
+                </div>
+
+                <div class="container-uso-1">
+                  <div class="legenda-tempouso-1">
+                    <p>Inativo</p>
+
+                  </div>
+                </div>
+
 
               </div>
             </div>
+
 
           </div>
           <div class="grafic">
             <div class="grafic-container">
-              <!-- <div class="separa-graficos">
-                <img src="" alt="" id="img-grafic">
-                <div id="grafico_1" class="graficos-1">
-                </div>
-                <div class="container-relogio">
-                  <img src="../../img/relogio.svg" alt="" style="height: 24px;" class="relogio-grafico">
-                  <div class="label-hora">
-                    <p>21H00M</p>
-                  </div>
-                </div>
-              </div> -->
             </div>
             <div class="legenda">
-
               <div class="box-legenda">
                 <div class="uso-ram"></div>
                 <p>Uso de ram</p>
               </div>
-
               <div class="box-legenda">
                 <div class="uso-tempo"></div>
                 <p>Tempo de uso</p>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    </div>
     <div class="footer-ajuda">
       <div class="ajuda">
-        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+        <script id="ze-snippet"
+          src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
       </div>
     </div>
 
@@ -224,22 +237,30 @@
                   <p>Administrador</p>
                   <input type="checkbox" id="adm" name="adm">
                 </label>
-
               </div>
-
             </div>
             <div class="toButton">
               <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
             </div>
-
           </form>
+          <div class="container-aguarde">
+            <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
 
         </div>
+
         <div class="modal-footer">
           <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
         </div>
       </div>
     </div>
+
+
   </main>
 </body>
 
@@ -333,7 +354,6 @@
       if (response.ok) {
         response.json().then(function (resposta) {
           console.log("Entrou na RAM do gestor")
-          // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
@@ -353,7 +373,7 @@
 
           percorrer(resposta);
           resultado = resultado.reverse();
-
+          console.log("resultado", resultado)
           var unico = resultado.filter(function (elem, index, self) {
             if (index === self.indexOf(elem)) {
 
@@ -383,9 +403,9 @@
             }
           }
 
-          if (!resultado.length % 2 == 0) {
-            resultado.splice(0, 1)
-          }
+          // if (!resultado.length % 2 == 0) {
+          //   resultado.splice(0, 1)
+          // }
 
           for (let index = 0; index < resultado.length; index++) {
             const element = resultado[index]
@@ -402,7 +422,6 @@
           function chamarGraficos() {
             if (contadorCriarElemento == 0) {
               if (resultadoIDE.length && resultadoRam.length != 0) {
-                console.log("FOI")
 
                 for (let index = 0; index < resultadoIDE.length; index++) {
                   graficoContainer = document.querySelector('.grafic-container')
@@ -446,7 +465,7 @@
                   // div p
                   let divP = document.createElement('p');
                   divP.id = `${nomeIDE}${index}`
-                  divP.innerHTML = "00H00M"
+                  divP.innerHTML = `0${index}H4${index + 2}M`
 
                   graficoContainer.appendChild(separa);
                   separa.appendChild(img1);
@@ -485,16 +504,42 @@
           }
 
           if (contador == 0) {
-            chamarGraficos()
+            if (resposta == 0) {
+
+              let divGrafico = document.querySelector('.grafic-container')
+              divGrafico.style.alignItems = 'center'
+              divGrafico.style.justifyContent = 'center'
+
+              let img1 = document.createElement('img')
+              img1.src = "../../img/warning.png"
+              img1.style.width = "25%"
+              img1.style.textAlign = "center"
+              img1.style.marginRight = "2vw"
+              document.querySelector('.grafic-container').appendChild(img1);
+
+              let aviso = document.createElement('div')
+              aviso.style = `font-family: 'Inter', sans-serif;`
+              aviso.style.display = "flex"
+              aviso.style.textAlign = "center"
+              aviso.style.color = "#514E4D";
+              aviso.style.fontSize = "2vh"
+              aviso.style.alignItems = "flex-end"
+              aviso.style.height = "40%"
+              aviso.style.width = "85%"
+              aviso.style.marginRight = "2vw"
+              aviso.innerHTML = "Este usuário não tem nenhuma IDE selecionada! <br> Peça para ele selecionar uma IDE, para que possamos monitorar."
+              aviso.id = "aviso"
+              divGrafico.appendChild(aviso);
+              contador++
+            } else {
+              chamarGraficos()
+            }
           }
 
+          var graficoTempo = new ldBar("#graficoTempo");
+          var graficoTempo2 = document.getElementById('graficoTempo').ldBar;
+          graficoTempo.set(60)
 
-
-
-          console.log("resultado limpo", resultadoLimpo)
-          console.log("resultado ide", resultadoIDE);
-          console.log("resultado ram", resultadoRam)
-          console.log(resultado)
         });
       } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -506,4 +551,74 @@
 
   }
 
+  function funciona() {
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#usuario-tutorial'),
+        intro: 'Aqui você pode consultar os dados do usuário desse máquina!',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.edit'),
+        intro: 'Ao clicar no lapís você pode editar as informações pessoais do funcionário',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#maq-tutorial'),
+        intro: 'Aqui você pode consultar as informações da máquina do usuário',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#graficoTempo'),
+        intro: 'Aqui você pode consultar os gráfico de tempo de uso da máquina',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.grafic-container'),
+        intro: 'Aqui você pode consultar os gráfico de ram e tempo de uso em relação ao ambiente de desenvolvimento',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).start();
+  }
+
+
 </script>
+
+<!-- estilo do grafico -->
+<style>
+  .label-center path.mainline {
+    stroke-width: 10;
+    stroke: #B73447;
+  }
+
+  .label-center path.baseline {
+    stroke-width: 9;
+    stroke: #A3C6C1;
+  }
+</style>
+
+<!-- estilo da label central -->
+<style type="text/css">
+  .ldBar-label:after {
+    content: "";
+  }
+
+  .ldBar-label {
+    color: #d6ece1;
+    font-family: 'Bebas Neue';
+    font-size: 0;
+    font-weight: 900;
+  }
+</style>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../../css/dash.css">
+    <link rel="shortcut icon" href="../../img/logo-login.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+    <script defer src="../../js/dash.js"></script>
+    <script defer src="../../js/js.js"></script>
+    <script defer src="../../funcoes.js"></script>
+    <title>KCODE</title>
+</head>
+
+
+
+<body onload="verificar_autenticacao()">
+    <main class="page">
+        <div class="menu">
+            <div class="container">
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="dashgestor.html">
+                                <span class="icon">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </span>
+                                <span class="title">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="preperfil.html">
+                                <span class="icon">
+                                    <i class="fa fa-user" aria-hidden="true" style="color: cadetblue;"></i>
+                                </span>
+                                <span class="title">Perfil</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="funciona()">
+                                <span class="icon">
+                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </span>
+                                <span class="title">Tutorial</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fa fa-cog" aria-hidden="true" onclick="darkMode()">
+                                    </i>
+                                </span>
+                                <span class="title">Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fa fa-sign-out" aria-hidden="true" onclick="logoff()"></i>
+                                </span>
+                                <span class="title">Sign Out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="toggle"></div>
+            </div>
+        </div>
+        <!-- menu end-->
+        <header>
+            <div class="box-recepction">
+                <div class="recection-welcome">
+                    <h1>Informações pessoais</h1>
+
+                </div>
+                <div class="logo-recepction">
+                    <img src="../../img/logo-maior.png" alt="" id="logo-kcode">
+                </div>
+            </div>
+        </header>
+        <div class="container-container">
+            <div class="container-perfil">
+
+                <div id="dados-tutorial" class="dados-pessoais">
+
+                    <div class="perfil-img">
+                        <img src="../../img/imagemperfil.png" alt="" id="imgPerfil">
+                    </div>
+
+                    <div class="text-dados">
+                        <p id="login_cad">Login: </p>
+                        <br>
+                        <p id="senha_cad">Senha: </p>
+                        <br>
+                        <p id="nome_cad">Nome:</p>
+                        <br>
+                        <p id="time">Time:</p>
+                        <br>
+                        <p id="cargo">Cargo:</p>
+                        <br>
+                        <p id="Cpf">CPF:</p>
+                    </div>
+
+                    <div class="edit-perfil">
+
+                        <div class="tooltip">
+                            <a href="#">
+                                <i onclick="openModal('dv-modal1')" class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                            <span class="tooltiptext">Editar dados</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="footer-ajuda">
+
+
+            <div class="ajuda">
+            </div>
+
+            <div id="dv-modal1" class="modal">
+                <div class="modal-content-perfil">
+                    <div class="modal-header">
+                        <h1>Editar seus dados</h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <form id="form_editar_gestor" method="post" onsubmit="return editarGestor()">
+                            <div id="modal-tutorial" class="container-modal">
+
+                                <div class="inputs-modal">
+
+
+                                    <label class="label-modal">Login</label>
+                                    <input id="login" name="login_cad" required="required" type="text"
+                                        placeholder="Digite o login" />
+                                    <label class="label-input">Senha</label>
+                                    <input id="senha" name="senha_cad" required="required" type="password"
+                                        placeholder="Digite a senha" />
+                                    <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png"
+                                        id="olho" class="olho-perfil">
+
+                                    <label class="label-modal">Nome</label>
+                                    <input id="nome" name="nome_cad" required="required" type="text"
+                                        placeholder="Digite o nome" />
+
+                                    <label class="label-modal">Time</label>
+                                    <input id="timeGestor" name="time" required="required" type="text"
+                                        placeholder="Digite o time" />
+                                </div>
+                                <div class="inputs-modal">
+
+                                    <label class="label-modal">Cargo</label>
+                                    <input id="cargoGestor" name="cargo" required="required" type="text"
+                                        placeholder="Digite o cargo" />
+
+                                    <label class="label-modal">CPF</label>
+                                    <input maxlength="14" id="CpfGestor" name="cpf" required="required" type="text"
+                                        readonly="true" placeholder="Digite o CPF"
+                                        onkeydown="javascript: fMasc(this, mCPF)" />
+
+                                    <label class="label-adm" for="adm" id="adm-label-modal-perfil">
+                                        <p>Administrador</p>
+                                        <input type="checkbox" id="admGestor" name="adm">
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="toButton">
+                                <input type="submit" id="btn_login" value="Salvar" class="btn-login" />
+                            </div>
+
+                        </form>
+                        <div class="container-aguarde">
+                            <div id="img_aguarde" style="visibility: hidden;" class="lds-ring-modal">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button class="btn-modal" onclick="closeModal('dv-modal1')">Fechar</button>
+                    </div>
+                </div>
+            </div>
+            <script id="ze-snippet"
+                src="https://static.zdassets.com/ekr/snippet.js?key=237e22c7-2a08-4226-a7ca-28087f16f818"> </script>
+    </main>
+</body>
+<script>
+
+    function carregarDadosGestor(id_usuario) {
+        fetch(`/usuarios/modalGestor/${id_usuario}`, { cache: 'no-store' })
+            .then(resposta => {
+                if (resposta.ok) {
+                    recuperaDadosGestor = []
+
+                    resposta.json().then(json => {
+                        recuperaDadosGestor.push(json[0].us_login);
+                        recuperaDadosGestor.push(json[0].us_senha);
+                        recuperaDadosGestor.push(json[0].us_nome_funcionario);
+                        recuperaDadosGestor.push(json[0].us_equipe);
+                        recuperaDadosGestor.push(json[0].us_cargo);
+                        recuperaDadosGestor.push(json[0].id_cpf);
+                        recuperaDadosGestor.push(json[0].us_is_adm);
+
+                        document.getElementById("login").value = recuperaDadosGestor[0];
+                        document.getElementById("senha").value = recuperaDadosGestor[1];
+                        document.getElementById("nome").value = recuperaDadosGestor[2];
+                        document.getElementById("timeGestor").value = recuperaDadosGestor[3];
+                        document.getElementById("cargoGestor").value = recuperaDadosGestor[4];
+                        document.getElementById("CpfGestor").value = mCPF(recuperaDadosGestor[5]);
+                        recuperaDadosGestor[6] != 0 ? admGestor.checked = true : admGestor.checked = false;
+
+                        document.getElementById("login_cad").innerHTML = `Login: ${recuperaDadosGestor[0]}`;
+                        document.getElementById("senha_cad").innerHTML = "Senha: ************";
+                        document.getElementById("nome_cad").innerHTML = `Nome: ${recuperaDadosGestor[2]}`;
+                        document.getElementById("time").innerHTML = `Time: ${recuperaDadosGestor[3]}`;
+                        document.getElementById("cargo").innerHTML = `Cargo: ${recuperaDadosGestor[4]}`;
+                        document.getElementById("Cpf").innerHTML = `CPF: ${mCPF(recuperaDadosGestor[5])}`;
+
+                    });
+
+                } else {
+                    console.log('Erro ao recuperar os dados de Integrantes');
+                }
+            });
+    }
+
+    function openModal(mn) {
+        let modal = document.getElementById(mn);
+        if (typeof modal == "undefined" || modal === null) return;
+
+        modal.style.display = "Block";
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(mn) {
+        let modal = document.getElementById(mn);
+
+        if (typeof modal == "undefined" || modal === null) return;
+
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    function funciona() {
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('#dados-tutorial'),
+        intro: 'Aqui você pode consultar suas informações pessoais!',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.edit-perfil'),
+        intro: 'Ao clicar no lapís você pode editar suas informações pessoais',
+        tooltipClass: 'customTooltip'
+      }
+
+      ]
+    }).onbeforeexit(function () {
+      return abre();
+    }).start();
+  }
+
+  function abre() {
+    introJs().setOptions({
+        steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.ajuda'),
+        intro: 'This step focuses on an imageee'
+      },
+      
+      ]
+    }).onbeforeexit(function () {
+      return closeModal('dv-modal1');
+    }).start();
+  }
+
+</script>

@@ -284,7 +284,7 @@ a {
 .btn {
     float: left;
     width: 2vh;
-    height: 55vh;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -454,12 +454,12 @@ a {
 }
 
 .edit {
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width: 18%;
     height: 78%;
-    padding-left: 2vh;
 }
 
 .edit .fa {
@@ -478,13 +478,13 @@ a {
 }
 
 .text-cadastro-novo-usuario {
-    font-size: 23px;
+    font-size: 20px;
     width: 100%;
     height: 7%;
     color: #B73447;
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+   
 }
 
 .inputs-cadastro-novo-usuario {
@@ -510,7 +510,7 @@ a {
 .container-input {
 
     width: 100%;
-    height: 85%;
+    height: 100%;
    
     display: flex;
     flex-direction: row;
@@ -541,25 +541,26 @@ a {
     margin-left: 10px;
     width: 2.5%;
     height: 4.4%;
-    top: 20.7rem;
+    top: 19.3rem;;
     left: 36rem;
 }
 
 #form_cadastro {
     width: 100%;
-    height: 100%;
+    height: 88%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
 }
+   
+
 
 .label-input {
     width: 87%;
-    height: 10%;
+    height: 7%;
     color: #514E4D;
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 2vh;
 }
 
@@ -588,16 +589,19 @@ a {
 #adm-label input[type=checkbox] {
     position: absolute;
     margin-left: 10px;
-    width: 2.5%;
-    height: 4.4%;
+    width: 2.0%;
+    height: 4.0%;
     border-radius: 3px;
-    top: 29.1rem;
-    left: 25rem;
+    top: 23.8rem;
+    left: 52rem;
+
 
 }
 
 #adm-label p {
     color: #4D4D4E;
+    font-size: 15px;
+    margin-top: 4vh;
 }
 
 #adm-label>span {
@@ -649,7 +653,7 @@ a {
     font-family: 'Inter', sans-serif;
     color: #514E4D;
     width: 90%;
-    height: 30%;
+    height: 23%;
     border-radius: 5px;
     border: none;
     padding-left: 1vh;
@@ -774,34 +778,67 @@ a {
 
 /* TUTORIAL */
 
-.bgimg {
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 25px;
-}
+.customTooltip * {
+    color: #555;
+    font-size: 15px;
+   
+  }
+  
+  .customTooltip .introjs-tooltip-title {
+    font-size: 20px;
+    font-weight: bolder;
+    color: #B73447;
+  
+  }
 
-.bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-}
-
-.middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-hr {
-    margin: auto;
-    width: 40%;
-}
+  .customTooltip .introjs-tooltip-nextLabel {
+color: red;
 
 
+  }
 /* Começo da tela de gráficos */
 
+.lds-ring-modal {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    
+    position: absolute;
+    margin-left: 10px;
+    top: 27.5rem;
+    left: 39.8rem;
+}
+  
+  .lds-ring-modal div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring-modal div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring-modal div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring-modal div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
 
 
@@ -853,13 +890,23 @@ hr {
    
 }
 
+#form_editar_gestor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
 .label-modal {
     width: 87%;
     height: 10%;
     color: #514E4D;
     font-size: 15px;
     margin-top: 2vh;
-    margin-right: 2vh;
+   
 }
 
 .label-adm {
@@ -942,7 +989,7 @@ hr {
 
 
 .toButton {
-    margin-top: 8vh;
+    margin-top: 4vh;
     width: 20%;
     height:15%;
     display: flex;
@@ -1117,12 +1164,96 @@ hr {
     align-items: center;
 }
 
+.container-hora {
+
+    height: 10%;
+    width: 16%;
+    margin-left: -3vw;
+    margin-top: 2vh;
+
+}
+
+.container-hora-1{
+    height: 10%;
+    width: 16%;
+    margin-right: -2vw;
+    margin-top: 18vh;
+}
+
+.container-hora-1 p{
+    color: #84aaa4;
+    font-size: 20px;
+}
+
+.container-hora p {
+    color: #B73447;
+    font-size: 20px;
+
+}
+
+.container-uso {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5%;
+    height: 4.4%;
+    top: 23.3rem;
+    left: 37rem;
+
+}
+
+.container-uso-1 {
+    cursor: pointer;
+    position: absolute;
+    width: 2.5%;
+    height: 4.4%;
+    top: 25.3rem;
+    left: 37rem;
+
+}
+
+.legenda-tempouso {
+
+    width: 62%;
+    height: 69%;
+    background-color: #B73447;
+    border-radius: 3px;
+
+}
+
+.legenda-tempouso-1 {
+
+    width: 62%;
+    height: 69%;
+    background-color: #A3C6C1;
+    border-radius: 3px;
+
+}
+
+.legenda-tempouso p {
+
+    color: #514E4D;
+    margin-left: 2vw;
+    font-size: 16px;
+
+
+}
+
+
+.legenda-tempouso-1 p {
+
+    color: #514E4D;
+    margin-left: 2vw;
+    font-size: 16px;
+
+
+}
 .container-graficos {
     height: 100%;
     width: 66%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 1vh;
 }
 
 .info-img {
@@ -1150,9 +1281,37 @@ hr {
     width: 25%;
 }
 
+.text-time{
+
+    width: 100%;
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-time p {
+
+    color: #555;
+    font-size: 27px;
+
+}
+
+.container-relogio-1 {
+
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}
+
 .box-graficos {
     width: 99%;
-    height: 48%;
+    height: 42%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1336,17 +1495,19 @@ hr {
 
 .footer-ajuda {
     width: 100vw;
-    height: 23%;
+    height: 13%;
     display: flex;
     justify-content: flex-end;
 }
 
 .ajuda {
-    width: 20%;
-    height: 100%;
+ 
+    width: 5%;
+    height: 83%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 1vw;
 }
 
 .ajuda input {
@@ -1414,6 +1575,8 @@ hr {
 
 
 .alert {
+    color: #CEE4D9;
+    font-size: 20px;
     position: absolute;
     right: 0;
     top: 0;
@@ -1425,15 +1588,6 @@ hr {
     display: flex;
     align-items:center;
     justify-content: center;
-
-
-}
-
-.alert p {
-
-    color: #CEE4D9;
-    font-size: 20px;
-
 }
 
 .container-relogio {
@@ -1529,22 +1683,26 @@ hr {
     align-items: center;
 }
 
-.teste-grafico {
-    width: 70%;
-    height: 80%;
-    border-radius: 100%;
-    background-color: #B73447;
-    margin-right: 2vh;
-}
-
 .box-grafic {
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
-   margin-top: 2vh;
+    margin-left: -1vw;
+    margin-top: 2vh;
+    flex-direction: row;
+   
 }
 
+.container-total {
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+}
 
 .separa-graficos {
     width: 90%;
@@ -1835,6 +1993,9 @@ hr {
 
    /* dash gestor */
 
+   
+
+
 .container-info {
     height: 100%;
     width: 25%;
@@ -1870,13 +2031,13 @@ hr {
 }
 
 .container-label {
-    width: 100%;
+    width: 87%;
     height: 60%;
     margin-left: 6%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-   
+    margin-top: 1vh;
 }
 
 .container-titulo {
@@ -1889,5 +2050,184 @@ hr {
      
 }
 
+   /* perfil gestor */
 
 
+   .container-container {
+
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+   }
+
+   .container-perfil {
+
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+
+
+
+   }
+
+   .perfil-img {
+
+      height: 100%;
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      
+
+
+   }
+
+   #imgPerfil {
+    width: 90%;
+    margin-top: 2vh;
+    margin-left: 4vw;
+
+   }
+
+
+   .dados-pessoais {
+
+    height: 100%;
+    width: 70%;
+    background-color: #D6ECE1;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+
+
+   }
+
+   .edit-perfil {
+ 
+    width: 7%;
+    height: 7%;
+    margin-top: 4vh;
+    padding-left: 2vh;
+    margin-right: 1vw;
+}
+
+.edit-perfil .fa {
+    font-size: 3vh;
+    color: #638481;
+}
+
+.edit-perfil .fa:hover {
+    color: rgba(0, 0, 0, 0.575);
+}
+
+.text-dados {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    margin-left: 4vw;
+    flex-direction: column;
+
+
+}
+
+.text-dados p {
+
+    color: #514E4D;
+    font-size: 25px;
+
+
+
+}
+
+.olho-perfil {
+    cursor: pointer;
+    position: absolute;
+    margin-left: 10px;
+    width: 2.5%;
+    height: 4.4%;
+    top: 17.4rem;
+    left: 37.5rem;
+}
+
+.modal-content-perfil {
+
+    margin: 0 auto;
+    margin-top: 8%;
+    max-width: 600px;
+    padding: 0;
+    background-color: #D6ECE1;
+    box-shadow: 0 0 2px #fff;
+    border-radius: 20px;
+    color: #514E4D;
+}
+
+#adm-label-modal-perfil input[type=checkbox] {
+    position: absolute;
+    margin-left: 10px;
+    width: 2.0%;
+    height: 4.0%;
+    border-radius: 3px;
+    top: 21.5rem;
+    left: 50rem;
+
+
+}
+
+#adm-label-modal-perfil p {
+    color: #4D4D4E;
+    font-size: 15px;
+    margin-top: 4vh;
+}
+
+#adm-label-modal-perfil>span {
+    color: #CEE4D9;
+    padding: 0.5rem 0.25rem;
+    border-radius: 100%;
+}
+
+#adm-label-modal-perfil>input {
+    height: 30px;
+    width: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-radius: 20px;
+    outline: none;
+    transition-duration: 0.3s;
+    background-color: rgba(255, 255, 255, 0.911);
+    cursor: pointer;
+}
+
+#adm-label-modal-perfil>input:checked {
+    background-color: #c73535;
+}
+
+#adm-label-modal-perfil>input:checked+span::before {
+    content: '\2713';
+    display: block;
+    text-align: center;
+    color: #CEE4D9;
+    position: absolute;
+    left: 6.1rem;
+    top: 12.5rem;
+}
+
+#adm-label-modal-perfil>input:active {
+    border: none;
+}
+
+#adm-label-modal-perfil p {
+    color: #4D4D4E;
+    font-size: 15px;
+    margin-top: 4.2vh;
+}

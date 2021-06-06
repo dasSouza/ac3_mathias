@@ -12,6 +12,8 @@
   <script defer src="../../js/dash.js"></script>
   <script defer src="../../funcoes.js"></script>
   <!-- links api -->
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
   <link rel="stylesheet" href="../../css/loading-bar.css">
   <link rel="stylesheet" href="../../css/loading-bar.min.css">
   <script src="../../js/loading-bar.js"></script>
@@ -38,11 +40,11 @@
                 <span class="icon">
                   <i class="fa fa-user" aria-hidden="true"></i>
                 </span>
-                <span class="title">Profile</span>
+                <span class="title">Perfil</span>
               </a>
             </li>
             <li>
-              <a href="tutorial.html">
+              <a onclick="funciona()">
                 <span class="icon">
                   <i class="fa fa-question-circle" aria-hidden="true"></i>
                 </span>
@@ -114,19 +116,25 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="0">
+
           </div>
           <div class="idesLogo" id="criaImg" value="1">
+
           </div>
           <div class="idesLogo" id="criaImg" value="2">
+
           </div>
         </div>
 
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="3">
+
           </div>
           <div class="idesLogo" id="criaImg" value="4">
+
           </div>
           <div class="idesLogo" id="criaImg" value="5">
+
           </div>
         </div>
       </div>
@@ -166,16 +174,21 @@
       <div class="separation-ides">
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="6">
+
           </div>
           <div class="idesLogo" id="criaImg" value="7">
+
           </div>
           <div class="idesLogo" id="criaImg" value="8">
+
           </div>
         </div>
         <div class="box-ides">
           <div class="idesLogo" id="criaImg" value="9">
+
           </div>
           <div class="idesLogo" id="criaImg" value="10">
+
           </div>
           <div class="idesLogo">
           </div>
@@ -231,7 +244,7 @@
       setInterval(
         function myFunction() {
           obterDadosGraficoRam(id_usuario)
-        }, 5000)
+        }, 60000)
     }
   };
 
@@ -268,9 +281,7 @@
       if (response.ok) {
         finalizar_aguardar()
         response.json().then(function (resposta) {
-          console.log("Entrou na RAM")
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-          console.log(`Dados recebidos: ${resposta}`);
           let resultado = [];
           let resultadoRam = [];
           let resultadoIDE = [];
@@ -294,6 +305,7 @@
 
           percorrer(resposta);
           resultado = resultado.reverse();
+          console.log("resultado invertido ", resultado);
 
           var unico = resultado.filter(function (elem, index, self) {
             if (index === self.indexOf(elem)) {
@@ -304,6 +316,8 @@
 
             return index === self.indexOf(elem)
           });
+
+          console.log("resultado limpo", resultadoLimpo)
 
           for (let index = 0, index2 = 0; index < resultado.length; index++) {
             if (index == resultadoLimpo[index2]) {
@@ -347,10 +361,22 @@
 
                   let ramIDE = resultadoRam[index]
                   let nomeIDE = resultadoIDE[index]
+                  console.log('resultado RAM ', ramIDE)
+                  console.log('Resultado IDe ', nomeIDE)
+
                   var logoIDE = document.querySelectorAll('#criaImg');
                   var first = logoIDE[index];
 
                   if (first.getAttribute('value') == index) {
+
+                    if (ramIDE > 5) {
+                      let alerta = document.createElement('div')
+                      alerta.innerHTML = "1"
+                      first.appendChild(alerta);
+                      if (alerta.classList) alerta.classList.add("alert");
+                      else alerta.className += " alert";
+                    }
+
                     let img1 = document.createElement('img')
                     img1.src = `../../img/${nomeIDE}.png`
                     img1.id = nomeIDE
@@ -445,16 +471,25 @@
 
           if (contador == 0) {
             if (resposta == 0) {
+              let divGrafico = document.querySelector('.separation-ides')
+              let img1 = document.createElement('img')
+              img1.src = "../../img/warning.png"
+              img1.style.position = "absolute"
+              img1.style.height = "25%"
+              img1.style.marginTop = "-20%"
+              img1.style.textAlign = "center"
+              divGrafico.appendChild(img1);
+
               let aviso = document.createElement('div')
               aviso.style = `font-family: 'Inter', sans-serif;`
               aviso.style.position = "absolute";
-              aviso.style.fontSize = "8vh";
               aviso.style.textAlign = "center"
               aviso.style.color = "#514E4D";
-              aviso.style.fontSize = "6vh"
+              aviso.style.fontSize = "3vh"
               aviso.innerHTML = "Você não tem nenhuma IDE selecionada! <br> Vá até Perfil e selecione a IDE que deseja monitorar."
               aviso.id = "aviso"
-              document.querySelector('.separation-ides').appendChild(aviso);
+
+              divGrafico.appendChild(aviso);
               contador++
             } else {
               chamarGraficos()
@@ -472,6 +507,60 @@
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
 
+
+
+  }
+  function funciona() {
+    let divImg = document.querySelector('#criaImg')
+    let alerta = document.createElement('div')
+    alerta.innerHTML = "1"
+    divImg.appendChild(alerta);
+    if (alerta.classList) alerta.classList.add("alert");
+    else alerta.className += " alert";
+
+    introJs().setOptions({
+      showBullets: false,
+      showProgress: true,
+      steps: [{
+        title: 'Bem vindo ao nosso tutorial',
+        intro: 'Aqui você pode ver o passo a passo de como a dashboard funciona 😊',
+        tooltipClass: 'customTooltip'
+      },
+      {
+        element: document.querySelector('.info-time'),
+        intro: 'Aqui você pode consultar os dados da sua máquina',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('#criaImg'),
+        intro: 'Esses são os ambientes de desenvolvimento escolhidos por você e seu consumo de ram logo abaixo',
+        tooltipClass: 'customTooltip'
+      },
+
+      {
+        element: document.querySelector('.alert'),
+        intro: 'Esse alerta é mostrado se existe algum tipo de problema na máquina do usuário'
+      },
+
+      {
+        element: document.querySelector('.ajuda'),
+        intro: 'Esse é o nosso botão de suporte, com ele pode contatar nossa equipe sempre que precisar de ajuda 🐲',
+        tooltipClass: 'customTooltip'
+      }
+
+
+      ]
+    }).onbeforeexit(function () {
+      return apaga();
+    }).start();
+  }
+
+  function apaga() {
+    var node = document.querySelector('.alert')
+    if (node.parentNode) {
+      node.parentNode.removeChild(node);
+    }
   }
 
 </script>
