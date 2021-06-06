@@ -100,6 +100,7 @@ a {
     text-decoration: none;
     color: #B73447;
     font-weight: 400;
+    cursor: pointer;
 }
 
 .container .navigation ul li a .icon {
