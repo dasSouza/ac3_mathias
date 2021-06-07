@@ -68,11 +68,11 @@ function verificar_autenticacao() {
 
         typeof b_usuario0 === 'undefined' ? null : (b_usuario0.innerHTML = nome_usuario);
         typeof b_usuario1 === 'undefined' ? null : (b_usuario1.innerHTML += ` ${nome_usuario}`);
-        typeof b_usuario2 === 'undefined' ? null : (b_usuario2.innerHTML = nome_usuario);
-        typeof cargo2 === 'undefined' ? null : (cargo2.innerHTML = cargo_usuario);
+        typeof b_usuario2 === 'undefined' ? null : (b_usuario2.innerHTML += nome_usuario);
+        typeof cargo2 === 'undefined' ? null : (cargo2.innerHTML += cargo_usuario);
         typeof cargo === 'undefined' ? null : (cargo.innerHTML += cargo_usuario);
         typeof empresa === 'undefined' ? null : (empresa.innerHTML += nome_empresa);
-        typeof empresa2 === 'undefined' ? null : (empresa2.innerHTML = nome_empresa);
+        typeof empresa2 === 'undefined' ? null : (empresa2.innerHTML += nome_empresa);
         typeof nome_equipe === 'undefined' ? null : (nome_equipe.innerHTML += equipe_integrante);
         typeof nome_integrante === 'undefined' ? null : (nome_integrante.innerHTML += nome_integrante_app)
         typeof cargo_integrante === 'undefined' ? null : (cargo_integrante.innerHTML += cargo_integrante_app)
