@@ -31,7 +31,10 @@ public class KeepCodeAPI {
 
         processosIDE.getFkIdMaquina(usuario);
         processosIDE.putAllNameIde();
-        processosIDE.buscarDadosDaIDE();
+        processosIDE.getIdeCpu();
+        processosIDE.getIdeRam();
+        processosIDE.getIdeDisco();
+        processosIDE.getIdeName();
         processosIDE.getFkIdMaquina(usuario);
         processosIDE.inserirDadosDeIde();
 
