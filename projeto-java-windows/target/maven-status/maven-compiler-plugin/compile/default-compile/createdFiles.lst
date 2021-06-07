@@ -30,6 +30,7 @@ com\mycompany\projeto\java\TelaLogin.class
 ProcessoMaq\IdeMaq.class
 com\mycompany\projeto\java\TelaLogin$23.class
 com\mycompany\projeto\java\TelaLogin$3.class
+ProcessosIDE\ProcessIDE.class
 com\mycompany\projeto\java\TelaLogin$13.class
 com\mycompany\projeto\java\TelaLogin$30.class
 com\mycompany\projeto\java\TelaLogin$10.class
@@ -40,12 +41,11 @@ Empresa\CompanyData.class
 ProcessosIDE\ProcessDatas.class
 com\mycompany\projeto\java\TelaLogin$9.class
 com\mycompany\projeto\java\TelaLogin$21.class
-com\mycompany\projeto\java\TelaLogin$31.class
 SlackConnection\Slack.class
 com\mycompany\projeto\java\TelaLogin$28.class
 com\mycompany\projeto\java\TelaLogin$20.class
 com\mycompany\projeto\java\TelaLogin$27.class
 ProcessoMaq\GetAllProcess.class
 com\mycompany\projeto\java\TelaLogin$15.class
-ProcessoMaq\UsuarioDatas.class
+ProcessosIDE\ProcessIDE$1.class
 com\mycompany\projeto\java\TelaLogin$4.class
