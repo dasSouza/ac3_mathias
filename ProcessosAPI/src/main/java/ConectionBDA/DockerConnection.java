@@ -19,7 +19,7 @@ public class DockerConnection {
 
         this.bancoSql = new BasicDataSource();
         bancoSql.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        bancoSql.setUrl("jdbc:mysql://172.17.0.3:3306/BancoKeepCode?autoReconnect=true&useSSL=false");
+        bancoSql.setUrl("jdbc:mysql://BancoKeepCode:3306/BancoKeepCode");
         bancoSql.setUsername("root");
         bancoSql.setPassword("urubu100");
     }
