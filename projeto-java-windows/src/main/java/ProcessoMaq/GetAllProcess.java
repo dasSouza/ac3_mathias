@@ -22,6 +22,8 @@ public class GetAllProcess {
     Memoria memoria = new Memoria();
     Conexao con = new Conexao();
     JdbcTemplate template = new JdbcTemplate(con.getBanco());
+    Conexao con2 = new Conexao();
+    JdbcTemplate template2 = new JdbcTemplate(con2.getBanco());
 
     public void dadosGeraisDoComputador() {
         try {
@@ -37,7 +39,8 @@ public class GetAllProcess {
             maquina.setUs_cpu_nome(processador.getNome());
 
             /**
-             * Atribuindo valores ao total de memória RAM do ser abençoado de deos
+             * Atribuindo valores ao total de memória RAM do ser abençoado de
+             * deos
              */
             maquina.setUs_ram_total(memoria.getTotal());
 
@@ -96,6 +99,9 @@ public class GetAllProcess {
         String insertProcessValues = " IF NOT EXISTS (SELECT * from tb_us_maquina where fk_id_funcionario = ?)\n"
                 + "INSERT INTO tb_us_maquina VALUES (?, ?, ?, ?, ?)";
 
+        String inserindoDadosMysql = " IF NOT EXISTS (SELECT * from tb_us_maquina where fk_id_funcionario = ?)\n"
+                + "INSERT INTO tabela_docker_mysql VALUES (?, ?, ?, ?, ?)";
+
         template.update(insertProcessValues,
                 usuarioDatas.getId_cpf(),
                 maquinaDatas.getUs_name_pc(),
@@ -103,6 +109,13 @@ public class GetAllProcess {
                 maquinaDatas.getUs_disco_total(),
                 maquinaDatas.getUs_cpu_nome(),
                 usuarioDatas.getId_cpf());
+
+        template2.update(inserindoDadosMysql,
+                usuarioDatas.getId_cpf(),
+                maquinaDatas.getUs_name_pc(),
+                maquinaDatas.getUs_ram_total(),
+                maquinaDatas.getUs_disco_total(),
+                maquinaDatas.getUs_cpu_nome());
 
         if (cont.equals(0)) {
             System.out.println("Tentando inserir dados do seu computador no banco de dados:" + maquina.getUs_cpu_nome());

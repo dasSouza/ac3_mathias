@@ -1,5 +1,6 @@
 tabelas\TbUsMaquinaIdMaquina.class
 log\GerandoLog.class
+docker\sql\ConnectionDockerSql.class
 tabelas\TbUsMaquina.class
 com\mycompany\projeto\java\TelaLogin$17.class
 com\mycompany\projeto\java\TelaLogin$5.class
