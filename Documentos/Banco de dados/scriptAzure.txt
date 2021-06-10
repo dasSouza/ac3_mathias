@@ -115,3 +115,13 @@ DROP TABLE tb_log_hardware;
 DROP TABLE tb_us_maquina;
 DROP TABLE tb_us_dados;
 DROP TABLE tb_empresa;
+
+
+
+
+docker exec -it e2c414df65c2  kcode -S 1433:1433 -U sa -P #Gfkcode8
+
+
+
+
+
