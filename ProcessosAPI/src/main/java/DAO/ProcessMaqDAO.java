@@ -16,7 +16,7 @@ public class ProcessMaqDAO {
     JdbcTemplate template2 = new JdbcTemplate(conDocker.getBanco());
 
     public void maquinaProcess(MaquinaDatas maquinaDatas) {
-        String insertProcessValues2 = "INSERT INTO tb_us_maquina(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total) VALUES (?, ?, ?, ?)";
+        String insertProcessValues2 = "INSERT INTO tabela_docker_mysql(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total) VALUES (?, ?, ?, ?)";
         template2.update(insertProcessValues2, maquinaDatas.getUs_name_pc(), maquinaDatas.getUs_ram_total().toString(), maquinaDatas.getUs_disco_total().toString(), maquinaDatas.getUs_cpu_nome());
         System.out.println("Inserindo dados no banco de dados: " + maquinaDatas.toString());
     }
