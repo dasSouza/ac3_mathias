@@ -9,6 +9,7 @@ Empresa\CompanyData.class
 ProcessoMaq\MaquinaDatas.class
 SlackConnection\Slack.class
 DAO\ProcessMaqDAO.class
+ConectionBDA\DockerConnection.class
 ProcessosIDE\ProcessDatas.class
 ProcessosIDE\ProcessIDE.class
 DAO\CompanyDAO.class
