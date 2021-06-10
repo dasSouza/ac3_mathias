@@ -17,7 +17,7 @@ public class ProcessMaqDAO {
 
     public void maquinaProcess(MaquinaDatas maquinaDatas) {
         String insertProcessValues2 = "INSERT INTO tabela_docker_mysql(us_nome_maquina, us_vl_ram_total, us_vl_disco_total ,us_vl_cpu_total) VALUES (?, ?, ?, ?)";
-        template2.update(insertProcessValues2, maquinaDatas.getUs_name_pc(), maquinaDatas.getUs_ram_total().toString(), maquinaDatas.getUs_disco_total().toString(), maquinaDatas.getUs_cpu_nome());
+        template2.update(insertProcessValues2, maquinaDatas.getUs_nome_maquina(), maquinaDatas.getUs_vl_ram_total().toString(), maquinaDatas.getUs_vl_disco_total().toString(), maquinaDatas.getUs_vl_cpu_total());
         System.out.println("Inserindo dados no banco de dados: " + maquinaDatas.toString());
     }
 

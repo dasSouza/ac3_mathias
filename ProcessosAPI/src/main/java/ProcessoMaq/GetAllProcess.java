@@ -24,7 +24,7 @@ public class GetAllProcess {
 
 
     public void memoriaTotal() {
-        maquina.setUs_ram_total(memoria.getTotal());
+        maquina.setUs_vl_ram_total(memoria.getTotal());
     }
 
 //    public void usoMemoriaAtual() {
@@ -38,7 +38,7 @@ public class GetAllProcess {
 //    }
 
     public void getDiscoTotal() {
-        maquina.setUs_disco_total(discosGroup.getTamanhoTotal());
+        maquina.setUs_vl_disco_total(discosGroup.getTamanhoTotal());
         System.out.println("Atribuindo dados de disco: " + discosGroup.getTamanhoTotal()/1024/1024/1024);
         for (Volume disco : discos) {
             Long discoTotal = disco.getTotal() /1024/1024/1024;
@@ -51,13 +51,13 @@ public class GetAllProcess {
     }
 
     public void getCpuNome() {
-        maquina.setUs_cpu_nome(processador.getNome());
+        maquina.setUs_vl_cpu_total(processador.getNome());
         System.out.println("Atribuindo dados de nome de Cpu(processador): " + processador.getNome());
     }
 
     public void getNamePc() {
         try{
-            maquina.setUs_name_pc(InetAddress.getLocalHost().getHostName());
+            maquina.setUs_nome_maquina(InetAddress.getLocalHost().getHostName());
             System.out.println("Atribuindo nome da maquina: " + InetAddress.getLocalHost().getHostName());
         } catch (Exception e){
             System.out.println("Exception caught ="+e.getMessage());
