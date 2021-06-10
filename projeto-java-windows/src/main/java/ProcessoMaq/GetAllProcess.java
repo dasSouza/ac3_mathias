@@ -5,6 +5,7 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
+import docker.sql.ConnectionDockerSql;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
@@ -22,7 +23,7 @@ public class GetAllProcess {
     Memoria memoria = new Memoria();
     Conexao con = new Conexao();
     JdbcTemplate template = new JdbcTemplate(con.getBanco());
-    Conexao con2 = new Conexao();
+    ConnectionDockerSql con2 = new ConnectionDockerSql();
     JdbcTemplate template2 = new JdbcTemplate(con2.getBanco());
 
     public void dadosGeraisDoComputador() {
@@ -99,9 +100,6 @@ public class GetAllProcess {
         String insertProcessValues = " IF NOT EXISTS (SELECT * from tb_us_maquina where fk_id_funcionario = ?)\n"
                 + "INSERT INTO tb_us_maquina VALUES (?, ?, ?, ?, ?)";
 
-        String inserindoDadosMysql = " IF NOT EXISTS (SELECT * from tb_us_maquina where fk_id_funcionario = ?)\n"
-                + "INSERT INTO tabela_docker_mysql VALUES (?, ?, ?, ?, ?)";
-
         template.update(insertProcessValues,
                 usuarioDatas.getId_cpf(),
                 maquinaDatas.getUs_name_pc(),
@@ -110,14 +108,16 @@ public class GetAllProcess {
                 maquinaDatas.getUs_cpu_nome(),
                 usuarioDatas.getId_cpf());
 
-        template2.update(inserindoDadosMysql,
-                usuarioDatas.getId_cpf(),
-                maquinaDatas.getUs_name_pc(),
-                maquinaDatas.getUs_ram_total(),
-                maquinaDatas.getUs_disco_total(),
-                maquinaDatas.getUs_cpu_nome());
-
         if (cont.equals(0)) {
+            String inserindoDadosMysql = " IF NOT EXISTS (SELECT * from tb_us_maquina where fk_id_funcionario = ?)\n"
+                    + "INSERT INTO tabela_docker_mysql VALUES (?, ?, ?, ?, ?)";
+
+            template2.update(inserindoDadosMysql,
+                    usuarioDatas.getId_cpf(),
+                    maquinaDatas.getUs_name_pc(),
+                    maquinaDatas.getUs_ram_total(),
+                    maquinaDatas.getUs_disco_total(),
+                    maquinaDatas.getUs_cpu_nome());
             System.out.println("Tentando inserir dados do seu computador no banco de dados:" + maquina.getUs_cpu_nome());
         }
         cont++;
